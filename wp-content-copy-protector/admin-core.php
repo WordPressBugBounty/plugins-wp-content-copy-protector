@@ -9,14 +9,14 @@ include 'the_globals.php';
 include 'notifications.php';
 add_action('admin_footer','alert_message');
 
-if ( isset( $_POST['Restore_defaults'] ) ) 
+if(isset($_POST["Restore_defaults"]) && (isset($_POST["_Restore_defaults"]) && wp_verify_nonce( $_POST[ '_Restore_defaults' ], 'Restore_defaults_nonce' )))
 {
 	update_option("wccp_settings" , "");
 	$new_url = "?page=wccpoptionspro";
 	header("Location: $new_url");
 }
 
-if(isset($_POST["Save_settings"]) && (isset($_POST["make_this_form_verified_nonce"]) && wp_verify_nonce( $_POST[ 'make_this_form_verified_nonce' ], 'make_form_nonce_action' )))
+if(isset($_POST["Save_settings"]) && (isset($_POST["_Save_settings"]) && wp_verify_nonce( $_POST[ '_Save_settings' ], 'Save_settings_nonce' )))
 {
 	//----------------------------------------------------list the options array values
 	$single_posts_protection = '';
@@ -173,7 +173,8 @@ if(localStorage.getItem('wpccp_subscribed') =='wpccp_subsbc_user')
 </p>
 <form method="POST">
 <input type="hidden" value="update" name="action">
-<?php wp_nonce_field('make_form_nonce_action','make_this_form_verified_nonce'); ?>
+<?php wp_nonce_field('Save_settings_nonce','_Save_settings'); ?>
+<?php wp_nonce_field('Restore_defaults_nonce','_Restore_defaults'); ?>
 <div class="simpleTabs">
 <ul class="simpleTabsNavigation">
     <li><a href="#"><?php _e('Main Settings','wp-content-copy-protector'); ?></a></li>
