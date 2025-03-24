@@ -4,8 +4,8 @@ Tags: content copy protection, content protection, prevent copy, image protectio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
-Tested up to: 6.7.1
-Stable tag: 3.6.2
+Tested up to: 6.7.2
+Stable tag: 3.6.3
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
 
@@ -98,6 +98,10 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 3.6.3 =
+<ul>
+<li>Checking with wordpress version 6.7.2</li>
+</ul>
 = 3.6.2 =
 <ul>
 <li>Fix style error inside customizer.php theme options page</li>

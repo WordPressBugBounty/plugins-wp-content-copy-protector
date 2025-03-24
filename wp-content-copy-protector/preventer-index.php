@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: http://wordpress.org/plugins/w-p-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.6.2
+Version: 3.6.3
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
