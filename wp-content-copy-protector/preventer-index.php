@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: http://wordpress.org/plugins/w-p-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.6.8
+Version: 3.6.9
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -21,23 +21,36 @@ include_once('notifications.php');
 $wccp_settings = wccp_read_options();
 
 //---------------------------------------------------------<!-- SimpleTabs -->
-function wccp_enqueue_scripts() {
-	global $pluginsurl;
-	$admincore = '';
-	if (isset($_GET['page'], $_GET['_wpnonce']) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'wccp_admin_page' ))
-	{
-		$admincore = sanitize_text_field( wp_unslash( $_GET['page'] ) );
-	}
-	if( ( current_user_can('editor') || current_user_can('administrator') ) && $admincore == 'wccpoptionspro') {
-	wp_enqueue_script('jquery');
-	wp_register_script('simpletabsjs', $pluginsurl.'/js/simpletabs_1.3.js');
-	wp_enqueue_script('simpletabsjs');
-	
-	wp_register_style('simpletabscss', $pluginsurl.'/css/simpletabs.css');
-	wp_enqueue_style('simpletabscss');
-	}
+function wccp_enqueue_scripts($hook) {
+    
+	// Only load on your plugin's menu page
+    if ($hook !== 'toplevel_page_wccpoptionspro') {
+        return;
+    }
+	if (!current_user_can('editor') && !current_user_can('administrator')) {
+        return;
+    }
+    // Register and enqueue scripts
+    wp_enqueue_script('jquery');
+
+    wp_register_script(
+        'simpletabsjs',
+        plugins_url('js/simpletabs_1.3.js', __FILE__),
+        array('jquery'),
+        '1.3',
+        true
+    );
+    wp_enqueue_script('simpletabsjs');
+
+    // Register and enqueue styles
+    wp_register_style(
+        'simpletabscss',
+        plugins_url('css/simpletabs.css', __FILE__),
+        array(),
+        '1.0'
+    );
+    wp_enqueue_style('simpletabscss');
 }
-// Hook into the 'wp_enqueue_scripts' action
 add_action('admin_enqueue_scripts', 'wccp_enqueue_scripts');
 
 function wccp_free_enqueue_front_end_scripts() {
