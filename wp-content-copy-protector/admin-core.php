@@ -168,7 +168,7 @@ if(localStorage.getItem('wpccp_subscribed') =='wpccp_subsbc_user')
 <div id="aio_admin_main">
 <p style="margin: 20px 0 20px;font-size: 16px;font-weight: bold;color: rgba(30,140,190,.8);">WP Content Copy Protection &amp; No Right Click (FREE) 
 <font color="#0909FF"><u>
-<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=title">
+<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 <font color="#0909FF"><?php _e('PRO Version','wp-content-copy-protector'); ?></font></a></u></font>
 </p>
 <form method="POST">
@@ -279,7 +279,7 @@ if(localStorage.getItem('wpccp_subscribed') =='wpccp_subsbc_user')
 			<tr>
 				<td width="221" height="33"><font face="Tahoma" size="2"><?php _e('Exclude <u>Admin</u> from protection','wp-content-copy-protector'); ?></font></td>
 				<td width="88px">
-				<p align="center"><a style="color:#FF0000;" target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=exclude_admin">
+				<p align="center"><a style="color:#FF0000;" target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 				<?php _e('Premium','wp-content-copy-protector'); ?></a></td>
 				<td>
 				<font face="Tahoma" size="2"><?php _e('If <u>Yes</u>, The protection functions will be inactive for the admin when he is logged in','wp-content-copy-protector'); ?></font></td>
@@ -350,14 +350,14 @@ if(localStorage.getItem('wpccp_subscribed') =='wpccp_subsbc_user')
 				<p><font color="#FF0000" face="Tahoma" size="2"><?php _e('Remaining premium options preview image ','wp-content-copy-protector'); ?></font>
 				<img src="<?php echo $pluginsurl ?>/images/click-here-arrow.png" id="irc_mi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<b><font color="#0909FF"><u>
-				<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=layer2">
+				<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 				<font color="#0909FF"><?php _e('Preview & Pricing','wp-content-copy-protector'); ?></font></a></u></font></b>
 				</td>
 			</tr>
 			<tr>
 				<td height="264" colspan="2">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=layer2">
+				<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 				<img class="size-full" border="1" src="<?php echo $pluginsurl ?>/images/right-click-protection.jpg" style="border: 1px dotted #C0C0C0"></a><p>&nbsp;</td>
 			</tr>
 			</table></div>
@@ -415,7 +415,7 @@ if(localStorage.getItem('wpccp_subscribed') =='wpccp_subsbc_user')
 			<tr>
 				<td width="221"><font face="Tahoma" size="2"><?php _e('<b>Pages</b> Protection by CSS','wp-content-copy-protector'); ?></font></td>
 				<td width="90" align="center">
-				<a style="color:#FF0000;" target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=css_protect">
+				<a style="color:#FF0000;" target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 				<?php _e('Premium','wp-content-copy-protector'); ?></a>
 				</td>
 				<td><font face="Tahoma" size="2"><?php _e('Protect your static pages by CSS tricks','wp-content-copy-protector'); ?></font></td>
@@ -430,17 +430,17 @@ if(localStorage.getItem('wpccp_subscribed') =='wpccp_subsbc_user')
 		<p><font color="#FF0000" face="Tahoma" size="3"><?php _e('Crazy discount offer is now running for a limited time!! You might love it','wp-content-copy-protector'); ?></font>
 		<img src="<?php echo $pluginsurl ?>/images/click-here-arrow.png" id="irc_mi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<b><font color="#0909FF"><u>
-		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=more">
+		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 		<font color="#0909FF" size="3"><?php _e('See it now','wp-content-copy-protector'); ?></font></a></u></font></b>
-		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=more">
+		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 		<img class="size-full" border="1" src="<?php echo $pluginsurl ?>/images/smart-phones-protection.png" style="border: 1px dotted #C0C0C0">
 		</a>
 		<p>&nbsp;</p>
-		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=more">
+		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 		<img class="size-full" border="1" src="<?php echo $pluginsurl ?>/images/watermark-adv.jpg" style="border: 1px dotted #C0C0C0">
 		</a>
 		<p></p>
-		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=more">
+		<a target="_blank" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">
 		<img class="size-full" border="1" src="<?php echo $pluginsurl ?>/images/watermarking-adv-examples.png" style="border: 1px dotted #C0C0C0">
 		</a>
 		<p></p>

@@ -3,11 +3,13 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: http://wordpress.org/plugins/w-p-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.6.7
+Version: 3.6.8
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
 Author URI: http://www.wp-buy.com/
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 ?>
 <?php
@@ -17,19 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 include 'the_globals.php';
 include_once('notifications.php');
 $wccp_settings = wccp_read_options();
-//---------------------------------------------------------------------------------------------
-//Load plugin textdomain to load translations
-//---------------------------------------------------------------------------------------------
-function wccp_free_load_textdomain() {
-  load_plugin_textdomain( 'wp-content-copy-protector', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
-}
-add_action( 'init', 'wccp_free_load_textdomain' );
 
 //---------------------------------------------------------<!-- SimpleTabs -->
 function wccp_enqueue_scripts() {
 	global $pluginsurl;
 	$admincore = '';
-	if (isset($_GET['page'])) $admincore = sanitize_text_field($_GET['page']);
+	if (isset($_GET['page'], $_GET['_wpnonce']) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'wccp_admin_page' ))
+	{
+		$admincore = sanitize_text_field( wp_unslash( $_GET['page'] ) );
+	}
 	if( ( current_user_can('editor') || current_user_can('administrator') ) && $admincore == 'wccpoptionspro') {
 	wp_enqueue_script('jquery');
 	wp_register_script('simpletabsjs', $pluginsurl.'/js/simpletabs_1.3.js');
@@ -37,9 +35,6 @@ function wccp_enqueue_scripts() {
 	
 	wp_register_style('simpletabscss', $pluginsurl.'/css/simpletabs.css');
 	wp_enqueue_style('simpletabscss');
-	
-	wp_register_style('font-awesome.min.css', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-	wp_enqueue_style('font-awesome.min.css');
 	}
 }
 // Hook into the 'wp_enqueue_scripts' action
@@ -70,7 +65,7 @@ global $wccp_settings;
 <script id="wpcp_disable_selection" type="text/javascript">
 var image_save_msg='You are not allowed to save images!';
 	var no_menu_msg='Context Menu disabled!';
-	var smessage = "<?php echo $wccp_settings['smessage'];?>";
+	var smessage = "<?php echo esc_js( $wccp_settings['smessage'] ); ?>";
 
 function disableEnterKey(e)
 {
@@ -99,7 +94,6 @@ function disableEnterKey(e)
      	return true;
      }
 }
-
 
 /*For contenteditable tags*/
 function wccp_free_iscontenteditable(e)
@@ -627,7 +621,7 @@ function wccp_plugin_add_settings_link( $links )
 	$settings_link = '<a href="admin.php?page=wccpoptionspro">' . __( 'Settings', 'wp-content-copy-protector') . '</a>';
 	array_push( $links, $settings_link );
 	
-	$go_pro_link = '<a title="Upgrade to PRO verion Now" target="_blank" style="font-weight:bold;color: chocolate;" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/#wccp_go_pro">' . __( 'Go PRO', 'wp-content-copy-protector') . '</a>';
+	$go_pro_link = '<a title="Upgrade to PRO verion Now" target="_blank" style="font-weight:bold;color: chocolate;" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">' . __( 'Go PRO', 'wp-content-copy-protector') . '</a>';
 	array_push( $links, $go_pro_link );
 	
 	return $links;
@@ -637,56 +631,79 @@ add_filter( "plugin_action_links_$plugin", 'wccp_plugin_add_settings_link' );
 //------------------------------------------------------------------------
 //Make a WordPress function to add to the correct menu.
 function wpccp_after_plugin_row( $plugin_file, $plugin_data, $status ) {
-	$plugin_name = substr(__FILE__, strlen(ABSPATH . PLUGINDIR . '/'));
-	$class_name = '';
-	if ($plugin_file != $plugin_name) return;
-	$FS_PATH = plugin_basename( __FILE__ );
-	if ($FS_PATH)
-	{
-		$class_name = $plugin_data['slug'];
-		$p_url = "http://www.wp-buy.com/product/wp-content-copy-protection-pro/";
-		echo '<tr id="' .$class_name. '-plugin-update" class="active">';
-		echo '<th class="check-column" scope="row"></th>';
-		echo '<td colspan="3" class="plugin-update">';
-		echo '<div id="wccp-update-message" style="background:#edf4f7;padding:10px;" >';
-		echo __('You are running WP Content Copy Protection & No Right Click (free). To get more features, you can ', 'wp-content-copy-protector') . '<a href="' .$p_url. '" target="_blank"><strong>' . __('Upgrade Now', 'wp-content-copy-protector') . '</strong></a>,    <a id="HideMe" href="javascript:void(0)"><strong>' . __('Dismiss', 'wp-content-copy-protector') . '</strong></a>.';
-		echo '</div>';
-		echo '</td>';
-		echo '</tr>';
-	}
-	?>
-	<script type="text/javascript">
-	function wccp_hide_upgrade_message()
-	{
-		jQuery("#wccp-update-message").empty(); 
-		jQuery("#wccp-update-message").removeAttr("style"); 
-		localStorage.setItem("wccp_upgrade_message", "hide_upgrade_msg");
-		if (!jQuery("#<?php echo $class_name;?>-update")[0]){// Do something if class exists
-			jQuery('#<?php echo $class_name;?>-plugin-update').closest('tr').prev().removeClass('update');
-		}
-		jQuery('#<?php echo $class_name;?>-plugin-update').empty();
-	}
-	jQuery(document).ready(function() {
-		
-		var row = jQuery('#<?php echo $class_name;?>-plugin-update').closest('tr').prev();
-		jQuery(row).addClass('update');
-		
-		jQuery("#HideMe").click(wccp_hide_upgrade_message);
-	  
-	  if(localStorage.getItem("wccp_upgrade_message") == "hide_upgrade_msg")
-	  {
-		 wccp_hide_upgrade_message();
-	  }
 
-	});
+    if ( ! current_user_can('activate_plugins') ) {
+        return;
+    }
+
+    $current_plugin = plugin_basename(__FILE__);
+
+    if ( $plugin_file !== $current_plugin ) {
+        return;
+    }
+
+    $class_name = sanitize_html_class( dirname($plugin_file) );
+    $p_url      = 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/';
 	
-	</script>
-	<?php
+	$messages = [
+		__('Unlock the full power of WP Content Copy Protection with advanced features, enhanced security, and priority support.', 'wp-content-copy-protector'),
+
+		__('Take your website protection to the next level with powerful PRO features and premium support. Upgrade now and experience the difference.', 'wp-content-copy-protector'),
+
+		__('Get more control, stronger protection, and premium features designed for professionals. Upgrade now to the PRO version.', 'wp-content-copy-protector'),
+
+		__('Upgrade to PRO for stronger protection, more features, and premium support.', 'wp-content-copy-protector'),
+
+		__('Most users miss out on advanced protection and full control. Upgrade now and secure your content like a pro.', 'wp-content-copy-protector'),
+	];
+	
+	$random_message = $messages[array_rand($messages)];
+
+    ?>
+    <tr id="<?php echo esc_attr($class_name); ?>-plugin-update" class="active">
+        <th class="check-column" scope="row"></th>
+        <td colspan="3" class="plugin-update">
+            <div id="wccp-update-message" style="background:#edf4f7;padding:10px;">
+                <?php echo esc_html($random_message); ?>
+                <a href="<?php echo esc_url($p_url); ?>" target="_blank">
+                    <strong><?php echo esc_html__('Upgrade Now', 'wp-content-copy-protector'); ?></strong>
+                </a>,
+                <a id="wccp-hide-message" href="#">
+                    <strong><?php echo esc_html__('Dismiss', 'wp-content-copy-protector'); ?></strong>
+                </a>.
+            </div>
+        </td>
+    </tr>
+
+    <script>
+    jQuery(function($){
+
+        function wccp_hide_upgrade_message(e){
+            if(e) e.preventDefault();
+
+            $("#wccp-update-message").remove();
+            localStorage.setItem("wccp_upgrade_messages", "hide_upgrade_msg");
+
+            $('#<?php echo esc_js($class_name); ?>-plugin-update').remove();
+        }
+
+        $("#wccp-hide-message").on("click", wccp_hide_upgrade_message);
+
+        if(localStorage.getItem("wccp_upgrade_messages") === "hide_upgrade_msg"){
+            wccp_hide_upgrade_message();
+        }
+
+    });
+    </script>
+    <?php
 }
-?>
-<?php
-$path = plugin_basename( __FILE__ );
-add_action("after_plugin_row_{$path}", "wpccp_after_plugin_row", 10, 3 );
+
+add_action(
+    'after_plugin_row_' . plugin_basename(__FILE__),
+    'wpccp_after_plugin_row',
+    10,
+    3
+);
 //---------------------------------------------Add button with icon to the admin bar
 global $wccp_settings;
 if (!is_array($wccp_settings)) $wccp_settings = wccp_read_options();

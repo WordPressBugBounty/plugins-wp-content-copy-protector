@@ -4,8 +4,9 @@ Tags: content copy protection, content protection, prevent copy, image protectio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
-Tested up to: 6.9.4
-Stable tag: 3.6.7
+Tested up to: 6.9
+Stable tag: 3.6.8
+Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
 
@@ -98,6 +99,14 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 3.6.8 =
+<ul>
+<li>Security: Escaped JavaScript output using esc_js() to prevent potential XSS vulnerabilities.</li>
+<li>Security: Added nonce verification for $_GET requests to improve protection against CSRF attacks.</li>
+<li>Fix plugin upgrade messages logic into wpccp_after_plugin_row() function.</li>
+<li>Load plugin textdomain function hass been removed because its deprecated.</li>
+<li>Remove wp_enqueue_style('font-awesome.min.css') because including external css file is prevented.</li>
+</ul>
 = 3.6.7 =
 <ul>
 <li>Checking with wordpress version 6.9.4</li>

@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 // Use your own prefix, i use "wccp_free_", replace it;
 $icon_path = plugins_url( '/images/icon-128x128.png' , __FILE__);
-$rating_url = "https://wordpress.org/support/plugin/wp-content-copy-protector/reviews/?filter=5#new-post";
+$rating_url = "https://wordpress.org/support/plugin/wp-content-copy-protector/reviews/";
 $activation_time = 604800; // 7 days in seconds
 $file_version = 2.1;
 $development_mode = false; // Put yes to allow development mode, you will see the rating notice without timers
