@@ -4,8 +4,8 @@ Tags: content copy protection, content protection, prevent copy, image protectio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
-Tested up to: 6.9
-Stable tag: 3.6.9
+Tested up to: 7.0
+Stable tag: 3.7
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -99,6 +99,10 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 3.7 =
+<ul>
+<li>Checking with wordpress version 7.0</li>
+</ul>
 = 3.6.9 =
 <ul>
 <li>Fix admin page tabs view error.</li>
