@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: http://wordpress.org/plugins/w-p-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.7.1
+Version: 3.7.2
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -689,25 +689,37 @@ function wpccp_after_plugin_row( $plugin_file, $plugin_data, $status ) {
     </tr>
 
     <script>
-    jQuery(function($){
+		jQuery(function ($) {
 
-        function wccp_hide_upgrade_message(e){
-            if(e) e.preventDefault();
+			const storageKey = "wccp_upgrade_messages";
+			const fifteenDays = 15 * 24 * 60 * 60 * 1000;
 
-            $("#wccp-update-message").remove();
-            localStorage.setItem("wccp_upgrade_messages", "hide_upgrade_msg");
+			function wccp_remove_upgrade_message() {
+				$("#wccp-update-message").remove();
+				$("#<?php echo esc_js($class_name); ?>-plugin-update").remove();
+			}
 
-            $('#<?php echo esc_js($class_name); ?>-plugin-update').remove();
-        }
+			$("#wccp-hide-message").on("click", function (e) {
+				e.preventDefault();
 
-        $("#wccp-hide-message").on("click", wccp_hide_upgrade_message);
+				localStorage.setItem(
+					storageKey,
+					Date.now() + fifteenDays
+				);
 
-        if(localStorage.getItem("wccp_upgrade_messages") === "hide_upgrade_msg"){
-            wccp_hide_upgrade_message();
-        }
+				wccp_remove_upgrade_message();
+			});
 
-    });
-    </script>
+			const expiresAt = parseInt(localStorage.getItem(storageKey), 10);
+
+			if (expiresAt && expiresAt > Date.now()) {
+				wccp_remove_upgrade_message();
+			} else {
+				localStorage.removeItem(storageKey);
+			}
+
+		});
+	</script>
     <?php
 }
 
