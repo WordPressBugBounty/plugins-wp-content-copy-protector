@@ -1,9 +1,9 @@
 <?php ob_start();
 /*
 Plugin Name: WP Content Copy Protection & No Right Click
-Plugin URI: http://wordpress.org/plugins/w-p-content-copy-protector/
+Plugin URI: https://wordpress.org/plugins/wp-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.7.2
+Version: 3.7.3
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -13,11 +13,13 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 ?>
 <?php
-//delete_option('wccp_settings'); //Just for testing purposes
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 //define all variables the needed alot
+define( 'WCCP_FREE_PLUGIN_FILE', __FILE__ );
+define( 'WCCP_FREE_VERSION', '3.7.3' ); // keep in sync with the plugin header above
 include 'the_globals.php';
 include_once('notifications.php');
+include_once('deactivation-survey.php');
 $wccp_settings = wccp_read_options();
 
 //---------------------------------------------------------<!-- SimpleTabs -->
@@ -112,10 +114,14 @@ function disableEnterKey(e)
 function wccp_free_iscontenteditable(e)
 {
 	var e = e || window.event; // also there is no e.target property in IE. instead IE uses window.event.srcElement
+
+	if(!e) return false;
   	
 	var target = e.target || e.srcElement;
 
-	var elemtype = e.target.nodeName;
+	if(!target) return false;
+
+	var elemtype = target.nodeName || "";
 	
 	elemtype = elemtype.toUpperCase();
 	
@@ -127,7 +133,7 @@ function wccp_free_iscontenteditable(e)
 	
 	if(typeof target.isContentEditable!="undefined" ) iscontenteditable2 = target.isContentEditable; // Return true or false as boolean
 
-	if(target.parentElement.isContentEditable) iscontenteditable2 = true;
+	if(!iscontenteditable2 && target.parentElement && target.parentElement.isContentEditable) iscontenteditable2 = true;
 	
 	if (iscontenteditable == "true" || iscontenteditable2 == true)
 	{
@@ -659,15 +665,7 @@ function wpccp_after_plugin_row( $plugin_file, $plugin_data, $status ) {
     $p_url      = 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/';
 	
 	$messages = [
-		__('Unlock the full power of WP Content Copy Protection with advanced features, enhanced security, and priority support.', 'wp-content-copy-protector'),
-
-		__('Take your website protection to the next level with powerful PRO features and premium support. Upgrade now and experience the difference.', 'wp-content-copy-protector'),
-
-		__('Get more control, stronger protection, and premium features designed for professionals. Upgrade now to the PRO version.', 'wp-content-copy-protector'),
-
-		__('Upgrade to PRO for stronger protection, more features, and premium support.', 'wp-content-copy-protector'),
-
-		__('Most users miss out on advanced protection and full control. Upgrade now and secure your content like a pro.', 'wp-content-copy-protector'),
+		__('You are running WP Content Copy Protection & No Right Click (free). To get more features, you can ', 'wp-content-copy-protector'),
 	];
 	
 	$random_message = $messages[array_rand($messages)];

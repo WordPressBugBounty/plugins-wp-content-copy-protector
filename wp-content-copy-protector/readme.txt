@@ -4,8 +4,8 @@ Tags: content copy protection, content protection, prevent copy, image protectio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
-Tested up to: 7.0.3
-Stable tag: 3.7.2
+Tested up to: 7.1
+Stable tag: 3.7.3
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -99,6 +99,17 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 3.7.3 =
+<ul>
+<li>Checking with wordpress version 7.1</li>
+<li>Add survey on plugin deactivation</li>
+<li>keep only one upgrade notice under the plugin name in plugin list table.</li>
+<li>Fixed in preventer-index.php:112-133.</li>
+<li>What was happening: wccp_free_iscontenteditable() did an unguarded target.parentElement.isContentEditable. Every element has a parent except <html> — and document.onmousedown fires with e.target === document.documentElement when the click lands on the html element rather than body content (the gutter/margin area outside <body>, or a page whose body doesn't fill the viewport). parentElement is null there, hence the intermittent throw. Because disable_copy throws before returning, the rest of its logic is skipped for that click</li>
+<li>Fixed in preventer-index.php:33-67.</li>
+<li>What was happening: wpccp_free_disable_copy() never returned early on copy-allowed elements, so if a user selected content inside an allowed <div> or <textarea>, the script would still throw a preventDefault() on the event and display the alert( )
+message. Even though preventDefault() doesn't stop the browser's own copy mechanism, the console error can be jarring, and your code didn't allow for a per-element override when the global switch was enabled</li>
+</ul>
 = 3.7.2 =
 <ul>
 <li>Checking with wordpress version 7.0.3</li>
