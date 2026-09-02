@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: https://wordpress.org/plugins/wp-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.7.3
+Version: 3.7.4
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -16,7 +16,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 //define all variables the needed alot
 define( 'WCCP_FREE_PLUGIN_FILE', __FILE__ );
-define( 'WCCP_FREE_VERSION', '3.7.3' ); // keep in sync with the plugin header above
+define( 'WCCP_FREE_VERSION', '3.7.4' ); // keep in sync with the plugin header above
 include 'the_globals.php';
 include_once('notifications.php');
 include_once('deactivation-survey.php');
@@ -60,7 +60,7 @@ function wccp_free_enqueue_front_end_scripts() {
 }
 add_action('wp_enqueue_scripts', 'wccp_free_enqueue_front_end_scripts');
 //------------------------------------------------------------------------
-function wpcp_disable_Right_Click()
+function wccp_free_disable_right_click()
 {
 ?>
 <script id="wpcp_disable_Right_Click" type="text/javascript">
@@ -73,7 +73,7 @@ document.ondragstart = function() { return false;}
 <?php
 }
 //////////////////////////////////////////////////////////////////////////////////////
-function wpcp_disable_selection()
+function wccp_free_disable_selection()
 {
 global $wccp_settings;
 ?>
@@ -161,7 +161,7 @@ function disable_copy(e)
 	
 	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 	
-	var checker_IMG = '<?php echo $wccp_settings['img'];?>';
+	var checker_IMG = '<?php echo esc_js( $wccp_settings['img'] );?>';
 	if (elemtype == "IMG" && checker_IMG == 'checked' && e.detail >= 2) {show_wpcp_message(alertMsg_IMG);return false;}
 	if (elemtype != "TEXT")
 	{
@@ -291,11 +291,11 @@ function wccp_pro_is_passive() {
 <?php
 }
 //------------------------------------------------------------------------
-function alert_message()
+function wccp_free_alert_message()
 {
 	global $wccp_settings;
 ?>
-	<div id="wpcp-error-message" class="msgmsg-box-wpcp hideme"><span>error: </span><?php echo $wccp_settings['smessage'];?></div>
+	<div id="wpcp-error-message" class="msgmsg-box-wpcp hideme"><span>error: </span><?php echo esc_html( html_entity_decode( $wccp_settings['smessage'], ENT_QUOTES, 'UTF-8' ) );?></div>
 	<script>
 	var timeout_result;
 	function show_wpcp_message(smessage)
@@ -323,7 +323,7 @@ function alert_message()
 	@media print {
 	body * {display: none !important;}
 		body:after {
-		content: "<?php echo $wccp_settings['prnt_scr_msg']; ?>"; }
+		content: "<?php echo esc_html( html_entity_decode( $wccp_settings['prnt_scr_msg'], ENT_QUOTES, 'UTF-8' ) ); ?>"; }
 	}
 	</style>
 	<?php }} ?>
@@ -364,9 +364,9 @@ function alert_message()
 		font-weight:bold;
 		text-transform:uppercase;
 	}
-	<?php global $pluginsurl; ?>
+	<?php global $wccp_free_pluginsurl; ?>
 	.warning-wpcp {
-		background:#ffecec url('<?php echo $pluginsurl ?>/images/warning.png') no-repeat 10px 50%;
+		background:#ffecec url('<?php echo esc_url( $wccp_free_pluginsurl ) ?>/images/warning.png') no-repeat 10px 50%;
 	}
     </style>
 <?php
@@ -454,39 +454,39 @@ function wccp_main_settings()
 	if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' ) && $wccp_settings['exclude_admin_from_protection'] == 'No')){
 			if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed() || is_search()) && $wccp_settings['home_page_protection'] == 'Enabled'))
 			{
-				wpcp_disable_selection();
+				wccp_free_disable_selection();
 				return;
 			}
 			if (is_single() && $wccp_settings['single_posts_protection'] == 'Enabled')
 			{
-				wpcp_disable_selection();
+				wccp_free_disable_selection();
 				return;
 			}
 			if (is_page() && !is_front_page() && $wccp_settings['page_protection'] == 'Enabled')
 			{
-				wpcp_disable_selection();
+				wccp_free_disable_selection();
 				return;
 			}
 	}
 }
 //------------------------------------------------------------------------
-function right_click_premium_settings()
+function wccp_free_right_click_premium_settings()
 {
 	global $wccp_settings;
 	if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' ) && $wccp_settings['exclude_admin_from_protection'] == 'No')){
 			if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['right_click_protection_homepage'] == 'checked'))
 			{
-				wpcp_disable_Right_Click();
+				wccp_free_disable_right_click();
 				return;
 			}
 		if (is_single() && $wccp_settings['right_click_protection_posts'] == 'checked')
 			{
-				wpcp_disable_Right_Click();
+				wccp_free_disable_right_click();
 				return;
 			}
 		if (is_page() && !is_front_page() && $wccp_settings['right_click_protection_posts'] == 'checked')
 			{
-				wpcp_disable_Right_Click();
+				wccp_free_disable_right_click();
 				return;
 			}
 	}
@@ -552,11 +552,12 @@ if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' 
 
 //Don't serve actions for live editors & builders
 global $pagenow;
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check for page-builder preview requests, no form data is processed.
 if ($pagenow != 'post.php' && !isset($_GET["elementor-preview"]) && !isset($_GET["siteorigin_panels_live_editor"]) && !isset($_GET["preview_id"]) && !isset($_GET["fl_builder"]) && !isset($_GET["et_fb"])) {
 	add_action('wp_head','wccp_main_settings');
-	add_action('wp_head','right_click_premium_settings');
+	add_action('wp_head','wccp_free_right_click_premium_settings');
 	add_action('wp_head','wccp_css_settings');
-	add_action('wp_footer','alert_message');
+	add_action('wp_footer','wccp_free_alert_message');
 	add_filter('body_class','wccp_class_names');
 	//add_filter( 'the_content', 'wccp_find_image_urls');
 }
@@ -569,11 +570,6 @@ function wccp_read_options()
 		$wccp_settings = wccp_default_options();
 
 	$wccp_settings = array_merge(wccp_default_options(), $wccp_settings);//Set default value for any unexisted key
-	if ((isset($_GET['page']) && $_GET['page'] != 'wccpoptionspro') || !isset($_GET['page']))
-	{
-		//We don't want this merge to work inside plugin admin panel
-		
-	}
 	return $wccp_settings;
 }
 //---------------------------------------------------------------------
@@ -601,7 +597,7 @@ function wccp_free_debug_to_console($data)
 }
 //-------------------------------------------------------Set default values to the array
 function wccp_default_options(){
-	$pluginsurl = plugins_url( '', __FILE__ );
+	$wccp_free_pluginsurl = plugins_url( '', __FILE__ );
 	$wccp_settings =
 	Array (
 			'single_posts_protection' => 'Enabled', // prevent content copy, take 3 parameters, 1.content: to prevent content copy only	2.all 	3.none
@@ -649,7 +645,7 @@ $plugin = plugin_basename( __FILE__ );
 add_filter( "plugin_action_links_$plugin", 'wccp_plugin_add_settings_link' );
 //------------------------------------------------------------------------
 //Make a WordPress function to add to the correct menu.
-function wpccp_after_plugin_row( $plugin_file, $plugin_data, $status ) {
+function wccp_free_after_plugin_row( $plugin_file, $plugin_data, $status ) {
 
     if ( ! current_user_can('activate_plugins') ) {
         return;
@@ -723,7 +719,7 @@ function wpccp_after_plugin_row( $plugin_file, $plugin_data, $status ) {
 
 add_action(
     'after_plugin_row_' . plugin_basename(__FILE__),
-    'wpccp_after_plugin_row',
+    'wccp_free_after_plugin_row',
     10,
     3
 );
@@ -743,7 +739,7 @@ if(array_key_exists('top_bar_icon_btn', $wccp_settings))
 // Function to get the current page name
 function wccp_free_get_current_page_name() {
     // Get the script name from the server variables
-    return isset($_SERVER['PHP_SELF']) ? basename($_SERVER['PHP_SELF']) : '';
+    return isset( $_SERVER['PHP_SELF'] ) ? basename( sanitize_text_field( wp_unslash( $_SERVER['PHP_SELF'] ) ) ) : '';
 }
 
 function wccp_free_top_bar_enqueue_style() {
@@ -767,7 +763,7 @@ function wccp_free_add_items($admin_bar)
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
-	global $pluginsurl;
+	global $wccp_free_pluginsurl;
 	//The properties of the new item. Read More about the missing 'parent' parameter below
 	$args = array(
 			'id'    => 'wccp_free_top_button',

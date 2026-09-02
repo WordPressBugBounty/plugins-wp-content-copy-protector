@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
 // Use your own prefix, i use "wccp_free_", replace it;
-$icon_path = plugins_url( '/images/icon-128x128.png' , __FILE__);
-$rating_url = "https://wordpress.org/support/plugin/wp-content-copy-protector/reviews/";
-$activation_time = 604800; // 7 days in seconds
-$file_version = 2.1;
-$development_mode = false; // Put yes to allow development mode, you will see the rating notice without timers
+$wccp_free_icon_path = plugins_url( '/images/icon-128x128.png' , __FILE__);
+$wccp_free_rating_url = "https://wordpress.org/support/plugin/wp-content-copy-protector/reviews/";
+$wccp_free_activation_time = 604800; // 7 days in seconds
+$wccp_free_file_version = 2.1;
+$wccp_free_development_mode = false; // Put yes to allow development mode, you will see the rating notice without timers
 
 /**
 * @since  1.9
@@ -46,29 +46,29 @@ if ( ! class_exists( 'wccp_free_Notification' ) ) :
   	 */
   	public function wccp_free_review_notice() {
 		
-		global $file_version, $activation_time, $development_mode;
+		global $wccp_free_file_version, $wccp_free_activation_time, $wccp_free_development_mode;
 		
 		$this->wccp_free_review_dismissal();
 		
   		$this->wccp_free_review_pending();
 		
-		$activation_time 	= get_site_option( 'wccp_free_active_time' );
+		$wccp_free_activation_time 	= get_site_option( 'wccp_free_active_time' );
 		
   		$review_dismissal	= get_site_option( 'wccp_free_review_dismiss' );
 		
-		if ($review_dismissal == 'yes' && !$development_mode) return;
+		if ($review_dismissal == 'yes' && !$wccp_free_development_mode) return;
 		
-		if ( !$activation_time && !$development_mode ) :
+		if ( !$wccp_free_activation_time && !$wccp_free_development_mode ) :
 
-  			$activation_time = time(); // Reset Time to current time.
-  			add_site_option( 'wccp_free_active_time', $activation_time );
+  			$wccp_free_activation_time = time(); // Reset Time to current time.
+  			add_site_option( 'wccp_free_active_time', $wccp_free_activation_time );
 			
   		endif;
-		if ($development_mode) $activation_time = 432001; //This variable used to show the message always for testing purposes only
+		if ($wccp_free_development_mode) $wccp_free_activation_time = 432001; //This variable used to show the message always for testing purposes only
   		// 432000 = 5 Days in seconds.
-  		if ( time() - $activation_time > 432000 ) :
+  		if ( time() - $wccp_free_activation_time > 432000 ) :
 		
-			wp_enqueue_style( 'wccp_free_review_stlye', plugins_url( '/css/style-review.css', __FILE__ ), array(), $file_version );
+			wp_enqueue_style( 'wccp_free_review_stlye', plugins_url( '/css/style-review.css', __FILE__ ), array(), $wccp_free_file_version );
 			add_action( 'admin_notices' , array( $this, 'wccp_free_review_notice_message' ) );
 		
 		endif;
@@ -120,30 +120,31 @@ if ( ! class_exists( 'wccp_free_Notification' ) ) :
   	 */
   	public function wccp_free_review_notice_message() {
 
-  		$scheme      = ( wp_parse_url( $_SERVER['REQUEST_URI'], PHP_URL_QUERY ) ) ? '&' : '?';
-  		$url         = $_SERVER['REQUEST_URI'] . $scheme . 'wccp_free_review_dismiss=yes';
+  		$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+  		$scheme      = ( wp_parse_url( $request_uri, PHP_URL_QUERY ) ) ? '&' : '?';
+  		$url         = $request_uri . $scheme . 'wccp_free_review_dismiss=yes';
   		$dismiss_url = wp_nonce_url( $url, 'wccp_free_review-nonce' );
 
-  		$_later_link = $_SERVER['REQUEST_URI'] . $scheme . 'wccp_free_review_later=yes';
+  		$_later_link = $request_uri . $scheme . 'wccp_free_review_later=yes';
   		$later_url   = wp_nonce_url( $_later_link, 'wccp_free_review-nonce' );
 		
-		global $icon_path;
+		global $wccp_free_icon_path;
 		
-		global $rating_url;
+		global $wccp_free_rating_url;
       ?>
 
   		<div class="wccp_free_review-notice">
   			<div class="wccp_free_review-thumbnail">
-  				<img src="<?php echo $icon_path; ?>" alt="">
+  				<img src="<?php echo esc_url( $wccp_free_icon_path ); ?>" alt="">
   			</div>
   			<div class="wccp_free_review-text">
-  				<h3><?php _e( 'Leave A Review?', 'wp-content-copy-protector' ) ?></h3>
-  				<p><?php _e( 'We hope you\'ve enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple "thank you" will make us happy!', 'wp-content-copy-protector' ) ?></p>
+  				<h3><?php esc_html_e( 'Leave A Review?', 'wp-content-copy-protector' ) ?></h3>
+  				<p><?php echo wp_kses( __( 'We hope you\'ve enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple "thank you" will make us happy!', 'wp-content-copy-protector' ), array( 'br' => array() ) ) ?></p>
   				<ul class="wccp_free_review-ul">
-            <li><a href="<?php echo $rating_url; ?>" target="_blank"><span class="dashicons dashicons-external"></span><?php _e( 'Sure! I\'d love to!', 'wp-content-copy-protector' ) ?></a></li>
-            <li><a href="<?php echo $dismiss_url ?>"><span class="dashicons dashicons-smiley"></span><?php _e( 'I\'ve already left a review', 'wp-content-copy-protector' ) ?></a></li>
-            <li><a href="<?php echo $later_url ?>"><span class="dashicons dashicons-calendar-alt"></span><?php _e( 'Will Rate Later', 'wp-content-copy-protector' ) ?></a></li>
-            <li><a href="<?php echo $dismiss_url ?>"><span class="dashicons dashicons-dismiss"></span><?php _e( 'Hide Forever', 'wp-content-copy-protector' ) ?></a></li></ul>
+            <li><a href="<?php echo esc_url( $wccp_free_rating_url ); ?>" target="_blank"><span class="dashicons dashicons-external"></span><?php esc_html_e( 'Sure! I\'d love to!', 'wp-content-copy-protector' ) ?></a></li>
+            <li><a href="<?php echo esc_url( $dismiss_url ) ?>"><span class="dashicons dashicons-smiley"></span><?php esc_html_e( 'I\'ve already left a review', 'wp-content-copy-protector' ) ?></a></li>
+            <li><a href="<?php echo esc_url( $later_url ) ?>"><span class="dashicons dashicons-calendar-alt"></span><?php esc_html_e( 'Will Rate Later', 'wp-content-copy-protector' ) ?></a></li>
+            <li><a href="<?php echo esc_url( $dismiss_url ) ?>"><span class="dashicons dashicons-dismiss"></span><?php esc_html_e( 'Hide Forever', 'wp-content-copy-protector' ) ?></a></li></ul>
   			</div>
   		</div>
   	<?php
@@ -151,9 +152,10 @@ if ( ! class_exists( 'wccp_free_Notification' ) ) :
 }
 
 endif;
-$admincore = '';
-	if (isset($_GET['page'])) $admincore = sanitize_text_field($_GET['page']);
-	if($admincore != 'wccpoptionspro') {
+$wccp_free_admincore = '';
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Only reading the current admin screen slug, nothing is processed or saved.
+	if ( isset( $_GET['page'] ) ) $wccp_free_admincore = sanitize_key( wp_unslash( $_GET['page'] ) );
+	if($wccp_free_admincore != 'wccpoptionspro') {
 		new wccp_free_Notification();
 	}
 ?>

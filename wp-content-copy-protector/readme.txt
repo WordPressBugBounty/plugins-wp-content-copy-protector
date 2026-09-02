@@ -5,7 +5,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
 Tested up to: 7.1
-Stable tag: 3.7.3
+Stable tag: 3.7.4
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -99,6 +99,15 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 3.7.4 =
+<ul>
+<li>Security: Escaped every output in the admin settings panel and the review notice using esc_html_e(), esc_attr_e(), esc_js() and wp_kses().</li>
+<li>Security: All $_POST, $_GET and $_SERVER values are now unslashed with wp_unslash() and sanitized before being used or saved.</li>
+<li>Prefixed all plugin global variables and functions with wccp_free_ to prevent conflicts with themes and other plugins.</li>
+<li>Fixed the deprecated third parameter that was passed to add_option() when creating the settings option.</li>
+<li>Removed dead code: $_POST values that were read and then discarded, and an empty condition block inside wccp_read_options().</li>
+<li>No change to the protection behaviour, the saved settings are stored exactly as before.</li>
+</ul>
 = 3.7.3 =
 <ul>
 <li>Checking with wordpress version 7.1</li>
