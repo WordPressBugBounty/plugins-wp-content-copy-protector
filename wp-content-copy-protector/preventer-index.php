@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: https://wordpress.org/plugins/wp-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.7.4
+Version: 3.7.5
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -13,49 +13,67 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 ?>
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 //define all variables the needed alot
-define( 'WCCP_FREE_PLUGIN_FILE', __FILE__ );
-define( 'WCCP_FREE_VERSION', '3.7.4' ); // keep in sync with the plugin header above
+define('WCCP_FREE_PLUGIN_FILE', __FILE__);
+define('WCCP_FREE_VERSION', '3.7.5'); // keep in sync with the plugin header above
 include 'the_globals.php';
 include_once('notifications.php');
 include_once('deactivation-survey.php');
 $wccp_settings = wccp_read_options();
 
+/**
+ * Load the plugin translations from the bundled /languages folder.
+ *
+ * Without this, WordPress only looks in wp-content/languages/plugins/ and the
+ * .mo files shipped with the plugin are never used.
+ */
+function wccp_free_load_textdomain()
+{
+	load_plugin_textdomain(
+		'wp-content-copy-protector',
+		false,
+		dirname(plugin_basename(WCCP_FREE_PLUGIN_FILE)) . '/languages'
+	);
+}
+add_action('init', 'wccp_free_load_textdomain');
+
 //---------------------------------------------------------<!-- SimpleTabs -->
-function wccp_enqueue_scripts($hook) {
-    
+function wccp_enqueue_scripts($hook)
+{
+
 	// Only load on your plugin's menu page
-    if ($hook !== 'toplevel_page_wccpoptionspro') {
-        return;
-    }
+	if ($hook !== 'toplevel_page_wccpoptionspro') {
+		return;
+	}
 	if (!current_user_can('editor') && !current_user_can('administrator')) {
-        return;
-    }
-    // Register and enqueue scripts
-    wp_enqueue_script('jquery');
+		return;
+	}
+	// Register and enqueue scripts
+	wp_enqueue_script('jquery');
 
-    wp_register_script(
-        'simpletabsjs',
-        plugins_url('js/simpletabs_1.3.js', __FILE__),
-        array('jquery'),
-        '1.3',
-        true
-    );
-    wp_enqueue_script('simpletabsjs');
+	wp_register_script(
+		'simpletabsjs',
+		plugins_url('js/simpletabs_1.3.js', __FILE__),
+		array('jquery'),
+		'1.3',
+		true
+	);
+	wp_enqueue_script('simpletabsjs');
 
-    // Register and enqueue styles
-    wp_register_style(
-        'simpletabscss',
-        plugins_url('css/simpletabs.css', __FILE__),
-        array(),
-        '1.0'
-    );
-    wp_enqueue_style('simpletabscss');
+	// Register and enqueue styles
+	wp_register_style(
+		'simpletabscss',
+		plugins_url('css/simpletabs.css', __FILE__),
+		array(),
+		'1.0'
+	);
+	wp_enqueue_style('simpletabscss');
 }
 add_action('admin_enqueue_scripts', 'wccp_enqueue_scripts');
 
-function wccp_free_enqueue_front_end_scripts() {
+function wccp_free_enqueue_front_end_scripts()
+{
 	wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'wccp_free_enqueue_front_end_scripts');
@@ -63,231 +81,236 @@ add_action('wp_enqueue_scripts', 'wccp_free_enqueue_front_end_scripts');
 function wccp_free_disable_right_click()
 {
 ?>
-<script id="wpcp_disable_Right_Click" type="text/javascript">
-document.ondragstart = function() { return false;}
-	function nocontext(e) {
-	   return false;
-	}
-	document.oncontextmenu = nocontext;
-</script>
+	<script id="wpcp_disable_Right_Click" type="text/javascript">
+		document.ondragstart = function() {
+			return false;
+		}
+
+		function nocontext(e) {
+			return false;
+		}
+		document.oncontextmenu = nocontext;
+	</script>
 <?php
 }
 //////////////////////////////////////////////////////////////////////////////////////
 function wccp_free_disable_selection()
 {
-global $wccp_settings;
+	global $wccp_settings;
 ?>
-<script id="wpcp_disable_selection" type="text/javascript">
-var image_save_msg='You are not allowed to save images!';
-	var no_menu_msg='Context Menu disabled!';
-	var smessage = "<?php echo esc_js( $wccp_settings['smessage'] ); ?>";
+	<script id="wpcp_disable_selection" type="text/javascript">
+		var image_save_msg = 'You are not allowed to save images!';
+		var no_menu_msg = 'Context Menu disabled!';
+		var smessage = "<?php echo esc_js($wccp_settings['smessage']); ?>";
 
-function disableEnterKey(e)
-{
-	var elemtype = e.target.tagName;
-	
-	elemtype = elemtype.toUpperCase();
-	
-	if (elemtype == "TEXT" || elemtype == "TEXTAREA" || elemtype == "INPUT" || elemtype == "PASSWORD" || elemtype == "SELECT" || elemtype == "OPTION" || elemtype == "EMBED")
-	{
-		elemtype = 'TEXT';
-	}
-	
-	if (e.ctrlKey){
-     var key;
-     if(window.event)
-          key = window.event.keyCode;     //IE
-     else
-          key = e.which;     //firefox (97)
-    //if (key != 17) alert(key);
-     if (elemtype!= 'TEXT' && (key == 97 || key == 65 || key == 67 || key == 99 || key == 88 || key == 120 || key == 26 || key == 85  || key == 86 || key == 83 || key == 43 || key == 73))
-     {
-		if(wccp_free_iscontenteditable(e)) return true;
-		show_wpcp_message('You are not allowed to copy content or view source');
-		return false;
-     }else
-     	return true;
-     }
-}
+		function disableEnterKey(e) {
+			var elemtype = e.target.tagName;
 
-/*For contenteditable tags*/
-function wccp_free_iscontenteditable(e)
-{
-	var e = e || window.event; // also there is no e.target property in IE. instead IE uses window.event.srcElement
+			elemtype = elemtype.toUpperCase();
 
-	if(!e) return false;
-  	
-	var target = e.target || e.srcElement;
-
-	if(!target) return false;
-
-	var elemtype = target.nodeName || "";
-	
-	elemtype = elemtype.toUpperCase();
-	
-	var iscontenteditable = "false";
-		
-	if(typeof target.getAttribute!="undefined" ) iscontenteditable = target.getAttribute("contenteditable"); // Return true or false as string
-	
-	var iscontenteditable2 = false;
-	
-	if(typeof target.isContentEditable!="undefined" ) iscontenteditable2 = target.isContentEditable; // Return true or false as boolean
-
-	if(!iscontenteditable2 && target.parentElement && target.parentElement.isContentEditable) iscontenteditable2 = true;
-	
-	if (iscontenteditable == "true" || iscontenteditable2 == true)
-	{
-		if(typeof target.style!="undefined" ) target.style.cursor = "text";
-		
-		return true;
-	}
-}
-
-////////////////////////////////////
-function disable_copy(e)
-{	
-	var e = e || window.event; // also there is no e.target property in IE. instead IE uses window.event.srcElement
-	
-	var elemtype = e.target.tagName;
-	
-	elemtype = elemtype.toUpperCase();
-	
-	if (elemtype == "TEXT" || elemtype == "TEXTAREA" || elemtype == "INPUT" || elemtype == "PASSWORD" || elemtype == "SELECT" || elemtype == "OPTION" || elemtype == "EMBED")
-	{
-		elemtype = 'TEXT';
-	}
-	
-	if(wccp_free_iscontenteditable(e)) return true;
-	
-	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
-	
-	var checker_IMG = '<?php echo esc_js( $wccp_settings['img'] );?>';
-	if (elemtype == "IMG" && checker_IMG == 'checked' && e.detail >= 2) {show_wpcp_message(alertMsg_IMG);return false;}
-	if (elemtype != "TEXT")
-	{
-		if (smessage !== "" && e.detail == 2)
-			show_wpcp_message(smessage);
-		
-		if (isSafari)
-			return true;
-		else
-			return false;
-	}	
-}
-
-//////////////////////////////////////////
-function disable_copy_ie()
-{
-	var e = e || window.event;
-	var elemtype = window.event.srcElement.nodeName;
-	elemtype = elemtype.toUpperCase();
-	if(wccp_free_iscontenteditable(e)) return true;
-	if (elemtype == "IMG") {show_wpcp_message(alertMsg_IMG);return false;}
-	if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "OPTION" && elemtype != "EMBED")
-	{
-		return false;
-	}
-}	
-function reEnable()
-{
-	return true;
-}
-document.onkeydown = disableEnterKey;
-document.onselectstart = disable_copy_ie;
-if(navigator.userAgent.indexOf('MSIE')==-1)
-{
-	document.onmousedown = disable_copy;
-	document.onclick = reEnable;
-}
-function disableSelection(target)
-{
-    //For IE This code will work
-    if (typeof target.onselectstart!="undefined")
-    target.onselectstart = disable_copy_ie;
-    
-    //For Firefox This code will work
-    else if (typeof target.style.MozUserSelect!="undefined")
-    {target.style.MozUserSelect="none";}
-    
-    //All other  (ie: Opera) This code will work
-    else
-    target.onmousedown=function(){return false}
-    target.style.cursor = "default";
-}
-//Calling the JS function directly just after body load
-window.onload = function(){disableSelection(document.body);};
-
-//////////////////special for safari Start////////////////
-var onlongtouch;
-var timer;
-var touchduration = 1000; //length of time we want the user to touch before we do something
-
-var elemtype = "";
-function touchstart(e) {
-	var e = e || window.event;
-  // also there is no e.target property in IE.
-  // instead IE uses window.event.srcElement
-  	var target = e.target || e.srcElement;
-	
-	elemtype = window.event.srcElement.nodeName;
-	
-	elemtype = elemtype.toUpperCase();
-	
-	if(!wccp_pro_is_passive()) e.preventDefault();
-	if (!timer) {
-		timer = setTimeout(onlongtouch, touchduration);
-	}
-}
-
-function touchend() {
-    //stops short touches from firing the event
-    if (timer) {
-        clearTimeout(timer);
-        timer = null;
-    }
-	onlongtouch();
-}
-
-onlongtouch = function(e) { //this will clear the current selection if anything selected
-	
-	if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "EMBED" && elemtype != "OPTION")	
-	{
-		if (window.getSelection) {
-			if (window.getSelection().empty) {  // Chrome
-			window.getSelection().empty();
-			} else if (window.getSelection().removeAllRanges) {  // Firefox
-			window.getSelection().removeAllRanges();
+			if (elemtype == "TEXT" || elemtype == "TEXTAREA" || elemtype == "INPUT" || elemtype == "PASSWORD" || elemtype == "SELECT" || elemtype == "OPTION" || elemtype == "EMBED") {
+				elemtype = 'TEXT';
 			}
-		} else if (document.selection) {  // IE?
-			document.selection.empty();
+
+			if (e.ctrlKey) {
+				var key;
+				if (window.event)
+					key = window.event.keyCode; //IE
+				else
+					key = e.which; //firefox (97)
+				//if (key != 17) alert(key);
+				if (elemtype != 'TEXT' && (key == 97 || key == 65 || key == 67 || key == 99 || key == 88 || key == 120 || key == 26 || key == 85 || key == 86 || key == 83 || key == 43 || key == 73)) {
+					if (wccp_free_iscontenteditable(e)) return true;
+					show_wpcp_message('You are not allowed to copy content or view source');
+					return false;
+				} else
+					return true;
+			}
 		}
-		return false;
-	}
-};
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-    window.addEventListener("touchstart", touchstart, false);
-    window.addEventListener("touchend", touchend, false);
-});
+		/*For contenteditable tags*/
+		function wccp_free_iscontenteditable(e) {
+			var e = e || window.event; // also there is no e.target property in IE. instead IE uses window.event.srcElement
 
-function wccp_pro_is_passive() {
+			if (!e) return false;
 
-  var cold = false,
-  hike = function() {};
+			var target = e.target || e.srcElement;
 
-  try {
-	  const object1 = {};
-  var aid = Object.defineProperty(object1, 'passive', {
-  get() {cold = true}
-  });
-  window.addEventListener('test', hike, aid);
-  window.removeEventListener('test', hike, aid);
-  } catch (e) {}
+			if (!target) return false;
 
-  return cold;
-}
-/*special for safari End*/
-</script>
+			var elemtype = target.nodeName || "";
+
+			elemtype = elemtype.toUpperCase();
+
+			var iscontenteditable = "false";
+
+			if (typeof target.getAttribute != "undefined") iscontenteditable = target.getAttribute("contenteditable"); // Return true or false as string
+
+			var iscontenteditable2 = false;
+
+			if (typeof target.isContentEditable != "undefined") iscontenteditable2 = target.isContentEditable; // Return true or false as boolean
+
+			if (!iscontenteditable2 && target.parentElement && target.parentElement.isContentEditable) iscontenteditable2 = true;
+
+			if (iscontenteditable == "true" || iscontenteditable2 == true) {
+				if (typeof target.style != "undefined") target.style.cursor = "text";
+
+				return true;
+			}
+		}
+
+		////////////////////////////////////
+		function disable_copy(e) {
+			var e = e || window.event; // also there is no e.target property in IE. instead IE uses window.event.srcElement
+
+			var elemtype = e.target.tagName;
+
+			elemtype = elemtype.toUpperCase();
+
+			if (elemtype == "TEXT" || elemtype == "TEXTAREA" || elemtype == "INPUT" || elemtype == "PASSWORD" || elemtype == "SELECT" || elemtype == "OPTION" || elemtype == "EMBED") {
+				elemtype = 'TEXT';
+			}
+
+			if (wccp_free_iscontenteditable(e)) return true;
+
+			var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+			var checker_IMG = '<?php echo esc_js($wccp_settings['img']); ?>';
+			if (elemtype == "IMG" && checker_IMG == 'checked' && e.detail >= 2) {
+				show_wpcp_message(alertMsg_IMG);
+				return false;
+			}
+			if (elemtype != "TEXT") {
+				if (smessage !== "" && e.detail == 2)
+					show_wpcp_message(smessage);
+
+				if (isSafari)
+					return true;
+				else
+					return false;
+			}
+		}
+
+		//////////////////////////////////////////
+		function disable_copy_ie() {
+			var e = e || window.event;
+			var elemtype = window.event.srcElement.nodeName;
+			elemtype = elemtype.toUpperCase();
+			if (wccp_free_iscontenteditable(e)) return true;
+			if (elemtype == "IMG") {
+				show_wpcp_message(alertMsg_IMG);
+				return false;
+			}
+			if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "OPTION" && elemtype != "EMBED") {
+				return false;
+			}
+		}
+
+		function reEnable() {
+			return true;
+		}
+		document.onkeydown = disableEnterKey;
+		document.onselectstart = disable_copy_ie;
+		if (navigator.userAgent.indexOf('MSIE') == -1) {
+			document.onmousedown = disable_copy;
+			document.onclick = reEnable;
+		}
+
+		function disableSelection(target) {
+			//For IE This code will work
+			if (typeof target.onselectstart != "undefined")
+				target.onselectstart = disable_copy_ie;
+
+			//For Firefox This code will work
+			else if (typeof target.style.MozUserSelect != "undefined") {
+				target.style.MozUserSelect = "none";
+			}
+
+			//All other  (ie: Opera) This code will work
+			else
+				target.onmousedown = function() {
+					return false
+				}
+			target.style.cursor = "default";
+		}
+		//Calling the JS function directly just after body load
+		window.onload = function() {
+			disableSelection(document.body);
+		};
+
+		//////////////////special for safari Start////////////////
+		var onlongtouch;
+		var timer;
+		var touchduration = 1000; //length of time we want the user to touch before we do something
+
+		var elemtype = "";
+
+		function touchstart(e) {
+			var e = e || window.event;
+			// also there is no e.target property in IE.
+			// instead IE uses window.event.srcElement
+			var target = e.target || e.srcElement;
+
+			elemtype = window.event.srcElement.nodeName;
+
+			elemtype = elemtype.toUpperCase();
+
+			if (!wccp_pro_is_passive()) e.preventDefault();
+			if (!timer) {
+				timer = setTimeout(onlongtouch, touchduration);
+			}
+		}
+
+		function touchend() {
+			//stops short touches from firing the event
+			if (timer) {
+				clearTimeout(timer);
+				timer = null;
+			}
+			onlongtouch();
+		}
+
+		onlongtouch = function(e) { //this will clear the current selection if anything selected
+
+			if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "EMBED" && elemtype != "OPTION") {
+				if (window.getSelection) {
+					if (window.getSelection().empty) { // Chrome
+						window.getSelection().empty();
+					} else if (window.getSelection().removeAllRanges) { // Firefox
+						window.getSelection().removeAllRanges();
+					}
+				} else if (document.selection) { // IE?
+					document.selection.empty();
+				}
+				return false;
+			}
+		};
+
+		document.addEventListener("DOMContentLoaded", function(event) {
+			window.addEventListener("touchstart", touchstart, false);
+			window.addEventListener("touchend", touchend, false);
+		});
+
+		function wccp_pro_is_passive() {
+
+			var cold = false,
+				hike = function() {};
+
+			try {
+				const object1 = {};
+				var aid = Object.defineProperty(object1, 'passive', {
+					get() {
+						cold = true
+					}
+				});
+				window.addEventListener('test', hike, aid);
+				window.removeEventListener('test', hike, aid);
+			} catch (e) {}
+
+			return cold;
+		}
+		/*special for safari End*/
+	</script>
 <?php
 }
 //------------------------------------------------------------------------
@@ -295,131 +318,143 @@ function wccp_free_alert_message()
 {
 	global $wccp_settings;
 ?>
-	<div id="wpcp-error-message" class="msgmsg-box-wpcp hideme"><span>error: </span><?php echo esc_html( html_entity_decode( $wccp_settings['smessage'], ENT_QUOTES, 'UTF-8' ) );?></div>
+	<div id="wpcp-error-message" class="msgmsg-box-wpcp hideme"><span>error: </span><?php echo esc_html(html_entity_decode($wccp_settings['smessage'], ENT_QUOTES, 'UTF-8')); ?></div>
 	<script>
-	var timeout_result;
-	function show_wpcp_message(smessage)
-	{
-		if (smessage !== "")
-			{
-			var smessage_text = '<span>Alert: </span>'+smessage;
-			document.getElementById("wpcp-error-message").innerHTML = smessage_text;
-			document.getElementById("wpcp-error-message").className = "msgmsg-box-wpcp warning-wpcp showme";
-			clearTimeout(timeout_result);
-			timeout_result = setTimeout(hide_message, 3000);
+		var timeout_result;
+
+		function show_wpcp_message(smessage) {
+			if (smessage !== "") {
+				var smessage_text = '<span>Alert: </span>' + smessage;
+				document.getElementById("wpcp-error-message").innerHTML = smessage_text;
+				document.getElementById("wpcp-error-message").className = "msgmsg-box-wpcp warning-wpcp showme";
+				clearTimeout(timeout_result);
+				timeout_result = setTimeout(hide_message, 3000);
 			}
-	}
-	function hide_message()
-	{
-		document.getElementById("wpcp-error-message").className = "msgmsg-box-wpcp warning-wpcp hideme";
-	}
+		}
+
+		function hide_message() {
+			document.getElementById("wpcp-error-message").className = "msgmsg-box-wpcp warning-wpcp hideme";
+		}
 	</script>
-	<?php 
+	<?php
 	global $wccp_settings;
-	if(array_key_exists('prnt_scr_msg', $wccp_settings))
-	{
-	if($wccp_settings['prnt_scr_msg'] != ''){ ?>
-	<style>
-	@media print {
-	body * {display: none !important;}
-		body:after {
-		content: "<?php echo esc_html( html_entity_decode( $wccp_settings['prnt_scr_msg'], ENT_QUOTES, 'UTF-8' ) ); ?>"; }
-	}
-	</style>
-	<?php }} ?>
+	if (array_key_exists('prnt_scr_msg', $wccp_settings)) {
+		if ($wccp_settings['prnt_scr_msg'] != '') { ?>
+			<style>
+				@media print {
+					body * {
+						display: none !important;
+					}
+
+					body:after {
+						content: "<?php echo esc_html(html_entity_decode($wccp_settings['prnt_scr_msg'], ENT_QUOTES, 'UTF-8')); ?>";
+					}
+				}
+			</style>
+	<?php }
+	} ?>
 	<style type="text/css">
-	#wpcp-error-message {
-	    direction: ltr;
-	    text-align: center;
-	    transition: opacity 900ms ease 0s;
-	    z-index: 99999999;
-	}
-	.hideme {
-    	opacity:0;
-    	visibility: hidden;
-	}
-	.showme {
-    	opacity:1;
-    	visibility: visible;
-	}
-	.msgmsg-box-wpcp {
-		border:1px solid #f5aca6;
-		border-radius: 10px;
-		color: #555;
-		font-family: Tahoma;
-		font-size: 11px;
-		margin: 10px;
-		padding: 10px 36px;
-		position: fixed;
-		width: 255px;
-		top: 50%;
-  		left: 50%;
-  		margin-top: -10px;
-  		margin-left: -130px;
-  		-webkit-box-shadow: 0px 0px 34px 2px rgba(242,191,191,1);
-		-moz-box-shadow: 0px 0px 34px 2px rgba(242,191,191,1);
-		box-shadow: 0px 0px 34px 2px rgba(242,191,191,1);
-	}
-	.msgmsg-box-wpcp span {
-		font-weight:bold;
-		text-transform:uppercase;
-	}
-	<?php global $wccp_free_pluginsurl; ?>
-	.warning-wpcp {
-		background:#ffecec url('<?php echo esc_url( $wccp_free_pluginsurl ) ?>/images/warning.png') no-repeat 10px 50%;
-	}
-    </style>
+		#wpcp-error-message {
+			direction: ltr;
+			text-align: center;
+			transition: opacity 900ms ease 0s;
+			z-index: 99999999;
+		}
+
+		.hideme {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.showme {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.msgmsg-box-wpcp {
+			border: 1px solid #f5aca6;
+			border-radius: 10px;
+			color: #555;
+			font-family: Tahoma;
+			font-size: 11px;
+			margin: 10px;
+			padding: 10px 36px;
+			position: fixed;
+			width: 255px;
+			top: 50%;
+			left: 50%;
+			margin-top: -10px;
+			margin-left: -130px;
+			-webkit-box-shadow: 0px 0px 34px 2px rgba(242, 191, 191, 1);
+			-moz-box-shadow: 0px 0px 34px 2px rgba(242, 191, 191, 1);
+			box-shadow: 0px 0px 34px 2px rgba(242, 191, 191, 1);
+		}
+
+		.msgmsg-box-wpcp span {
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		<?php global $wccp_free_pluginsurl; ?>.warning-wpcp {
+			background: #ffecec url('<?php echo esc_url($wccp_free_pluginsurl) ?>/images/warning.png') no-repeat 10px 50%;
+		}
+	</style>
 <?php
 }
 //------------------------------------------------------------------------
 function wccp_css_script()
 {
 ?>
-<style>
-.unselectable
-{
--moz-user-select:none;
--webkit-user-select:none;
-cursor: default;
-}
-html
-{
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
--webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-</style>
-<script id="wpcp_css_disable_selection" type="text/javascript">
-var e = document.getElementsByTagName('body')[0];
-if(e)
-{
-	e.setAttribute('unselectable',"on");
-}
-</script>
+	<style>
+		.unselectable {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			cursor: default;
+		}
+
+		html {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+	</style>
+	<script id="wpcp_css_disable_selection" type="text/javascript">
+		var e = document.getElementsByTagName('body')[0];
+		if (e) {
+			e.setAttribute('unselectable', "on");
+		}
+	</script>
 <?php
 }
 //------------------------------------------------------------------------
 /* sanitize */
-function wccp_sanitize($unsafe_val,$type='text')
+function wccp_sanitize($unsafe_val, $type = 'text')
 {
 	switch ($type) {
-		case 'text': return stripslashes(htmlentities(sanitize_text_field($unsafe_val),ENT_QUOTES));
+		case 'text':
+			return stripslashes(htmlentities(sanitize_text_field($unsafe_val), ENT_QUOTES));
 			break;
-		case 'int': return intval($unsafe_val);
+		case 'int':
+			return intval($unsafe_val);
 			break;
-		case 'email': return sanitize_email($unsafe_val);
+		case 'email':
+			return sanitize_email($unsafe_val);
 			break;
-		case 'filename': return sanitize_file_name($unsafe_val);
+		case 'filename':
+			return sanitize_file_name($unsafe_val);
 			break;
-		case 'title': return sanitize_title($unsafe_val);
+		case 'title':
+			return sanitize_title($unsafe_val);
 			break;
-		case 'URL': return esc_url($unsafe_val);
+		case 'URL':
+			return esc_url($unsafe_val);
 			break;
-		case 'textbox': return stripslashes(htmlentities(sanitize_text_field($unsafe_val),ENT_QUOTES));
+		case 'textbox':
+			return stripslashes(htmlentities(sanitize_text_field($unsafe_val), ENT_QUOTES));
 			break;
 		default:
 			return sanitize_text_field($unsafe_val);
@@ -429,122 +464,109 @@ function wccp_sanitize($unsafe_val,$type='text')
 function wccp_css_settings()
 {
 	global $wccp_settings;
-	if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' ) && $wccp_settings['exclude_admin_from_protection'] == 'No')){
-			if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['home_css_protection'] == 'Enabled'))
-			{
-				wccp_css_script();
-				return;
-			}
-			if (is_single() && $wccp_settings['posts_css_protection'] == 'Enabled')
-			{
-				wccp_css_script();
-				return;
-			}
-			if (is_page() && !is_front_page() && $wccp_settings['pages_css_protection'] == 'Enabled')
-			{
-				wccp_css_script();
-				return;
-			}
+	if (!current_user_can('manage_options') || (current_user_can('manage_options') && $wccp_settings['exclude_admin_from_protection'] == 'No')) {
+		if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['home_css_protection'] == 'Enabled')) {
+			wccp_css_script();
+			return;
+		}
+		if (is_single() && $wccp_settings['posts_css_protection'] == 'Enabled') {
+			wccp_css_script();
+			return;
+		}
+		if (is_page() && !is_front_page() && $wccp_settings['pages_css_protection'] == 'Enabled') {
+			wccp_css_script();
+			return;
+		}
 	}
 }
 //------------------------------------------------------------------------
 function wccp_main_settings()
 {
 	global $wccp_settings;
-	if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' ) && $wccp_settings['exclude_admin_from_protection'] == 'No')){
-			if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed() || is_search()) && $wccp_settings['home_page_protection'] == 'Enabled'))
-			{
-				wccp_free_disable_selection();
-				return;
-			}
-			if (is_single() && $wccp_settings['single_posts_protection'] == 'Enabled')
-			{
-				wccp_free_disable_selection();
-				return;
-			}
-			if (is_page() && !is_front_page() && $wccp_settings['page_protection'] == 'Enabled')
-			{
-				wccp_free_disable_selection();
-				return;
-			}
+	if (!current_user_can('manage_options') || (current_user_can('manage_options') && $wccp_settings['exclude_admin_from_protection'] == 'No')) {
+		if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed() || is_search()) && $wccp_settings['home_page_protection'] == 'Enabled')) {
+			wccp_free_disable_selection();
+			return;
+		}
+		if (is_single() && $wccp_settings['single_posts_protection'] == 'Enabled') {
+			wccp_free_disable_selection();
+			return;
+		}
+		if (is_page() && !is_front_page() && $wccp_settings['page_protection'] == 'Enabled') {
+			wccp_free_disable_selection();
+			return;
+		}
 	}
 }
 //------------------------------------------------------------------------
 function wccp_free_right_click_premium_settings()
 {
 	global $wccp_settings;
-	if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' ) && $wccp_settings['exclude_admin_from_protection'] == 'No')){
-			if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['right_click_protection_homepage'] == 'checked'))
-			{
-				wccp_free_disable_right_click();
-				return;
-			}
-		if (is_single() && $wccp_settings['right_click_protection_posts'] == 'checked')
-			{
-				wccp_free_disable_right_click();
-				return;
-			}
-		if (is_page() && !is_front_page() && $wccp_settings['right_click_protection_posts'] == 'checked')
-			{
-				wccp_free_disable_right_click();
-				return;
-			}
+	if (!current_user_can('manage_options') || (current_user_can('manage_options') && $wccp_settings['exclude_admin_from_protection'] == 'No')) {
+		if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['right_click_protection_homepage'] == 'checked')) {
+			wccp_free_disable_right_click();
+			return;
+		}
+		if (is_single() && $wccp_settings['right_click_protection_posts'] == 'checked') {
+			wccp_free_disable_right_click();
+			return;
+		}
+		if (is_page() && !is_front_page() && $wccp_settings['right_click_protection_posts'] == 'checked') {
+			wccp_free_disable_right_click();
+			return;
+		}
 	}
 }
 //------------------------------------------------------------------------
-function wccp_find_image_urls( $content ) {
-	
+function wccp_find_image_urls($content)
+{
+
 	global $wccp_settings;
-	
+
 	$remove_img_urls = "Yes";
-	
-	if($remove_img_urls == "Yes"){
 
-	$regexp = '(href=\"http)(.*)(.jpg|.jpeg|.png)';
+	if ($remove_img_urls == "Yes") {
 
-	if(preg_match_all("/$regexp/iU", $content, $matches, PREG_SET_ORDER)) {
+		$regexp = '(href=\"http)(.*)(.jpg|.jpeg|.png)';
 
-		if( !empty($matches) ) {
+		if (preg_match_all("/$regexp/iU", $content, $matches, PREG_SET_ORDER)) {
 
-			$srcUrl = get_permalink();
+			if (!empty($matches)) {
 
-			for ($i=0; $i <= count($matches); $i++)
-			{
-				if (isset($matches[$i]) && isset($matches[$i][0]))
+				$srcUrl = get_permalink();
 
-					$tag = $matches[$i][0];
+				for ($i = 0; $i <= count($matches); $i++) {
+					if (isset($matches[$i]) && isset($matches[$i][0]))
 
-				else
+						$tag = $matches[$i][0];
 
-					$tag = '';
+					else
 
-				$tag2 = '';
+						$tag = '';
 
-				$content = str_replace($tag,$tag2,$content);
+					$tag2 = '';
+
+					$content = str_replace($tag, $tag2, $content);
+				}
 			}
 		}
 	}
-	}
-	return '<div class="protcted_area">'.$content.'</div>';
+	return '<div class="protcted_area">' . $content . '</div>';
 }
 //------------------------------------------------------------------------
 // Add specific CSS class by filter
-function wccp_class_names($classes) {
-global  $wccp_settings;
-if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' ) && $wccp_settings['exclude_admin_from_protection'] == 'No'))
-	{
-			if ($wccp_settings['home_css_protection'] == 'Enabled' || $wccp_settings['posts_css_protection'] == 'Enabled' ||  $wccp_settings['pages_css_protection'] == 'Enabled')
-			{
-				$classes[] = 'unselectable';
-				return $classes;
-			}
-			else
-			{
-				$classes[] = 'none';
-				return $classes;
-			}
-	}else
-	{
+function wccp_class_names($classes)
+{
+	global  $wccp_settings;
+	if (!current_user_can('manage_options') || (current_user_can('manage_options') && $wccp_settings['exclude_admin_from_protection'] == 'No')) {
+		if ($wccp_settings['home_css_protection'] == 'Enabled' || $wccp_settings['posts_css_protection'] == 'Enabled' ||  $wccp_settings['pages_css_protection'] == 'Enabled') {
+			$classes[] = 'unselectable';
+			return $classes;
+		} else {
+			$classes[] = 'none';
+			return $classes;
+		}
+	} else {
 		$classes[] = 'none';
 		return $classes;
 	}
@@ -554,11 +576,11 @@ if(!current_user_can( 'manage_options' ) || (current_user_can( 'manage_options' 
 global $pagenow;
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check for page-builder preview requests, no form data is processed.
 if ($pagenow != 'post.php' && !isset($_GET["elementor-preview"]) && !isset($_GET["siteorigin_panels_live_editor"]) && !isset($_GET["preview_id"]) && !isset($_GET["fl_builder"]) && !isset($_GET["et_fb"])) {
-	add_action('wp_head','wccp_main_settings');
-	add_action('wp_head','wccp_free_right_click_premium_settings');
-	add_action('wp_head','wccp_css_settings');
-	add_action('wp_footer','wccp_free_alert_message');
-	add_filter('body_class','wccp_class_names');
+	add_action('wp_head', 'wccp_main_settings');
+	add_action('wp_head', 'wccp_free_right_click_premium_settings');
+	add_action('wp_head', 'wccp_css_settings');
+	add_action('wp_footer', 'wccp_free_alert_message');
+	add_filter('body_class', 'wccp_class_names');
 	//add_filter( 'the_content', 'wccp_find_image_urls');
 }
 //-------------------------------------------------------Function to read options from the database
@@ -569,7 +591,7 @@ function wccp_read_options()
 	else
 		$wccp_settings = wccp_default_options();
 
-	$wccp_settings = array_merge(wccp_default_options(), $wccp_settings);//Set default value for any unexisted key
+	$wccp_settings = array_merge(wccp_default_options(), $wccp_settings); //Set default value for any unexisted key
 	return $wccp_settings;
 }
 //---------------------------------------------------------------------
@@ -578,17 +600,13 @@ function wccp_read_options()
 function wccp_free_debug_to_console($data)
 {
 	global $wccp_settings;
-	 
-	if(array_key_exists("developer_mode", $wccp_settings))
-	{	
-		if($wccp_settings['developer_mode'] == "Yes")
-		{
+
+	if (array_key_exists("developer_mode", $wccp_settings)) {
+		if ($wccp_settings['developer_mode'] == "Yes") {
 			$output = $data;
-			if ( is_array( $output ))
-			{
-				foreach ( $output as $element )
-					if(isset($element))
-					{
+			if (is_array($output)) {
+				foreach ($output as $element)
+					if (isset($element)) {
 						//echo "<script>console.log('Debug Objects: " . $element . "' );</script>";
 					}
 			}
@@ -596,10 +614,11 @@ function wccp_free_debug_to_console($data)
 	}
 }
 //-------------------------------------------------------Set default values to the array
-function wccp_default_options(){
-	$wccp_free_pluginsurl = plugins_url( '', __FILE__ );
+function wccp_default_options()
+{
+	$wccp_free_pluginsurl = plugins_url('', __FILE__);
 	$wccp_settings =
-	Array (
+		array(
 			'single_posts_protection' => 'Enabled', // prevent content copy, take 3 parameters, 1.content: to prevent content copy only	2.all 	3.none
 			'home_page_protection' => 'Enabled', //
 			'page_protection' => 'Enabled', //
@@ -631,59 +650,60 @@ function wccp_default_options(){
 	return $wccp_settings;
 }
 //---------------------------------------- Add plugin settings link to Plugins page
-function wccp_plugin_add_settings_link( $links )
+function wccp_plugin_add_settings_link($links)
 {
-	$settings_link = '<a href="admin.php?page=wccpoptionspro">' . __( 'Settings', 'wp-content-copy-protector') . '</a>';
-	array_push( $links, $settings_link );
-	
-	$go_pro_link = '<a title="Upgrade to PRO verion Now" target="_blank" style="font-weight:bold;color: chocolate;" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">' . __( 'Go PRO', 'wp-content-copy-protector') . '</a>';
-	array_push( $links, $go_pro_link );
-	
+	$settings_link = '<a href="admin.php?page=wccpoptionspro">' . __('Settings', 'wp-content-copy-protector') . '</a>';
+	array_push($links, $settings_link);
+
+	$go_pro_link = '<a title="Upgrade to PRO verion Now" target="_blank" style="font-weight:bold;color: chocolate;" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">' . __('Go PRO', 'wp-content-copy-protector') . '</a>';
+	array_push($links, $go_pro_link);
+
 	return $links;
 }
-$plugin = plugin_basename( __FILE__ );
-add_filter( "plugin_action_links_$plugin", 'wccp_plugin_add_settings_link' );
+$plugin = plugin_basename(__FILE__);
+add_filter("plugin_action_links_$plugin", 'wccp_plugin_add_settings_link');
 //------------------------------------------------------------------------
 //Make a WordPress function to add to the correct menu.
-function wccp_free_after_plugin_row( $plugin_file, $plugin_data, $status ) {
+function wccp_free_after_plugin_row($plugin_file, $plugin_data, $status)
+{
 
-    if ( ! current_user_can('activate_plugins') ) {
-        return;
-    }
+	if (! current_user_can('activate_plugins')) {
+		return;
+	}
 
-    $current_plugin = plugin_basename(__FILE__);
+	$current_plugin = plugin_basename(__FILE__);
 
-    if ( $plugin_file !== $current_plugin ) {
-        return;
-    }
+	if ($plugin_file !== $current_plugin) {
+		return;
+	}
 
-    $class_name = sanitize_html_class( dirname($plugin_file) );
-    $p_url      = 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/';
-	
+	$class_name = sanitize_html_class(dirname($plugin_file));
+	$p_url      = 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/';
+
 	$messages = [
-		__('You are running WP Content Copy Protection & No Right Click (free). To get more features, you can ', 'wp-content-copy-protector'),
+		__('You are running the free version, See what you can get from the premium one ', 'wp-content-copy-protector'),
 	];
-	
+
 	$random_message = $messages[array_rand($messages)];
 
-    ?>
-    <tr id="<?php echo esc_attr($class_name); ?>-plugin-update" class="active">
-        <th class="check-column" scope="row"></th>
-        <td colspan="3" class="plugin-update">
-            <div id="wccp-update-message" style="background:#edf4f7;padding:10px;">
-                <?php echo esc_html($random_message); ?>
-                <a href="<?php echo esc_url($p_url); ?>" target="_blank">
-                    <strong><?php echo esc_html__('Upgrade Now', 'wp-content-copy-protector'); ?></strong>
-                </a>,
-                <a id="wccp-hide-message" href="#">
-                    <strong><?php echo esc_html__('Dismiss', 'wp-content-copy-protector'); ?></strong>
-                </a>.
-            </div>
-        </td>
-    </tr>
+?>
+	<tr id="<?php echo esc_attr($class_name); ?>-plugin-update" class="active">
+		<th class="check-column" scope="row"></th>
+		<td colspan="3" class="plugin-update">
+			<div id="wccp-update-message" style="background:#edf4f7;padding:10px;">
+				<?php echo esc_html($random_message); ?>
+				<a href="<?php echo esc_url($p_url); ?>" target="_blank">
+					<strong><?php echo esc_html__('Explore Premium', 'wp-content-copy-protector'); ?></strong>
+				</a>,
+				<a id="wccp-hide-message" href="#">
+					<strong><?php echo esc_html__('Dismiss', 'wp-content-copy-protector'); ?></strong>
+				</a>.
+			</div>
+		</td>
+	</tr>
 
-    <script>
-		jQuery(function ($) {
+	<script>
+		jQuery(function($) {
 
 			const storageKey = "wccp_upgrade_messages";
 			const fifteenDays = 15 * 24 * 60 * 60 * 1000;
@@ -693,7 +713,7 @@ function wccp_free_after_plugin_row( $plugin_file, $plugin_data, $status ) {
 				$("#<?php echo esc_js($class_name); ?>-plugin-update").remove();
 			}
 
-			$("#wccp-hide-message").on("click", function (e) {
+			$("#wccp-hide-message").on("click", function(e) {
 				e.preventDefault();
 
 				localStorage.setItem(
@@ -714,22 +734,20 @@ function wccp_free_after_plugin_row( $plugin_file, $plugin_data, $status ) {
 
 		});
 	</script>
-    <?php
+<?php
 }
 
 add_action(
-    'after_plugin_row_' . plugin_basename(__FILE__),
-    'wccp_free_after_plugin_row',
-    10,
-    3
+	'after_plugin_row_' . plugin_basename(__FILE__),
+	'wccp_free_after_plugin_row',
+	10,
+	3
 );
 //---------------------------------------------Add button with icon to the admin bar
 global $wccp_settings;
 if (!is_array($wccp_settings)) $wccp_settings = wccp_read_options();
-if(array_key_exists('top_bar_icon_btn', $wccp_settings))
-{
-	if($wccp_settings['top_bar_icon_btn'] == 'Visible')
-	{
+if (array_key_exists('top_bar_icon_btn', $wccp_settings)) {
+	if ($wccp_settings['top_bar_icon_btn'] == 'Visible') {
 		add_action('admin_bar_menu', 'wccp_free_add_items',  40);
 		add_action('wp_enqueue_scripts', 'wccp_free_top_bar_enqueue_style');
 		add_action('admin_enqueue_scripts', 'wccp_free_top_bar_enqueue_style');
@@ -737,66 +755,70 @@ if(array_key_exists('top_bar_icon_btn', $wccp_settings))
 }
 
 // Function to get the current page name
-function wccp_free_get_current_page_name() {
-    // Get the script name from the server variables
-    return isset( $_SERVER['PHP_SELF'] ) ? basename( sanitize_text_field( wp_unslash( $_SERVER['PHP_SELF'] ) ) ) : '';
+function wccp_free_get_current_page_name()
+{
+	// Get the script name from the server variables
+	return isset($_SERVER['PHP_SELF']) ? basename(sanitize_text_field(wp_unslash($_SERVER['PHP_SELF']))) : '';
 }
 
-function wccp_free_top_bar_enqueue_style() {
-	if (wccp_free_get_current_page_name() === 'customize.php') return;//Stop if you are inside theme customizer
+function wccp_free_top_bar_enqueue_style()
+{
+	if (wccp_free_get_current_page_name() === 'customize.php') return; //Stop if you are inside theme customizer
 ?>
-<style>
-#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
-	content: "\f160";
-	color: #02CA02;
-	top: 3px;
-}
-#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
-	transform: rotate(45deg);
-}
-</style>
+	<style>
+		#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
+			content: "\f160";
+			color: #02CA02;
+			top: 3px;
+		}
+
+		#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
+			transform: rotate(45deg);
+		}
+	</style>
 <?php
 }
 ///////////////////
 function wccp_free_add_items($admin_bar)
 {
-	if ( ! current_user_can( 'manage_options' ) ) {
+	if (! current_user_can('manage_options')) {
 		return;
 	}
 	global $wccp_free_pluginsurl;
 	//The properties of the new item. Read More about the missing 'parent' parameter below
 	$args = array(
-			'id'    => 'wccp_free_top_button',
-			'parent' => null,
-			'group'  => null,
-			'title' => '<span class="ab-icon"></span>' . __('Protection', 'wp-content-copy-protector'),
-			'href'  => admin_url('admin.php?page=wccpoptionspro'),
-			'meta'  => array('title' => __('Copy Protection & No right click', 'wp-content-copy-protector'),//This title will show on hover
-							'class' => '')
-			);
- 
+		'id'    => 'wccp_free_top_button',
+		'parent' => null,
+		'group'  => null,
+		'title' => '<span class="ab-icon"></span>' . __('Protection', 'wp-content-copy-protector'),
+		'href'  => admin_url('admin.php?page=wccpoptionspro'),
+		'meta'  => array(
+			'title' => __('Copy Protection & No right click', 'wp-content-copy-protector'), //This title will show on hover
+			'class' => ''
+		)
+	);
+
 	//This is where the magic works.
-	$admin_bar->add_menu( $args);
+	$admin_bar->add_menu($args);
 }
 //------------------------------------------------------------------------
-function wccp_options_page_pro() {
-     include 'admin-core.php';
+function wccp_options_page_pro()
+{
+	include 'admin-core.php';
 }
 //------------------------------------------------------------------------
 //Make our function to call the WordPress function to add to the correct menu.
 function wccp_add_options()
 {
-	//add_options_page(__('WP Content Copy Protection', 'wp-content-copy-protector'), __('WP Content Copy Protection', 'wp-content-copy-protector'), 'manage_options', 'wccpoptionspro', 'wccp_options_page_pro');
-	add_menu_page
-		(
-			'WP Content Copy Protection',       // use null for parent slug to hide it from admin menu
-			'Copy Protection',    // page title
-			'manage_options',           // capability
-			'wccpoptionspro', // slug
-			'wccp_options_page_pro', // callback
-			'dashicons-lock',
-			6
-		);
+	add_menu_page(
+		'WP Content Copy Protection',       // use null for parent slug to hide it from admin menu
+		'Copy Protection',    // page title
+		'manage_options',           // capability
+		'wccpoptionspro', // slug
+		'wccp_options_page_pro', // callback
+		'dashicons-lock',
+		6
+	);
 	add_submenu_page('wccpoptionspro', 'Settings', 'Settings', 'manage_options', 'wccpoptionspro', 'wccp_options_page_pro');
 }
 //First use the add_action to add onto the WordPress menu.
@@ -804,18 +826,19 @@ add_action('admin_menu', 'wccp_add_options');
 
 add_action('admin_menu', 'wccp_free_add_external_links_as_submenu');
 
-function wccp_free_add_external_links_as_submenu() {
-	
+function wccp_free_add_external_links_as_submenu()
+{
+
 	global $submenu;
-	
+
 	$search_url = "plugin-install.php?s=wp-buy&tab=search&type=author";
-	
+
 	$network_dir_append = "";
-	
-	If (is_multisite()) $network_dir_append = "network/";
-	
+
+	if (is_multisite()) $network_dir_append = "network/";
+
 	$menu_slug = "wccpoptionspro"; // used as "key" in menus
-	
-	$submenu[$menu_slug][] = array('<span style="color:#f18500">More Plugins</span>', 'manage_options', admin_url( $network_dir_append . 'plugin-install.php?s=wp-buy&tab=search&type=author' ));
+
+	$submenu[$menu_slug][] = array('<span style="color:#f18500">More Plugins</span>', 'manage_options', admin_url($network_dir_append . 'plugin-install.php?s=wp-buy&tab=search&type=author'));
 }
 ?>

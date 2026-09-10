@@ -5,7 +5,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
 Tested up to: 7.1
-Stable tag: 3.7.4
+Stable tag: 3.7.5
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -99,6 +99,14 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 3.7.5 =
+<ul>
+<li>Fixed plugin activation hook: `add_action('admin_init', 'wccp_free_load_textdomain')` was incorrectly registered with `admin_init` instead of the correct `init` hook. This caused translations to load late, potentially after some text had already been output without translation.</li>
+<li>Fixed: The "Upgrade to Pro" callout message was being displayed on every page load instead of only once every 15 days. This was due to an incorrect condition in the wccp_free_after_plugin_row function.</li>
+<li>languages/wp-content-copy-protector.pot — regenerated from source. It was stale since 2020 and had drifted badly</li>
+<li>languages/wp-content-copy-protector-ar.po — merged against the new template, keeping all existing translations, then filled the gaps. Went from 90 translated + 2 fuzzy + 12 missing → 97/97 translated, 0 fuzzy</li>
+<li>also rewrote the two fuzzy entries; No right-click or context menu. had been mistranslated as "nobody will right-click on pages and images", now تعطيل النقر بزر الفأرة الأيمن وقائمة السياق.</li>
+</ul>
 = 3.7.4 =
 <ul>
 <li>Security: Escaped every output in the admin settings panel and the review notice using esc_html_e(), esc_attr_e(), esc_js() and wp_kses().</li>
