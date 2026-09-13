@@ -5,7 +5,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
 Tested up to: 7.1
-Stable tag: 3.7.5
+Stable tag: 4.1
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -19,26 +19,26 @@ Protect Your Valuable Content with WP Content Copy Protection & No Right Click
 
 Are you tired of seeing your original content copied and spread across the web without your permission? The WP Content Copy Protection & No Right Click plugin is here to safeguard your posts and home page from unauthorized copying.
 
-*Key Features:*
-Content Protection:
+✨ *Key Features:*
+🛡️ *Content Protection:*
 Ensure your hard work remains yours. This plugin employs advanced content-protection techniques to keep your text and images safe from being copied by other web authors.
 
-*Copy Protection:*
+🔒 *Copy Protection:*
 With robust copy protection mechanisms, this plugin prevents unauthorized duplication of your content. It effectively disables common methods used for content theft, ensuring your intellectual property remains secure.
 
-*Copyright Enforcement:*
+©️ *Copyright Enforcement:*
 Maintain control over your copyrighted material. The plugin acts as a virtual guardian, enforcing copyright rules and deterring potential infringers.
 
-*Disable Right Click:*
+🖱️ *Disable Right Click:*
 Stop users from right-clicking on your content. By disabling right-click functionality, this plugin adds an extra layer of security, preventing easy access to the context menu used for copying content.
 
-*Deny Copy Paste:*
+🚫 *Deny Copy Paste:*
 Block the ability to copy and paste your content. This plugin uses a combination of JavaScript and CSS techniques to make copying and pasting from your site nearly impossible.
 
-*Control Who Can Copy:*
+👥 *Control Who Can Copy:*
 Take charge of your content distribution. With this plugin, you have the power to control who can and cannot copy your content, giving you peace of mind that your work is protected.
 
-*Watermark Images (Pro Version):*
+💧 *Watermark Images (Pro Version):*
 Upgrade to the Pro version to add watermarks to your images. This feature ensures that even if your images are copied, they will still carry your watermark, maintaining your brand visibility and deterring unauthorized use.
 
 *Unique Benefits:*
@@ -62,24 +62,26 @@ your posts extremely simple without yelling at your readers</li>
 <li>No one can right click images on your site if you want</li>
 </ul>
 
-**The Pro Edition Features include:**
+**The Complete Edition gives you more than protection — it gives you confidence every time you publish:**
 <ul>
-<li><a href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=wp2"><strong>PRO version product page</strong></li>
-<li>Watermarking</li>
-<li>Using htacsess rules</li>
-<li>Support jquery overlay protection</li>
-<li>Get full Control on Right click or context menu</li>
-<li>Show alert messages, when user made right click on images, text boxes, links, plain text.. etc</li>
-<li>Admin can exclude Home page Or Single posts from being copy protected </li>
-<li>Admin can disable copy protection for admin users.</li>
-<li>3 protection layers (JavaScript protection, RightClick protection, CSS protection)</li>
-<li>Aggressive image protection (its near impossible for expert users to steal your images !!)</li>
-<li>compatible with all major theme frameworks</li>
-<li>compatible with all major browsers</li>
-<li>Tested in IE9, IE10, Firefox, Google Chrome, Opera</li>
-<li>Disables image drag and drop function</li>
-<li>Works on smart phones and iphones - solved since 2-10-2015 & updated at 13-11-2015</li>
-<li>Ability to set varying levels of protection per page or post.</li>
+<li>🚀 <a href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/?src=wp2"><strong>Explore the Complete Edition</strong></a></li>
+<li>🛡️ <strong>Your original work deserves to stay yours.</strong> Protect text, images, videos, links, and other valuable content from unwanted copying.</li>
+<li>✨ <strong>Protect every image without compromising its beauty.</strong> Create professional logo and text watermarks that strengthen your brand while preserving the visual impact of your images.</li>
+<li>🎨 Design watermarks your way with live previews, reusable presets, flexible positioning, transparency, rotation, colors, fonts, signatures, and repeated-text controls.</li>
+<li>⚡ Choose from multiple watermark delivery methods, including reversible Static Watermarking and on-the-fly protection, with clear speed, SEO, and server-compatibility guidance.</li>
+<li>🔒 Publish with peace of mind. Static Watermarking securely backs up your original images before replacing any files and lets you restore them whenever needed.</li>
+<li>🌐 Protect images from hotlinking and unauthorized external use, whether they are displayed on your own website or requested from another domain.</li>
+<li>🖱️ Take precise control of the right-click menu on images, links, text, headings, fields, videos, code blocks, canvas elements, audio players, and empty page areas.</li>
+<li>💬 Turn blocked actions into a polished experience with customizable alert messages, ready-made color palettes, flexible sizing, borders, shadows, timing, and live previews.</li>
+<li>⌨️ Discourage common copying methods by controlling text selection, drag and drop, printing, Print Screen, source-view shortcuts, and keys such as Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, and F12 where the browser allows.</li>
+<li>🖼️ Add responsive transparent overlays that remain aligned with protected images as their size and position change across different screen sizes.</li>
+<li>🎯 Protect exactly what matters. Apply different protection settings to the homepage, posts, pages, archives, WooCommerce content, attachments, and other supported public content types.</li>
+<li>🧩 Exclude selected pages, URLs, post types, categories, user roles, CSS classes, image sizes, filenames, domains, or user agents without weakening protection everywhere else.</li>
+<li>🔍 Find visible images such as logos, banners, payment icons, and featured images with the built-in site image scanner, then exclude them from watermarking with a click.</li>
+<li>💻 Keep useful content usable. Allow visitors to select code snippets or use a one-click copy button without enabling text selection across the entire page.</li>
+<li>📱 Deliver a smooth, responsive protection experience across modern desktop and mobile browsers and a wide range of WordPress themes.</li>
+<li>🧭 Manage everything from a clean, organized control panel with focused tabs, searchable selectors, status information, previews, diagnostics, and restore controls.</li>
+<li>🔧 Test each watermark method against your actual server before activating it, with support for common Apache, Nginx, and LiteSpeed hosting environments.</li>
 </ul>
 
 == Screenshots ==
@@ -99,6 +101,30 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 4.1 =
+<ul>
+<li>Major release: the whole admin settings panel has been redesigned from scratch with a modern interface and layout matching the wp-buy.com design system (clean cards, soft shadows, rounded corners and a new color palette).</li>
+<li>Interface: The old tabs strip is replaced by pill style tab buttons. The SimpleTabs jQuery library was dropped for a lightweight script with keyboard navigation (arrow, Home and End keys), accessible tab roles, and it remembers the last opened tab.</li>
+<li>Interface: The old table based layout is replaced by setting cards, every option now sits on one aligned row: title, option and help note.</li>
+<li>Interface: Save Settings, Restore defaults and Preview alert message buttons moved into a new sticky action bar at the bottom of the form.</li>
+<li>Interface: Compact visual scale for a settings page (smaller headings, tabs, inputs, rows and text areas), the panel is now about 24% shorter.</li>
+<li>Interface: Self hosted Inter font, loaded on the plugin settings page only, no external requests and nothing added to the front end.</li>
+<li>Interface: New plugin box logo and icons in WebP format, plus a full set of built in SVG icons across the panel.</li>
+<li>Interface: New featured PRO banner at the top of the panel and a new footer help area with three cards: Get support, Help topics and Leave a review.</li>
+<li>Interface: Glass shine effect on the PRO badges, primary buttons and screenshots on mouse hover and when their tab opens (disabled for users who prefer reduced motion).</li>
+<li>RightClick Protection tab: each "Disable RightClick on" option (Posts, HomePage, Static pages) is now on its own line with a help note, plus a new locked PRO row for any post type, such as WooCommerce and marketplace products.</li>
+<li>More with PRO tab: new Plans / Detailed info toggle. Plans view (default) compares the FREE, ESSENTIAL and COMPLETE plans with their real lifetime prices, the support and updates note and the website discount notice. Detailed info view lists the PRO features grouped into 7 protection modules with icons.</li>
+<li>More with PRO tab: removed the "Basic features" box, since the plugin user already has these features.</li>
+<li>New: The Restore defaults button now opens a confirmation popup before resetting the settings, so they cannot be wiped by a wrong click. The popup can be closed with Cancel, X, the Escape key or a click outside it, and it supports RTL languages.</li>
+<li>Mobile: Full responsive layout for phones and tablets. The PRO banner collapses to its icon and title, the action bar is no longer sticky so it does not hide the screen, and the help cards stack with full width buttons.</li>
+<li>Fixed: The PRO banner icon was stretching to fill the entire screen on small width devices.</li>
+<li>Fixed: Setting labels and descriptions were rendered at the same font size because of a CSS rule conflict, and some option controls were misaligned by 30px.</li>
+<li>Fixed: The newsletter bar email field was taller than intended, and some texts were showing a double escaped "&amp;amp;".</li>
+<li>Links: "Get support" now opens the wp-buy contact page and "Browse plugins" is renamed to "Help topics", opening the copy protection help topics.</li>
+<li>Language support: New translations added for German, Spanish, French, Italian, Japanese, Dutch, Portuguese (Brazil), Portuguese (Portugal), Russian and Chinese (Simplified), with Arabic fully updated. 11 languages, each with all 263 strings translated.</li>
+<li>Language support: The front end alert messages ("You are not allowed to save images!", "Context Menu disabled!", "You are not allowed to copy content or view source") and the admin menu titles are now translatable.</li>
+<li>Code cleanup and consistent formatting inside preventer-index.php, with no change to the protection behaviour. Your saved settings are kept exactly as before.</li>
+</ul>
 = 3.7.5 =
 <ul>
 <li>Fixed plugin activation hook: `add_action('admin_init', 'wccp_free_load_textdomain')` was incorrectly registered with `admin_init` instead of the correct `init` hook. This caused translations to load late, potentially after some text had already been output without translation.</li>

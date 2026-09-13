@@ -4,1066 +4,1066 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Content Copy Protection & No Right Click 3.7.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-content-copy-protector\n"
-"POT-Creation-Date: 2026-09-02 12:13+0000\n"
+"POT-Creation-Date: 2026-09-02 12:00+0000\n"
+"PO-Revision-Date: 2026-09-02 14:25+0000\n"
+"Last-Translator: WP Localization Team\n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP Content Copy Protection i18n Builder\n"
 
 #: preventer-index.php:90
 msgid "You are not allowed to save images!"
-msgstr ""
+msgstr "¡No tienes permiso para guardar imágenes!"
 
 #: preventer-index.php:91
 msgid "Context Menu disabled!"
-msgstr ""
+msgstr "¡Menú contextual desactivado!"
 
 #: preventer-index.php:115
 msgid "You are not allowed to copy content or view source"
-msgstr ""
+msgstr "No tienes permiso para copiar contenido o ver el código fuente"
 
 #: preventer-index.php:307
 msgid "error:"
-msgstr ""
+msgstr "error:"
 
 #: preventer-index.php:314
 msgid "Alert:"
-msgstr ""
+msgstr "Alerta:"
 
 #: preventer-index.php:645 preventer-index.php:809 preventer-index.php:809
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #: preventer-index.php:648
 msgid "Upgrade to PRO version Now"
-msgstr ""
+msgstr "Actualizar a la versión PRO ahora"
 
 #: preventer-index.php:648
 msgid "Go PRO"
-msgstr ""
+msgstr "Obtener PRO"
 
 #: preventer-index.php:673
 msgid "You are running WP Content Copy Protection & No Right Click (free). To get more features, you can "
-msgstr ""
+msgstr "Estás utilizando WP Content Copy Protection & No Right Click (gratuito). Para obtener más funciones, puedes "
 
 #: preventer-index.php:685
 msgid "Upgrade Now"
-msgstr ""
+msgstr "Actualizar ahora"
 
 #: preventer-index.php:688 admin-core.php:229
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 #: preventer-index.php:781
 msgid "Protection"
-msgstr ""
+msgstr "Protección"
 
 #: preventer-index.php:783
 msgid "Copy Protection & No right click"
-msgstr ""
+msgstr "Protección de copia y sin clic derecho"
 
 #: preventer-index.php:801 admin-core.php:258
 msgid "WP Content Copy Protection"
-msgstr ""
+msgstr "WP Content Copy Protection"
 
 #: preventer-index.php:802
 msgid "Copy Protection"
-msgstr ""
+msgstr "Protección de copia"
 
 #: preventer-index.php:828
 msgid "More Plugins"
-msgstr ""
+msgstr "Más plugins"
 
 #: admin-core.php:16 admin-core.php:28
 msgid "You do not have permission to change these settings."
-msgstr ""
+msgstr "No tienes permiso para modificar estos ajustes."
 
 #: admin-core.php:214
 msgid "Enabled"
-msgstr ""
+msgstr "Activado"
 
 #: admin-core.php:215
 msgid "Disabled"
-msgstr ""
+msgstr "Desactivado"
 
 #: admin-core.php:222
 msgid "WP Content Protection Plugin Group"
-msgstr ""
+msgstr "Grupo de plugins de protección de contenido de WP"
 
 #: admin-core.php:223
 msgid "Begin your adventure to improve your WordPress website, and win discount codes along the way."
-msgstr ""
+msgstr "Comienza tu aventura para mejorar tu sitio web WordPress y consigue códigos de descuento en el camino."
 
 #: admin-core.php:226
 msgid "Email address"
-msgstr ""
+msgstr "Dirección de correo electrónico"
 
 #: admin-core.php:228
 msgid "Start it!"
-msgstr ""
+msgstr "¡Comenzar!"
 
 #: admin-core.php:256
 msgid "Content protection"
-msgstr ""
+msgstr "Protección de contenido"
 
 #: admin-core.php:259
 msgid "& No Right Click"
-msgstr ""
+msgstr "y sin clic derecho"
 
 #: admin-core.php:261
 msgid "Stop visitors from selecting, copying, printing or right-clicking your posts, pages and images. Switch a layer on below, save, and it is live on the front end."
-msgstr ""
+msgstr "Evita que los visitantes seleccionen, copien, impriman o hagan clic derecho en tus entradas, páginas e imágenes. Activa una capa a continuación, guarda y estará activa de inmediato."
 
 #: admin-core.php:264
 msgid "Free version active"
-msgstr ""
+msgstr "Versión gratuita activa"
 
 #: admin-core.php:265
 msgid "3 protection layers"
-msgstr ""
+msgstr "3 capas de protección"
 
 #: admin-core.php:275
 msgid "Featured"
-msgstr ""
+msgstr "Destacado"
 
 #: admin-core.php:276
 msgid "WP Content Copy Protection & No Right Click (PRO)"
-msgstr ""
+msgstr "WP Content Copy Protection & No Right Click (PRO)"
 
 #: admin-core.php:277
 msgid "The ultimate defense for your hard work. Full right-click control, image watermarking, aggressive image protection and per-post protection levels - everything the free layers leave on the table."
-msgstr ""
+msgstr "La máxima defensa para tu trabajo. Control total del clic derecho, marcas de agua en imágenes, protección avanzada de imágenes y niveles de protección por entrada."
 
 #: admin-core.php:279
 msgid "Full watermarking"
-msgstr ""
+msgstr "Marcas de agua completas"
 
 #: admin-core.php:280
 msgid "Aggressive protection"
-msgstr ""
+msgstr "Protección avanzada"
 
 #: admin-core.php:281
 msgid "Post types protection"
-msgstr ""
+msgstr "Protección de tipos de contenido"
 
 #: admin-core.php:282 admin-core.php:529
 msgid "Rated 4.9 by hundreds"
-msgstr ""
+msgstr "Calificado con 4.9 por cientos de usuarios"
 
 #: admin-core.php:286
 msgid "Live Demo"
-msgstr ""
+msgstr "Demostración en vivo"
 
 #: admin-core.php:287
 msgid "View Details"
-msgstr ""
+msgstr "Ver detalles"
 
 #: admin-core.php:288 admin-core.php:527
 msgid "30-Day Money Back"
-msgstr ""
+msgstr "Garantía de 30 días"
 
 #: admin-core.php:298
 msgid "Settings sections"
-msgstr ""
+msgstr "Secciones de ajustes"
 
 #: admin-core.php:300
 msgid "Main Settings"
-msgstr ""
+msgstr "Ajustes principales"
 
 #: admin-core.php:303
 msgid "RightClick Protection"
-msgstr ""
+msgstr "Protección de clic derecho"
 
 #: admin-core.php:306
 msgid "Protection by CSS"
-msgstr ""
+msgstr "Protección por CSS"
 
 #: admin-core.php:309
 msgid "More with PRO"
-msgstr ""
+msgstr "Más con PRO"
 
 #: admin-core.php:318
 msgid "Copy Protection using JavaScript"
-msgstr ""
+msgstr "Protección de copia mediante JavaScript"
 
 #: admin-core.php:319
 msgid "Basic Layer"
-msgstr ""
+msgstr "Capa básica"
 
 #: admin-core.php:321
 msgid "This is the basic protection layer that uses <u>JavaScript</u> to protect the posts, home page content from being copied by any other web site author."
-msgstr ""
+msgstr "Esta es la capa de protección básica que utiliza <u>JavaScript</u> para proteger las entradas y la página de inicio contra copias."
 
 #: admin-core.php:325
 msgid "Posts protection by <u>JavaScript</u>"
-msgstr ""
+msgstr "Protección de entradas mediante <u>JavaScript</u>"
 
 #: admin-core.php:327
 msgid "For single posts content"
-msgstr ""
+msgstr "Para el contenido de entradas individuales"
 
 #: admin-core.php:331
 msgid "Homepage protection by <u>JavaScript</u>"
-msgstr ""
+msgstr "Protección de la página de inicio mediante <u>JavaScript</u>"
 
 #: admin-core.php:333
 msgid "Don't copy any thing! even from my homepage"
-msgstr ""
+msgstr "¡No copiar nada! Ni siquiera de mi página de inicio"
 
 #: admin-core.php:337
 msgid "Static page's protection"
-msgstr ""
+msgstr "Protección de páginas estáticas"
 
 #: admin-core.php:339
 msgid "Use Premium Settings tab to customize more options"
-msgstr ""
+msgstr "Usa la pestaña de Ajustes Premium para personalizar más opciones"
 
 #: admin-core.php:343
 msgid "Plugin icon on top admin bar"
-msgstr ""
+msgstr "Icono del plugin en la barra de administración superior"
 
 #: admin-core.php:348
 msgid "Visible"
-msgstr ""
+msgstr "Visible"
 
 #: admin-core.php:349
 msgid "Hidden"
-msgstr ""
+msgstr "Oculto"
 
 #: admin-core.php:355
 msgid "Show/Hide the plugin icon on the top admin bar"
-msgstr ""
+msgstr "Mostrar/Ocultar el icono del plugin en la barra de administración"
 
 #: admin-core.php:359
 msgid "Exclude <u>Admin</u> from protection"
-msgstr ""
+msgstr "Excluir al <u>Administrador</u> de la protección"
 
 #: admin-core.php:361 admin-core.php:488
 msgid "Premium"
-msgstr ""
+msgstr "Premium"
 
 #: admin-core.php:363
 msgid "If <u>Yes</u>, The protection functions will be inactive for the admin when he is logged in"
-msgstr ""
+msgstr "Si marcas <u>Sí</u>, las funciones de protección estarán inactivas para el administrador cuando haya iniciado sesión"
 
 #: admin-core.php:367
 msgid "Selection disabled message"
-msgstr ""
+msgstr "Mensaje de selección desactivada"
 
 #: admin-core.php:368 admin-core.php:373
 msgid "Enter something"
-msgstr ""
+msgstr "Introduce un texto"
 
 #: admin-core.php:372
 msgid "Print preview message"
-msgstr ""
+msgstr "Mensaje en vista previa de impresión"
 
 #: admin-core.php:379
 msgid "Works with every theme"
-msgstr ""
+msgstr "Funciona con cualquier tema"
 
 #: admin-core.php:381
 msgid "Desktop & mobile"
-msgstr ""
+msgstr "Escritorio y móvil"
 
 #: admin-core.php:383
 msgid "Unlock more options"
-msgstr ""
+msgstr "Desbloquear más opciones"
 
 #: admin-core.php:393
 msgid "Copy Protection on RightClick"
-msgstr ""
+msgstr "Protección de copia al hacer clic derecho"
 
 #: admin-core.php:394
 msgid "Premium Layer 2"
-msgstr ""
+msgstr "Capa Premium 2"
 
 #: admin-core.php:396
 msgid "In this protection layer your visitors will be able to <u>right click</u> on a specific page elements only (such as Links as an example)"
-msgstr ""
+msgstr "En esta capa de protección tus visitantes solo podrán hacer <u>clic derecho</u> en elementos específicos de la página (como enlaces, por ejemplo)"
 
 #: admin-core.php:400 admin-core.php:409 admin-core.php:418 admin-core.php:427
 msgid "Disable <u>RightClick</u> on"
-msgstr ""
+msgstr "Desactivar <u>clic derecho</u> en"
 
 #: admin-core.php:403
 msgid "Posts"
-msgstr ""
+msgstr "Entradas"
 
-#: admin-core.php:405
 msgid "Kills the right-click context menu on single posts - no \"Save As\", no \"View Source\", no easy theft."
-msgstr ""
+msgstr "Desactiva el menú contextual en entradas individuales: sin \"Guardar como\", sin \"Ver código fuente\", sin robos fáciles."
 
 #: admin-core.php:412
 msgid "HomePage"
-msgstr ""
+msgstr "Página de inicio"
 
 #: admin-core.php:414
 msgid "Disables the right-click pop-up across your homepage so visitors can read, but can't harvest your content."
-msgstr ""
+msgstr "Desactiva el menú contextual en tu página de inicio para que los visitantes lean sin apropiarse del contenido."
 
 #: admin-core.php:421
 msgid "Static pages"
-msgstr ""
+msgstr "Páginas estáticas"
 
 #: admin-core.php:423
 msgid "Turns off the right-click menu on every static page - your About, Services and landing copy stay yours."
-msgstr ""
+msgstr "Desactiva el menú de clic derecho en todas las páginas estáticas: tu página de contacto, servicios y contenido permanecen seguros."
 
 #: admin-core.php:429
 msgid "Any post type"
-msgstr ""
+msgstr "Cualquier tipo de contenido"
 
 #: admin-core.php:431
 msgid "<b>PRO</b> unlocks the same right-click lock on <u>any</u> post type you pick - WooCommerce products, listings, portfolios, courses, downloads. Sell on a marketplace? Your product photos and descriptions stop being one right-click away from a competitor."
-msgstr ""
+msgstr "<b>PRO</b> desbloquea el bloqueo de clic derecho en <u>cualquier</u> tipo de contenido: productos WooCommerce, listados, portafolios, cursos, descargas. ¿Vendes en línea? Tus fotos y descripciones estarán a salvo de la competencia."
 
 #: admin-core.php:439
 msgid "Remaining premium options preview"
-msgstr ""
+msgstr "Vista previa de opciones premium restantes"
 
 #: admin-core.php:440
 msgid "PRO"
-msgstr ""
+msgstr "PRO"
 
 #: admin-core.php:442
 msgid "PRO gives you a rule per element - images, links, text boxes, plain text - each with its own alert message."
-msgstr ""
+msgstr "PRO te ofrece reglas por elemento: imágenes, enlaces, cuadros de texto, texto sin formato, cada uno con su propio mensaje de alerta."
 
 #: admin-core.php:446
 msgid "Right click protection options in the PRO version"
-msgstr ""
+msgstr "Opciones de protección de clic derecho en la versión PRO"
 
 #: admin-core.php:452
 msgid "Preview & Pricing"
-msgstr ""
+msgstr "Vista previa y precios"
 
 #: admin-core.php:454
 msgid "Get the PRO version"
-msgstr ""
+msgstr "Obtener la versión PRO"
 
 #: admin-core.php:464
 msgid "Protection by CSS Techniques"
-msgstr ""
+msgstr "Protección mediante técnicas CSS"
 
 #: admin-core.php:465
 msgid "Premium Layer 3"
-msgstr ""
+msgstr "Capa Premium 3"
 
 #: admin-core.php:467
 msgid "In this protection layer your website will be protected by some <u>CSS</u> tricks that will word even if <u>JavaScript</u> is disabled from the browser settings"
-msgstr ""
+msgstr "En esta capa de protección tu sitio web estará protegido mediante técnicas <u>CSS</u> que funcionarán incluso si <u>JavaScript</u> está desactivado en el navegador"
 
 #: admin-core.php:471
 msgid "<b>Home Page</b> Protection by CSS"
-msgstr ""
+msgstr "Protección de <b>Página de inicio</b> por CSS"
 
 #: admin-core.php:473
 msgid "Protect your Homepage by CSS tricks"
-msgstr ""
+msgstr "Protege tu página de inicio con técnicas CSS"
 
 #: admin-core.php:477
 msgid "<b>Posts</b> Protection by CSS"
-msgstr ""
+msgstr "Protección de <b>Entradas</b> por CSS"
 
 #: admin-core.php:480
 msgid "Protect your single posts by CSS tricks"
-msgstr ""
+msgstr "Protege tus entradas individuales con técnicas CSS"
 
 #: admin-core.php:481
 msgid "PRO option, unlocked for free"
-msgstr ""
+msgstr "Opción PRO, desbloqueada gratis"
 
 #: admin-core.php:486
 msgid "<b>Pages</b> Protection by CSS"
-msgstr ""
+msgstr "Protección de <b>Páginas</b> por CSS"
 
 #: admin-core.php:490
 msgid "Protect your static pages by CSS tricks"
-msgstr ""
+msgstr "Protege tus páginas estáticas con técnicas CSS"
 
 #: admin-core.php:496
 msgid "Keeps working with JavaScript disabled"
-msgstr ""
+msgstr "Sigue funcionando con JavaScript desactivado"
 
 #: admin-core.php:498
 msgid "Unlock pages protection"
-msgstr ""
+msgstr "Desbloquear protección de páginas"
 
 #: admin-core.php:508
 msgid "See what the PRO version adds"
-msgstr ""
+msgstr "Descubre lo que añade la versión PRO"
 
 #: admin-core.php:509
 msgid "Limited-time discount"
-msgstr ""
+msgstr "Descuento por tiempo limitado"
 
 #: admin-core.php:511
 msgid "Crazy discount offer is now running for a limited time!! You might love it"
-msgstr ""
+msgstr "¡Oferta de descuento increíble disponible por tiempo limitado! Te encantará"
 
 #: admin-core.php:515
 msgid "Smartphone protection in the PRO version"
-msgstr ""
+msgstr "Protección para smartphones en la versión PRO"
 
 #: admin-core.php:518
 msgid "Image watermarking in the PRO version"
-msgstr ""
+msgstr "Marcas de agua en imágenes en la versión PRO"
 
 #: admin-core.php:521
 msgid "Watermarking examples from the PRO version"
-msgstr ""
+msgstr "Ejemplos de marcas de agua de la versión PRO"
 
 #: admin-core.php:531
 msgid "See it now"
-msgstr ""
+msgstr "Verlo ahora"
 
 #: admin-core.php:538
 msgid "Premium features"
-msgstr ""
+msgstr "Características premium"
 
 #: admin-core.php:539
 msgid "PRO only"
-msgstr ""
+msgstr "Solo en PRO"
 
 #: admin-core.php:540
 msgid "7 protection modules"
-msgstr ""
+msgstr "7 módulos de protección"
 
 #: admin-core.php:541
 msgid "Choose how the premium features are shown"
-msgstr ""
+msgstr "Elige cómo mostrar las características premium"
 
 #: admin-core.php:542
 msgid "Plans"
-msgstr ""
+msgstr "Planes"
 
 #: admin-core.php:543
 msgid "Detailed info"
-msgstr ""
+msgstr "Información detallada"
 
 #: admin-core.php:549
 msgid "Three ways to run the plugin. You are on the free plan - the paid plans keep everything you already have and add the modules below on top of it."
-msgstr ""
+msgstr "Tres formas de utilizar el plugin. Estás en el plan gratuito; los planes de pago conservan todo lo que ya tienes y añaden los módulos siguientes."
 
 #: admin-core.php:555
 msgid "These are the full prices, with no discount applied."
-msgstr ""
+msgstr "Estos son los precios completos sin descuento aplicado."
 
 #: admin-core.php:556
 msgid "A discount of up to 50% is waiting for you on our website - check the running offer before you buy."
-msgstr ""
+msgstr "Un descuento de hasta el 50% te espera en nuestro sitio web; consulta la oferta antes de comprar."
 
 #: admin-core.php:566
 msgid "FREE"
-msgstr ""
+msgstr "GRATIS"
 
 #: admin-core.php:567
 msgid "Basic protection for your content"
-msgstr ""
+msgstr "Protección básica para tu contenido"
 
 #: admin-core.php:573
 msgid "/ forever"
-msgstr ""
+msgstr "/ para siempre"
 
 #: admin-core.php:575 admin-core.php:585
 msgid "Current plan"
-msgstr ""
+msgstr "Plan actual"
 
 #: admin-core.php:578
 msgid "Disable right-click"
-msgstr ""
+msgstr "Desactivar clic derecho"
 
 #: admin-core.php:579
 msgid "Prevent text selection"
-msgstr ""
+msgstr "Impedir selección de texto"
 
 #: admin-core.php:580
 msgid "Basic alert messages"
-msgstr ""
+msgstr "Mensajes de alerta básicos"
 
 #: admin-core.php:581
 msgid "CSS protection layer"
-msgstr ""
+msgstr "Capa de protección CSS"
 
 #: admin-core.php:582
 msgid "Works on your site content"
-msgstr ""
+msgstr "Funciona en el contenido de tu sitio"
 
 #: admin-core.php:592
 msgid "ESSENTIAL"
-msgstr ""
+msgstr "ESSENTIAL"
 
 #: admin-core.php:593
 msgid "Advanced control and flexibility"
-msgstr ""
+msgstr "Control avanzado y flexibilidad"
 
 #: admin-core.php:599 admin-core.php:630
 msgid "one-time"
-msgstr ""
+msgstr "pago único"
 
 #: admin-core.php:601 admin-core.php:632
 msgid "Lifetime license"
-msgstr ""
+msgstr "Licencia de por vida"
 
 #: admin-core.php:602 admin-core.php:633
 msgid "Support & updates $1 / month, paid as $9 per year."
-msgstr ""
+msgstr "Soporte y actualizaciones $1 / mes, facturado como $9 al año."
 
 #: admin-core.php:605
 msgid "Everything in FREE"
-msgstr ""
+msgstr "Todo lo incluido en GRATIS"
 
 #: admin-core.php:606
 msgid "Per-content protection rules"
-msgstr ""
+msgstr "Reglas de protección por tipo de contenido"
 
 #: admin-core.php:607
 msgid "Overlay protection & triggers"
-msgstr ""
+msgstr "Protección por capas superpuestas y activadores"
 
 #: admin-core.php:608
 msgid "Blocked shortcuts & print protection"
-msgstr ""
+msgstr "Atajos bloqueados y protección de impresión"
 
 #: admin-core.php:609
 msgid "Advanced exclusion options"
-msgstr ""
+msgstr "Opciones avanzadas de exclusión"
 
 #: admin-core.php:610
 msgid "Admin workflow tools"
-msgstr ""
+msgstr "Herramientas de flujo de trabajo para administradores"
 
 #: admin-core.php:611
 msgid "Priority email support"
-msgstr ""
+msgstr "Soporte prioritario por correo electrónico"
 
 #: admin-core.php:614
 msgid "Upgrade to ESSENTIAL"
-msgstr ""
+msgstr "Actualizar a ESSENTIAL"
 
 #: admin-core.php:618
 msgid "Most Popular"
-msgstr ""
+msgstr "Más popular"
 
 #: admin-core.php:623
 msgid "COMPLETE"
-msgstr ""
+msgstr "COMPLETE"
 
 #: admin-core.php:624
 msgid "Full protection. Maximum control."
-msgstr ""
+msgstr "Protección total. Máximo control."
 
 #: admin-core.php:636
 msgid "Everything in ESSENTIAL"
-msgstr ""
+msgstr "Todo lo incluido en ESSENTIAL"
 
 #: admin-core.php:637
 msgid "Full watermark protection"
-msgstr ""
+msgstr "Protección completa con marcas de agua"
 
 #: admin-core.php:638
 msgid "Watermark presets & custom rules"
-msgstr ""
+msgstr "Ajustes predefinidos de marcas de agua y reglas personalizadas"
 
 #: admin-core.php:639
 msgid "Logo, text and signature watermarking"
-msgstr ""
+msgstr "Marcas de agua de logotipo, texto y firma"
 
 #: admin-core.php:640
 msgid "Automatic watermark colors & image filters"
-msgstr ""
+msgstr "Colores automáticos de marca de agua y filtros de imagen"
 
 #: admin-core.php:641
 msgid "Hotlinked images watermarked too"
-msgstr ""
+msgstr "Marcas de agua también en imágenes enlazadas externamente"
 
 #: admin-core.php:642
 msgid "Advanced targeting & scheduling"
-msgstr ""
+msgstr "Segmentación avanzada y programación"
 
 #: admin-core.php:643
 msgid "Beta layers: DevTools & extension blocking"
-msgstr ""
+msgstr "Capas beta: bloqueo de DevTools y extensiones del navegador"
 
 #: admin-core.php:644
 msgid "Multisite support"
-msgstr ""
+msgstr "Compatibilidad con multisitio"
 
 #: admin-core.php:645
 msgid "Premium support & updates"
-msgstr ""
+msgstr "Soporte y actualizaciones premium"
 
 #: admin-core.php:648
 msgid "Upgrade to COMPLETE"
-msgstr ""
+msgstr "Actualizar a COMPLETE"
 
 #: admin-core.php:654
 msgid "30-Day Money Back Guarantee"
-msgstr ""
+msgstr "Garantía de reembolso de 30 días"
 
 #: admin-core.php:656
 msgid "Paid plans are lifetime licenses"
-msgstr ""
+msgstr "Los planes de pago son licencias de por vida"
 
 #: admin-core.php:658
 msgid "Rated 4.9/5 by 443 customers"
-msgstr ""
+msgstr "Calificado 4.9/5 por 443 clientes"
 
 #: admin-core.php:660
 msgid "Works with major themes and builders"
-msgstr ""
+msgstr "Compatible con los principales temas y constructores visuales"
 
 #: admin-core.php:666
 msgid "The PRO version keeps every free layer running and adds seven modules on top of them. Here is the full list, module by module."
-msgstr ""
+msgstr "La versión PRO mantiene activas todas las capas gratuitas y añade siete módulos adicionales. Aquí tienes la lista completa módulo por módulo."
 
 #: admin-core.php:672
 msgid "Everything in the free version"
-msgstr ""
+msgstr "Todo lo de la versión gratuita"
 
 #: admin-core.php:673
 msgid "JavaScript copy protection, right-click protection and CSS protection keep working exactly as they do now. PRO is built on top of them, nothing is taken away."
-msgstr ""
+msgstr "La protección de copia JavaScript, el bloqueo de clic derecho y la protección CSS siguen funcionando como hasta ahora. PRO se añade sobre ellos sin quitar nada."
 
 #: admin-core.php:675
 msgid "Included"
-msgstr ""
+msgstr "Incluido"
 
 #: admin-core.php:682
 msgid "Selection Protection"
-msgstr ""
+msgstr "Protección de selección"
 
 #: admin-core.php:683 admin-core.php:802
 msgid "8 features"
-msgstr ""
+msgstr "8 características"
 
 #: admin-core.php:686
 msgid "Apply text-selection protection to any public content type: homepage, archives, categories, tags, taxonomies, author pages, search results, posts, pages, attachments, 404 pages, login pages and WooCommerce pages."
-msgstr ""
+msgstr "Aplica protección de selección de texto a cualquier contenido público: inicio, archivos, categorías, etiquetas, taxonomías, autores, búsquedas, entradas, páginas, adjuntos, 404, páginas de inicio de sesión y WooCommerce."
 
 #: admin-core.php:687
 msgid "Block Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Print Screen, F12 / DevTools and drag and drop."
-msgstr ""
+msgstr "Bloquea Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Impr Pant, F12 / Herramientas de desarrollador y arrastrar y soltar."
 
 #: admin-core.php:688
 msgid "Write your own message for blocked selection, blocked shortcuts, special keys and printing."
-msgstr ""
+msgstr "Escribe tus propios mensajes para selección bloqueada, atajos bloqueados, teclas especiales e impresión."
 
 #: admin-core.php:689
 msgid "Custom print-protection output styling with a configurable print-disabled message."
-msgstr ""
+msgstr "Estilo personalizado de protección de impresión con mensaje configurable de impresión desactivada."
 
 #: admin-core.php:690
 msgid "Allow selection inside code blocks so visitors can still use your code snippets."
-msgstr ""
+msgstr "Permite la selección dentro de bloques de código para que los visitantes puedan usar tus fragmentos."
 
 #: admin-core.php:691
 msgid "Add a one-click copy button to code blocks without opening selection for the whole page."
-msgstr ""
+msgstr "Añade un botón de copia en un clic a los bloques de código sin habilitar la selección en toda la página."
 
 #: admin-core.php:692
 msgid "Style the alert box with ready-made color palettes or manual colors, border width, glow, shadow strength, font size, display time and alert width and height."
-msgstr ""
+msgstr "Personaliza el cuadro de alerta con paletas listas o colores manuales, borde, brillo, sombra, tamaño de fuente, duración y dimensiones."
 
 #: admin-core.php:693
 msgid "Preview the alert message straight from the settings page before you save."
-msgstr ""
+msgstr "Previsualiza el mensaje de alerta directamente desde la página de ajustes antes de guardar."
 
 #: admin-core.php:701
 msgid "Right Click Protection"
-msgstr ""
+msgstr "Protección de clic derecho"
 
 #: admin-core.php:702 admin-core.php:717
 msgid "4 features"
-msgstr ""
+msgstr "4 características"
 
 #: admin-core.php:705
 msgid "Apply right-click protection to the content types you pick, using the same dynamic content-type picker."
-msgstr ""
+msgstr "Aplica protección de clic derecho a los tipos de contenido que elijas mediante el selector dinámico."
 
 #: admin-core.php:706
 msgid "Block the context menu on images, links, text content, headings, text areas, text fields, empty spaces, videos, code blocks, canvas elements and audio players."
-msgstr ""
+msgstr "Bloquea el menú contextual en imágenes, enlaces, texto, encabezados, áreas de texto, campos de entrada, espacios vacíos, vídeos, código, canvas y reproductores de audio."
 
 #: admin-core.php:707
 msgid "Write a separate alert message for every protected HTML element type."
-msgstr ""
+msgstr "Escribe un mensaje de alerta independiente para cada tipo de elemento HTML protegido."
 
 #: admin-core.php:708
 msgid "Read an active-count indicator for the protected right-click targets inside the control panel."
-msgstr ""
+msgstr "Consulta un indicador de objetivos protegidos contra clic derecho en el panel de control."
 
 #: admin-core.php:716
 msgid "Overlay Protection"
-msgstr ""
+msgstr "Protección por capas superpuestas"
 
 #: admin-core.php:720
 msgid "Put transparent overlays over your images on the public content types you choose."
-msgstr ""
+msgstr "Coloca capas superpuestas transparentes sobre tus imágenes en los contenidos que elijas."
 
 #: admin-core.php:721
 msgid "Remove image attachment links automatically when they are not needed."
-msgstr ""
+msgstr "Elimina enlaces a archivos adjuntos de imagen automáticamente cuando no sean necesarios."
 
 #: admin-core.php:722
 msgid "Decide what happens when JavaScript is disabled, including hiding the protected content behind your own message."
-msgstr ""
+msgstr "Decide qué sucede cuando JavaScript está desactivado, incluyendo ocultar el contenido protegido tras tu propio mensaje."
 
 #: admin-core.php:723
 msgid "Overlays follow the real rendered image size and position, so responsive and absolutely positioned images stay aligned after a resize."
-msgstr ""
+msgstr "Las capas superpuestas siguen el tamaño y la posición reales de la imagen, manteniéndose alineadas tras cambios de tamaño."
 
 #: admin-core.php:731
 msgid "Watermark Protection"
-msgstr ""
+msgstr "Protección con marca de agua"
 
 #: admin-core.php:732
 msgid "16 features"
-msgstr ""
+msgstr "16 características"
 
 #: admin-core.php:735
 msgid "Watermark hotlinked images, images loaded on your own site, or both, through rewrite rules."
-msgstr ""
+msgstr "Añade marcas de agua a imágenes enlazadas externamente, cargadas en tu sitio o ambas mediante reglas de reescritura."
 
 #: admin-core.php:736
 msgid "Force watermarking on non-Apache servers when the rewrite rules cannot be applied automatically."
-msgstr ""
+msgstr "Fuerza las marcas de agua en servidores no Apache cuando las reglas de reescritura no se aplican automáticamente."
 
 #: admin-core.php:737
 msgid "Turn the watermark image cache on, or clear it, right from the settings page."
-msgstr ""
+msgstr "Activa o limpia la caché de imágenes con marca de agua directamente desde la página de ajustes."
 
 #: admin-core.php:738
 msgid "Stamp a logo watermark with a percentage-based size and ready-made position presets."
-msgstr ""
+msgstr "Inserta una marca de agua con logotipo con tamaño porcentual y posiciones predefinidas."
 
 #: admin-core.php:739
 msgid "Add central text, repeated text and signature text over your images."
-msgstr ""
+msgstr "Añade texto central, texto repetido y texto de firma sobre tus imágenes."
 
 #: admin-core.php:740
 msgid "Pick a separate font for the central text, the repeated text and the signature, including bundled Latin and Arabic-capable fonts."
-msgstr ""
+msgstr "Elige una fuente distinta para el texto central, el texto repetido y la firma, incluidas fuentes compatibles con caracteres latinos y árabes."
 
 #: admin-core.php:741
 msgid "Use manual text colors, or automatic color mode that adapts to the brightness of every image."
-msgstr ""
+msgstr "Utiliza colores de texto manuales o el modo automático que se adapta al brillo de cada imagen."
 
 #: admin-core.php:742
 msgid "Control font size, transparency, rotation, repeated-text spacing, signature Y position and signature alignment."
-msgstr ""
+msgstr "Controla el tamaño de fuente, transparencia, rotación, espaciado de repeticiones y posición de firma."
 
 #: admin-core.php:743
 msgid "Add a signature background band with separate main and top colors and independent transparency values."
-msgstr ""
+msgstr "Añade una banda de fondo para la firma con colores principales y superiores independientes."
 
 #: admin-core.php:744
 msgid "Apply image filters to watermarked images: Blur, Grayscale, Negate, Brightness or None."
-msgstr ""
+msgstr "Aplica filtros a imágenes con marca de agua: desenfoque, escala de grises, negativo, brillo o ninguno."
 
 #: admin-core.php:745
 msgid "Test your settings with the live preview on light, medium and dark sample images before saving."
-msgstr ""
+msgstr "Prueba tus ajustes con la vista previa en imágenes de muestra claras, intermedias y oscuras antes de guardar."
 
 #: admin-core.php:746
 msgid "Save and load watermark presets, stored in a dedicated JSON file with a fallback through the settings form."
-msgstr ""
+msgstr "Guarda y carga ajustes de marca de agua almacenados en un archivo JSON dedicado."
 
 #: admin-core.php:747
 msgid "Watermark indexed and palette PNG images and single-frame GIF images reliably."
-msgstr ""
+msgstr "Aplica marcas de agua a imágenes PNG indexadas y GIFs de un solo fotograma con fiabilidad."
 
 #: admin-core.php:748
 msgid "Keep banner-like extreme image sizes out of watermarking with your own ratio and size limits."
-msgstr ""
+msgstr "Excluye imágenes con formatos extremos tipo banner estableciendo límites personalizados de proporción y tamaño."
 
 #: admin-core.php:749
 msgid "Use the Watermark Testing page to test every common image format, inspect server data and read the generated .htaccess content."
-msgstr ""
+msgstr "Utiliza la página de prueba para verificar formatos comunes, inspeccionar datos del servidor y revisar el .htaccess generado."
 
 #: admin-core.php:750
 msgid "Watermarking is 78% faster, with safe atomic .htaccess writes that never clear the file mid-way."
-msgstr ""
+msgstr "La creación de marcas de agua es un 78% más rápida con escrituras atómicas seguras en .htaccess."
 
 #: admin-core.php:758
 msgid "Exclusions and Targeting"
-msgstr ""
+msgstr "Exclusiones y segmentación"
 
 #: admin-core.php:759
 msgid "10 features"
-msgstr ""
+msgstr "10 características"
 
 #: admin-core.php:762
 msgid "Exclude the user roles you choose from protection."
-msgstr ""
+msgstr "Excluye los roles de usuario que elijas de la protección."
 
 #: admin-core.php:763
 msgid "Exclude selected post types and categories."
-msgstr ""
+msgstr "Excluye tipos de contenido y categorías seleccionados."
 
 #: admin-core.php:764
 msgid "Exclude registered WordPress image sizes from watermarking."
-msgstr ""
+msgstr "Excluye tamaños de imagen registrados en WordPress de las marcas de agua."
 
 #: admin-core.php:765
 msgid "Exclude single URLs, one per line, including wildcard URLs that end with a slash and a star."
-msgstr ""
+msgstr "Excluye URLs individuales por línea, incluyendo comodines que terminan en barra y asterisco."
 
 #: admin-core.php:766
 msgid "Search your pages and posts from the URL picker and append their permalinks to the URL exclude list."
-msgstr ""
+msgstr "Busca páginas y entradas desde el selector de URL y añade sus enlaces a la lista de exclusión."
 
 #: admin-core.php:767
 msgid "Exclude online services, domains or user agents that must never be blocked."
-msgstr ""
+msgstr "Excluye servicios web, dominios o agentes de usuario que nunca deben bloquearse."
 
 #: admin-core.php:768
 msgid "Exclude images from watermarking by file name or by a fragment of the file name."
-msgstr ""
+msgstr "Excluye imágenes de marcas de agua por nombre de archivo o fragmento."
 
 #: admin-core.php:769
 msgid "Exclude CSS classes from selection protection."
-msgstr ""
+msgstr "Excluye clases CSS de la protección de selección."
 
 #: admin-core.php:770
 msgid "Turn on Opposite Mode with the URL Included List so protection runs only on the URLs you list."
-msgstr ""
+msgstr "Activa el modo inverso con la lista de URLs incluidas para aplicar protección únicamente en las URLs indicadas."
 
 #: admin-core.php:771
 msgid "Scan Site Images: scan the homepage and blog HTML, review the detected images in a popup grid and click any image to add its file name to the manual exclusion list, without duplicates."
-msgstr ""
+msgstr "Escanear imágenes del sitio: analiza el HTML de inicio y blog, revisa las imágenes detectadas y haz clic para añadirlas a la lista de exclusión sin duplicados."
 
 #: admin-core.php:779
 msgid "Admin Tools and Workflow"
-msgstr ""
+msgstr "Herramientas de administración y flujo de trabajo"
 
 #: admin-core.php:780
 msgid "11 features"
-msgstr ""
+msgstr "11 características"
 
 #: admin-core.php:783
 msgid "Light-mode settings interface with tabs for Selection, Right Click, Overlay, Watermark, Exclusion, Custom Settings, Beta and Contact."
-msgstr ""
+msgstr "Interfaz en modo claro con pestañas para selección, clic derecho, capas superpuestas, marcas de agua, exclusiones, ajustes personalizados, beta y contacto."
 
 #: admin-core.php:784
 msgid "The last open tab is reopened for you after a save or after navigation."
-msgstr ""
+msgstr "La última pestaña abierta se restaura automáticamente tras guardar o navegar."
 
 #: admin-core.php:785
 msgid "The tabbar stays on a single row on narrow admin screens by collapsing trailing tabs into icon-only buttons."
-msgstr ""
+msgstr "La barra de pestañas se mantiene en una sola fila en pantallas estrechas colapsando las pestañas en iconos."
 
 #: admin-core.php:786
 msgid "Searchable chip pickers for content types, roles, categories and image sizes, with selected rows kept in view."
-msgstr ""
+msgstr "Selectores con búsqueda para tipos de contenido, roles, categorías y tamaños de imagen."
 
 #: admin-core.php:787
 msgid "Restore the default settings from the control panel with one click."
-msgstr ""
+msgstr "Restaura los ajustes predeterminados desde el panel con un solo clic."
 
 #: admin-core.php:788
 msgid "Show or hide the plugin icon in the top admin bar and read the live protection status from its menu, including the blocked shortcut keys."
-msgstr ""
+msgstr "Muestra u oculta el icono en la barra superior y consulta el estado de protección en vivo con los atajos bloqueados."
 
 #: admin-core.php:789
 msgid "Turn on Developer Mode for debugging."
-msgstr ""
+msgstr "Activa el modo de desarrollador para depuración."
 
 #: admin-core.php:790
 msgid "Remove conflicting CSS or JS files from the control panel by listing file fragments in the Beta tab."
-msgstr ""
+msgstr "Elimina archivos CSS o JS en conflicto indicando fragmentos en la pestaña Beta."
 
 #: admin-core.php:791
 msgid "Beta protections that interrupt open DevTools panels and common copy and paste browser extensions."
-msgstr ""
+msgstr "Protecciones beta que interrumpen paneles de DevTools abiertos y extensiones comunes de copiar y pegar."
 
 #: admin-core.php:792
 msgid "Keep your own custom CSS in the Custom Settings tab."
-msgstr ""
+msgstr "Conserva tu CSS personalizado en la pestaña de ajustes personalizados."
 
 #: admin-core.php:793
 msgid "Contact tab with built-in FAQ, documentation, tutorials and priority support links."
-msgstr ""
+msgstr "Pestaña de contacto con preguntas frecuentes integradas, documentación, tutoriales y enlaces a soporte prioritario."
 
 #: admin-core.php:801
 msgid "Compatibility and Platform"
-msgstr ""
+msgstr "Compatibilidad y plataforma"
 
 #: admin-core.php:805
 msgid "Works on smartphones and tablets, including iPhone and iPad."
-msgstr ""
+msgstr "Funciona en smartphones y tablets, incluidos iPhone e iPad."
 
 #: admin-core.php:806
 msgid "Compatible with Elementor, SiteOrigin, Beaver Builder, the WordPress preview mode and wpDiscuz."
-msgstr ""
+msgstr "Compatible con Elementor, SiteOrigin, Beaver Builder, el modo de vista previa de WordPress y wpDiscuz."
 
 #: admin-core.php:807
 msgid "Compatible with all major theme frameworks and all major browsers."
-msgstr ""
+msgstr "Compatible con los principales frameworks de temas y navegadores."
 
 #: admin-core.php:808
 msgid "Multisite installations are supported."
-msgstr ""
+msgstr "Instalaciones multisitio compatibles."
 
 #: admin-core.php:809
 msgid "Compatible with PHP 8.2 and 8.3, ZeptoJS and the jQuery slim builds."
-msgstr ""
+msgstr "Compatible con PHP 8.2 y 8.3, ZeptoJS y versiones ligeras de jQuery."
 
 #: admin-core.php:810
 msgid "Set a different protection level per page or per post, straight from the admin bar."
-msgstr ""
+msgstr "Define un nivel de protección diferente por página o entrada directamente desde la barra de administración."
 
 #: admin-core.php:811
 msgid "Extra .htaccess rules block image-grabbing browser extensions and PHP files inside wp-content, except watermark.php."
-msgstr ""
+msgstr "Reglas adicionales en .htaccess bloquean extensiones de captura de imágenes y archivos PHP en wp-content, excepto watermark.php."
 
 #: admin-core.php:812
 msgid "Translation ready, with Arabic, Russian and RTL support for watermark text."
-msgstr ""
+msgstr "Listo para traducción, con compatibilidad para árabe, ruso y texto RTL en marcas de agua."
 
 #. translators: %s: link to the mailing list sign-up page.
 #: admin-core.php:822
 msgid "%s to our mailing list to get flash discounts"
-msgstr ""
+msgstr "%s a nuestra lista de correo para recibir descuentos exclusivos"
 
 #: admin-core.php:823
 msgid "Subscribe"
-msgstr ""
+msgstr "Suscríbete"
 
 #: admin-core.php:827
 msgid "See the premium plans"
-msgstr ""
+msgstr "Ver los planes premium"
 
 #: admin-core.php:834
 msgid "Use CTRL+F5 on the front end after saving to clear the cached scripts."
-msgstr ""
+msgstr "Usa CTRL+F5 en la parte pública después de guardar para recargar los scripts en caché."
 
 #: admin-core.php:836
 msgid "Restore defaults"
-msgstr ""
+msgstr "Restaurar valores predeterminados"
 
 #: admin-core.php:837
 msgid "Preview alert message"
-msgstr ""
+msgstr "Previsualizar mensaje de alerta"
 
 #: admin-core.php:837
 msgid "This is a preview message (do not forget to save changes)"
-msgstr ""
+msgstr "Este es un mensaje de vista previa (no olvides guardar los cambios)"
 
 #: admin-core.php:838
 msgid "Save Settings"
-msgstr ""
+msgstr "Guardar ajustes"
 
 #: admin-core.php:853
 msgid "Restore the default settings?"
-msgstr ""
+msgstr "¿Restaurar los ajustes predeterminados?"
 
 #: admin-core.php:854
 msgid "Every option on this page goes back to its default value. Your current settings will be lost and this cannot be undone."
-msgstr ""
+msgstr "Todas las opciones de esta página volverán a su valor predeterminado. Tus ajustes actuales se perderán y esto no se puede deshacer."
 
 #: admin-core.php:856
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: admin-core.php:857
 msgid "Yes, restore defaults"
-msgstr ""
+msgstr "Sí, restaurar valores predeterminados"
 
 #: admin-core.php:869
 msgid "Need a hand?"
-msgstr ""
+msgstr "¿Necesitas ayuda?"
 
 #: admin-core.php:870
 msgid "We reply every working day."
-msgstr ""
+msgstr "Respondemos todos los días laborables."
 
 #: admin-core.php:872
 msgid "Get support"
-msgstr ""
+msgstr "Obtener soporte"
 
 #: admin-core.php:880
 msgid "How it works"
-msgstr ""
+msgstr "Cómo funciona"
 
 #: admin-core.php:881
 msgid "Read the docs before you switch a layer on."
-msgstr ""
+msgstr "Lee la documentación antes de activar una capa de protección."
 
 #: admin-core.php:883
 msgid "Help topics"
-msgstr ""
+msgstr "Temas de ayuda"
 
 #: admin-core.php:891
 msgid "Enjoying the plugin?"
-msgstr ""
+msgstr "¿Te gusta el plugin?"
 
 #: admin-core.php:892
 msgid "It takes a minute and helps a lot."
-msgstr ""
+msgstr "Solo te llevará un minuto y nos ayuda mucho."
 
 #: admin-core.php:894
 msgid "Leave a review"
-msgstr ""
+msgstr "Dejar una reseña"
 
 #: notifications.php:141
 msgid "Leave A Review?"
-msgstr ""
+msgstr "¿Quieres dejar una valoración?"
 
-#: notifications.php:142
 msgid "We hope you've enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple \"thank you\" will make us happy!"
-msgstr ""
+msgstr "Esperamos que estés disfrutando de WP Content Copy Protection :) ¿Te importaría dedicar unos minutos a escribir una reseña en WordPress.org?<br>¡Un simple \"gracias\" nos alegrará el día!"
 
 #: notifications.php:144
 msgid "Sure! I'd love to!"
-msgstr ""
+msgstr "¡Claro, me encantaría!"
 
 #: notifications.php:145
 msgid "I've already left a review"
-msgstr ""
+msgstr "Ya he dejado una reseña"
 
 #: notifications.php:146
 msgid "Will Rate Later"
-msgstr ""
+msgstr "Valorar más tarde"
 
 #: notifications.php:147
 msgid "Hide Forever"
-msgstr ""
+msgstr "Ocultar para siempre"
 
 #: deactivation-survey.php:215 admin-core.php:849
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: deactivation-survey.php:220
 msgid "Before you go, may we ask why?"
-msgstr ""
+msgstr "Antes de irte, ¿podemos preguntarte por qué?"
 
 #: deactivation-survey.php:224
 msgid "We are sorry to see you deactivate WP Content Copy Protection. Telling us what went wrong takes less than a minute, and it is the fastest way for us to fix it, for you and for everyone else."
-msgstr ""
+msgstr "Lamentamos que desactives WP Content Copy Protection. Contarnos qué ha fallado lleva menos de un minuto y es la forma más rápida de mejorarlo para ti y para todos."
 
 #: deactivation-survey.php:226
 msgid "A thank you from us:"
-msgstr ""
+msgstr "Un agradecimiento de nuestra parte:"
 
 #. translators: %s: the highlighted "FREE one month subscription to our PRO version" reward.
 #: deactivation-survey.php:230
 msgid "completing this survey accurately qualifies you to receive a %s, on the house!"
-msgstr ""
+msgstr "Completar esta encuesta te califica para recibir una %s ¡por cortesía de la casa!"
 
 #: deactivation-survey.php:231
 msgid "FREE one month subscription to our PRO version"
-msgstr ""
+msgstr "suscripción GRATUITA de un mes a nuestra versión PRO"
 
 #: deactivation-survey.php:239
 msgid "Take the survey &amp; claim my free month"
-msgstr ""
+msgstr "Completar encuesta y reclamar mi mes gratis"
 
 #: deactivation-survey.php:242
 msgid "Skip &amp; deactivate"
-msgstr ""
+msgstr "Omitir y desactivar"
 

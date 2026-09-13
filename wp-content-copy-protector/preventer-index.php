@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: https://wordpress.org/plugins/wp-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 3.7.5
+Version: 4.1
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -16,29 +16,26 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
 //define all variables the needed alot
 define('WCCP_FREE_PLUGIN_FILE', __FILE__);
-define('WCCP_FREE_VERSION', '3.7.5'); // keep in sync with the plugin header above
+define('WCCP_FREE_VERSION', '4.1'); // keep in sync with the plugin header above
 include 'the_globals.php';
 include_once('notifications.php');
 include_once('deactivation-survey.php');
 $wccp_settings = wccp_read_options();
 
 /**
- * Load the plugin translations from the bundled /languages folder.
- *
- * Without this, WordPress only looks in wp-content/languages/plugins/ and the
- * .mo files shipped with the plugin are never used.
+ * Load plugin textdomain for translations.
  */
-function wccp_free_load_textdomain()
+function wccp_load_textdomain()
 {
 	load_plugin_textdomain(
 		'wp-content-copy-protector',
 		false,
-		dirname(plugin_basename(WCCP_FREE_PLUGIN_FILE)) . '/languages'
+		dirname(plugin_basename(__FILE__)) . '/languages'
 	);
 }
-add_action('init', 'wccp_free_load_textdomain');
+add_action('init', 'wccp_load_textdomain');
 
-//---------------------------------------------------------<!-- SimpleTabs -->
+//---------------------------------------------------------<!-- Admin panel skin -->
 function wccp_enqueue_scripts($hook)
 {
 
@@ -49,26 +46,23 @@ function wccp_enqueue_scripts($hook)
 	if (!current_user_can('editor') && !current_user_can('administrator')) {
 		return;
 	}
-	// Register and enqueue scripts
-	wp_enqueue_script('jquery');
 
-	wp_register_script(
-		'simpletabsjs',
-		plugins_url('js/simpletabs_1.3.js', __FILE__),
-		array('jquery'),
-		'1.3',
+	// The panel skin ported from the wp-buy.com shop design.
+	wp_enqueue_style(
+		'wccp-admin',
+		plugins_url('css/wpb-admin.css', __FILE__),
+		array(),
+		WCCP_FREE_VERSION
+	);
+
+	// Panel switcher — replaces the SimpleTabs jQuery plugin, no dependencies.
+	wp_enqueue_script(
+		'wccp-admin',
+		plugins_url('js/wpb-admin.js', __FILE__),
+		array(),
+		WCCP_FREE_VERSION,
 		true
 	);
-	wp_enqueue_script('simpletabsjs');
-
-	// Register and enqueue styles
-	wp_register_style(
-		'simpletabscss',
-		plugins_url('css/simpletabs.css', __FILE__),
-		array(),
-		'1.0'
-	);
-	wp_enqueue_style('simpletabscss');
 }
 add_action('admin_enqueue_scripts', 'wccp_enqueue_scripts');
 
@@ -99,8 +93,8 @@ function wccp_free_disable_selection()
 	global $wccp_settings;
 ?>
 	<script id="wpcp_disable_selection" type="text/javascript">
-		var image_save_msg = 'You are not allowed to save images!';
-		var no_menu_msg = 'Context Menu disabled!';
+		var image_save_msg = '<?php echo esc_js(__('You are not allowed to save images!', 'wp-content-copy-protector')); ?>';
+		var no_menu_msg = '<?php echo esc_js(__('Context Menu disabled!', 'wp-content-copy-protector')); ?>';
 		var smessage = "<?php echo esc_js($wccp_settings['smessage']); ?>";
 
 		function disableEnterKey(e) {
@@ -121,7 +115,7 @@ function wccp_free_disable_selection()
 				//if (key != 17) alert(key);
 				if (elemtype != 'TEXT' && (key == 97 || key == 65 || key == 67 || key == 99 || key == 88 || key == 120 || key == 26 || key == 85 || key == 86 || key == 83 || key == 43 || key == 73)) {
 					if (wccp_free_iscontenteditable(e)) return true;
-					show_wpcp_message('You are not allowed to copy content or view source');
+					show_wpcp_message('<?php echo esc_js(__('You are not allowed to copy content or view source', 'wp-content-copy-protector')); ?>');
 					return false;
 				} else
 					return true;
@@ -318,13 +312,13 @@ function wccp_free_alert_message()
 {
 	global $wccp_settings;
 ?>
-	<div id="wpcp-error-message" class="msgmsg-box-wpcp hideme"><span>error: </span><?php echo esc_html(html_entity_decode($wccp_settings['smessage'], ENT_QUOTES, 'UTF-8')); ?></div>
+	<div id="wpcp-error-message" class="msgmsg-box-wpcp hideme"><span><?php esc_html_e('error:', 'wp-content-copy-protector'); ?> </span><?php echo esc_html(html_entity_decode($wccp_settings['smessage'], ENT_QUOTES, 'UTF-8')); ?></div>
 	<script>
 		var timeout_result;
 
 		function show_wpcp_message(smessage) {
 			if (smessage !== "") {
-				var smessage_text = '<span>Alert: </span>' + smessage;
+				var smessage_text = '<span><?php echo esc_js(__('Alert:', 'wp-content-copy-protector')); ?> </span>' + smessage;
 				document.getElementById("wpcp-error-message").innerHTML = smessage_text;
 				document.getElementById("wpcp-error-message").className = "msgmsg-box-wpcp warning-wpcp showme";
 				clearTimeout(timeout_result);
@@ -655,7 +649,7 @@ function wccp_plugin_add_settings_link($links)
 	$settings_link = '<a href="admin.php?page=wccpoptionspro">' . __('Settings', 'wp-content-copy-protector') . '</a>';
 	array_push($links, $settings_link);
 
-	$go_pro_link = '<a title="Upgrade to PRO verion Now" target="_blank" style="font-weight:bold;color: chocolate;" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">' . __('Go PRO', 'wp-content-copy-protector') . '</a>';
+	$go_pro_link = '<a title="' . esc_attr__('Upgrade to PRO version Now', 'wp-content-copy-protector') . '" target="_blank" style="font-weight:bold;color: chocolate;" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">' . __('Go PRO', 'wp-content-copy-protector') . '</a>';
 	array_push($links, $go_pro_link);
 
 	return $links;
@@ -681,7 +675,7 @@ function wccp_free_after_plugin_row($plugin_file, $plugin_data, $status)
 	$p_url      = 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/';
 
 	$messages = [
-		__('You are running the free version, See what you can get from the premium one ', 'wp-content-copy-protector'),
+		__('You are running WP Content Copy Protection & No Right Click (free). To get more features, you can ', 'wp-content-copy-protector'),
 	];
 
 	$random_message = $messages[array_rand($messages)];
@@ -693,7 +687,7 @@ function wccp_free_after_plugin_row($plugin_file, $plugin_data, $status)
 			<div id="wccp-update-message" style="background:#edf4f7;padding:10px;">
 				<?php echo esc_html($random_message); ?>
 				<a href="<?php echo esc_url($p_url); ?>" target="_blank">
-					<strong><?php echo esc_html__('Explore Premium', 'wp-content-copy-protector'); ?></strong>
+					<strong><?php echo esc_html__('Upgrade Now', 'wp-content-copy-protector'); ?></strong>
 				</a>,
 				<a id="wccp-hide-message" href="#">
 					<strong><?php echo esc_html__('Dismiss', 'wp-content-copy-protector'); ?></strong>
@@ -810,16 +804,17 @@ function wccp_options_page_pro()
 //Make our function to call the WordPress function to add to the correct menu.
 function wccp_add_options()
 {
+	//add_options_page(__('WP Content Copy Protection', 'wp-content-copy-protector'), __('WP Content Copy Protection', 'wp-content-copy-protector'), 'manage_options', 'wccpoptionspro', 'wccp_options_page_pro');
 	add_menu_page(
-		'WP Content Copy Protection',       // use null for parent slug to hide it from admin menu
-		'Copy Protection',    // page title
+		__('WP Content Copy Protection', 'wp-content-copy-protector'),       // use null for parent slug to hide it from admin menu
+		__('Copy Protection', 'wp-content-copy-protector'),    // page title
 		'manage_options',           // capability
 		'wccpoptionspro', // slug
 		'wccp_options_page_pro', // callback
 		'dashicons-lock',
 		6
 	);
-	add_submenu_page('wccpoptionspro', 'Settings', 'Settings', 'manage_options', 'wccpoptionspro', 'wccp_options_page_pro');
+	add_submenu_page('wccpoptionspro', __('Settings', 'wp-content-copy-protector'), __('Settings', 'wp-content-copy-protector'), 'manage_options', 'wccpoptionspro', 'wccp_options_page_pro');
 }
 //First use the add_action to add onto the WordPress menu.
 add_action('admin_menu', 'wccp_add_options');
@@ -839,6 +834,6 @@ function wccp_free_add_external_links_as_submenu()
 
 	$menu_slug = "wccpoptionspro"; // used as "key" in menus
 
-	$submenu[$menu_slug][] = array('<span style="color:#f18500">More Plugins</span>', 'manage_options', admin_url($network_dir_append . 'plugin-install.php?s=wp-buy&tab=search&type=author'));
+	$submenu[$menu_slug][] = array('<span style="color:#f18500">' . esc_html__('More Plugins', 'wp-content-copy-protector') . '</span>', 'manage_options', admin_url($network_dir_append . 'plugin-install.php?s=wp-buy&tab=search&type=author'));
 }
 ?>

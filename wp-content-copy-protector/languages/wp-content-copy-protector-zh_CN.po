@@ -4,1066 +4,1066 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Content Copy Protection & No Right Click 3.7.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-content-copy-protector\n"
-"POT-Creation-Date: 2026-09-02 12:13+0000\n"
+"POT-Creation-Date: 2026-09-02 12:00+0000\n"
+"PO-Revision-Date: 2026-09-02 14:25+0000\n"
+"Last-Translator: WP Localization Team\n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: WP Content Copy Protection i18n Builder\n"
 
 #: preventer-index.php:90
 msgid "You are not allowed to save images!"
-msgstr ""
+msgstr "您没有保存图片的权限！"
 
 #: preventer-index.php:91
 msgid "Context Menu disabled!"
-msgstr ""
+msgstr "右键菜单已被禁用！"
 
 #: preventer-index.php:115
 msgid "You are not allowed to copy content or view source"
-msgstr ""
+msgstr "您没有复制内容或查看源代码的权限"
 
 #: preventer-index.php:307
 msgid "error:"
-msgstr ""
+msgstr "错误："
 
 #: preventer-index.php:314
 msgid "Alert:"
-msgstr ""
+msgstr "提示："
 
 #: preventer-index.php:645 preventer-index.php:809 preventer-index.php:809
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: preventer-index.php:648
 msgid "Upgrade to PRO version Now"
-msgstr ""
+msgstr "立即升级到专业版 (PRO)"
 
 #: preventer-index.php:648
 msgid "Go PRO"
-msgstr ""
+msgstr "升级到专业版"
 
 #: preventer-index.php:673
 msgid "You are running WP Content Copy Protection & No Right Click (free). To get more features, you can "
-msgstr ""
+msgstr "您正在使用 WP Content Copy Protection & No Right Click（免费版）。如需获取更多高级功能，您可以 "
 
 #: preventer-index.php:685
 msgid "Upgrade Now"
-msgstr ""
+msgstr "立即升级"
 
 #: preventer-index.php:688 admin-core.php:229
 msgid "Dismiss"
-msgstr ""
+msgstr "忽略"
 
 #: preventer-index.php:781
 msgid "Protection"
-msgstr ""
+msgstr "保护"
 
 #: preventer-index.php:783
 msgid "Copy Protection & No right click"
-msgstr ""
+msgstr "防复制与禁用右键"
 
 #: preventer-index.php:801 admin-core.php:258
 msgid "WP Content Copy Protection"
-msgstr ""
+msgstr "WP Content Copy Protection"
 
 #: preventer-index.php:802
 msgid "Copy Protection"
-msgstr ""
+msgstr "内容防复制"
 
 #: preventer-index.php:828
 msgid "More Plugins"
-msgstr ""
+msgstr "更多插件"
 
 #: admin-core.php:16 admin-core.php:28
 msgid "You do not have permission to change these settings."
-msgstr ""
+msgstr "您没有修改这些设置的权限。"
 
 #: admin-core.php:214
 msgid "Enabled"
-msgstr ""
+msgstr "已启用"
 
 #: admin-core.php:215
 msgid "Disabled"
-msgstr ""
+msgstr "已禁用"
 
 #: admin-core.php:222
 msgid "WP Content Protection Plugin Group"
-msgstr ""
+msgstr "WP Content Protection 插件群组"
 
 #: admin-core.php:223
 msgid "Begin your adventure to improve your WordPress website, and win discount codes along the way."
-msgstr ""
+msgstr "开启提升您 WordPress 网站的旅程，并在此过程中赢取优惠券。"
 
 #: admin-core.php:226
 msgid "Email address"
-msgstr ""
+msgstr "电子邮箱地址"
 
 #: admin-core.php:228
 msgid "Start it!"
-msgstr ""
+msgstr "立即开启！"
 
 #: admin-core.php:256
 msgid "Content protection"
-msgstr ""
+msgstr "内容保护"
 
 #: admin-core.php:259
 msgid "& No Right Click"
-msgstr ""
+msgstr "& 禁用右键"
 
 #: admin-core.php:261
 msgid "Stop visitors from selecting, copying, printing or right-clicking your posts, pages and images. Switch a layer on below, save, and it is live on the front end."
-msgstr ""
+msgstr "防止访客选择、复制、打印或右键点击您的文章、页面和图片。在下方开启防护层并保存，前台将立即生效。"
 
 #: admin-core.php:264
 msgid "Free version active"
-msgstr ""
+msgstr "免费版已激活"
 
 #: admin-core.php:265
 msgid "3 protection layers"
-msgstr ""
+msgstr "3层保护"
 
 #: admin-core.php:275
 msgid "Featured"
-msgstr ""
+msgstr "推荐"
 
 #: admin-core.php:276
 msgid "WP Content Copy Protection & No Right Click (PRO)"
-msgstr ""
+msgstr "WP Content Copy Protection & No Right Click（专业版）"
 
 #: admin-core.php:277
 msgid "The ultimate defense for your hard work. Full right-click control, image watermarking, aggressive image protection and per-post protection levels - everything the free layers leave on the table."
-msgstr ""
+msgstr "为您辛勤创作的内容提供终极防护。全方位右键控制、图片水印、深度图片保护以及针对单篇文章的防护级别设置。"
 
 #: admin-core.php:279
 msgid "Full watermarking"
-msgstr ""
+msgstr "全功能水印"
 
 #: admin-core.php:280
 msgid "Aggressive protection"
-msgstr ""
+msgstr "深度强化保护"
 
 #: admin-core.php:281
 msgid "Post types protection"
-msgstr ""
+msgstr "自定义文章类型保护"
 
 #: admin-core.php:282 admin-core.php:529
 msgid "Rated 4.9 by hundreds"
-msgstr ""
+msgstr "数百名用户给予 4.9 星高分好评"
 
 #: admin-core.php:286
 msgid "Live Demo"
-msgstr ""
+msgstr "在线演示"
 
 #: admin-core.php:287
 msgid "View Details"
-msgstr ""
+msgstr "查看详情"
 
 #: admin-core.php:288 admin-core.php:527
 msgid "30-Day Money Back"
-msgstr ""
+msgstr "30 天无条件退款保证"
 
 #: admin-core.php:298
 msgid "Settings sections"
-msgstr ""
+msgstr "设置分区"
 
 #: admin-core.php:300
 msgid "Main Settings"
-msgstr ""
+msgstr "常规设置"
 
 #: admin-core.php:303
 msgid "RightClick Protection"
-msgstr ""
+msgstr "右键保护"
 
 #: admin-core.php:306
 msgid "Protection by CSS"
-msgstr ""
+msgstr "CSS 保护"
 
 #: admin-core.php:309
 msgid "More with PRO"
-msgstr ""
+msgstr "专业版更多功能"
 
 #: admin-core.php:318
 msgid "Copy Protection using JavaScript"
-msgstr ""
+msgstr "使用 JavaScript 进行防复制保护"
 
 #: admin-core.php:319
 msgid "Basic Layer"
-msgstr ""
+msgstr "基础防护层"
 
 #: admin-core.php:321
 msgid "This is the basic protection layer that uses <u>JavaScript</u> to protect the posts, home page content from being copied by any other web site author."
-msgstr ""
+msgstr "这是基础防护层，使用 <u>JavaScript</u> 防止文章及首页内容被其他网站作者非法复制。"
 
 #: admin-core.php:325
 msgid "Posts protection by <u>JavaScript</u>"
-msgstr ""
+msgstr "通过 <u>JavaScript</u> 保护文章"
 
 #: admin-core.php:327
 msgid "For single posts content"
-msgstr ""
+msgstr "适用于单篇文章内容"
 
 #: admin-core.php:331
 msgid "Homepage protection by <u>JavaScript</u>"
-msgstr ""
+msgstr "通过 <u>JavaScript</u> 保护首页"
 
 #: admin-core.php:333
 msgid "Don't copy any thing! even from my homepage"
-msgstr ""
+msgstr "禁止复制任何内容！包括我的首页"
 
 #: admin-core.php:337
 msgid "Static page's protection"
-msgstr ""
+msgstr "静态页面保护"
 
 #: admin-core.php:339
 msgid "Use Premium Settings tab to customize more options"
-msgstr ""
+msgstr "使用高级设置标签页自定义更多选项"
 
 #: admin-core.php:343
 msgid "Plugin icon on top admin bar"
-msgstr ""
+msgstr "在顶部管理栏显示插件图标"
 
 #: admin-core.php:348
 msgid "Visible"
-msgstr ""
+msgstr "显示"
 
 #: admin-core.php:349
 msgid "Hidden"
-msgstr ""
+msgstr "隐藏"
 
 #: admin-core.php:355
 msgid "Show/Hide the plugin icon on the top admin bar"
-msgstr ""
+msgstr "在顶部管理栏显示/隐藏插件图标"
 
 #: admin-core.php:359
 msgid "Exclude <u>Admin</u> from protection"
-msgstr ""
+msgstr "对<u>管理员</u>排除保护"
 
 #: admin-core.php:361 admin-core.php:488
 msgid "Premium"
-msgstr ""
+msgstr "专业功能"
 
 #: admin-core.php:363
 msgid "If <u>Yes</u>, The protection functions will be inactive for the admin when he is logged in"
-msgstr ""
+msgstr "若选择<u>是</u>，管理员登录状态下保护功能将自动失效"
 
 #: admin-core.php:367
 msgid "Selection disabled message"
-msgstr ""
+msgstr "禁用文本选择提示信息"
 
 #: admin-core.php:368 admin-core.php:373
 msgid "Enter something"
-msgstr ""
+msgstr "输入提示文字"
 
 #: admin-core.php:372
 msgid "Print preview message"
-msgstr ""
+msgstr "打印预览提示信息"
 
 #: admin-core.php:379
 msgid "Works with every theme"
-msgstr ""
+msgstr "兼容所有主题"
 
 #: admin-core.php:381
 msgid "Desktop & mobile"
-msgstr ""
+msgstr "支持桌面端与移动端"
 
 #: admin-core.php:383
 msgid "Unlock more options"
-msgstr ""
+msgstr "解锁更多选项"
 
 #: admin-core.php:393
 msgid "Copy Protection on RightClick"
-msgstr ""
+msgstr "右键防复制保护"
 
 #: admin-core.php:394
 msgid "Premium Layer 2"
-msgstr ""
+msgstr "专业防护层 2"
 
 #: admin-core.php:396
 msgid "In this protection layer your visitors will be able to <u>right click</u> on a specific page elements only (such as Links as an example)"
-msgstr ""
+msgstr "在此防护层中，访客仅可对指定页面元素（例如链接）执行<u>右键点击</u>"
 
 #: admin-core.php:400 admin-core.php:409 admin-core.php:418 admin-core.php:427
 msgid "Disable <u>RightClick</u> on"
-msgstr ""
+msgstr "禁用以下位置的<u>右键点击</u>"
 
 #: admin-core.php:403
 msgid "Posts"
-msgstr ""
+msgstr "文章"
 
-#: admin-core.php:405
 msgid "Kills the right-click context menu on single posts - no \"Save As\", no \"View Source\", no easy theft."
-msgstr ""
+msgstr "禁用单篇文章的右键菜单——禁止“图片另存为”、禁止“查看源代码”，杜绝盗用。"
 
 #: admin-core.php:412
 msgid "HomePage"
-msgstr ""
+msgstr "首页"
 
 #: admin-core.php:414
 msgid "Disables the right-click pop-up across your homepage so visitors can read, but can't harvest your content."
-msgstr ""
+msgstr "禁用首页右键菜单，使访客能够正常阅读，但无法批量抓取您的内容。"
 
 #: admin-core.php:421
 msgid "Static pages"
-msgstr ""
+msgstr "静态页面"
 
 #: admin-core.php:423
 msgid "Turns off the right-click menu on every static page - your About, Services and landing copy stay yours."
-msgstr ""
+msgstr "关闭所有静态页面的右键菜单——保护“关于我们”、“服务介绍”和着陆页文案。"
 
 #: admin-core.php:429
 msgid "Any post type"
-msgstr ""
+msgstr "任意文章类型"
 
 #: admin-core.php:431
 msgid "<b>PRO</b> unlocks the same right-click lock on <u>any</u> post type you pick - WooCommerce products, listings, portfolios, courses, downloads. Sell on a marketplace? Your product photos and descriptions stop being one right-click away from a competitor."
-msgstr ""
+msgstr "<b>专业版 (PRO)</b> 可在您选择的<u>任何</u>文章类型上启用右键锁定——WooCommerce 产品、房产列表、作品集、课程、下载资源等，全面保护您的商业资产。"
 
 #: admin-core.php:439
 msgid "Remaining premium options preview"
-msgstr ""
+msgstr "更多高级功能预览"
 
 #: admin-core.php:440
 msgid "PRO"
-msgstr ""
+msgstr "PRO"
 
 #: admin-core.php:442
 msgid "PRO gives you a rule per element - images, links, text boxes, plain text - each with its own alert message."
-msgstr ""
+msgstr "专业版允许为每个元素（图片、链接、文本框、纯文本）单独配置规则及专属提示信息。"
 
 #: admin-core.php:446
 msgid "Right click protection options in the PRO version"
-msgstr ""
+msgstr "专业版中的右键保护选项"
 
 #: admin-core.php:452
 msgid "Preview & Pricing"
-msgstr ""
+msgstr "预览与定价"
 
 #: admin-core.php:454
 msgid "Get the PRO version"
-msgstr ""
+msgstr "获取专业版"
 
 #: admin-core.php:464
 msgid "Protection by CSS Techniques"
-msgstr ""
+msgstr "基于 CSS 技术的保护"
 
 #: admin-core.php:465
 msgid "Premium Layer 3"
-msgstr ""
+msgstr "专业防护层 3"
 
 #: admin-core.php:467
 msgid "In this protection layer your website will be protected by some <u>CSS</u> tricks that will word even if <u>JavaScript</u> is disabled from the browser settings"
-msgstr ""
+msgstr "在此防护层中，网站将通过 <u>CSS</u> 机制进行防护，即使访客在浏览器中禁用了 <u>JavaScript</u> 也能正常生效"
 
 #: admin-core.php:471
 msgid "<b>Home Page</b> Protection by CSS"
-msgstr ""
+msgstr "基于 CSS 的<b>首页</b>保护"
 
 #: admin-core.php:473
 msgid "Protect your Homepage by CSS tricks"
-msgstr ""
+msgstr "通过 CSS 规则保护首页内容"
 
 #: admin-core.php:477
 msgid "<b>Posts</b> Protection by CSS"
-msgstr ""
+msgstr "基于 CSS 的<b>文章</b>保护"
 
 #: admin-core.php:480
 msgid "Protect your single posts by CSS tricks"
-msgstr ""
+msgstr "通过 CSS 规则保护单篇文章"
 
 #: admin-core.php:481
 msgid "PRO option, unlocked for free"
-msgstr ""
+msgstr "PRO 专业选项，已免费解锁"
 
 #: admin-core.php:486
 msgid "<b>Pages</b> Protection by CSS"
-msgstr ""
+msgstr "基于 CSS 的<b>页面</b>保护"
 
 #: admin-core.php:490
 msgid "Protect your static pages by CSS tricks"
-msgstr ""
+msgstr "通过 CSS 规则保护静态页面"
 
 #: admin-core.php:496
 msgid "Keeps working with JavaScript disabled"
-msgstr ""
+msgstr "在 JavaScript 禁用时依然有效"
 
 #: admin-core.php:498
 msgid "Unlock pages protection"
-msgstr ""
+msgstr "解锁页面保护"
 
 #: admin-core.php:508
 msgid "See what the PRO version adds"
-msgstr ""
+msgstr "查看专业版带来的全部增强功能"
 
 #: admin-core.php:509
 msgid "Limited-time discount"
-msgstr ""
+msgstr "限时优惠"
 
 #: admin-core.php:511
 msgid "Crazy discount offer is now running for a limited time!! You might love it"
-msgstr ""
+msgstr "限时超值特惠正在进行中！不容错过"
 
 #: admin-core.php:515
 msgid "Smartphone protection in the PRO version"
-msgstr ""
+msgstr "专业版中的智能手机端保护"
 
 #: admin-core.php:518
 msgid "Image watermarking in the PRO version"
-msgstr ""
+msgstr "专业版中的图片水印保护"
 
 #: admin-core.php:521
 msgid "Watermarking examples from the PRO version"
-msgstr ""
+msgstr "专业版水印效果展示"
 
 #: admin-core.php:531
 msgid "See it now"
-msgstr ""
+msgstr "立即了解"
 
 #: admin-core.php:538
 msgid "Premium features"
-msgstr ""
+msgstr "专业版专属功能"
 
 #: admin-core.php:539
 msgid "PRO only"
-msgstr ""
+msgstr "PRO 独占"
 
 #: admin-core.php:540
 msgid "7 protection modules"
-msgstr ""
+msgstr "7 个防护模块"
 
 #: admin-core.php:541
 msgid "Choose how the premium features are shown"
-msgstr ""
+msgstr "选择专业版功能的展示方式"
 
 #: admin-core.php:542
 msgid "Plans"
-msgstr ""
+msgstr "方案套餐"
 
 #: admin-core.php:543
 msgid "Detailed info"
-msgstr ""
+msgstr "详细说明"
 
 #: admin-core.php:549
 msgid "Three ways to run the plugin. You are on the free plan - the paid plans keep everything you already have and add the modules below on top of it."
-msgstr ""
+msgstr "本插件提供三种使用方案。您当前正在使用免费版——付费方案将保留全部现有功能，并在其基础上增加以下高级模块。"
 
 #: admin-core.php:555
 msgid "These are the full prices, with no discount applied."
-msgstr ""
+msgstr "以下为未应用折扣的官方原价。"
 
 #: admin-core.php:556
 msgid "A discount of up to 50% is waiting for you on our website - check the running offer before you buy."
-msgstr ""
+msgstr "官网正提供最高 50% 的限时折扣，建议在购买前查看最新优惠。"
 
 #: admin-core.php:566
 msgid "FREE"
-msgstr ""
+msgstr "免费版"
 
 #: admin-core.php:567
 msgid "Basic protection for your content"
-msgstr ""
+msgstr "基础内容安全防护"
 
 #: admin-core.php:573
 msgid "/ forever"
-msgstr ""
+msgstr "/ 永久免费"
 
 #: admin-core.php:575 admin-core.php:585
 msgid "Current plan"
-msgstr ""
+msgstr "当前方案"
 
 #: admin-core.php:578
 msgid "Disable right-click"
-msgstr ""
+msgstr "禁用右键菜单"
 
 #: admin-core.php:579
 msgid "Prevent text selection"
-msgstr ""
+msgstr "防止文本被选中"
 
 #: admin-core.php:580
 msgid "Basic alert messages"
-msgstr ""
+msgstr "基础提示弹窗"
 
 #: admin-core.php:581
 msgid "CSS protection layer"
-msgstr ""
+msgstr "CSS 防护层"
 
 #: admin-core.php:582
 msgid "Works on your site content"
-msgstr ""
+msgstr "适用于整站内容"
 
 #: admin-core.php:592
 msgid "ESSENTIAL"
-msgstr ""
+msgstr "基础专业版 (ESSENTIAL)"
 
 #: admin-core.php:593
 msgid "Advanced control and flexibility"
-msgstr ""
+msgstr "高级控制与高度灵活性"
 
 #: admin-core.php:599 admin-core.php:630
 msgid "one-time"
-msgstr ""
+msgstr "一次性付费"
 
 #: admin-core.php:601 admin-core.php:632
 msgid "Lifetime license"
-msgstr ""
+msgstr "终身授权"
 
 #: admin-core.php:602 admin-core.php:633
 msgid "Support & updates $1 / month, paid as $9 per year."
-msgstr ""
+msgstr "技术支持与版本更新每月 $1，按年支付仅需 $9。"
 
 #: admin-core.php:605
 msgid "Everything in FREE"
-msgstr ""
+msgstr "包含免费版全部功能"
 
 #: admin-core.php:606
 msgid "Per-content protection rules"
-msgstr ""
+msgstr "按内容类型自定义保护规则"
 
 #: admin-core.php:607
 msgid "Overlay protection & triggers"
-msgstr ""
+msgstr "透明遮罩保护与智能触发器"
 
 #: admin-core.php:608
 msgid "Blocked shortcuts & print protection"
-msgstr ""
+msgstr "快捷键拦截与防打印保护"
 
 #: admin-core.php:609
 msgid "Advanced exclusion options"
-msgstr ""
+msgstr "高级白名单与排除选项"
 
 #: admin-core.php:610
 msgid "Admin workflow tools"
-msgstr ""
+msgstr "管理员高效工作流工具"
 
 #: admin-core.php:611
 msgid "Priority email support"
-msgstr ""
+msgstr "优先邮件技术支持"
 
 #: admin-core.php:614
 msgid "Upgrade to ESSENTIAL"
-msgstr ""
+msgstr "升级至 ESSENTIAL"
 
 #: admin-core.php:618
 msgid "Most Popular"
-msgstr ""
+msgstr "最受欢迎"
 
 #: admin-core.php:623
 msgid "COMPLETE"
-msgstr ""
+msgstr "旗舰完整版 (COMPLETE)"
 
 #: admin-core.php:624
 msgid "Full protection. Maximum control."
-msgstr ""
+msgstr "全面防护，极致掌控。"
 
 #: admin-core.php:636
 msgid "Everything in ESSENTIAL"
-msgstr ""
+msgstr "包含 ESSENTIAL 全部功能"
 
 #: admin-core.php:637
 msgid "Full watermark protection"
-msgstr ""
+msgstr "全方位水印保护"
 
 #: admin-core.php:638
 msgid "Watermark presets & custom rules"
-msgstr ""
+msgstr "水印预设与自定义规则"
 
 #: admin-core.php:639
 msgid "Logo, text and signature watermarking"
-msgstr ""
+msgstr "支持 Logo、文本与署名水印"
 
 #: admin-core.php:640
 msgid "Automatic watermark colors & image filters"
-msgstr ""
+msgstr "自适应水印颜色与图片滤镜"
 
 #: admin-core.php:641
 msgid "Hotlinked images watermarked too"
-msgstr ""
+msgstr "对外链防盗链图片自动加水印"
 
 #: admin-core.php:642
 msgid "Advanced targeting & scheduling"
-msgstr ""
+msgstr "高级定位与防护定时计划"
 
 #: admin-core.php:643
 msgid "Beta layers: DevTools & extension blocking"
-msgstr ""
+msgstr "测试防护层：拦截开发者工具与浏览器扩展"
 
 #: admin-core.php:644
 msgid "Multisite support"
-msgstr ""
+msgstr "支持 WordPress 多站点 (Multisite)"
 
 #: admin-core.php:645
 msgid "Premium support & updates"
-msgstr ""
+msgstr "尊享技术支持与版本更新"
 
 #: admin-core.php:648
 msgid "Upgrade to COMPLETE"
-msgstr ""
+msgstr "升级至 COMPLETE"
 
 #: admin-core.php:654
 msgid "30-Day Money Back Guarantee"
-msgstr ""
+msgstr "30 天无条件退款保证"
 
 #: admin-core.php:656
 msgid "Paid plans are lifetime licenses"
-msgstr ""
+msgstr "付费方案均包含终身授权"
 
 #: admin-core.php:658
 msgid "Rated 4.9/5 by 443 customers"
-msgstr ""
+msgstr "443 位客户综合评分 4.9/5"
 
 #: admin-core.php:660
 msgid "Works with major themes and builders"
-msgstr ""
+msgstr "完美兼容各大主流主题与页面构建器"
 
 #: admin-core.php:666
 msgid "The PRO version keeps every free layer running and adds seven modules on top of them. Here is the full list, module by module."
-msgstr ""
+msgstr "专业版在保留所有免费防护层的基础上新增了 7 个核心模块。以下为模块清单："
 
 #: admin-core.php:672
 msgid "Everything in the free version"
-msgstr ""
+msgstr "包含免费版全部功能"
 
 #: admin-core.php:673
 msgid "JavaScript copy protection, right-click protection and CSS protection keep working exactly as they do now. PRO is built on top of them, nothing is taken away."
-msgstr ""
+msgstr "JavaScript 防复制、右键保护和 CSS 防护均继续正常运行。专业版完全向下兼容，不阉割任何基础功能。"
 
 #: admin-core.php:675
 msgid "Included"
-msgstr ""
+msgstr "已包含"
 
 #: admin-core.php:682
 msgid "Selection Protection"
-msgstr ""
+msgstr "选择保护模块"
 
 #: admin-core.php:683 admin-core.php:802
 msgid "8 features"
-msgstr ""
+msgstr "8 项特性"
 
 #: admin-core.php:686
 msgid "Apply text-selection protection to any public content type: homepage, archives, categories, tags, taxonomies, author pages, search results, posts, pages, attachments, 404 pages, login pages and WooCommerce pages."
-msgstr ""
+msgstr "可将防选择保护应用于所有公开内容类型：首页、归档、分类、标签、自定义分类、作者页、搜索结果、文章、页面、附件、404 页、登录页及 WooCommerce 商城。"
 
 #: admin-core.php:687
 msgid "Block Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Print Screen, F12 / DevTools and drag and drop."
-msgstr ""
+msgstr "拦截 Ctrl+A、Ctrl+C、Ctrl+X、Ctrl+V、Ctrl+S、Ctrl+U、Ctrl+P、Print Screen 截屏、F12 / 开发者工具及鼠标拖拽。"
 
 #: admin-core.php:688
 msgid "Write your own message for blocked selection, blocked shortcuts, special keys and printing."
-msgstr ""
+msgstr "为选择受阻、快捷键禁用、特殊按键和打印操作自定义专属提示文案。"
 
 #: admin-core.php:689
 msgid "Custom print-protection output styling with a configurable print-disabled message."
-msgstr ""
+msgstr "自定义防打印输出样式，并配置打印禁用提示信息。"
 
 #: admin-core.php:690
 msgid "Allow selection inside code blocks so visitors can still use your code snippets."
-msgstr ""
+msgstr "允许在代码块内自由选择文本，方便访客复制使用代码片段。"
 
 #: admin-core.php:691
 msgid "Add a one-click copy button to code blocks without opening selection for the whole page."
-msgstr ""
+msgstr "为代码块添加一键复制按钮，无需开启全页文本选择权限。"
 
 #: admin-core.php:692
 msgid "Style the alert box with ready-made color palettes or manual colors, border width, glow, shadow strength, font size, display time and alert width and height."
-msgstr ""
+msgstr "可自由定制提示框样式：预设调色板、自定义颜色、边框宽度、发光效果、阴影强度、字号大小、显示时长与弹窗尺寸。"
 
 #: admin-core.php:693
 msgid "Preview the alert message straight from the settings page before you save."
-msgstr ""
+msgstr "保存设置前，可直接在后台设置页面即时预览提示弹窗效果。"
 
 #: admin-core.php:701
 msgid "Right Click Protection"
-msgstr ""
+msgstr "右键保护模块"
 
 #: admin-core.php:702 admin-core.php:717
 msgid "4 features"
-msgstr ""
+msgstr "4 项特性"
 
 #: admin-core.php:705
 msgid "Apply right-click protection to the content types you pick, using the same dynamic content-type picker."
-msgstr ""
+msgstr "通过动态文章类型选择器，将右键保护应用于您指定的任意内容类型。"
 
 #: admin-core.php:706
 msgid "Block the context menu on images, links, text content, headings, text areas, text fields, empty spaces, videos, code blocks, canvas elements and audio players."
-msgstr ""
+msgstr "对图片、链接、正文、标题、多行文本框、输入框、空白区域、视频、代码块、Canvas 画布及音频播放器分别禁用右键菜单。"
 
 #: admin-core.php:707
 msgid "Write a separate alert message for every protected HTML element type."
-msgstr ""
+msgstr "可为每种被保护的 HTML 元素类型单独编写提示信息。"
 
 #: admin-core.php:708
 msgid "Read an active-count indicator for the protected right-click targets inside the control panel."
-msgstr ""
+msgstr "在控制面板中实时查看当前处于受保护状态的右键目标数量。"
 
 #: admin-core.php:716
 msgid "Overlay Protection"
-msgstr ""
+msgstr "透明遮罩保护模块"
 
 #: admin-core.php:720
 msgid "Put transparent overlays over your images on the public content types you choose."
-msgstr ""
+msgstr "在所选公开页面的图片上方自动覆盖透明防护遮罩。"
 
 #: admin-core.php:721
 msgid "Remove image attachment links automatically when they are not needed."
-msgstr ""
+msgstr "在无需附件链接时，自动清除图片附件的默认超链接。"
 
 #: admin-core.php:722
 msgid "Decide what happens when JavaScript is disabled, including hiding the protected content behind your own message."
-msgstr ""
+msgstr "自由配置当访客禁用 JavaScript 时的应对机制，包括将内容隐藏于自定义提示之后。"
 
 #: admin-core.php:723
 msgid "Overlays follow the real rendered image size and position, so responsive and absolutely positioned images stay aligned after a resize."
-msgstr ""
+msgstr "透明遮罩自动跟随图片的实际渲染尺寸与坐标，在屏幕缩放时始终保持精准贴合。"
 
 #: admin-core.php:731
 msgid "Watermark Protection"
-msgstr ""
+msgstr "图片水印保护模块"
 
 #: admin-core.php:732
 msgid "16 features"
-msgstr ""
+msgstr "16 项特性"
 
 #: admin-core.php:735
 msgid "Watermark hotlinked images, images loaded on your own site, or both, through rewrite rules."
-msgstr ""
+msgstr "通过 URL 重写规则，为外链盗链图片、本站加载图片或两者同时自动施加水印。"
 
 #: admin-core.php:736
 msgid "Force watermarking on non-Apache servers when the rewrite rules cannot be applied automatically."
-msgstr ""
+msgstr "在非 Apache 服务器无法自动应用重写规则时，提供强制水印处理模式。"
 
 #: admin-core.php:737
 msgid "Turn the watermark image cache on, or clear it, right from the settings page."
-msgstr ""
+msgstr "直接在后台设置面板中开启或一键清理水印图片缓存。"
 
 #: admin-core.php:738
 msgid "Stamp a logo watermark with a percentage-based size and ready-made position presets."
-msgstr ""
+msgstr "支持按百分比缩放并盖印 Logo 图片水印，提供多种预设摆放位置。"
 
 #: admin-core.php:739
 msgid "Add central text, repeated text and signature text over your images."
-msgstr ""
+msgstr "支持在图片上添加居中文本、满铺平铺文字以及角落署名水印。"
 
 #: admin-core.php:740
 msgid "Pick a separate font for the central text, the repeated text and the signature, including bundled Latin and Arabic-capable fonts."
-msgstr ""
+msgstr "可为不同水印文本分别指定独立字体，内置支持拉丁与阿拉伯字形的精品字体。"
 
 #: admin-core.php:741
 msgid "Use manual text colors, or automatic color mode that adapts to the brightness of every image."
-msgstr ""
+msgstr "支持手动指定文字颜色，或启用根据图片明暗度自动调整对比色的智能颜色模式。"
 
 #: admin-core.php:742
 msgid "Control font size, transparency, rotation, repeated-text spacing, signature Y position and signature alignment."
-msgstr ""
+msgstr "精细调节字号、透明度、旋转角度、平铺间距、署名垂直位置与对齐方式。"
 
 #: admin-core.php:743
 msgid "Add a signature background band with separate main and top colors and independent transparency values."
-msgstr ""
+msgstr "可为署名添加专属背景色带，支持主色、顶边色与透明度独立设定。"
 
 #: admin-core.php:744
 msgid "Apply image filters to watermarked images: Blur, Grayscale, Negate, Brightness or None."
-msgstr ""
+msgstr "为加水印图片附加特色滤镜：模糊、灰度黑白、反相底片、亮度增强或无滤镜。"
 
 #: admin-core.php:745
 msgid "Test your settings with the live preview on light, medium and dark sample images before saving."
-msgstr ""
+msgstr "保存前可在亮色、中性色和暗色示例图上进行多场景实时效果预览。"
 
 #: admin-core.php:746
 msgid "Save and load watermark presets, stored in a dedicated JSON file with a fallback through the settings form."
-msgstr ""
+msgstr "支持将水印配置保存为预设文件并随时导入加载。"
 
 #: admin-core.php:747
 msgid "Watermark indexed and palette PNG images and single-frame GIF images reliably."
-msgstr ""
+msgstr "稳定支持对索引色/调色板 PNG 及单帧 GIF 图像添加水印。"
 
 #: admin-core.php:748
 msgid "Keep banner-like extreme image sizes out of watermarking with your own ratio and size limits."
-msgstr ""
+msgstr "支持设置宽高比与尺寸限制，自动过滤横幅广告等极端尺寸的图片。"
 
 #: admin-core.php:749
 msgid "Use the Watermark Testing page to test every common image format, inspect server data and read the generated .htaccess content."
-msgstr ""
+msgstr "通过专属水印测试页面验证常见图片格式、查看服务器环境并读取生成的 .htaccess 配置。"
 
 #: admin-core.php:750
 msgid "Watermarking is 78% faster, with safe atomic .htaccess writes that never clear the file mid-way."
-msgstr ""
+msgstr "采用安全的原子写入机制，性能提升 78%，绝不会在写入中断时损坏配置文件。"
 
 #: admin-core.php:758
 msgid "Exclusions and Targeting"
-msgstr ""
+msgstr "白名单与精准排除"
 
 #: admin-core.php:759
 msgid "10 features"
-msgstr ""
+msgstr "10 项特性"
 
 #: admin-core.php:762
 msgid "Exclude the user roles you choose from protection."
-msgstr ""
+msgstr "将指定的用户角色从防复制保护中彻底排除。"
 
 #: admin-core.php:763
 msgid "Exclude selected post types and categories."
-msgstr ""
+msgstr "将特定的文章类型或文章分类加入白名单。"
 
 #: admin-core.php:764
 msgid "Exclude registered WordPress image sizes from watermarking."
-msgstr ""
+msgstr "将 WordPress 注册的特定缩略图尺寸排除在水印之外。"
 
 #: admin-core.php:765
 msgid "Exclude single URLs, one per line, including wildcard URLs that end with a slash and a star."
-msgstr ""
+msgstr "按行排除单个 URL，支持以 /* 结尾的通配符网址匹配。"
 
 #: admin-core.php:766
 msgid "Search your pages and posts from the URL picker and append their permalinks to the URL exclude list."
-msgstr ""
+msgstr "通过内置搜索器快速查找页面或文章，并一键将其固定链接添加至排除列表。"
 
 #: admin-core.php:767
 msgid "Exclude online services, domains or user agents that must never be blocked."
-msgstr ""
+msgstr "排除绝不应被拦截的在线服务、指定域名或搜索引擎爬虫 (User Agent)。"
 
 #: admin-core.php:768
 msgid "Exclude images from watermarking by file name or by a fragment of the file name."
-msgstr ""
+msgstr "按文件名或文件名片段精准排除不需要加水印的图片。"
 
 #: admin-core.php:769
 msgid "Exclude CSS classes from selection protection."
-msgstr ""
+msgstr "指定特定的 CSS 类名，使其内部文本允许被正常选中。"
 
 #: admin-core.php:770
 msgid "Turn on Opposite Mode with the URL Included List so protection runs only on the URLs you list."
-msgstr ""
+msgstr "开启“反向模式”，配合包含列表使用，仅对您指定的网址运行保护。"
 
 #: admin-core.php:771
 msgid "Scan Site Images: scan the homepage and blog HTML, review the detected images in a popup grid and click any image to add its file name to the manual exclusion list, without duplicates."
-msgstr ""
+msgstr "全站图片扫描：扫描首页与博客 HTML，在弹窗网格中查看识别出的图片，点击即可快速加入排除列表且自动去重。"
 
 #: admin-core.php:779
 msgid "Admin Tools and Workflow"
-msgstr ""
+msgstr "管理工具与工作流"
 
 #: admin-core.php:780
 msgid "11 features"
-msgstr ""
+msgstr "11 项特性"
 
 #: admin-core.php:783
 msgid "Light-mode settings interface with tabs for Selection, Right Click, Overlay, Watermark, Exclusion, Custom Settings, Beta and Contact."
-msgstr ""
+msgstr "清爽明亮的后台设置界面，涵盖选择保护、右键保护、遮罩、水印、排除、自定义、测试功能及联系支持等标签页。"
 
 #: admin-core.php:784
 msgid "The last open tab is reopened for you after a save or after navigation."
-msgstr ""
+msgstr "保存设置或页面跳转后，自动记忆并恢复最后访问的设置标签页。"
 
 #: admin-core.php:785
 msgid "The tabbar stays on a single row on narrow admin screens by collapsing trailing tabs into icon-only buttons."
-msgstr ""
+msgstr "在较窄的管理后台屏幕上自动将次要标签折叠为紧凑图标，保持单行整洁布局。"
 
 #: admin-core.php:786
 msgid "Searchable chip pickers for content types, roles, categories and image sizes, with selected rows kept in view."
-msgstr ""
+msgstr "支持对文章类型、角色、分类及尺寸进行即时搜索与多选管理。"
 
 #: admin-core.php:787
 msgid "Restore the default settings from the control panel with one click."
-msgstr ""
+msgstr "支持在控制面板中一键恢复插件的初始默认设置。"
 
 #: admin-core.php:788
 msgid "Show or hide the plugin icon in the top admin bar and read the live protection status from its menu, including the blocked shortcut keys."
-msgstr ""
+msgstr "自由控制顶部工具栏图标的显隐，并可通过下拉菜单实时查看当前保护状态及拦截快捷键列表。"
 
 #: admin-core.php:789
 msgid "Turn on Developer Mode for debugging."
-msgstr ""
+msgstr "开启开发者模式以进行系统调试。"
 
 #: admin-core.php:790
 msgid "Remove conflicting CSS or JS files from the control panel by listing file fragments in the Beta tab."
-msgstr ""
+msgstr "在测试标签页中填入文件名字段，快速屏蔽产生冲突的第三方 CSS 或 JS 文件。"
 
 #: admin-core.php:791
 msgid "Beta protections that interrupt open DevTools panels and common copy and paste browser extensions."
-msgstr ""
+msgstr "试验性防护特性：干扰打开的浏览器开发者工具，并抵御常见的网页复制扩展插件。"
 
 #: admin-core.php:792
 msgid "Keep your own custom CSS in the Custom Settings tab."
-msgstr ""
+msgstr "在自定义设置标签页中保存并应用您自己的自定义 CSS 样式。"
 
 #: admin-core.php:793
 msgid "Contact tab with built-in FAQ, documentation, tutorials and priority support links."
-msgstr ""
+msgstr "内置常见问题解答、官方文档、使用教程及优先技术支持联系通道。"
 
 #: admin-core.php:801
 msgid "Compatibility and Platform"
-msgstr ""
+msgstr "系统兼容性与平台支持"
 
 #: admin-core.php:805
 msgid "Works on smartphones and tablets, including iPhone and iPad."
-msgstr ""
+msgstr "完美支持智能手机与平板电脑设备（含 iPhone 和 iPad）。"
 
 #: admin-core.php:806
 msgid "Compatible with Elementor, SiteOrigin, Beaver Builder, the WordPress preview mode and wpDiscuz."
-msgstr ""
+msgstr "完全兼容 Elementor、SiteOrigin、Beaver Builder、WordPress 自带预览模式及 wpDiscuz。"
 
 #: admin-core.php:807
 msgid "Compatible with all major theme frameworks and all major browsers."
-msgstr ""
+msgstr "全面兼容各大主流主题框架及所有现代浏览器。"
 
 #: admin-core.php:808
 msgid "Multisite installations are supported."
-msgstr ""
+msgstr "完美支持 WordPress 多站点网络 (Multisite)。"
 
 #: admin-core.php:809
 msgid "Compatible with PHP 8.2 and 8.3, ZeptoJS and the jQuery slim builds."
-msgstr ""
+msgstr "兼容 PHP 8.2 与 8.3、ZeptoJS 及 jQuery slim 轻量版。"
 
 #: admin-core.php:810
 msgid "Set a different protection level per page or per post, straight from the admin bar."
-msgstr ""
+msgstr "直接通过顶部管理栏为单篇文章或页面独立指定不同的防护级别。"
 
 #: admin-core.php:811
 msgid "Extra .htaccess rules block image-grabbing browser extensions and PHP files inside wp-content, except watermark.php."
-msgstr ""
+msgstr "附加 .htaccess 安全规则，拦截图片抓取插件并屏蔽 wp-content 目录下的异常 PHP 执行（watermark.php 除外）。"
 
 #: admin-core.php:812
 msgid "Translation ready, with Arabic, Russian and RTL support for watermark text."
-msgstr ""
+msgstr "已做好完整国际化支持，水印文本全面兼容阿拉伯语、俄语及从右至左 (RTL) 书写排版。"
 
 #. translators: %s: link to the mailing list sign-up page.
 #: admin-core.php:822
 msgid "%s to our mailing list to get flash discounts"
-msgstr ""
+msgstr "%s我们的邮件订阅列表以获取专属限时特惠"
 
 #: admin-core.php:823
 msgid "Subscribe"
-msgstr ""
+msgstr "订阅"
 
 #: admin-core.php:827
 msgid "See the premium plans"
-msgstr ""
+msgstr "查看专业版方案"
 
 #: admin-core.php:834
 msgid "Use CTRL+F5 on the front end after saving to clear the cached scripts."
-msgstr ""
+msgstr "保存设置后，请在网站前台按 CTRL+F5 强制刷新浏览器缓存脚本。"
 
 #: admin-core.php:836
 msgid "Restore defaults"
-msgstr ""
+msgstr "恢复默认设置"
 
 #: admin-core.php:837
 msgid "Preview alert message"
-msgstr ""
+msgstr "预览提示弹窗"
 
 #: admin-core.php:837
 msgid "This is a preview message (do not forget to save changes)"
-msgstr ""
+msgstr "这是一条测试预览消息（请记得保存您的修改）"
 
 #: admin-core.php:838
 msgid "Save Settings"
-msgstr ""
+msgstr "保存设置"
 
 #: admin-core.php:853
 msgid "Restore the default settings?"
-msgstr ""
+msgstr "要恢复默认设置吗？"
 
 #: admin-core.php:854
 msgid "Every option on this page goes back to its default value. Your current settings will be lost and this cannot be undone."
-msgstr ""
+msgstr "此页面上的所有选项都将恢复为默认值。您当前的设置将丢失，且无法撤销。"
 
 #: admin-core.php:856
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: admin-core.php:857
 msgid "Yes, restore defaults"
-msgstr ""
+msgstr "是，恢复默认设置"
 
 #: admin-core.php:869
 msgid "Need a hand?"
-msgstr ""
+msgstr "需要帮助？"
 
 #: admin-core.php:870
 msgid "We reply every working day."
-msgstr ""
+msgstr "我们在每个工作日均提供回复与支持。"
 
 #: admin-core.php:872
 msgid "Get support"
-msgstr ""
+msgstr "获取技术支持"
 
 #: admin-core.php:880
 msgid "How it works"
-msgstr ""
+msgstr "运作原理"
 
 #: admin-core.php:881
 msgid "Read the docs before you switch a layer on."
-msgstr ""
+msgstr "在开启防护层之前，建议先查阅相关文档说明。"
 
 #: admin-core.php:883
 msgid "Help topics"
-msgstr ""
+msgstr "帮助主题"
 
 #: admin-core.php:891
 msgid "Enjoying the plugin?"
-msgstr ""
+msgstr "喜欢这款插件吗？"
 
 #: admin-core.php:892
 msgid "It takes a minute and helps a lot."
-msgstr ""
+msgstr "只需花费您一分钟时间，对我们却是巨大的鼓励。"
 
 #: admin-core.php:894
 msgid "Leave a review"
-msgstr ""
+msgstr "发表评价"
 
 #: notifications.php:141
 msgid "Leave A Review?"
-msgstr ""
+msgstr "给我们留下好评？"
 
-#: notifications.php:142
 msgid "We hope you've enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple \"thank you\" will make us happy!"
-msgstr ""
+msgstr "希望您喜欢使用 WP Content Copy Protection :) 能否耽误您几分钟在 WordPress.org 上为我们留下一条好评？<br>一句简单的“感谢”就足以让我们倍感欣慰！"
 
 #: notifications.php:144
 msgid "Sure! I'd love to!"
-msgstr ""
+msgstr "当然，我很乐意！"
 
 #: notifications.php:145
 msgid "I've already left a review"
-msgstr ""
+msgstr "我已经评价过了"
 
 #: notifications.php:146
 msgid "Will Rate Later"
-msgstr ""
+msgstr "稍后再评"
 
 #: notifications.php:147
 msgid "Hide Forever"
-msgstr ""
+msgstr "不再提示"
 
 #: deactivation-survey.php:215 admin-core.php:849
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: deactivation-survey.php:220
 msgid "Before you go, may we ask why?"
-msgstr ""
+msgstr "在您停用前，能否告诉我们原因？"
 
 #: deactivation-survey.php:224
 msgid "We are sorry to see you deactivate WP Content Copy Protection. Telling us what went wrong takes less than a minute, and it is the fastest way for us to fix it, for you and for everyone else."
-msgstr ""
+msgstr "很遗憾看到您停用 WP Content Copy Protection。告诉我们遇到的问题只需不到一分钟，这能帮助我们为您及其他用户提供更好的体验。"
 
 #: deactivation-survey.php:226
 msgid "A thank you from us:"
-msgstr ""
+msgstr "来自我们的一份谢礼："
 
 #. translators: %s: the highlighted "FREE one month subscription to our PRO version" reward.
 #: deactivation-survey.php:230
 msgid "completing this survey accurately qualifies you to receive a %s, on the house!"
-msgstr ""
+msgstr "认真完成此问卷即可免费获赠 %s！"
 
 #: deactivation-survey.php:231
 msgid "FREE one month subscription to our PRO version"
-msgstr ""
+msgstr "专业版 (PRO) 1 个月免费订阅体验"
 
 #: deactivation-survey.php:239
 msgid "Take the survey &amp; claim my free month"
-msgstr ""
+msgstr "参与调查并领取免费特权"
 
 #: deactivation-survey.php:242
 msgid "Skip &amp; deactivate"
-msgstr ""
+msgstr "跳过并停用"
 

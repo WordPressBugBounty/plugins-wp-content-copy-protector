@@ -1,0 +1,1069 @@
+# Copyright (C) 2026 wp-buy
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Content Copy Protection & No Right Click 3.7.4\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-content-copy-protector\n"
+"POT-Creation-Date: 2026-09-02 12:00+0000\n"
+"PO-Revision-Date: 2026-09-02 14:25+0000\n"
+"Last-Translator: WP Localization Team\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: WP Content Copy Protection i18n Builder\n"
+
+#: preventer-index.php:90
+msgid "You are not allowed to save images!"
+msgstr "Вам не разрешено сохранять изображения!"
+
+#: preventer-index.php:91
+msgid "Context Menu disabled!"
+msgstr "Контекстное меню отключено!"
+
+#: preventer-index.php:115
+msgid "You are not allowed to copy content or view source"
+msgstr "Вам не разрешено копировать контент или просматривать исходный код"
+
+#: preventer-index.php:307
+msgid "error:"
+msgstr "ошибка:"
+
+#: preventer-index.php:314
+msgid "Alert:"
+msgstr "Внимание:"
+
+#: preventer-index.php:645 preventer-index.php:809 preventer-index.php:809
+msgid "Settings"
+msgstr "Настройки"
+
+#: preventer-index.php:648
+msgid "Upgrade to PRO version Now"
+msgstr "Обновиться до PRO версии"
+
+#: preventer-index.php:648
+msgid "Go PRO"
+msgstr "Перейти на PRO"
+
+#: preventer-index.php:673
+msgid "You are running WP Content Copy Protection & No Right Click (free). To get more features, you can "
+msgstr "Вы используете бесплатную версию WP Content Copy Protection & No Right Click. Чтобы получить больше возможностей, вы можете "
+
+#: preventer-index.php:685
+msgid "Upgrade Now"
+msgstr "Обновить сейчас"
+
+#: preventer-index.php:688 admin-core.php:229
+msgid "Dismiss"
+msgstr "Закрыть"
+
+#: preventer-index.php:781
+msgid "Protection"
+msgstr "Защита"
+
+#: preventer-index.php:783
+msgid "Copy Protection & No right click"
+msgstr "Защита от копирования и блокировка правой кнопки"
+
+#: preventer-index.php:801 admin-core.php:258
+msgid "WP Content Copy Protection"
+msgstr "WP Content Copy Protection"
+
+#: preventer-index.php:802
+msgid "Copy Protection"
+msgstr "Защита от копирования"
+
+#: preventer-index.php:828
+msgid "More Plugins"
+msgstr "Другие плагины"
+
+#: admin-core.php:16 admin-core.php:28
+msgid "You do not have permission to change these settings."
+msgstr "У вас нет прав для изменения этих настроек."
+
+#: admin-core.php:214
+msgid "Enabled"
+msgstr "Включено"
+
+#: admin-core.php:215
+msgid "Disabled"
+msgstr "Отключено"
+
+#: admin-core.php:222
+msgid "WP Content Protection Plugin Group"
+msgstr "Группа плагинов WP Content Protection"
+
+#: admin-core.php:223
+msgid "Begin your adventure to improve your WordPress website, and win discount codes along the way."
+msgstr "Начните улучшать свой сайт на WordPress и получайте промокоды на скидку."
+
+#: admin-core.php:226
+msgid "Email address"
+msgstr "Адрес эл. почты"
+
+#: admin-core.php:228
+msgid "Start it!"
+msgstr "Начать!"
+
+#: admin-core.php:256
+msgid "Content protection"
+msgstr "Защита контента"
+
+#: admin-core.php:259
+msgid "& No Right Click"
+msgstr "& Блокировка правой кнопки мыши"
+
+#: admin-core.php:261
+msgid "Stop visitors from selecting, copying, printing or right-clicking your posts, pages and images. Switch a layer on below, save, and it is live on the front end."
+msgstr "Защитите свои записи, страницы и изображения от выделения, копирования, печати и кликов правой кнопкой мыши. Включите нужный уровень ниже, сохраните, и защита сразу заработает на сайте."
+
+#: admin-core.php:264
+msgid "Free version active"
+msgstr "Бесплатная версия активна"
+
+#: admin-core.php:265
+msgid "3 protection layers"
+msgstr "3 уровня защиты"
+
+#: admin-core.php:275
+msgid "Featured"
+msgstr "Рекомендуемое"
+
+#: admin-core.php:276
+msgid "WP Content Copy Protection & No Right Click (PRO)"
+msgstr "WP Content Copy Protection & No Right Click (PRO)"
+
+#: admin-core.php:277
+msgid "The ultimate defense for your hard work. Full right-click control, image watermarking, aggressive image protection and per-post protection levels - everything the free layers leave on the table."
+msgstr "Максимальная защита вашего труда. Полный контроль правой кнопки, водяные знаки, усиленная защита изображений и индивидуальные уровни защиты записей."
+
+#: admin-core.php:279
+msgid "Full watermarking"
+msgstr "Полноценные водяные знаки"
+
+#: admin-core.php:280
+msgid "Aggressive protection"
+msgstr "Усиленная защита"
+
+#: admin-core.php:281
+msgid "Post types protection"
+msgstr "Защита типов записей"
+
+#: admin-core.php:282 admin-core.php:529
+msgid "Rated 4.9 by hundreds"
+msgstr "Оценка 4.9 от сотен пользователей"
+
+#: admin-core.php:286
+msgid "Live Demo"
+msgstr "Демо-версия"
+
+#: admin-core.php:287
+msgid "View Details"
+msgstr "Подробнее"
+
+#: admin-core.php:288 admin-core.php:527
+msgid "30-Day Money Back"
+msgstr "30 дней гарантии возврата средств"
+
+#: admin-core.php:298
+msgid "Settings sections"
+msgstr "Разделы настроек"
+
+#: admin-core.php:300
+msgid "Main Settings"
+msgstr "Основные настройки"
+
+#: admin-core.php:303
+msgid "RightClick Protection"
+msgstr "Защита правой кнопки мыши"
+
+#: admin-core.php:306
+msgid "Protection by CSS"
+msgstr "Защита средствами CSS"
+
+#: admin-core.php:309
+msgid "More with PRO"
+msgstr "Больше возможностей с PRO"
+
+#: admin-core.php:318
+msgid "Copy Protection using JavaScript"
+msgstr "Защита от копирования через JavaScript"
+
+#: admin-core.php:319
+msgid "Basic Layer"
+msgstr "Базовый уровень"
+
+#: admin-core.php:321
+msgid "This is the basic protection layer that uses <u>JavaScript</u> to protect the posts, home page content from being copied by any other web site author."
+msgstr "Это базовый уровень защиты, использующий <u>JavaScript</u> для предотвращения копирования записей и главной страницы."
+
+#: admin-core.php:325
+msgid "Posts protection by <u>JavaScript</u>"
+msgstr "Защита записей через <u>JavaScript</u>"
+
+#: admin-core.php:327
+msgid "For single posts content"
+msgstr "Для контента отдельных записей"
+
+#: admin-core.php:331
+msgid "Homepage protection by <u>JavaScript</u>"
+msgstr "Защита главной страницы через <u>JavaScript</u>"
+
+#: admin-core.php:333
+msgid "Don't copy any thing! even from my homepage"
+msgstr "Запретить копирование всего, включая главную страницу"
+
+#: admin-core.php:337
+msgid "Static page's protection"
+msgstr "Защита статических страниц"
+
+#: admin-core.php:339
+msgid "Use Premium Settings tab to customize more options"
+msgstr "Используйте вкладку премиум-настроек для дополнительных параметров"
+
+#: admin-core.php:343
+msgid "Plugin icon on top admin bar"
+msgstr "Иконка плагина в верхней панели"
+
+#: admin-core.php:348
+msgid "Visible"
+msgstr "Отображать"
+
+#: admin-core.php:349
+msgid "Hidden"
+msgstr "Скрыть"
+
+#: admin-core.php:355
+msgid "Show/Hide the plugin icon on the top admin bar"
+msgstr "Показать/скрыть иконку плагина в верхней панели администратора"
+
+#: admin-core.php:359
+msgid "Exclude <u>Admin</u> from protection"
+msgstr "Исключить <u>Администратора</u> из защиты"
+
+#: admin-core.php:361 admin-core.php:488
+msgid "Premium"
+msgstr "Премиум"
+
+#: admin-core.php:363
+msgid "If <u>Yes</u>, The protection functions will be inactive for the admin when he is logged in"
+msgstr "Если выбрано <u>Да</u>, функции защиты будут отключены для авторизованного администратора"
+
+#: admin-core.php:367
+msgid "Selection disabled message"
+msgstr "Сообщение при блокировке выделения"
+
+#: admin-core.php:368 admin-core.php:373
+msgid "Enter something"
+msgstr "Введите текст"
+
+#: admin-core.php:372
+msgid "Print preview message"
+msgstr "Сообщение при предварительном просмотре печати"
+
+#: admin-core.php:379
+msgid "Works with every theme"
+msgstr "Работает с любой темой"
+
+#: admin-core.php:381
+msgid "Desktop & mobile"
+msgstr "ПК и мобильные устройства"
+
+#: admin-core.php:383
+msgid "Unlock more options"
+msgstr "Разблокировать больше возможностей"
+
+#: admin-core.php:393
+msgid "Copy Protection on RightClick"
+msgstr "Защита от копирования при клике правой кнопкой"
+
+#: admin-core.php:394
+msgid "Premium Layer 2"
+msgstr "Премиум уровень 2"
+
+#: admin-core.php:396
+msgid "In this protection layer your visitors will be able to <u>right click</u> on a specific page elements only (such as Links as an example)"
+msgstr "На этом уровне защиты посетители смогут нажимать <u>правой кнопкой мыши</u> только по определенным элементам (например, по ссылкам)"
+
+#: admin-core.php:400 admin-core.php:409 admin-core.php:418 admin-core.php:427
+msgid "Disable <u>RightClick</u> on"
+msgstr "Отключить <u>правую кнопку мыши</u> на"
+
+#: admin-core.php:403
+msgid "Posts"
+msgstr "Записи"
+
+msgid "Kills the right-click context menu on single posts - no \"Save As\", no \"View Source\", no easy theft."
+msgstr "Отключает контекстное меню в записях: никакого \"Сохранить как\", \"Просмотра кода\" и легкой кражи контента."
+
+#: admin-core.php:412
+msgid "HomePage"
+msgstr "Главная страница"
+
+#: admin-core.php:414
+msgid "Disables the right-click pop-up across your homepage so visitors can read, but can't harvest your content."
+msgstr "Отключает меню правой кнопки на главной странице: посетители могут читать, но не могут скачивать контент."
+
+#: admin-core.php:421
+msgid "Static pages"
+msgstr "Статические страницы"
+
+#: admin-core.php:423
+msgid "Turns off the right-click menu on every static page - your About, Services and landing copy stay yours."
+msgstr "Отключает контекстное меню на всех статических страницах: О нас, Услуги и лендинги остаются защищенными."
+
+#: admin-core.php:429
+msgid "Any post type"
+msgstr "Любой тип записей"
+
+#: admin-core.php:431
+msgid "<b>PRO</b> unlocks the same right-click lock on <u>any</u> post type you pick - WooCommerce products, listings, portfolios, courses, downloads. Sell on a marketplace? Your product photos and descriptions stop being one right-click away from a competitor."
+msgstr "<b>PRO</b> разблокирует защиту правой кнопки на <u>любых</u> типах записей: товары WooCommerce, объявления, портфолио, курсы, файлы. Ваши фото и описания будут надежно защищены от конкурентов."
+
+#: admin-core.php:439
+msgid "Remaining premium options preview"
+msgstr "Предпросмотр остальных премиум-опций"
+
+#: admin-core.php:440
+msgid "PRO"
+msgstr "PRO"
+
+#: admin-core.php:442
+msgid "PRO gives you a rule per element - images, links, text boxes, plain text - each with its own alert message."
+msgstr "PRO дает правила для каждого элемента: изображения, ссылки, поля ввода, текст, каждое со своим сообщением."
+
+#: admin-core.php:446
+msgid "Right click protection options in the PRO version"
+msgstr "Опции защиты правой кнопки в PRO версии"
+
+#: admin-core.php:452
+msgid "Preview & Pricing"
+msgstr "Предпросмотр и цены"
+
+#: admin-core.php:454
+msgid "Get the PRO version"
+msgstr "Получить версию PRO"
+
+#: admin-core.php:464
+msgid "Protection by CSS Techniques"
+msgstr "Защита с помощью CSS"
+
+#: admin-core.php:465
+msgid "Premium Layer 3"
+msgstr "Премиум уровень 3"
+
+#: admin-core.php:467
+msgid "In this protection layer your website will be protected by some <u>CSS</u> tricks that will word even if <u>JavaScript</u> is disabled from the browser settings"
+msgstr "На этом уровне сайт защищается с помощью <u>CSS</u>, которые срабатывают, даже если в браузере отключен <u>JavaScript</u>"
+
+#: admin-core.php:471
+msgid "<b>Home Page</b> Protection by CSS"
+msgstr "Защита <b>Главной страницы</b> через CSS"
+
+#: admin-core.php:473
+msgid "Protect your Homepage by CSS tricks"
+msgstr "Защитите главную страницу с помощью CSS"
+
+#: admin-core.php:477
+msgid "<b>Posts</b> Protection by CSS"
+msgstr "Защита <b>Записей</b> через CSS"
+
+#: admin-core.php:480
+msgid "Protect your single posts by CSS tricks"
+msgstr "Защитите отдельные записи с помощью CSS"
+
+#: admin-core.php:481
+msgid "PRO option, unlocked for free"
+msgstr "PRO-опция, открыта бесплатно"
+
+#: admin-core.php:486
+msgid "<b>Pages</b> Protection by CSS"
+msgstr "Защита <b>Страниц</b> через CSS"
+
+#: admin-core.php:490
+msgid "Protect your static pages by CSS tricks"
+msgstr "Защитите статические страницы с помощью CSS"
+
+#: admin-core.php:496
+msgid "Keeps working with JavaScript disabled"
+msgstr "Работает даже при отключенном JavaScript"
+
+#: admin-core.php:498
+msgid "Unlock pages protection"
+msgstr "Разблокировать защиту страниц"
+
+#: admin-core.php:508
+msgid "See what the PRO version adds"
+msgstr "Посмотреть, что добавляет PRO версия"
+
+#: admin-core.php:509
+msgid "Limited-time discount"
+msgstr "Ограниченная по времени скидка"
+
+#: admin-core.php:511
+msgid "Crazy discount offer is now running for a limited time!! You might love it"
+msgstr "Действует отличная скидка в течение ограниченного времени! Не упустите выгоду"
+
+#: admin-core.php:515
+msgid "Smartphone protection in the PRO version"
+msgstr "Защита на смартфонах в PRO версии"
+
+#: admin-core.php:518
+msgid "Image watermarking in the PRO version"
+msgstr "Водяные знаки на изображениях в PRO версии"
+
+#: admin-core.php:521
+msgid "Watermarking examples from the PRO version"
+msgstr "Примеры водяных знаков из PRO версии"
+
+#: admin-core.php:531
+msgid "See it now"
+msgstr "Посмотреть сейчас"
+
+#: admin-core.php:538
+msgid "Premium features"
+msgstr "Премиум функции"
+
+#: admin-core.php:539
+msgid "PRO only"
+msgstr "Только в PRO"
+
+#: admin-core.php:540
+msgid "7 protection modules"
+msgstr "7 модулей защиты"
+
+#: admin-core.php:541
+msgid "Choose how the premium features are shown"
+msgstr "Выберите способ отображения премиум-функций"
+
+#: admin-core.php:542
+msgid "Plans"
+msgstr "Тарифы"
+
+#: admin-core.php:543
+msgid "Detailed info"
+msgstr "Подробная информация"
+
+#: admin-core.php:549
+msgid "Three ways to run the plugin. You are on the free plan - the paid plans keep everything you already have and add the modules below on top of it."
+msgstr "Три варианта использования плагина. Вы на бесплатном тарифе: платные тарифы сохраняют все текущие функции и добавляют модули ниже."
+
+#: admin-core.php:555
+msgid "These are the full prices, with no discount applied."
+msgstr "Это полная стоимость без учета скидки."
+
+#: admin-core.php:556
+msgid "A discount of up to 50% is waiting for you on our website - check the running offer before you buy."
+msgstr "Скидка до 50% ждет вас на нашем сайте — проверьте предложение перед покупкой."
+
+#: admin-core.php:566
+msgid "FREE"
+msgstr "БЕСПЛАТНЫЙ"
+
+#: admin-core.php:567
+msgid "Basic protection for your content"
+msgstr "Базовая защита контента"
+
+#: admin-core.php:573
+msgid "/ forever"
+msgstr "/ навсегда"
+
+#: admin-core.php:575 admin-core.php:585
+msgid "Current plan"
+msgstr "Текущий тариф"
+
+#: admin-core.php:578
+msgid "Disable right-click"
+msgstr "Блокировка правой кнопки мыши"
+
+#: admin-core.php:579
+msgid "Prevent text selection"
+msgstr "Запрет выделения текста"
+
+#: admin-core.php:580
+msgid "Basic alert messages"
+msgstr "Базовые сообщения"
+
+#: admin-core.php:581
+msgid "CSS protection layer"
+msgstr "CSS уровень защиты"
+
+#: admin-core.php:582
+msgid "Works on your site content"
+msgstr "Работает на контенте сайта"
+
+#: admin-core.php:592
+msgid "ESSENTIAL"
+msgstr "ESSENTIAL"
+
+#: admin-core.php:593
+msgid "Advanced control and flexibility"
+msgstr "Расширенный контроль и гибкость"
+
+#: admin-core.php:599 admin-core.php:630
+msgid "one-time"
+msgstr "единоразово"
+
+#: admin-core.php:601 admin-core.php:632
+msgid "Lifetime license"
+msgstr "Пожизненная лицензия"
+
+#: admin-core.php:602 admin-core.php:633
+msgid "Support & updates $1 / month, paid as $9 per year."
+msgstr "Поддержка и обновления $1 / месяц, оплата $9 в год."
+
+#: admin-core.php:605
+msgid "Everything in FREE"
+msgstr "Все из тарифа БЕСПЛАТНЫЙ"
+
+#: admin-core.php:606
+msgid "Per-content protection rules"
+msgstr "Правила защиты для каждого типа контента"
+
+#: admin-core.php:607
+msgid "Overlay protection & triggers"
+msgstr "Защитные прозрачные слои и триггеры"
+
+#: admin-core.php:608
+msgid "Blocked shortcuts & print protection"
+msgstr "Блокировка горячих клавиш и защита печати"
+
+#: admin-core.php:609
+msgid "Advanced exclusion options"
+msgstr "Расширенные параметры исключений"
+
+#: admin-core.php:610
+msgid "Admin workflow tools"
+msgstr "Инструменты управления для администратора"
+
+#: admin-core.php:611
+msgid "Priority email support"
+msgstr "Приоритетная поддержка по email"
+
+#: admin-core.php:614
+msgid "Upgrade to ESSENTIAL"
+msgstr "Перейти на ESSENTIAL"
+
+#: admin-core.php:618
+msgid "Most Popular"
+msgstr "Самый популярный"
+
+#: admin-core.php:623
+msgid "COMPLETE"
+msgstr "COMPLETE"
+
+#: admin-core.php:624
+msgid "Full protection. Maximum control."
+msgstr "Полная защита. Максимальный контроль."
+
+#: admin-core.php:636
+msgid "Everything in ESSENTIAL"
+msgstr "Все из тарифа ESSENTIAL"
+
+#: admin-core.php:637
+msgid "Full watermark protection"
+msgstr "Комплексная защита водяными знаками"
+
+#: admin-core.php:638
+msgid "Watermark presets & custom rules"
+msgstr "Готовые пресеты и индивидуальные правила"
+
+#: admin-core.php:639
+msgid "Logo, text and signature watermarking"
+msgstr "Водяные знаки с логотипом, текстом и подписью"
+
+#: admin-core.php:640
+msgid "Automatic watermark colors & image filters"
+msgstr "Автоматический подбор цвета и фильтры"
+
+#: admin-core.php:641
+msgid "Hotlinked images watermarked too"
+msgstr "Защита изображений при прямой вставке по ссылке"
+
+#: admin-core.php:642
+msgid "Advanced targeting & scheduling"
+msgstr "Тонкая настройка таргетинга и расписания"
+
+#: admin-core.php:643
+msgid "Beta layers: DevTools & extension blocking"
+msgstr "Бета-функции: блокировка DevTools и расширений"
+
+#: admin-core.php:644
+msgid "Multisite support"
+msgstr "Поддержка мультисайтов (Multisite)"
+
+#: admin-core.php:645
+msgid "Premium support & updates"
+msgstr "Премиум-поддержка и обновления"
+
+#: admin-core.php:648
+msgid "Upgrade to COMPLETE"
+msgstr "Перейти на COMPLETE"
+
+#: admin-core.php:654
+msgid "30-Day Money Back Guarantee"
+msgstr "30 дней гарантии возврата денег"
+
+#: admin-core.php:656
+msgid "Paid plans are lifetime licenses"
+msgstr "Платные тарифы являются пожизненными лицензиями"
+
+#: admin-core.php:658
+msgid "Rated 4.9/5 by 443 customers"
+msgstr "Оценка 4.9/5 от 443 клиентов"
+
+#: admin-core.php:660
+msgid "Works with major themes and builders"
+msgstr "Совместим с популярными темами и конструкторами"
+
+#: admin-core.php:666
+msgid "The PRO version keeps every free layer running and adds seven modules on top of them. Here is the full list, module by module."
+msgstr "PRO версия сохраняет все бесплатные функции и добавляет 7 дополнительных модулей. Полный список представлен ниже."
+
+#: admin-core.php:672
+msgid "Everything in the free version"
+msgstr "Все возможности бесплатной версии"
+
+#: admin-core.php:673
+msgid "JavaScript copy protection, right-click protection and CSS protection keep working exactly as they do now. PRO is built on top of them, nothing is taken away."
+msgstr "Защита JS, правой кнопки и CSS продолжают работать в полном объеме. PRO дополняет их новым функционалом."
+
+#: admin-core.php:675
+msgid "Included"
+msgstr "Включено"
+
+#: admin-core.php:682
+msgid "Selection Protection"
+msgstr "Защита от выделения текста"
+
+#: admin-core.php:683 admin-core.php:802
+msgid "8 features"
+msgstr "8 функций"
+
+#: admin-core.php:686
+msgid "Apply text-selection protection to any public content type: homepage, archives, categories, tags, taxonomies, author pages, search results, posts, pages, attachments, 404 pages, login pages and WooCommerce pages."
+msgstr "Применяйте защиту от выделения к любым страницам: главной, архивам, рубрикам, меткам, страницам авторов, поиску, записям, страницам, вложениям, 404, входу и WooCommerce."
+
+#: admin-core.php:687
+msgid "Block Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Print Screen, F12 / DevTools and drag and drop."
+msgstr "Блокировка Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Print Screen, F12 / DevTools и перетаскивания."
+
+#: admin-core.php:688
+msgid "Write your own message for blocked selection, blocked shortcuts, special keys and printing."
+msgstr "Настраивайте собственные тексты сообщений при блокировке действий и печати."
+
+#: admin-core.php:689
+msgid "Custom print-protection output styling with a configurable print-disabled message."
+msgstr "Индивидуальное оформление страницы при попытке печати с настраиваемым текстом."
+
+#: admin-core.php:690
+msgid "Allow selection inside code blocks so visitors can still use your code snippets."
+msgstr "Разрешение выделения внутри блоков кода, чтобы посетители могли копировать примеры."
+
+#: admin-core.php:691
+msgid "Add a one-click copy button to code blocks without opening selection for the whole page."
+msgstr "Кнопка копирования кода в один клик без снятия защиты со всей страницы."
+
+#: admin-core.php:692
+msgid "Style the alert box with ready-made color palettes or manual colors, border width, glow, shadow strength, font size, display time and alert width and height."
+msgstr "Оформление всплывающего окна: готовые палитры, рамки, свечение, тени, размер шрифта, время показа и размеры."
+
+#: admin-core.php:693
+msgid "Preview the alert message straight from the settings page before you save."
+msgstr "Предпросмотр окна оповещения прямо на странице настроек перед сохранением."
+
+#: admin-core.php:701
+msgid "Right Click Protection"
+msgstr "Защита правой кнопки мыши"
+
+#: admin-core.php:702 admin-core.php:717
+msgid "4 features"
+msgstr "4 функции"
+
+#: admin-core.php:705
+msgid "Apply right-click protection to the content types you pick, using the same dynamic content-type picker."
+msgstr "Применяйте блокировку контекстного меню к выбранным типам записей через динамический селектор."
+
+#: admin-core.php:706
+msgid "Block the context menu on images, links, text content, headings, text areas, text fields, empty spaces, videos, code blocks, canvas elements and audio players."
+msgstr "Блокировка контекстного меню на изображениях, ссылках, тексте, заголовках, полях ввода, видео, коде, canvas и аудио."
+
+#: admin-core.php:707
+msgid "Write a separate alert message for every protected HTML element type."
+msgstr "Настройка отдельных сообщений для каждого типа защищенных HTML-элементов."
+
+#: admin-core.php:708
+msgid "Read an active-count indicator for the protected right-click targets inside the control panel."
+msgstr "Счетчик активных защищенных целей в панели управления."
+
+#: admin-core.php:716
+msgid "Overlay Protection"
+msgstr "Защитные прозрачные слои"
+
+#: admin-core.php:720
+msgid "Put transparent overlays over your images on the public content types you choose."
+msgstr "Накладывайте невидимые защитные слои поверх изображений на выбранных страницах."
+
+#: admin-core.php:721
+msgid "Remove image attachment links automatically when they are not needed."
+msgstr "Автоматическое удаление ссылок на медиафайлы, когда они не требуются."
+
+#: admin-core.php:722
+msgid "Decide what happens when JavaScript is disabled, including hiding the protected content behind your own message."
+msgstr "Настройка поведения при отключенном JavaScript, включая скрытие контента."
+
+#: admin-core.php:723
+msgid "Overlays follow the real rendered image size and position, so responsive and absolutely positioned images stay aligned after a resize."
+msgstr "Защитные слои точно повторяют размеры и координаты изображений даже при изменении размера окна."
+
+#: admin-core.php:731
+msgid "Watermark Protection"
+msgstr "Защита водяными знаками"
+
+#: admin-core.php:732
+msgid "16 features"
+msgstr "16 функций"
+
+#: admin-core.php:735
+msgid "Watermark hotlinked images, images loaded on your own site, or both, through rewrite rules."
+msgstr "Наложение водяных знаков на изображения сайта и внешние вставки через правила перенаправления."
+
+#: admin-core.php:736
+msgid "Force watermarking on non-Apache servers when the rewrite rules cannot be applied automatically."
+msgstr "Принудительное наложение водяных знаков на серверах без Apache."
+
+#: admin-core.php:737
+msgid "Turn the watermark image cache on, or clear it, right from the settings page."
+msgstr "Включение и очистка кэша изображений с водяными знаками прямо из настроек."
+
+#: admin-core.php:738
+msgid "Stamp a logo watermark with a percentage-based size and ready-made position presets."
+msgstr "Наложение логотипа с масштабированием в процентах и готовыми позициями."
+
+#: admin-core.php:739
+msgid "Add central text, repeated text and signature text over your images."
+msgstr "Добавление текста по центру, повторяющегося текста и подписи поверх фото."
+
+#: admin-core.php:740
+msgid "Pick a separate font for the central text, the repeated text and the signature, including bundled Latin and Arabic-capable fonts."
+msgstr "Выбор отдельных шрифтов для каждого элемента текста с поддержкой кириллицы и латиницы."
+
+#: admin-core.php:741
+msgid "Use manual text colors, or automatic color mode that adapts to the brightness of every image."
+msgstr "Ручной выбор цвета или автоподбор контрастного цвета под яркость изображения."
+
+#: admin-core.php:742
+msgid "Control font size, transparency, rotation, repeated-text spacing, signature Y position and signature alignment."
+msgstr "Настройка размера шрифта, прозрачности, угла поворота, интервалов и положения."
+
+#: admin-core.php:743
+msgid "Add a signature background band with separate main and top colors and independent transparency values."
+msgstr "Фоновая плашка под подпись с раздельной настройкой цветов и прозрачности."
+
+#: admin-core.php:744
+msgid "Apply image filters to watermarked images: Blur, Grayscale, Negate, Brightness or None."
+msgstr "Применение фильтров: размытие, черно-белый, инверсия, яркость или без фильтра."
+
+#: admin-core.php:745
+msgid "Test your settings with the live preview on light, medium and dark sample images before saving."
+msgstr "Тестирование параметров на светлых, средних и темных образцах перед сохранением."
+
+#: admin-core.php:746
+msgid "Save and load watermark presets, stored in a dedicated JSON file with a fallback through the settings form."
+msgstr "Сохранение и загрузка пресетов водяных знаков в JSON-файл."
+
+#: admin-core.php:747
+msgid "Watermark indexed and palette PNG images and single-frame GIF images reliably."
+msgstr "Корректная обработка индексированных PNG и статичных GIF изображений."
+
+#: admin-core.php:748
+msgid "Keep banner-like extreme image sizes out of watermarking with your own ratio and size limits."
+msgstr "Исключение баннеров и нестандартных размеров по пропорциям и габаритам."
+
+#: admin-core.php:749
+msgid "Use the Watermark Testing page to test every common image format, inspect server data and read the generated .htaccess content."
+msgstr "Страница тестирования форматов, параметров сервера и сгенерированного .htaccess."
+
+#: admin-core.php:750
+msgid "Watermarking is 78% faster, with safe atomic .htaccess writes that never clear the file mid-way."
+msgstr "Генерация водяных знаков на 78% быстрее благодаря безопасной атомарной записи в .htaccess."
+
+#: admin-core.php:758
+msgid "Exclusions and Targeting"
+msgstr "Исключения и таргетинг"
+
+#: admin-core.php:759
+msgid "10 features"
+msgstr "10 функций"
+
+#: admin-core.php:762
+msgid "Exclude the user roles you choose from protection."
+msgstr "Исключение выбранных ролей пользователей из-под действия защиты."
+
+#: admin-core.php:763
+msgid "Exclude selected post types and categories."
+msgstr "Исключение выбранных типов записей и рубрик."
+
+#: admin-core.php:764
+msgid "Exclude registered WordPress image sizes from watermarking."
+msgstr "Исключение стандартных размеров миниатюр WordPress из водяных знаков."
+
+#: admin-core.php:765
+msgid "Exclude single URLs, one per line, including wildcard URLs that end with a slash and a star."
+msgstr "Исключение отдельных URL построчно, включая маски со звездочкой (/*)."
+
+#: admin-core.php:766
+msgid "Search your pages and posts from the URL picker and append their permalinks to the URL exclude list."
+msgstr "Поиск записей и страниц с быстрым добавлением постоянных ссылок в список исключений."
+
+#: admin-core.php:767
+msgid "Exclude online services, domains or user agents that must never be blocked."
+msgstr "Исключение поисковых систем, доверенных доменов и User-Agent."
+
+#: admin-core.php:768
+msgid "Exclude images from watermarking by file name or by a fragment of the file name."
+msgstr "Исключение изображений по имени файла или его фрагменту."
+
+#: admin-core.php:769
+msgid "Exclude CSS classes from selection protection."
+msgstr "Исключение определенных CSS классов из запрета на выделение."
+
+#: admin-core.php:770
+msgid "Turn on Opposite Mode with the URL Included List so protection runs only on the URLs you list."
+msgstr "Инверсный режим: защита работает только на страницах из списка включенных URL."
+
+#: admin-core.php:771
+msgid "Scan Site Images: scan the homepage and blog HTML, review the detected images in a popup grid and click any image to add its file name to the manual exclusion list, without duplicates."
+msgstr "Сканирование изображений: поиск картинок на сайте с добавлением в список исключений в один клик."
+
+#: admin-core.php:779
+msgid "Admin Tools and Workflow"
+msgstr "Инструменты администратора"
+
+#: admin-core.php:780
+msgid "11 features"
+msgstr "11 функций"
+
+#: admin-core.php:783
+msgid "Light-mode settings interface with tabs for Selection, Right Click, Overlay, Watermark, Exclusion, Custom Settings, Beta and Contact."
+msgstr "Удобный светлый интерфейс с вкладками для всех модулей и параметров."
+
+#: admin-core.php:784
+msgid "The last open tab is reopened for you after a save or after navigation."
+msgstr "Автоматическое сохранение и открытие последней активной вкладки."
+
+#: admin-core.php:785
+msgid "The tabbar stays on a single row on narrow admin screens by collapsing trailing tabs into icon-only buttons."
+msgstr "Адаптивная панель вкладок, сворачивающаяся в компактные иконки на небольших экранах."
+
+#: admin-core.php:786
+msgid "Searchable chip pickers for content types, roles, categories and image sizes, with selected rows kept in view."
+msgstr "Удобные фильтры с поиском по типам записей, ролям и категориям."
+
+#: admin-core.php:787
+msgid "Restore the default settings from the control panel with one click."
+msgstr "Восстановление настроек по умолчанию в один клик."
+
+#: admin-core.php:788
+msgid "Show or hide the plugin icon in the top admin bar and read the live protection status from its menu, including the blocked shortcut keys."
+msgstr "Управление значком в верхней панели со статусом защиты и списком заблокированных клавиш."
+
+#: admin-core.php:789
+msgid "Turn on Developer Mode for debugging."
+msgstr "Режим разработчика для удобной отладки."
+
+#: admin-core.php:790
+msgid "Remove conflicting CSS or JS files from the control panel by listing file fragments in the Beta tab."
+msgstr "Отключение конфликтующих скриптов и стилей через вкладку Бета."
+
+#: admin-core.php:791
+msgid "Beta protections that interrupt open DevTools panels and common copy and paste browser extensions."
+msgstr "Бета-защита от открытой панели разработчика и браузерных расширений для копирования."
+
+#: admin-core.php:792
+msgid "Keep your own custom CSS in the Custom Settings tab."
+msgstr "Пользовательский CSS в специальной вкладке настроек."
+
+#: admin-core.php:793
+msgid "Contact tab with built-in FAQ, documentation, tutorials and priority support links."
+msgstr "Вкладка контактов со справочником FAQ, документацией и ссылками на поддержку."
+
+#: admin-core.php:801
+msgid "Compatibility and Platform"
+msgstr "Совместимость и платформа"
+
+#: admin-core.php:805
+msgid "Works on smartphones and tablets, including iPhone and iPad."
+msgstr "Поддержка смартфонов и планшетов, включая iPhone и iPad."
+
+#: admin-core.php:806
+msgid "Compatible with Elementor, SiteOrigin, Beaver Builder, the WordPress preview mode and wpDiscuz."
+msgstr "Совместимость с Elementor, SiteOrigin, Beaver Builder, режимом предпросмотра и wpDiscuz."
+
+#: admin-core.php:807
+msgid "Compatible with all major theme frameworks and all major browsers."
+msgstr "Совместимость со всеми популярными темами и современными браузерами."
+
+#: admin-core.php:808
+msgid "Multisite installations are supported."
+msgstr "Полная поддержка режима WordPress Multisite."
+
+#: admin-core.php:809
+msgid "Compatible with PHP 8.2 and 8.3, ZeptoJS and the jQuery slim builds."
+msgstr "Совместимость с PHP 8.2/8.3, ZeptoJS и облегченными сборками jQuery."
+
+#: admin-core.php:810
+msgid "Set a different protection level per page or per post, straight from the admin bar."
+msgstr "Выбор уровня защиты для конкретной записи прямо из верхней панели."
+
+#: admin-core.php:811
+msgid "Extra .htaccess rules block image-grabbing browser extensions and PHP files inside wp-content, except watermark.php."
+msgstr "Дополнительные правила .htaccess против парсеров картинок и подозрительных PHP файлов."
+
+#: admin-core.php:812
+msgid "Translation ready, with Arabic, Russian and RTL support for watermark text."
+msgstr "Готов к переводу, включая полную поддержку русского, арабского и RTL языков."
+
+#. translators: %s: link to the mailing list sign-up page.
+#: admin-core.php:822
+msgid "%s to our mailing list to get flash discounts"
+msgstr "%s на нашу рассылку, чтобы получать специальные скидки"
+
+#: admin-core.php:823
+msgid "Subscribe"
+msgstr "Подпишитесь"
+
+#: admin-core.php:827
+msgid "See the premium plans"
+msgstr "Посмотреть премиум-планы"
+
+#: admin-core.php:834
+msgid "Use CTRL+F5 on the front end after saving to clear the cached scripts."
+msgstr "Используйте CTRL+F5 на сайте после сохранения для сброса кэша скриптов."
+
+#: admin-core.php:836
+msgid "Restore defaults"
+msgstr "Сбросить настройки"
+
+#: admin-core.php:837
+msgid "Preview alert message"
+msgstr "Предпросмотр сообщения"
+
+#: admin-core.php:837
+msgid "This is a preview message (do not forget to save changes)"
+msgstr "Это тестовое сообщение (не забудьте сохранить изменения)"
+
+#: admin-core.php:838
+msgid "Save Settings"
+msgstr "Сохранить настройки"
+
+#: admin-core.php:853
+msgid "Restore the default settings?"
+msgstr "Восстановить настройки по умолчанию?"
+
+#: admin-core.php:854
+msgid "Every option on this page goes back to its default value. Your current settings will be lost and this cannot be undone."
+msgstr "Все параметры на этой странице вернутся к значениям по умолчанию. Текущие настройки будут потеряны, и отменить это действие нельзя."
+
+#: admin-core.php:856
+msgid "Cancel"
+msgstr "Отмена"
+
+#: admin-core.php:857
+msgid "Yes, restore defaults"
+msgstr "Да, восстановить настройки"
+
+#: admin-core.php:869
+msgid "Need a hand?"
+msgstr "Нужна помощь?"
+
+#: admin-core.php:870
+msgid "We reply every working day."
+msgstr "Мы отвечаем каждый рабочий день."
+
+#: admin-core.php:872
+msgid "Get support"
+msgstr "Получить поддержку"
+
+#: admin-core.php:880
+msgid "How it works"
+msgstr "Как это работает"
+
+#: admin-core.php:881
+msgid "Read the docs before you switch a layer on."
+msgstr "Ознакомьтесь с инструкцией перед включением защиты."
+
+#: admin-core.php:883
+msgid "Help topics"
+msgstr "Разделы справки"
+
+#: admin-core.php:891
+msgid "Enjoying the plugin?"
+msgstr "Нравится плагин?"
+
+#: admin-core.php:892
+msgid "It takes a minute and helps a lot."
+msgstr "Это займет всего минуту и очень поможет нам."
+
+#: admin-core.php:894
+msgid "Leave a review"
+msgstr "Оставить отзыв"
+
+#: notifications.php:141
+msgid "Leave A Review?"
+msgstr "Хотите оставить отзыв?"
+
+msgid "We hope you've enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple \"thank you\" will make us happy!"
+msgstr "Надеемся, вам нравится WP Content Copy Protection :) Пожалуйста, уделите пару минут, чтобы оставить отзыв на WordPress.org.<br>Даже простое \"спасибо\" сделает нас счастливее!"
+
+#: notifications.php:144
+msgid "Sure! I'd love to!"
+msgstr "Конечно, с удовольствием!"
+
+#: notifications.php:145
+msgid "I've already left a review"
+msgstr "Я уже оставил отзыв"
+
+#: notifications.php:146
+msgid "Will Rate Later"
+msgstr "Оценю позже"
+
+#: notifications.php:147
+msgid "Hide Forever"
+msgstr "Скрыть навсегда"
+
+#: deactivation-survey.php:215 admin-core.php:849
+msgid "Close"
+msgstr "Закрыть"
+
+#: deactivation-survey.php:220
+msgid "Before you go, may we ask why?"
+msgstr "Перед тем как уйти, можно узнать причину?"
+
+#: deactivation-survey.php:224
+msgid "We are sorry to see you deactivate WP Content Copy Protection. Telling us what went wrong takes less than a minute, and it is the fastest way for us to fix it, for you and for everyone else."
+msgstr "Нам жаль, что вы деактивируете плагин. Напишите нам, что пошло не так — это займет меньше минуты и поможет сделать плагин лучше для всех."
+
+#: deactivation-survey.php:226
+msgid "A thank you from us:"
+msgstr "Благодарность от нас:"
+
+#. translators: %s: the highlighted "FREE one month subscription to our PRO version" reward.
+#: deactivation-survey.php:230
+msgid "completing this survey accurately qualifies you to receive a %s, on the house!"
+msgstr "Заполнение опроса дает вам право получить %s совершенно бесплатно!"
+
+#: deactivation-survey.php:231
+msgid "FREE one month subscription to our PRO version"
+msgstr "БЕСПЛАТНУЮ подписку на 1 месяц на PRO версию"
+
+#: deactivation-survey.php:239
+msgid "Take the survey &amp; claim my free month"
+msgstr "Пройти опрос и получить бесплатный месяц"
+
+#: deactivation-survey.php:242
+msgid "Skip &amp; deactivate"
+msgstr "Пропустить и деактивировать"
+
