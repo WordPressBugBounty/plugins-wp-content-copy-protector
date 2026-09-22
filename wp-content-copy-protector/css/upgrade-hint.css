@@ -1,0 +1,186 @@
+/**
+ * Upgrade hint card that points at the plugin's admin bar icon.
+ * Uses the same palette as the admin panel skin (css/wpb-admin.css).
+ */
+
+#wccp-upgrade-hint {
+	--wccp-hint-primary: #6C63FF;
+	--wccp-hint-primary-dark: #4F46E5;
+	--wccp-hint-accent: #22C7E0;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100000; /* above #wpadminbar (99999) */
+	width: 320px;
+	max-width: calc(100vw - 24px);
+	padding: 18px 18px 16px;
+	box-sizing: border-box;
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, .08);
+	border-radius: 16px;
+	box-shadow: 0 18px 50px rgba(15, 23, 42, .22), 0 2px 6px rgba(15, 23, 42, .08);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	color: #0B1220;
+	opacity: 0;
+	transform: translateY(8px) scale(.97);
+	transition: opacity .25s ease, transform .35s cubic-bezier(.2, .9, .3, 1.3);
+}
+
+#wccp-upgrade-hint.is-visible {
+	opacity: 1;
+	transform: none;
+	animation: wccp-hint-nudge 3.2s ease-in-out 1s infinite;
+}
+
+#wccp-upgrade-hint *,
+#wccp-upgrade-hint *::before,
+#wccp-upgrade-hint *::after {
+	box-sizing: border-box;
+}
+
+/* Gradient top edge. */
+#wccp-upgrade-hint::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 4px;
+	border-radius: 16px 16px 0 0;
+	background: linear-gradient(90deg, var(--wccp-hint-primary), var(--wccp-hint-accent));
+}
+
+/* Arrow pointing up at the icon; its left is set by the script. */
+#wccp-upgrade-hint .wccp-hint__arrow {
+	position: absolute;
+	top: -8px;
+	left: 24px;
+	width: 16px;
+	height: 16px;
+	margin-left: -8px;
+	background: var(--wccp-hint-primary);
+	border-radius: 3px 0 0 0;
+	transform: rotate(45deg);
+}
+
+#wccp-upgrade-hint .wccp-hint__badge {
+	display: inline-block;
+	margin: 0 0 8px;
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: rgba(108, 99, 255, .12);
+	color: var(--wccp-hint-primary-dark);
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .04em;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+#wccp-upgrade-hint .wccp-hint__title {
+	margin: 0 0 6px;
+	padding: 0;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: #0B1220;
+}
+
+#wccp-upgrade-hint .wccp-hint__text {
+	margin: 0 0 14px;
+	font-size: 13px;
+	line-height: 1.55;
+	color: #6B7280;
+}
+
+#wccp-upgrade-hint .wccp-hint__cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 9px 16px;
+	border-radius: 999px;
+	background: linear-gradient(135deg, var(--wccp-hint-primary), var(--wccp-hint-primary-dark));
+	box-shadow: 0 6px 16px rgba(108, 99, 255, .35);
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+	transition: transform .15s ease, box-shadow .15s ease;
+}
+
+#wccp-upgrade-hint .wccp-hint__cta:hover,
+#wccp-upgrade-hint .wccp-hint__cta:focus {
+	color: #fff;
+	transform: translateY(-1px);
+	box-shadow: 0 10px 22px rgba(108, 99, 255, .45);
+}
+
+#wccp-upgrade-hint .wccp-hint__cta:focus-visible,
+#wccp-upgrade-hint .wccp-hint__close:focus-visible {
+	outline: 2px solid var(--wccp-hint-primary);
+	outline-offset: 2px;
+}
+
+#wccp-upgrade-hint .wccp-hint__close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: #6B7280;
+	font-size: 20px;
+	line-height: 28px;
+	cursor: pointer;
+}
+
+#wccp-upgrade-hint .wccp-hint__close:hover {
+	background: #F1F5F9;
+	color: #0B1220;
+}
+
+.rtl #wccp-upgrade-hint .wccp-hint__close {
+	right: auto;
+	left: 10px;
+}
+
+/* Pulsing ring around the admin bar icon while the hint is open. */
+#wpadminbar #wp-admin-bar-wccp_free_top_button.wccp-hint-target > .ab-item {
+	position: relative;
+	background: rgba(108, 99, 255, .35);
+	color: #fff;
+}
+
+#wpadminbar #wp-admin-bar-wccp_free_top_button.wccp-hint-target > .ab-item::after {
+	content: "";
+	position: absolute;
+	inset: 3px;
+	border-radius: 6px;
+	box-shadow: 0 0 0 0 rgba(108, 99, 255, .9);
+	animation: wccp-hint-pulse 1.6s ease-out infinite;
+	pointer-events: none;
+}
+
+@keyframes wccp-hint-pulse {
+	0% { box-shadow: 0 0 0 0 rgba(108, 99, 255, .9); }
+	70% { box-shadow: 0 0 0 10px rgba(108, 99, 255, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0); }
+}
+
+@keyframes wccp-hint-nudge {
+	0%, 80%, 100% { transform: translateY(0); }
+	88% { transform: translateY(-6px); }
+	94% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#wccp-upgrade-hint,
+	#wccp-upgrade-hint.is-visible,
+	#wpadminbar #wp-admin-bar-wccp_free_top_button.wccp-hint-target > .ab-item::after {
+		animation: none;
+		transition: none;
+	}
+}

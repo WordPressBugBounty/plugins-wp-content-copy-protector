@@ -1,0 +1,908 @@
+/**
+ * WP Content Copy Protection - Error Monitor panel.
+ *
+ * Builds on css/wpb-admin.css (cards, switches, buttons, modal) and only adds
+ * what the monitor needs: the filter row, stat tiles, the chart, source bars,
+ * issue list and log file rows. Scoped under #wpb-admin like the rest.
+ */
+
+#wpb-admin {
+	/* Severity is ordered, so it is one red ramp, darkest = most severe,
+	   validated as an ordinal ramp on the white card (monotone lightness,
+	   visible steps, light end >= 2:1). "Other" is not a severity: neutral. */
+	--em-fatal: #7f1d1d;
+	--em-warning: #b91c1c;
+	--em-notice: #e0564d;
+	--em-deprecated: #ec8f86;
+	--em-other: #a8a29e;
+
+	/* Chart chrome: recessive hairlines, ink stays in text tokens. */
+	--em-grid: #eceae4;
+	--em-axis: #c3c2b7;
+	--em-bar: #6C63FF;
+}
+
+/* The script builds this panel; without it there is nothing to show. */
+.no-js #wpb-panel-errors {
+	display: none !important;
+}
+
+/* The monitor saves nothing, so the settings save bar is off while it is open. */
+#wpb-admin[data-panel="wpb-panel-errors"] .wpb-formbar {
+	display: none;
+}
+
+#wpb-admin .wpb-em [hidden] {
+	display: none !important;
+}
+
+/* Refetch keeps the frame: the previous render dims instead of flashing. */
+.wpb-em-body,
+#wpb-em-files {
+	transition: opacity .2s;
+}
+
+.wpb-em.is-loading .wpb-em-body,
+.wpb-em.is-loading #wpb-em-files {
+	opacity: .55;
+}
+
+.wpb-em-lv--fatal { background: var(--em-fatal); fill: var(--em-fatal); }
+.wpb-em-lv--warning { background: var(--em-warning); fill: var(--em-warning); }
+.wpb-em-lv--notice { background: var(--em-notice); fill: var(--em-notice); }
+.wpb-em-lv--deprecated { background: var(--em-deprecated); fill: var(--em-deprecated); }
+.wpb-em-lv--other { background: var(--em-other); fill: var(--em-other); }
+
+/* ============================================================
+   FILTER ROW
+   ============================================================ */
+.wpb-em-bar {
+	display: flex;
+	align-items: center;
+	gap: 10px 14px;
+	flex-wrap: wrap;
+	padding-top: 12px;
+	border-top: 1px solid var(--wpb-border-soft);
+}
+
+#wpb-admin .wpb-em-bar .wpb-switch {
+	margin: 0;
+}
+
+#wpb-admin .wpb-em-select {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 600;
+	color: var(--wpb-text-secondary);
+}
+
+#wpb-admin .wpb-em-select select {
+	max-width: 320px;
+	min-height: 36px;
+	border-radius: 9px;
+	border-color: #e7e9ef;
+	font-size: .8rem;
+}
+
+#wpb-admin .wpb-em-bar .wpb-btn {
+	padding: 7px 14px;
+}
+
+#wpb-admin .wpb-em-bar .wpb-btn[disabled] {
+	opacity: .6;
+	cursor: progress;
+}
+
+.wpb-em-status {
+	font-size: .78rem;
+	font-weight: 600;
+	color: var(--wpb-text-secondary);
+}
+
+/* The card head switches sit at the end of the row. */
+#wpb-admin .wpb-em .wpb-card__head .wpb-switch {
+	margin-inline-start: auto;
+}
+
+/* ============================================================
+   ALERTS - no log found
+   ============================================================ */
+.wpb-em-alert {
+	display: flex;
+	gap: 14px;
+	align-items: flex-start;
+	margin: 0 0 16px;
+	padding: 16px 20px;
+	border-radius: 15px;
+	border: 1px solid var(--wpb-border-soft);
+	background: #fff;
+}
+
+.wpb-em-alert__ic {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	flex-shrink: 0;
+	border-radius: 11px;
+	background: rgba(108, 99, 255, .1);
+	color: var(--wpb-primary);
+}
+
+.wpb-em-alert__ic svg {
+	width: 19px;
+	height: 19px;
+}
+
+.wpb-em-alert__txt {
+	min-width: 0;
+	flex: 1;
+}
+
+.wpb-em-alert__title {
+	display: block;
+	font-size: .95rem;
+	color: var(--wpb-text-primary);
+}
+
+#wpb-admin .wpb-em-alert__txt p {
+	margin: 2px 0 6px;
+	color: var(--wpb-text-secondary);
+}
+
+/* ============================================================
+   STAT TILES
+   ============================================================ */
+.wpb-em-tiles {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 12px;
+	margin: 0 0 16px;
+}
+
+.wpb-em-tile {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+	padding: 14px 18px;
+	background: #fff;
+	border: 1px solid var(--wpb-border-soft);
+	border-radius: 15px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+}
+
+.wpb-em-tile__label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: .78rem;
+	font-weight: 600;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-tile__label svg {
+	width: 14px;
+	height: 14px;
+}
+
+/* Proportional figures: tabular-nums is for columns, not a hero value. */
+.wpb-em-tile__value {
+	font-size: 1.75rem;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: var(--wpb-secondary);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.wpb-em-tile__note {
+	font-size: .74rem;
+	color: var(--wpb-text-secondary);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Fatal errors present: the icon and value carry it, label stays ink. */
+.wpb-em-tile--fatal.has-fatal {
+	border-color: rgba(185, 28, 28, .3);
+}
+
+.wpb-em-tile--fatal.has-fatal .wpb-em-tile__label svg,
+.wpb-em-tile--fatal.has-fatal .wpb-em-tile__value {
+	color: #991b1b;
+}
+
+/* ============================================================
+   CHART + SOURCES GRID
+   ============================================================ */
+.wpb-em-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+	gap: 16px;
+	margin: 0 0 16px;
+}
+
+#wpb-admin .wpb-em-grid .wpb-card {
+	margin: 0;
+}
+
+.wpb-em-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 16px;
+	margin: 4px 0 8px;
+	padding: 0;
+	list-style: none;
+}
+
+#wpb-admin .wpb-em-legend__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+	font-size: .76rem;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-swatch {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+}
+
+.wpb-em-chart {
+	position: relative;
+	min-height: 238px;
+	color: var(--wpb-text-secondary);
+	/* Time runs left to right in every language. */
+	direction: ltr;
+}
+
+.wpb-em-chart__wrap {
+	position: relative;
+	border-radius: 8px;
+}
+
+#wpb-admin .wpb-em-chart__wrap:focus-visible {
+	outline: 2px solid var(--wpb-primary);
+	outline-offset: 4px;
+}
+
+.wpb-em-svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	overflow: visible;
+}
+
+.wpb-em-svg .wpb-em-gridline {
+	stroke: var(--em-grid);
+	stroke-width: 1;
+}
+
+.wpb-em-svg .wpb-em-axis {
+	stroke: var(--em-axis);
+	stroke-width: 1;
+}
+
+.wpb-em-svg .wpb-em-tick {
+	fill: #6B7280;
+	font-size: 11px;
+	font-variant-numeric: tabular-nums;
+}
+
+.wpb-em-svg .wpb-em-peak {
+	fill: var(--wpb-secondary);
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.wpb-em-svg .wpb-em-hl {
+	fill: rgba(108, 99, 255, .07);
+}
+
+.wpb-em-svg .wpb-em-hit {
+	fill: transparent;
+	pointer-events: all;
+	cursor: crosshair;
+}
+
+.wpb-em-chart__empty {
+	position: absolute;
+	top: 90px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-weight: 600;
+}
+
+#wpb-admin .wpb-em-daytable .wpb-em-chart__empty {
+	position: static;
+	padding: 30px 0;
+}
+
+/* Tooltip: values lead, labels follow, line keys not boxes. */
+.wpb-em-tip {
+	position: absolute;
+	z-index: 5;
+	min-width: 150px;
+	padding: 10px 12px;
+	background: #fff;
+	border: 1px solid var(--wpb-border-soft);
+	border-radius: 10px;
+	box-shadow: 0 12px 28px -12px rgba(15, 23, 42, .3);
+	pointer-events: none;
+	font-size: .76rem;
+	line-height: 1.5;
+}
+
+.wpb-em-tip__day {
+	margin-bottom: 4px;
+	font-weight: 700;
+	color: var(--wpb-secondary);
+}
+
+.wpb-em-tip__row {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-tip__row strong {
+	min-width: 2.5ch;
+	color: var(--wpb-text-primary);
+	font-variant-numeric: tabular-nums;
+}
+
+.wpb-em-tip__row--total {
+	margin-top: 4px;
+	padding-top: 4px;
+	border-top: 1px solid var(--wpb-border-soft);
+}
+
+.wpb-em-tip__key {
+	display: inline-block;
+	width: 12px;
+	height: 2px;
+	border-radius: 2px;
+	flex-shrink: 0;
+}
+
+/* Table twin of the chart. */
+.wpb-em-table__scroll {
+	overflow-x: auto;
+	max-height: 320px;
+}
+
+.wpb-em-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: .78rem;
+}
+
+.wpb-em-table th,
+.wpb-em-table td {
+	padding: 6px 10px;
+	text-align: end;
+	border-bottom: 1px solid var(--wpb-border-soft);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.wpb-em-table th:first-child {
+	text-align: start;
+}
+
+.wpb-em-table thead th {
+	position: sticky;
+	top: 0;
+	background: #fff;
+	color: var(--wpb-text-secondary);
+	font-weight: 600;
+}
+
+.wpb-em-table td.is-zero {
+	color: #b6bac3;
+}
+
+/* Source bars: one series, one hue, value at the tip. */
+.wpb-em-sources {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#wpb-admin .wpb-em-src {
+	margin: 0;
+}
+
+.wpb-em-src__head {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	min-width: 0;
+}
+
+.wpb-em-src__name {
+	font-size: .82rem;
+	font-weight: 700;
+	color: var(--wpb-secondary);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.wpb-em-src__kind,
+.wpb-em-src__meta {
+	font-size: .72rem;
+	color: var(--wpb-text-secondary);
+	white-space: nowrap;
+}
+
+.wpb-em-src__track {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 4px 0 2px;
+}
+
+.wpb-em-src__bar {
+	display: block;
+	height: 10px;
+	background: var(--em-bar);
+	border-start-end-radius: 4px;
+	border-end-end-radius: 4px;
+}
+
+.wpb-em-src__value {
+	font-size: .78rem;
+	color: var(--wpb-text-primary);
+	font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   ISSUES
+   ============================================================ */
+.wpb-em-issues {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid var(--wpb-border-soft);
+}
+
+#wpb-admin .wpb-em-issue {
+	margin: 0;
+	border-bottom: 1px solid var(--wpb-border-soft);
+}
+
+.wpb-em-issue__sum {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	padding: 12px 6px;
+	cursor: pointer;
+	list-style: none;
+	border-radius: 8px;
+	transition: background .15s;
+}
+
+.wpb-em-issue__sum::-webkit-details-marker {
+	display: none;
+}
+
+.wpb-em-issue__sum:hover {
+	background: var(--wpb-bg-soft);
+}
+
+.wpb-em-issue__main {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+	min-width: 0;
+	flex: 1;
+}
+
+.wpb-em-issue__msg {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-size: .84rem;
+	font-weight: 600;
+	line-height: 1.45;
+	color: var(--wpb-text-primary);
+	overflow-wrap: anywhere;
+}
+
+.wpb-em-issue__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px 14px;
+	font-size: .74rem;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-issue__src {
+	font-weight: 700;
+}
+
+.wpb-em-issue__file,
+.wpb-em-mono {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: .72rem;
+	overflow-wrap: anywhere;
+}
+
+.wpb-em-issue__count strong {
+	display: inline-block;
+	padding: 3px 10px;
+	border-radius: 999px;
+	background: var(--wpb-bg-soft);
+	border: 1px solid var(--wpb-border-soft);
+	font-size: .8rem;
+	color: var(--wpb-secondary);
+	white-space: nowrap;
+}
+
+/* Severity badge: icon + label, never colour alone. */
+.wpb-em-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 2px 9px 2px 7px;
+	border-radius: 999px;
+	font-size: .68rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	white-space: nowrap;
+}
+
+.wpb-em-badge svg {
+	width: 12px;
+	height: 12px;
+}
+
+.wpb-em-badge--fatal { background: rgba(127, 29, 29, .12); color: #7f1d1d; }
+.wpb-em-badge--warning { background: rgba(185, 28, 28, .1); color: #991b1b; }
+.wpb-em-badge--notice { background: rgba(224, 86, 77, .12); color: #a3322b; }
+.wpb-em-badge--deprecated { background: rgba(236, 143, 134, .18); color: #9a3f37; }
+.wpb-em-badge--other { background: #f1f0ec; color: #57534e; }
+
+.wpb-em-issue__dl {
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	gap: 6px 18px;
+	margin: 0 6px 14px;
+	padding: 12px 14px;
+	background: var(--wpb-bg-soft);
+	border-radius: 10px;
+	font-size: .78rem;
+}
+
+.wpb-em-issue__dl dt {
+	font-weight: 700;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-issue__dl dd {
+	margin: 0;
+	min-width: 0;
+	color: var(--wpb-text-primary);
+}
+
+.wpb-em-issue__full {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+.wpb-em-more {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	flex-wrap: wrap;
+	margin-top: 12px;
+}
+
+#wpb-admin .wpb-em-note {
+	margin: 0;
+	font-size: .76rem;
+	color: var(--wpb-text-secondary);
+}
+
+#wpb-admin .wpb-em-empty {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 18px 6px;
+	font-weight: 600;
+	color: var(--wpb-text-secondary);
+}
+
+#wpb-admin .wpb-em-empty--good {
+	color: #15803d;
+}
+
+.wpb-em-empty svg {
+	width: 18px;
+	height: 18px;
+}
+
+/* ============================================================
+   LOG FILES + DEBUG SETTINGS
+   ============================================================ */
+.wpb-em-files,
+.wpb-em-config {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#wpb-admin .wpb-em-file {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin: 0;
+	padding: 14px 0;
+	border-top: 1px solid var(--wpb-border-soft);
+}
+
+.wpb-em-file__ic {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	flex-shrink: 0;
+	border-radius: 10px;
+	background: var(--wpb-bg-soft);
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-file__ic svg {
+	width: 17px;
+	height: 17px;
+}
+
+.wpb-em-file__info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+	min-width: 0;
+	flex: 1;
+}
+
+.wpb-em-file__label {
+	font-size: .86rem;
+	color: var(--wpb-secondary);
+}
+
+#wpb-admin .wpb-em-file__path,
+#wpb-admin .wpb-em-file__missing code,
+#wpb-admin .wpb-em-config code,
+#wpb-admin .wpb-em-modal__file {
+	padding: 1px 6px;
+	border-radius: 5px;
+	background: var(--wpb-bg-soft);
+	font-size: .74rem;
+	overflow-wrap: anywhere;
+}
+
+.wpb-em-file__facts {
+	font-size: .76rem;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-file__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 3px;
+}
+
+#wpb-admin .wpb-em-file__acts {
+	flex-shrink: 0;
+}
+
+#wpb-admin .wpb-em-file__acts .wpb-btn {
+	padding: 7px 13px;
+}
+
+#wpb-admin .wpb-em-file__missing {
+	margin: 0;
+	padding: 12px 0 0;
+	border-top: 1px solid var(--wpb-border-soft);
+	font-size: .76rem;
+	line-height: 1.9;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-state {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 2px 9px 2px 7px;
+	border-radius: 999px;
+	background: #f1f5f9;
+	color: #475569;
+	font-size: .72rem;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.wpb-em-state svg {
+	width: 12px;
+	height: 12px;
+}
+
+.wpb-em-state--on {
+	background: rgba(16, 185, 129, .13);
+	color: #047857;
+}
+
+.wpb-em-state--bad {
+	background: rgba(185, 28, 28, .1);
+	color: #991b1b;
+}
+
+.wpb-em-state--unknown {
+	background: rgba(250, 204, 21, .16);
+	color: #92400e;
+}
+
+#wpb-admin .wpb-em-config li {
+	display: grid;
+	grid-template-columns: 170px 190px minmax(0, 1fr);
+	align-items: center;
+	gap: 6px 14px;
+	margin: 0;
+	padding: 10px 0;
+	border-top: 1px solid var(--wpb-border-soft);
+}
+
+#wpb-admin .wpb-em-config .wpb-em-state {
+	justify-self: start;
+}
+
+.wpb-em-config__hint {
+	font-size: .76rem;
+	color: var(--wpb-text-secondary);
+}
+
+.wpb-em-snippet {
+	margin-top: 14px;
+	padding-top: 14px;
+	border-top: 1px solid var(--wpb-border-soft);
+}
+
+#wpb-admin .wpb-em-snippet__txt {
+	margin: 0 0 8px;
+}
+
+#wpb-admin .wpb-em-snippet__txt code {
+	font-size: .74rem;
+}
+
+.wpb-em-code {
+	position: relative;
+	margin: 6px 0 10px;
+	direction: ltr;
+}
+
+#wpb-admin .wpb-em-code pre {
+	margin: 0;
+	padding: 12px 90px 12px 14px;
+	overflow-x: auto;
+	background: var(--wpb-secondary);
+	border-radius: 10px;
+	color: #e2e8f0;
+	font-size: .76rem;
+	line-height: 1.6;
+}
+
+#wpb-admin .wpb-em-code code {
+	padding: 0;
+	background: none;
+	color: inherit;
+	font-size: inherit;
+	white-space: pre;
+}
+
+#wpb-admin .wpb-em-copy {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	padding: 4px 10px;
+	font-size: .72rem;
+}
+
+#wpb-admin .wpb-em-copy svg {
+	width: 13px;
+	height: 13px;
+}
+
+/* Modal extras. */
+#wpb-admin .wpb-em-modal__file {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	margin: 10px auto 0;
+}
+
+#wpb-admin .wpb-em-modal__shared {
+	display: block;
+	margin-top: 10px;
+	font-weight: 600;
+	color: #991b1b;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1080px) {
+
+	.wpb-em-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.wpb-em-tiles {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	#wpb-admin .wpb-em-config li {
+		grid-template-columns: 170px minmax(0, 1fr);
+	}
+
+	.wpb-em-config__hint {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 600px) {
+
+	#wpb-admin .wpb-em-file {
+		flex-wrap: wrap;
+	}
+
+	#wpb-admin .wpb-em-file__acts {
+		width: 100%;
+		padding-inline-start: 48px;
+	}
+
+	#wpb-admin .wpb-em .wpb-card__head .wpb-switch {
+		margin-inline-start: 0;
+	}
+
+	#wpb-admin .wpb-em-select select {
+		max-width: 100%;
+	}
+
+	.wpb-em-issue__sum {
+		gap: 8px;
+	}
+
+	#wpb-admin .wpb-em-config li {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 420px) {
+
+	.wpb-em-tiles {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

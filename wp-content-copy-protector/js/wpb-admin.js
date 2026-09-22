@@ -28,92 +28,117 @@
 		// CSS keeps every panel open until JS confirms it can switch them.
 		root.classList.remove( 'no-js' );
 
-		// Destructive buttons (Restore defaults) open their own .wpb-modal
-		// instead of the browser's confirm() box. The modal is markup, so its
-		// wording is translated server side, and its confirm button is a real
-		// submit carrying name="Restore_defaults" - nothing is re-posted by
-		// hand. With JS off the modal stays hidden and the trigger submits
-		// straight away, which is how the button behaved before.
-		[].slice.call( root.querySelectorAll( '[data-wpb-modal]' ) )
-			.forEach( function ( trigger ) {
-				var modal = document.getElementById( trigger.getAttribute( 'data-wpb-modal' ) );
+		// Destructive buttons (Restore defaults, Clear log) open their own
+		// .wpb-modal instead of the browser's confirm() box. The modal is
+		// markup, so its wording is translated server side, and Restore
+		// defaults' confirm button is a real submit carrying
+		// name="Restore_defaults" - nothing is re-posted by hand. With JS off
+		// the modal stays hidden and the trigger submits straight away, which
+		// is how the button behaved before.
+		//
+		// Triggers are picked up by delegation, so buttons rendered later
+		// (the Error Monitor's per-file Clear log) open modals too. A
+		// 'wpb:modal-open' event on the modal tells its owner which trigger
+		// opened it.
+		var openModal = null;
 
-				if ( ! modal ) {
-					return;
-				}
-
-				var box = modal.querySelector( '.wpb-modal__box' );
-
-				function focusable() {
-					return [].slice.call(
-						box.querySelectorAll( 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])' )
-					).filter( function ( el ) {
-						return ! el.disabled && el.offsetParent !== null;
-					} );
-				}
-
-				function close() {
-					modal.hidden = true;
-					document.body.classList.remove( 'wpb-modal-open' );
-					document.removeEventListener( 'keydown', onKey );
-					trigger.focus();
-				}
-
-				// Escape closes; Tab is trapped so focus cannot wander off
-				// into the page behind the veil.
-				function onKey( event ) {
-					if ( event.key === 'Escape' ) {
-						event.preventDefault();
-						close();
-						return;
-					}
-
-					if ( event.key !== 'Tab' ) {
-						return;
-					}
-
-					var stops = focusable();
-
-					if ( ! stops.length ) {
-						return;
-					}
-
-					var first = stops[ 0 ];
-					var last = stops[ stops.length - 1 ];
-
-					if ( event.shiftKey && document.activeElement === first ) {
-						event.preventDefault();
-						last.focus();
-					} else if ( ! event.shiftKey && document.activeElement === last ) {
-						event.preventDefault();
-						first.focus();
-					}
-				}
-
-				trigger.addEventListener( 'click', function ( event ) {
-					event.preventDefault();
-
-					modal.hidden = false;
-					document.body.classList.add( 'wpb-modal-open' );
-					document.addEventListener( 'keydown', onKey );
-
-					// Cancel takes the focus, never the destructive button -
-					// so a stray Enter or Space dismisses instead of resets.
-					var cancel = modal.querySelector( '.wpb-modal__acts [data-wpb-modal-close]' );
-
-					if ( cancel ) {
-						cancel.focus();
-					}
-				} );
-
-				[].slice.call( modal.querySelectorAll( '[data-wpb-modal-close]' ) )
-					.forEach( function ( closer ) {
-						closer.addEventListener( 'click', function ( event ) {
-							event.preventDefault();
-							close();
-						} );
-					} );
+		function focusable( box ) {
+			return [].slice.call(
+				box.querySelectorAll( 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])' )
+			).filter( function ( el ) {
+				return ! el.disabled && el.offsetParent !== null;
 			} );
+		}
+
+		function closeModal() {
+			if ( ! openModal ) {
+				return;
+			}
+
+			var trigger = openModal.trigger;
+
+			openModal.modal.hidden = true;
+			openModal = null;
+			document.body.classList.remove( 'wpb-modal-open' );
+			document.removeEventListener( 'keydown', onModalKey );
+
+			// The trigger may have been re-rendered while the modal was open.
+			if ( trigger && trigger.isConnected ) {
+				trigger.focus();
+			}
+		}
+
+		// Escape closes; Tab is trapped so focus cannot wander off
+		// into the page behind the veil.
+		function onModalKey( event ) {
+			if ( ! openModal ) {
+				return;
+			}
+
+			if ( event.key === 'Escape' ) {
+				event.preventDefault();
+				closeModal();
+				return;
+			}
+
+			if ( event.key !== 'Tab' ) {
+				return;
+			}
+
+			var stops = focusable( openModal.modal.querySelector( '.wpb-modal__box' ) );
+
+			if ( ! stops.length ) {
+				return;
+			}
+
+			var first = stops[ 0 ];
+			var last = stops[ stops.length - 1 ];
+
+			if ( event.shiftKey && document.activeElement === first ) {
+				event.preventDefault();
+				last.focus();
+			} else if ( ! event.shiftKey && document.activeElement === last ) {
+				event.preventDefault();
+				first.focus();
+			}
+		}
+
+		root.addEventListener( 'click', function ( event ) {
+			var closer = event.target.closest( '[data-wpb-modal-close]' );
+
+			if ( closer && openModal && openModal.modal.contains( closer ) ) {
+				// A real submit (Restore defaults) must still post the form.
+				if ( closer.type !== 'submit' ) {
+					event.preventDefault();
+				}
+
+				closeModal();
+				return;
+			}
+
+			var trigger = event.target.closest( '[data-wpb-modal]' );
+			var modal = trigger && document.getElementById( trigger.getAttribute( 'data-wpb-modal' ) );
+
+			if ( ! modal ) {
+				return;
+			}
+
+			event.preventDefault();
+
+			openModal = { modal: modal, trigger: trigger };
+			modal.dispatchEvent( new CustomEvent( 'wpb:modal-open', { detail: { trigger: trigger } } ) );
+			modal.hidden = false;
+			document.body.classList.add( 'wpb-modal-open' );
+			document.addEventListener( 'keydown', onModalKey );
+
+			// Cancel takes the focus, never the destructive button -
+			// so a stray Enter or Space dismisses instead of resets.
+			var cancel = modal.querySelector( '.wpb-modal__acts [data-wpb-modal-close]' );
+
+			if ( cancel ) {
+				cancel.focus();
+			}
+		} );
 
 		var pills = [].slice.call( root.querySelectorAll( '.wpb-pill[data-panel]' ) );
 		var panels = [].slice.call( root.querySelectorAll( '.wpb-panel' ) );
@@ -122,9 +147,14 @@
 			return;
 		}
 
+		// How long the open tab is remembered. Long enough to come back to it
+		// after Save settings reloads the page; after that a fresh visit opens
+		// the first tab (the Protection Center) again.
+		var REMEMBER_MS = 5 * 60 * 1000;
+
 		function store( id ) {
 			try {
-				window.localStorage.setItem( STORE_KEY, id );
+				window.localStorage.setItem( STORE_KEY, JSON.stringify( { id: id, t: Date.now() } ) );
 			} catch ( e ) {
 				// Private browsing / storage disabled - the tab just won't persist.
 			}
@@ -132,10 +162,19 @@
 
 		function restore() {
 			try {
-				return window.localStorage.getItem( STORE_KEY );
+				var saved = JSON.parse( window.localStorage.getItem( STORE_KEY ) );
+
+				return saved && saved.id && Date.now() - saved.t < REMEMBER_MS ? saved.id : null;
 			} catch ( e ) {
 				return null;
 			}
+		}
+
+		// ?tab=center style links (dashboard widget, weekly email).
+		function requested() {
+			var match = /[?&]tab=([a-z-]+)/.exec( window.location.search );
+
+			return match ? 'wpb-panel-' + match[ 1 ] : null;
 		}
 
 		// PRO badges, primary CTAs and screenshots sweep once when their tab
@@ -196,6 +235,11 @@
 			shine( id );
 			store( id );
 
+			// CSS keys off the open panel (the Error Monitor hides the save
+			// bar), and panels that load their content lazily listen for it.
+			root.setAttribute( 'data-panel', id );
+			root.dispatchEvent( new CustomEvent( 'wpb:panel', { detail: { id: id } } ) );
+
 			return true;
 		}
 
@@ -226,10 +270,20 @@
 			} );
 		} );
 
-		// A saved panel wins, otherwise fall back to the first pill.
-		if ( ! activate( restore(), false ) ) {
+		// A linked tab wins, then a just-used one, otherwise the first pill.
+		if ( ! activate( requested(), false ) && ! activate( restore(), false ) ) {
 			activate( pills[ 0 ].getAttribute( 'data-panel' ), false );
 		}
+
+		// Buttons inside a panel that jump to another tab.
+		root.addEventListener( 'click', function ( event ) {
+			var go = event.target.closest( '[data-wpb-goto]' );
+
+			if ( go && activate( go.getAttribute( 'data-wpb-goto' ), true ) ) {
+				event.preventDefault();
+				root.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+			}
+		} );
 
 		// The Premium features card shows the same offer two ways: the plans
 		// grid (default) and the module-by-module breakdown. The switch only

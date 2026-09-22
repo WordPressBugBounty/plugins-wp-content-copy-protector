@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: https://wordpress.org/plugins/wp-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 4.1
+Version: 4.2
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -16,10 +16,14 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
 //define all variables the needed alot
 define('WCCP_FREE_PLUGIN_FILE', __FILE__);
-define('WCCP_FREE_VERSION', '4.1'); // keep in sync with the plugin header above
+define('WCCP_FREE_VERSION', '4.2'); // keep in sync with the plugin header above
 include 'the_globals.php';
 include_once('notifications.php');
 include_once('deactivation-survey.php');
+include_once('upgrade-hint.php');
+include_once('error-monitor.php');
+include_once('activity.php');
+include_once('admin-bar-insights.php');
 $wccp_settings = wccp_read_options();
 
 /**
@@ -455,61 +459,61 @@ function wccp_sanitize($unsafe_val, $type = 'text')
 	}
 }
 //------------------------------------------------------------------------
-function wccp_css_settings()
+/**
+ * Which protection layers run on the current front-end request.
+ *
+ * The layer printers below and the activity tracker (activity.php) share
+ * these, so activity is only ever counted where something is really blocked.
+ */
+function wccp_free_visitor_is_protected()
 {
 	global $wccp_settings;
-	if (!current_user_can('manage_options') || (current_user_can('manage_options') && $wccp_settings['exclude_admin_from_protection'] == 'No')) {
-		if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['home_css_protection'] == 'Enabled')) {
-			wccp_css_script();
-			return;
-		}
-		if (is_single() && $wccp_settings['posts_css_protection'] == 'Enabled') {
-			wccp_css_script();
-			return;
-		}
-		if (is_page() && !is_front_page() && $wccp_settings['pages_css_protection'] == 'Enabled') {
-			wccp_css_script();
-			return;
-		}
-	}
+	return !current_user_can('manage_options') || $wccp_settings['exclude_admin_from_protection'] == 'No';
+}
+
+function wccp_free_protects_css()
+{
+	global $wccp_settings;
+	if (!wccp_free_visitor_is_protected()) return false;
+	if ((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['home_css_protection'] == 'Enabled') return true;
+	if (is_single() && $wccp_settings['posts_css_protection'] == 'Enabled') return true;
+	if (is_page() && !is_front_page() && $wccp_settings['pages_css_protection'] == 'Enabled') return true;
+	return false;
+}
+
+function wccp_free_protects_selection()
+{
+	global $wccp_settings;
+	if (!wccp_free_visitor_is_protected()) return false;
+	if ((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed() || is_search()) && $wccp_settings['home_page_protection'] == 'Enabled') return true;
+	if (is_single() && $wccp_settings['single_posts_protection'] == 'Enabled') return true;
+	if (is_page() && !is_front_page() && $wccp_settings['page_protection'] == 'Enabled') return true;
+	return false;
+}
+
+function wccp_free_protects_right_click()
+{
+	global $wccp_settings;
+	if (!wccp_free_visitor_is_protected()) return false;
+	if ((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['right_click_protection_homepage'] == 'checked') return true;
+	if (is_single() && $wccp_settings['right_click_protection_posts'] == 'checked') return true;
+	if (is_page() && !is_front_page() && $wccp_settings['right_click_protection_posts'] == 'checked') return true;
+	return false;
+}
+//------------------------------------------------------------------------
+function wccp_css_settings()
+{
+	if (wccp_free_protects_css()) wccp_css_script();
 }
 //------------------------------------------------------------------------
 function wccp_main_settings()
 {
-	global $wccp_settings;
-	if (!current_user_can('manage_options') || (current_user_can('manage_options') && $wccp_settings['exclude_admin_from_protection'] == 'No')) {
-		if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed() || is_search()) && $wccp_settings['home_page_protection'] == 'Enabled')) {
-			wccp_free_disable_selection();
-			return;
-		}
-		if (is_single() && $wccp_settings['single_posts_protection'] == 'Enabled') {
-			wccp_free_disable_selection();
-			return;
-		}
-		if (is_page() && !is_front_page() && $wccp_settings['page_protection'] == 'Enabled') {
-			wccp_free_disable_selection();
-			return;
-		}
-	}
+	if (wccp_free_protects_selection()) wccp_free_disable_selection();
 }
 //------------------------------------------------------------------------
 function wccp_free_right_click_premium_settings()
 {
-	global $wccp_settings;
-	if (!current_user_can('manage_options') || (current_user_can('manage_options') && $wccp_settings['exclude_admin_from_protection'] == 'No')) {
-		if (((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['right_click_protection_homepage'] == 'checked')) {
-			wccp_free_disable_right_click();
-			return;
-		}
-		if (is_single() && $wccp_settings['right_click_protection_posts'] == 'checked') {
-			wccp_free_disable_right_click();
-			return;
-		}
-		if (is_page() && !is_front_page() && $wccp_settings['right_click_protection_posts'] == 'checked') {
-			wccp_free_disable_right_click();
-			return;
-		}
-	}
+	if (wccp_free_protects_right_click()) wccp_free_disable_right_click();
 }
 //------------------------------------------------------------------------
 function wccp_find_image_urls($content)
@@ -574,6 +578,7 @@ if ($pagenow != 'post.php' && !isset($_GET["elementor-preview"]) && !isset($_GET
 	add_action('wp_head', 'wccp_free_right_click_premium_settings');
 	add_action('wp_head', 'wccp_css_settings');
 	add_action('wp_footer', 'wccp_free_alert_message');
+	add_action('wp_enqueue_scripts', 'wccp_free_activity_tracker', 20);
 	add_filter('body_class', 'wccp_class_names');
 	//add_filter( 'the_content', 'wccp_find_image_urls');
 }
@@ -681,17 +686,165 @@ function wccp_free_after_plugin_row($plugin_file, $plugin_data, $status)
 	$random_message = $messages[array_rand($messages)];
 
 ?>
+	<style>
+		#wccp-update-message {
+			position: relative;
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 12px 16px;
+			margin: 6px 0 4px;
+			padding: 12px 44px 12px 14px;
+			padding-inline: 14px 44px;
+			background: linear-gradient(135deg, #f5f3ff 0%, #eef6ff 100%);
+			border: 1px solid #ddd6fe;
+			border-inline-start: 4px solid #7c3aed;
+			border-radius: 8px;
+			box-shadow: 0 1px 2px rgba(17, 24, 39, .05), 0 4px 12px rgba(124, 58, 237, .08);
+			color: #1f2937;
+			font-size: 13px;
+			line-height: 1.5;
+			transition: opacity .25s ease, transform .25s ease;
+			width: fit-content;
+		}
+
+		#wccp-update-message.wccp-is-hiding {
+			opacity: 0;
+			transform: translateY(-4px);
+		}
+
+		#wccp-update-message .wccp-um-icon {
+			flex: 0 0 auto;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 34px;
+			height: 34px;
+			border-radius: 50%;
+			background: linear-gradient(135deg, #7c3aed, #4f46e5);
+			color: #fff;
+			box-shadow: 0 2px 6px rgba(79, 70, 229, .35);
+		}
+
+		#wccp-update-message .wccp-um-icon .dashicons {
+			width: 18px;
+			height: 18px;
+			font-size: 18px;
+		}
+
+		#wccp-update-message .wccp-um-text {
+			flex: 1 1 260px;
+			margin: 0;
+		}
+
+		#wccp-update-message .wccp-um-badge {
+			display: inline-block;
+			margin-inline-end: 6px;
+			padding: 1px 8px;
+			border-radius: 999px;
+			background: #ede9fe;
+			color: #6d28d9;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: .3px;
+			text-transform: uppercase;
+			vertical-align: 1px;
+		}
+
+		#wccp-update-message a.wccp-um-cta {
+			display: inline-flex;
+			align-items: center;
+			gap: 4px;
+			padding: 7px 16px;
+			border-radius: 6px;
+			background: linear-gradient(135deg, #7c3aed, #4f46e5);
+			color: #fff;
+			font-weight: 600;
+			text-decoration: none;
+			white-space: nowrap;
+			box-shadow: 0 2px 6px rgba(79, 70, 229, .3);
+			transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+		}
+
+		#wccp-update-message a.wccp-um-cta:hover,
+		#wccp-update-message a.wccp-um-cta:focus {
+			color: #fff;
+			filter: brightness(1.08);
+			transform: translateY(-1px);
+			box-shadow: 0 4px 12px rgba(79, 70, 229, .4);
+		}
+
+		#wccp-update-message a.wccp-um-cta:focus-visible {
+			outline: 2px solid #4f46e5;
+			outline-offset: 2px;
+		}
+
+		#wccp-update-message a.wccp-um-cta .dashicons {
+			width: 16px;
+			height: 16px;
+			font-size: 16px;
+			transition: transform .15s ease;
+		}
+
+		#wccp-update-message a.wccp-um-cta:hover .dashicons {
+			transform: translateX(2px);
+		}
+
+		.rtl #wccp-update-message a.wccp-um-cta .dashicons {
+			transform: scaleX(-1);
+		}
+
+		.rtl #wccp-update-message a.wccp-um-cta:hover .dashicons {
+			transform: scaleX(-1) translateX(2px);
+		}
+
+		#wccp-update-message .wccp-um-dismiss {
+			position: absolute;
+			top: 8px;
+			inset-inline-end: 8px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 26px;
+			height: 26px;
+			padding: 0;
+			border: 0;
+			border-radius: 50%;
+			background: transparent;
+			color: #6b7280;
+			cursor: pointer;
+			transition: background .15s ease, color .15s ease;
+		}
+
+		#wccp-update-message .wccp-um-dismiss:hover,
+		#wccp-update-message .wccp-um-dismiss:focus {
+			background: rgba(124, 58, 237, .1);
+			color: #6d28d9;
+		}
+
+		#wccp-update-message .wccp-um-dismiss .dashicons {
+			width: 18px;
+			height: 18px;
+			font-size: 18px;
+		}
+	</style>
 	<tr id="<?php echo esc_attr($class_name); ?>-plugin-update" class="active">
 		<th class="check-column" scope="row"></th>
 		<td colspan="3" class="plugin-update">
-			<div id="wccp-update-message" style="background:#edf4f7;padding:10px;">
-				<?php echo esc_html($random_message); ?>
-				<a href="<?php echo esc_url($p_url); ?>" target="_blank">
-					<strong><?php echo esc_html__('Upgrade Now', 'wp-content-copy-protector'); ?></strong>
-				</a>,
-				<a id="wccp-hide-message" href="#">
-					<strong><?php echo esc_html__('Dismiss', 'wp-content-copy-protector'); ?></strong>
-				</a>.
+			<div id="wccp-update-message" role="note">
+				<span class="wccp-um-icon" aria-hidden="true"><span class="dashicons dashicons-shield-alt"></span></span>
+				<p class="wccp-um-text">
+					<span class="wccp-um-badge">PRO</span>
+					<?php echo esc_html($random_message); ?>
+				</p>
+				<a class="wccp-um-cta" href="<?php echo esc_url($p_url); ?>" target="_blank" rel="noopener noreferrer">
+					<?php echo esc_html__('Upgrade Now', 'wp-content-copy-protector'); ?>
+					<span class="dashicons dashicons-arrow-right-alt" aria-hidden="true"></span>
+				</a>
+				<button type="button" id="wccp-hide-message" class="wccp-um-dismiss" title="<?php echo esc_attr__('Dismiss', 'wp-content-copy-protector'); ?>">
+					<span class="dashicons dashicons-no-alt" aria-hidden="true"></span>
+					<span class="screen-reader-text"><?php echo esc_html__('Dismiss', 'wp-content-copy-protector'); ?></span>
+				</button>
 			</div>
 		</td>
 	</tr>
@@ -715,7 +868,8 @@ function wccp_free_after_plugin_row($plugin_file, $plugin_data, $status)
 					Date.now() + fifteenDays
 				);
 
-				wccp_remove_upgrade_message();
+				$("#wccp-update-message").addClass("wccp-is-hiding");
+				setTimeout(wccp_remove_upgrade_message, 250);
 			});
 
 			const expiresAt = parseInt(localStorage.getItem(storageKey), 10);

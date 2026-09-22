@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Content Copy Protection & No Right Click 3.7.4\n"
+"Project-Id-Version: WP Content Copy Protection & No Right Click 4.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-content-copy-protector\n"
-"POT-Creation-Date: 2026-09-02 12:00+0000\n"
-"PO-Revision-Date: 2026-09-02 14:25+0000\n"
+"POT-Creation-Date: 2026-09-14 20:33+0000\n"
+"PO-Revision-Date: 2026-09-14 14:44+0000\n"
 "Last-Translator: WP Localization Team\n"
 "Language-Team: Chinese (Simplified)\n"
 "Language: zh_CN\n"
@@ -15,1028 +15,1826 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: WP Content Copy Protection i18n Builder\n"
 
-#: preventer-index.php:90
-msgid "You are not allowed to save images!"
-msgstr "您没有保存图片的权限！"
+#: activity-panel.php:41
+msgid "about the same"
+msgstr "基本持平"
 
-#: preventer-index.php:91
-msgid "Context Menu disabled!"
-msgstr "右键菜单已被禁用！"
+#: activity-panel.php:50
+msgid "more than the previous period"
+msgstr "比上一周期增加"
 
-#: preventer-index.php:115
-msgid "You are not allowed to copy content or view source"
-msgstr "您没有复制内容或查看源代码的权限"
+#: activity-panel.php:50
+msgid "less than the previous period"
+msgstr "比上一周期减少"
 
-#: preventer-index.php:307
-msgid "error:"
-msgstr "错误："
+#: activity-panel.php:63
+msgid "Protection activity is switched off"
+msgstr "保护活动记录已关闭"
 
-#: preventer-index.php:314
-msgid "Alert:"
-msgstr "提示："
+#: activity-panel.php:65
+msgid "Switch it on to see how often visitors run into your copy protection, which pages draw the most attention and whether it is your text or your images they reach for. It stores counts only - no personal data."
+msgstr "开启后，您可以看到访客触发内容防复制的频率、哪些页面最受关注，以及访客更关注您的文字还是图片。仅保存计数，不保存任何个人数据。"
 
-#: preventer-index.php:645 preventer-index.php:809 preventer-index.php:809
-msgid "Settings"
-msgstr "设置"
+#: activity-panel.php:68
+msgid "Switch on activity insights"
+msgstr "开启活动洞察"
 
-#: preventer-index.php:648
-msgid "Upgrade to PRO version Now"
-msgstr "立即升级到专业版 (PRO)"
+#: activity-panel.php:95
+msgid "Protection activity"
+msgstr "保护活动"
 
-#: preventer-index.php:648
-msgid "Go PRO"
-msgstr "升级到专业版"
+#: activity-panel.php:96 activity-panel.php:225 admin-bar-insights.php:514
+msgid "Last 7 days"
+msgstr "最近 7 天"
 
-#: preventer-index.php:673
-msgid "You are running WP Content Copy Protection & No Right Click (free). To get more features, you can "
-msgstr "您正在使用 WP Content Copy Protection & No Right Click（免费版）。如需获取更多高级功能，您可以 "
+#: activity-panel.php:97 admin-core.php:551
+msgid "Time range"
+msgstr "时间范围"
 
-#: preventer-index.php:685
-msgid "Upgrade Now"
-msgstr "立即升级"
+#: activity-panel.php:98 admin-core.php:552
+msgid "7 days"
+msgstr "7 天"
 
-#: preventer-index.php:688 admin-core.php:229
-msgid "Dismiss"
-msgstr "忽略"
+#: activity-panel.php:99 admin-core.php:553
+msgid "30 days"
+msgstr "30 天"
 
-#: preventer-index.php:781
-msgid "Protection"
-msgstr "保护"
+#: activity-panel.php:100 admin-core.php:554
+msgid "90 days"
+msgstr "90 天"
 
-#: preventer-index.php:783
-msgid "Copy Protection & No right click"
-msgstr "防复制与禁用右键"
+#: activity-panel.php:101
+msgid "12 months"
+msgstr "12 个月"
 
-#: preventer-index.php:801 admin-core.php:258
-msgid "WP Content Copy Protection"
-msgstr "WP Content Copy Protection"
+#: activity-panel.php:108
+msgid "Your protection is on. Nobody ran into it in the last 7 days."
+msgstr "保护已开启。最近 7 天没有访客触发保护。"
 
-#: preventer-index.php:802
-msgid "Copy Protection"
-msgstr "内容防复制"
+#: activity-panel.php:112
+msgid "%1$s visit ran into your copy protection in the last 7 days - %2$s%% more than the 7 days before."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days - %2$s%% more than the 7 days before."
+msgstr[0] "最近 7 天有 %1$s 次访问触发了内容防复制，比之前 7 天增加 %2$s%%。"
 
-#: preventer-index.php:828
-msgid "More Plugins"
-msgstr "更多插件"
+#: activity-panel.php:114
+msgid "%1$s visit ran into your copy protection in the last 7 days - %2$s%% less than the 7 days before."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days - %2$s%% less than the 7 days before."
+msgstr[0] "最近 7 天有 %1$s 次访问触发了内容防复制，比之前 7 天减少 %2$s%%。"
+
+#: activity-panel.php:116
+msgid "%1$s visit ran into your copy protection in the last 7 days - about the same as the 7 days before."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days - about the same as the 7 days before."
+msgstr[0] "最近 7 天有 %1$s 次访问触发了内容防复制，与之前 7 天基本持平。"
+
+#: activity-panel.php:118
+msgid "%1$s visit ran into your copy protection in the last 7 days."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days."
+msgstr[0] "最近 7 天有 %1$s 次访问触发了内容防复制。"
+
+#: activity-panel.php:134
+msgid "Since your last visit (%s):"
+msgstr "自您上次访问以来（%s）："
+
+#. translators: 1: number of visits, 2: number of interactions, 3: number of pages.
+#: activity-panel.php:140
+msgid "%1$s new visit with blocked actions - %2$s interactions on %3$s pages."
+msgid_plural "%1$s new visits with blocked actions - %2$s interactions on %3$s pages."
+msgstr[0] "新增 %1$s 次含被拦截操作的访问 - 在 %3$s 个页面上共 %2$s 次操作。"
+
+#: activity-panel.php:146
+msgid "nothing new yet."
+msgstr "暂无新动态。"
+
+#: activity-panel.php:157
+msgid "Recording started on %s, so this period is not complete yet. Comparisons appear once there are two full weeks to compare."
+msgstr "记录开始于 %s，因此本周期尚不完整。有两个完整周的数据后才会显示对比。"
+
+#: activity-panel.php:165
+msgid "Longer history is part of PRO"
+msgstr "更长的历史记录是专业版功能"
+
+#: activity-panel.php:166
+msgid "See 30 days, 90 days or 12 months of activity, spot seasonal peaks and follow how each page trends over time."
+msgstr "查看 30 天、90 天或 12 个月的活动，发现季节性高峰，并跟踪每个页面的变化趋势。"
+
+#: activity-panel.php:168
+msgid "See PRO"
+msgstr "查看专业版"
+
+#: activity-panel.php:180
+msgid "Quiet week - your protection is on and watching"
+msgstr "平静的一周 - 保护已开启并持续守护"
+
+#: activity-panel.php:181
+msgid "Very few visits ran into your protection in the last 7 days. That is normal for a newer or smaller site: this page fills up as your content gets more visitors, and you will see here the moment it does."
+msgstr "最近 7 天只有极少数访问触发了保护。对于新网站或小型网站来说这很正常：随着您的内容获得更多访客，这里会逐渐出现数据，一有动态您就能在此看到。"
+
+#: activity-panel.php:186
+msgid "Last blocked action: %1$s, on \"%2$s\"."
+msgstr "最近一次被拦截的操作：%1$s，位于“%2$s”。"
+
+#: activity-panel.php:198 activity-panel.php:556
+msgid "Visits with blocked actions"
+msgstr "含被拦截操作的访问"
+
+#: activity-panel.php:203
+msgid "Blocked interactions"
+msgstr "被拦截的操作"
+
+#: activity-panel.php:207
+msgid "Pages with activity"
+msgstr "有活动的页面"
+
+#: activity-panel.php:211
+msgid "One visit counts once, however many times the visitor clicked. A blocked action is not necessarily an attempt to steal."
+msgstr "无论访客点击多少次，一次访问只计一次。被拦截的操作并不一定意味着盗用企图。"
+
+#: activity-panel.php:217
+msgid "Visits with blocked actions per day"
+msgstr "每日含被拦截操作的访问"
+
+#: activity-panel.php:218
+msgid "Show the daily activity as"
+msgstr "每日活动显示方式"
+
+#: activity-panel.php:219 admin-core.php:599
+msgid "Chart"
+msgstr "图表"
+
+#: activity-panel.php:220 admin-core.php:600
+msgid "Table"
+msgstr "表格"
+
+#: activity-panel.php:226
+msgid "The 7 days before"
+msgstr "之前 7 天"
+
+#: activity-panel.php:236 error-monitor.php:662
+msgid "Day"
+msgstr "日期"
+
+#: activity-panel.php:237 activity-panel.php:287
+msgid "Visits"
+msgstr "访问"
+
+#: activity-panel.php:280 activity.php:1100
+msgid "Most interacted-with protected content"
+msgstr "互动最多的受保护内容"
+
+#: activity-panel.php:286 activity-panel.php:422
+msgid "Content"
+msgstr "内容"
+
+#: activity-panel.php:288
+msgid "Interactions"
+msgstr "操作"
+
+#. translators: %s: action type, e.g. "Right-clicks".
+#: activity-panel.php:315
+msgid "mostly %s"
+msgstr "主要为%s"
+
+#: activity-panel.php:335
+msgid "Text or images?"
+msgstr "文字还是图片？"
+
+#: activity-panel.php:340
+msgid "Text (selecting & copy shortcuts)"
+msgstr "文字（选择和复制快捷键）"
+
+#: activity-panel.php:341
+msgid "Images"
+msgstr "图片"
+
+#: activity-panel.php:342
+msgid "Right-clicks elsewhere"
+msgstr "其他位置的右键点击"
+
+#: activity-panel.php:345
+msgid "Printing"
+msgstr "打印"
+
+#: activity-panel.php:353
+msgid "Visitors mostly reach for your text."
+msgstr "访客主要关注您的文字。"
+
+#: activity-panel.php:355
+msgid "Visitors mostly reach for your images."
+msgstr "访客主要关注您的图片。"
+
+#: activity-panel.php:357
+msgid "Your text and your images draw about the same attention."
+msgstr "您的文字和图片受到的关注程度相近。"
+
+#: activity-panel.php:386
+msgid "Busiest day: %1$s, with %2$s visit."
+msgid_plural "Busiest day: %1$s, with %2$s visits."
+msgstr[0] "最活跃的一天：%1$s，共 %2$s 次访问。"
+
+#: activity-panel.php:398
+msgid "Based on your activity"
+msgstr "根据您的网站活动"
+
+#: activity-panel.php:404
+msgid "Not now"
+msgstr "暂不"
+
+#: activity-panel.php:415
+msgid "What your protection covers"
+msgstr "您的保护覆盖范围"
+
+#: activity-panel.php:416
+msgid "Change settings"
+msgstr "更改设置"
+
+#: activity-panel.php:423
+msgid "Selection & shortcuts"
+msgstr "选择和快捷键"
+
+#: activity-panel.php:424
+msgid "Right-click"
+msgstr "右键"
+
+#: activity-panel.php:425
+msgid "CSS layer"
+msgstr "CSS 层"
+
+#: activity-panel.php:436
+msgid "%s published"
+msgstr "已发布 %s 篇"
+
+#: activity-panel.php:443 admin-core.php:654 admin-core.php:663 admin-core.php:681
+msgid "On"
+msgstr "开启"
+
+#: activity-panel.php:445 admin-core.php:656 admin-core.php:665 admin-core.php:683
+msgid "Off"
+msgstr "关闭"
+
+#: activity-panel.php:462
+msgid "Activity insights & privacy"
+msgstr "活动洞察与隐私"
+
+#: activity-panel.php:472
+msgid "Record protection activity"
+msgstr "记录保护活动"
+
+#: activity-panel.php:473
+msgid "Counts blocked actions on your protected pages."
+msgstr "统计受保护页面上被拦截的操作。"
+
+#: activity-panel.php:480
+msgid "New activity count in the admin menu"
+msgstr "在管理菜单中显示新活动数量"
+
+#: activity-panel.php:481
+msgid "A small number next to \"Copy Protection\" until you open this page."
+msgstr "在您打开此页面之前，“内容防复制”旁会显示一个小数字。"
+
+#: activity-panel.php:488
+msgid "Weekly email summary"
+msgstr "每周邮件摘要"
+
+#: activity-panel.php:492
+msgid "Every Monday to %s, only in weeks with activity."
+msgstr "每周一发送至 %s，仅在有活动的周发送。"
+
+#: activity-panel.php:494
+msgid "Send me a preview"
+msgstr "给我发送预览"
+
+#: activity-panel.php:502
+msgid "Delete this data when the plugin is deleted"
+msgstr "删除插件时一并删除这些数据"
+
+#: activity-panel.php:503
+msgid "Off by default: deleting the plugin leaves everything it recorded on your site, so a later install picks the history up again. Switch it on and deleting the plugin also drops the activity table for good."
+msgstr "默认关闭：删除插件后，已记录的内容仍保留在站点中，日后重新安装可继续沿用历史数据。开启后，删除插件将同时永久删除活动数据表。"
+
+#: activity-panel.php:509
+msgid "No IP addresses, cookies or personal data are stored - only counts per page and hour."
+msgstr "不保存 IP 地址、Cookie 或任何个人数据，仅保存每个页面每小时的计数。"
+
+#: activity-panel.php:510
+msgid "Your own visits are not counted while you are logged in as an editor or admin."
+msgstr "您以编辑或管理员身份登录时，自己的访问不会被统计。"
+
+#: activity-panel.php:513
+msgid "A single visit counts each kind of action at most %s times."
+msgstr "单次访问中，每种操作最多计 %s 次。"
+
+#: activity-panel.php:515
+msgid "Nothing is sent until something is blocked, and then only once per visit - page speed is not affected."
+msgstr "在有操作被拦截之前不会发送任何数据，之后每次访问也只发送一次，不影响页面速度。"
+
+#: activity-panel.php:518
+msgid "Everything stays in your own database and is deleted after %s days."
+msgstr "所有数据都保存在您自己的数据库中，并在 %s 天后删除。"
+
+#: activity-panel.php:524
+msgid "Right-clicks and copy shortcuts are ordinary browser habits too - these numbers show attention to your content, not proof of theft."
+msgstr "右键点击和复制快捷键也是常见的浏览习惯，这些数字反映的是访客对您内容的关注，而非盗用的证据。"
+
+#: activity-panel.php:525
+msgid "Delete recorded activity"
+msgstr "删除已记录的活动"
+
+#: activity-panel.php:532 admin-core.php:713 admin-core.php:1080 deactivation-survey.php:215
+msgid "Close"
+msgstr "关闭"
+
+#: activity-panel.php:536
+msgid "Delete all recorded activity?"
+msgstr "删除所有已记录的活动？"
+
+#: activity-panel.php:537
+msgid "Every count collected so far is removed and the history starts again from today. Your protection settings are not touched. This cannot be undone."
+msgstr "迄今收集的所有计数都将被删除，历史记录从今天重新开始。您的保护设置不受影响。此操作无法撤销。"
+
+#: activity-panel.php:539 admin-core.php:724 admin-core.php:1087
+msgid "Cancel"
+msgstr "取消"
+
+#: activity-panel.php:540
+msgid "Yes, delete activity"
+msgstr "是的，删除活动"
+
+#: activity-panel.php:551
+msgid "Saving…"
+msgstr "正在保存…"
+
+#: activity-panel.php:552
+msgid "Saved"
+msgstr "已保存"
+
+#: activity-panel.php:553
+msgid "Could not save. Reload the page and try again."
+msgstr "无法保存。请刷新页面后重试。"
+
+#: activity-panel.php:554
+msgid "Sending…"
+msgstr "正在发送…"
+
+#: activity-panel.php:555
+msgid "Activity deleted"
+msgstr "活动已删除"
+
+#: activity-panel.php:557
+msgid "7 days before"
+msgstr "之前 7 天"
+
+#: activity-panel.php:559
+msgid "Visits with blocked actions per day, last 7 days. Use the arrow keys to read each day."
+msgstr "最近 7 天每日含被拦截操作的访问。使用方向键逐日查看。"
+
+#: activity.php:66
+msgid "Content selections"
+msgstr "内容选择"
+
+#: activity.php:67
+msgid "Right-clicks"
+msgstr "右键点击"
+
+#: activity.php:68
+msgid "Image interactions"
+msgstr "图片操作"
+
+#: activity.php:69
+msgid "Keyboard copy shortcuts"
+msgstr "键盘复制快捷键"
+
+#: activity.php:70
+msgid "Print attempts"
+msgstr "打印尝试"
+
+#: activity.php:226
+msgid "Once a week"
+msgstr "每周一次"
+
+#: activity.php:592
+msgid "Homepage"
+msgstr "首页"
+
+#: activity.php:593
+msgid "Archives & listings"
+msgstr "归档和列表"
+
+#: activity.php:594
+msgid "Search results"
+msgstr "搜索结果"
+
+#: activity.php:595
+msgid "\"Not found\" pages"
+msgstr "“未找到”页面"
+
+#: activity.php:599
+msgid "Site page"
+msgstr "网站页面"
+
+#: activity.php:606
+msgid "Deleted content #%d"
+msgstr "已删除的内容 #%d"
+
+#: activity.php:613
+msgid "(no title)"
+msgstr "（无标题）"
+
+#: activity.php:703 admin-core.php:427
+msgid "Posts"
+msgstr "文章"
+
+#: activity.php:712
+msgid "Pages"
+msgstr "页面"
+
+#: activity.php:722
+msgid "Homepage & archives"
+msgstr "首页和归档"
+
+#: activity.php:748 admin-bar-insights.php:691
+msgid "Images received %s protected interactions this week"
+msgstr "本周图片共收到 %s 次受保护的操作"
+
+#: activity.php:749
+msgid "Your current protection blocks basic image interactions such as right-click and drag. It cannot stop a screenshot. A watermark keeps your name on your images wherever they end up."
+msgstr "您当前的保护可拦截右键点击、拖动等基本图片操作，但无法阻止截图。添加水印后，无论图片流向何处，都会保留您的名字。"
+
+#: activity.php:750
+msgid "Watermark your images with PRO"
+msgstr "使用专业版为图片添加水印"
+
+#: activity.php:763
+msgid "\"%1$s\" drew %2$s%% of this week's activity"
+msgstr "“%1$s”占本周活动的 %2$s%%"
+
+#: activity.php:764
+msgid "In the free version every page gets the same protection. PRO lets you give a single page or post a stronger protection level, straight from the admin bar."
+msgstr "免费版中所有页面都使用相同的保护。专业版允许您直接在管理工具栏中为单个页面或文章设置更强的保护级别。"
+
+#: activity.php:765
+msgid "See per-page protection in PRO"
+msgstr "查看专业版的单页保护"
+
+#: activity.php:775 admin-bar-insights.php:695
+msgid "%s copy shortcuts were blocked this week"
+msgstr "本周共拦截 %s 次复制快捷键"
+
+#: activity.php:776
+msgid "The free version blocks Ctrl+A, C, X, V, S and U. PRO also covers Ctrl+P, Print Screen and F12 / DevTools, with your own message for each."
+msgstr "免费版可拦截 Ctrl+A、C、X、V、S 和 U。专业版还支持 Ctrl+P、Print Screen 和 F12 / 开发者工具，并可为每项设置自定义提示。"
+
+#: activity.php:777
+msgid "See shortcut protection in PRO"
+msgstr "查看专业版的快捷键保护"
+
+#: activity.php:827
+msgid "%s ago"
+msgstr "%s前"
+
+#: activity.php:877
+msgid "%s new visit with blocked actions"
+msgid_plural "%s new visits with blocked actions"
+msgstr[0] "%s 次新的含被拦截操作的访问"
+
+#: activity.php:915
+msgid "WP Content Copy Protection: your Protection Center is ready"
+msgstr "WP Content Copy Protection：您的保护中心已就绪"
+
+#. translators: %s: number of visits.
+#: activity.php:920
+msgid "More than %s visits have already run into your copy protection. See which pages draw the most copy attempts, what visitors tried to do and how it changes week by week."
+msgstr "已有超过 %s 次访问触发了您的复制保护。看看哪些页面引来最多复制尝试、访客做了什么，以及逐周的变化。"
+
+#: activity.php:925 activity.php:1032 activity.php:1111 admin-bar-insights.php:751
+msgid "Open Protection Center"
+msgstr "打开 Protection Center"
+
+#: activity.php:979
+msgid "Content protection activity"
+msgstr "内容保护活动"
+
+#: activity.php:1008
+msgid "Protection is on. No blocked copy-related actions in the last 7 days."
+msgstr "保护已开启。最近 7 天没有被拦截的复制相关操作。"
+
+#: activity.php:1012 admin-bar-insights.php:548
+msgid "visits with blocked actions, last 7 days"
+msgstr "次含被拦截操作的访问（最近 7 天）"
+
+#: activity.php:1017 activity.php:1085
+msgid "%1$s blocked interactions on %2$s pages"
+msgstr "在 %2$s 个页面上拦截了 %1$s 次操作"
+
+#: activity.php:1021 activity.php:1073
+msgid "%s%% more than the week before"
+msgstr "比上周增加 %s%%"
+
+#: activity.php:1021 activity.php:1073
+msgid "%s%% less than the week before"
+msgstr "比上周减少 %s%%"
+
+#. translators: 1: site name, 2: number of visits.
+#: activity.php:1065
+msgid "[%1$s] Content protection this week: %2$s visit with blocked copy actions"
+msgid_plural "[%1$s] Content protection this week: %2$s visits with blocked copy actions"
+msgstr[0] "[%1$s] 本周内容保护：%2$s 次访问的复制操作被拦截"
+
+#: activity.php:1079
+msgid "Protection activity - last 7 days"
+msgstr "保护活动 - 最近 7 天"
+
+#: activity.php:1081
+msgid "visits ran into your copy protection"
+msgstr "次访问触发了您的内容防复制"
+
+#: activity.php:1113
+msgid "A blocked action is not necessarily an attempt to steal: it counts a visit where someone right-clicked, tried to select or copy, or tried to print protected content. No personal data about your visitors was collected."
+msgstr "被拦截的操作并不一定意味着盗用企图：它统计的是有人右键点击、尝试选择或复制，或尝试打印受保护内容的访问。我们没有收集任何访客个人数据。"
+
+#: activity.php:1114
+msgid "You receive this because the weekly summary is switched on in WP Content Copy Protection. Switch it off in the Protection Center."
+msgstr "您收到此邮件是因为 WP Content Copy Protection 中开启了每周摘要。您可以在 Protection Center 中关闭。"
+
+#: activity.php:1198
+msgid "WordPress could not send the email. Check that this site can send mail."
+msgstr "WordPress 无法发送邮件。请检查此网站是否能够发送邮件。"
+
+#: activity.php:1202
+msgid "A preview was sent to %s."
+msgstr "预览已发送至 %s。"
+
+#: admin-bar-insights.php:225
+msgid "Error logging is off - problems on this site go unnoticed"
+msgstr ""
+
+#: admin-bar-insights.php:246
+msgid "Errors today"
+msgstr ""
+
+#: admin-bar-insights.php:247
+msgid "Fatal, 7 days"
+msgstr ""
+
+#: admin-bar-insights.php:248
+msgid "New issues"
+msgstr ""
+
+#: admin-bar-insights.php:253
+msgid "Fatal errors logged today: %s"
+msgstr ""
+
+#: admin-bar-insights.php:259
+msgid "New problems since you last checked the logs: %s"
+msgstr ""
+
+#: admin-bar-insights.php:261
+msgid "New problems in the last 24 hours: %s"
+msgstr ""
+
+#: admin-bar-insights.php:270
+msgid "Errors today are already %s× yesterday's"
+msgstr ""
+
+#: admin-bar-insights.php:272
+msgid "Errors appeared today after an error-free yesterday"
+msgstr ""
+
+#: admin-bar-insights.php:294
+msgid "Your theme is behind %s%% of this week's errors"
+msgstr ""
+
+#: admin-bar-insights.php:296
+msgid "One plugin is behind %s%% of this week's errors"
+msgstr ""
+
+#: admin-bar-insights.php:304
+msgid "One error repeated %s times this week"
+msgstr ""
+
+#: admin-bar-insights.php:308
+msgid "No PHP errors logged in the last 7 days"
+msgstr ""
+
+#: admin-bar-insights.php:509
+msgid "Since your last visit, %s"
+msgstr ""
+
+#: admin-bar-insights.php:512 admin-bar-insights.php:517
+msgid "%1$s blocked actions on %2$s pages"
+msgstr ""
+
+#: admin-bar-insights.php:514
+msgid "Quiet since your last visit"
+msgstr ""
+
+#: admin-bar-insights.php:523
+msgid "%s%% vs last week"
+msgstr ""
+
+#: admin-bar-insights.php:531
+msgid "%1$s: %2$s"
+msgstr ""
+
+#: admin-bar-insights.php:540
+msgid "Last activity: within the last hour"
+msgstr ""
+
+#: admin-bar-insights.php:542
+msgid "Last activity: %s"
+msgstr ""
+
+#: admin-bar-insights.php:548
+msgid "visits ran into your protection"
+msgstr ""
+
+#: admin-bar-insights.php:570
+msgid "Today is already at %s× your usual daily activity"
+msgstr ""
+
+#: admin-bar-insights.php:579
+msgid "%s%% more activity than yesterday at this hour"
+msgstr ""
+
+#: admin-bar-insights.php:582
+msgid "%s%% less activity than yesterday at this hour"
+msgstr ""
+
+#: admin-bar-insights.php:593
+msgid "Today is your busiest day in %s days of records"
+msgstr ""
+
+#: admin-bar-insights.php:596
+msgid "Yesterday was your busiest day in %s days of records"
+msgstr ""
+
+#: admin-bar-insights.php:610
+msgid "Your most targeted page changed this week"
+msgstr ""
+
+#: admin-bar-insights.php:617
+msgid "One page suddenly drew %s%% of this week's activity"
+msgstr ""
+
+#: admin-bar-insights.php:623
+msgid "A page with no activity last week is now in your top 3"
+msgstr ""
+
+#: admin-bar-insights.php:637
+msgid "Activity on one page grew %s× compared to last week"
+msgstr ""
+
+#: admin-bar-insights.php:646
+msgid "Pages with activity this week: %1$s, that is %2$s more than last week"
+msgstr ""
+
+#: admin-bar-insights.php:649
+msgid "Activity was spread across %s different pages this week"
+msgstr ""
+
+#: admin-bar-insights.php:664
+msgid "Most blocked this week: %1$s (%2$s%%)"
+msgstr ""
+
+#: admin-bar-insights.php:672
+msgid "New this week: %s"
+msgstr ""
+
+#: admin-bar-insights.php:683
+msgid "%1$s rose %2$s%% compared to last week"
+msgstr ""
+
+#: admin-bar-insights.php:705
+msgid "Most activity arrives around %s"
+msgstr ""
+
+#: admin-bar-insights.php:718
+msgid "%s drew activity this week, but not all of their protection layers are on"
+msgstr ""
+
+#: admin-bar-insights.php:751
+msgid "See what you missed"
+msgstr ""
+
+#: admin-bar-insights.php:752
+msgid "Open Error Monitor"
+msgstr ""
+
+#: admin-bar-insights.php:753 admin-core.php:324 admin-core.php:544
+msgid "Error Monitor"
+msgstr "错误监控"
+
+#: admin-bar-insights.php:886
+msgid "Loading your numbers…"
+msgstr ""
+
+#: admin-bar-insights.php:887
+msgid "The numbers could not be loaded right now."
+msgstr ""
+
+#: admin-bar-insights.php:888
+msgid "Visits with blocked actions, last 7 days"
+msgstr ""
+
+#: admin-bar-insights.php:889
+msgid "Error logs"
+msgstr ""
+
+#: admin-bar-insights.php:890
+msgid "Activity recording is switched off"
+msgstr ""
+
+#: admin-bar-insights.php:891
+msgid "Switch it on"
+msgstr ""
+
+#: admin-bar-insights.php:892
+msgid "New activity"
+msgstr ""
 
 #: admin-core.php:16 admin-core.php:28
 msgid "You do not have permission to change these settings."
 msgstr "您没有修改这些设置的权限。"
 
-#: admin-core.php:214
+#: admin-core.php:218
 msgid "Enabled"
 msgstr "已启用"
 
-#: admin-core.php:215
+#: admin-core.php:219
 msgid "Disabled"
 msgstr "已禁用"
 
-#: admin-core.php:222
+#: admin-core.php:226
 msgid "WP Content Protection Plugin Group"
 msgstr "WP Content Protection 插件群组"
 
-#: admin-core.php:223
+#: admin-core.php:227
 msgid "Begin your adventure to improve your WordPress website, and win discount codes along the way."
 msgstr "开启提升您 WordPress 网站的旅程，并在此过程中赢取优惠券。"
 
-#: admin-core.php:226
+#: admin-core.php:230
 msgid "Email address"
 msgstr "电子邮箱地址"
 
-#: admin-core.php:228
+#: admin-core.php:232
 msgid "Start it!"
 msgstr "立即开启！"
 
-#: admin-core.php:256
-msgid "Content protection"
-msgstr "内容保护"
+#: admin-core.php:233 preventer-index.php:844 preventer-index.php:846 upgrade-hint.php:150
+msgid "Dismiss"
+msgstr "忽略"
 
-#: admin-core.php:259
+#: admin-core.php:260
+msgid "Content Protection Center"
+msgstr "Content Protection Center"
+
+#: admin-core.php:262 preventer-index.php:961 preventer-index.php:963
+msgid "WP Content Copy Protection"
+msgstr "WP Content Copy Protection"
+
+#: admin-core.php:263
 msgid "& No Right Click"
 msgstr "& 禁用右键"
 
-#: admin-core.php:261
+#: admin-core.php:265
 msgid "Stop visitors from selecting, copying, printing or right-clicking your posts, pages and images. Switch a layer on below, save, and it is live on the front end."
 msgstr "防止访客选择、复制、打印或右键点击您的文章、页面和图片。在下方开启防护层并保存，前台将立即生效。"
 
-#: admin-core.php:264
+#: admin-core.php:268
 msgid "Free version active"
 msgstr "免费版已激活"
 
-#: admin-core.php:265
+#: admin-core.php:269
 msgid "3 protection layers"
 msgstr "3层保护"
 
-#: admin-core.php:275
+#: admin-core.php:279
 msgid "Featured"
 msgstr "推荐"
 
-#: admin-core.php:276
+#: admin-core.php:280
 msgid "WP Content Copy Protection & No Right Click (PRO)"
 msgstr "WP Content Copy Protection & No Right Click（专业版）"
 
-#: admin-core.php:277
+#: admin-core.php:281
 msgid "The ultimate defense for your hard work. Full right-click control, image watermarking, aggressive image protection and per-post protection levels - everything the free layers leave on the table."
 msgstr "为您辛勤创作的内容提供终极防护。全方位右键控制、图片水印、深度图片保护以及针对单篇文章的防护级别设置。"
 
-#: admin-core.php:279
+#: admin-core.php:283
 msgid "Full watermarking"
 msgstr "全功能水印"
 
-#: admin-core.php:280
+#: admin-core.php:284
 msgid "Aggressive protection"
 msgstr "深度强化保护"
 
-#: admin-core.php:281
+#: admin-core.php:285
 msgid "Post types protection"
 msgstr "自定义文章类型保护"
 
-#: admin-core.php:282 admin-core.php:529
+#: admin-core.php:286 admin-core.php:760
 msgid "Rated 4.9 by hundreds"
 msgstr "数百名用户给予 4.9 星高分好评"
 
-#: admin-core.php:286
+#: admin-core.php:290
 msgid "Live Demo"
 msgstr "在线演示"
 
-#: admin-core.php:287
+#: admin-core.php:291
 msgid "View Details"
 msgstr "查看详情"
 
-#: admin-core.php:288 admin-core.php:527
+#: admin-core.php:292 admin-core.php:758
 msgid "30-Day Money Back"
 msgstr "30 天无条件退款保证"
 
-#: admin-core.php:298
+#: admin-core.php:307
 msgid "Settings sections"
 msgstr "设置分区"
 
-#: admin-core.php:300
+#: admin-core.php:310
+msgid "Protection Center"
+msgstr "Protection Center"
+
+#: admin-core.php:314
 msgid "Main Settings"
 msgstr "常规设置"
 
-#: admin-core.php:303
+#: admin-core.php:317
 msgid "RightClick Protection"
 msgstr "右键保护"
 
-#: admin-core.php:306
+#: admin-core.php:320
 msgid "Protection by CSS"
 msgstr "CSS 保护"
 
-#: admin-core.php:309
+#: admin-core.php:328
 msgid "More with PRO"
 msgstr "专业版更多功能"
 
-#: admin-core.php:318
+#: admin-core.php:342
 msgid "Copy Protection using JavaScript"
 msgstr "使用 JavaScript 进行防复制保护"
 
-#: admin-core.php:319
+#: admin-core.php:343
 msgid "Basic Layer"
 msgstr "基础防护层"
 
-#: admin-core.php:321
+#: admin-core.php:345
 msgid "This is the basic protection layer that uses <u>JavaScript</u> to protect the posts, home page content from being copied by any other web site author."
 msgstr "这是基础防护层，使用 <u>JavaScript</u> 防止文章及首页内容被其他网站作者非法复制。"
 
-#: admin-core.php:325
+#: admin-core.php:349
 msgid "Posts protection by <u>JavaScript</u>"
 msgstr "通过 <u>JavaScript</u> 保护文章"
 
-#: admin-core.php:327
+#: admin-core.php:351
 msgid "For single posts content"
 msgstr "适用于单篇文章内容"
 
-#: admin-core.php:331
+#: admin-core.php:355
 msgid "Homepage protection by <u>JavaScript</u>"
 msgstr "通过 <u>JavaScript</u> 保护首页"
 
-#: admin-core.php:333
+#: admin-core.php:357
 msgid "Don't copy any thing! even from my homepage"
 msgstr "禁止复制任何内容！包括我的首页"
 
-#: admin-core.php:337
+#: admin-core.php:361
 msgid "Static page's protection"
 msgstr "静态页面保护"
 
-#: admin-core.php:339
+#: admin-core.php:363
 msgid "Use Premium Settings tab to customize more options"
 msgstr "使用高级设置标签页自定义更多选项"
 
-#: admin-core.php:343
+#: admin-core.php:367
 msgid "Plugin icon on top admin bar"
 msgstr "在顶部管理栏显示插件图标"
 
-#: admin-core.php:348
+#: admin-core.php:372
 msgid "Visible"
 msgstr "显示"
 
-#: admin-core.php:349
+#: admin-core.php:373
 msgid "Hidden"
 msgstr "隐藏"
 
-#: admin-core.php:355
+#: admin-core.php:379
 msgid "Show/Hide the plugin icon on the top admin bar"
 msgstr "在顶部管理栏显示/隐藏插件图标"
 
-#: admin-core.php:359
+#: admin-core.php:383
 msgid "Exclude <u>Admin</u> from protection"
 msgstr "对<u>管理员</u>排除保护"
 
-#: admin-core.php:361 admin-core.php:488
+#: admin-core.php:385 admin-core.php:512
 msgid "Premium"
 msgstr "专业功能"
 
-#: admin-core.php:363
+#: admin-core.php:387
 msgid "If <u>Yes</u>, The protection functions will be inactive for the admin when he is logged in"
 msgstr "若选择<u>是</u>，管理员登录状态下保护功能将自动失效"
 
-#: admin-core.php:367
+#: admin-core.php:391
 msgid "Selection disabled message"
 msgstr "禁用文本选择提示信息"
 
-#: admin-core.php:368 admin-core.php:373
+#: admin-core.php:392 admin-core.php:397
 msgid "Enter something"
 msgstr "输入提示文字"
 
-#: admin-core.php:372
+#: admin-core.php:396
 msgid "Print preview message"
 msgstr "打印预览提示信息"
 
-#: admin-core.php:379
+#: admin-core.php:403
 msgid "Works with every theme"
 msgstr "兼容所有主题"
 
-#: admin-core.php:381
+#: admin-core.php:405
 msgid "Desktop & mobile"
 msgstr "支持桌面端与移动端"
 
-#: admin-core.php:383
+#: admin-core.php:407
 msgid "Unlock more options"
 msgstr "解锁更多选项"
 
-#: admin-core.php:393
+#: admin-core.php:417
 msgid "Copy Protection on RightClick"
 msgstr "右键防复制保护"
 
-#: admin-core.php:394
+#: admin-core.php:418
 msgid "Premium Layer 2"
 msgstr "专业防护层 2"
 
-#: admin-core.php:396
+#: admin-core.php:420
 msgid "In this protection layer your visitors will be able to <u>right click</u> on a specific page elements only (such as Links as an example)"
 msgstr "在此防护层中，访客仅可对指定页面元素（例如链接）执行<u>右键点击</u>"
 
-#: admin-core.php:400 admin-core.php:409 admin-core.php:418 admin-core.php:427
+#: admin-core.php:424 admin-core.php:433 admin-core.php:442 admin-core.php:451
 msgid "Disable <u>RightClick</u> on"
 msgstr "禁用以下位置的<u>右键点击</u>"
 
-#: admin-core.php:403
-msgid "Posts"
-msgstr "文章"
-
+#: admin-core.php:429
 msgid "Kills the right-click context menu on single posts - no \"Save As\", no \"View Source\", no easy theft."
 msgstr "禁用单篇文章的右键菜单——禁止“图片另存为”、禁止“查看源代码”，杜绝盗用。"
 
-#: admin-core.php:412
+#: admin-core.php:436
 msgid "HomePage"
 msgstr "首页"
 
-#: admin-core.php:414
+#: admin-core.php:438
 msgid "Disables the right-click pop-up across your homepage so visitors can read, but can't harvest your content."
 msgstr "禁用首页右键菜单，使访客能够正常阅读，但无法批量抓取您的内容。"
 
-#: admin-core.php:421
+#: admin-core.php:445
 msgid "Static pages"
 msgstr "静态页面"
 
-#: admin-core.php:423
+#: admin-core.php:447
 msgid "Turns off the right-click menu on every static page - your About, Services and landing copy stay yours."
 msgstr "关闭所有静态页面的右键菜单——保护“关于我们”、“服务介绍”和着陆页文案。"
 
-#: admin-core.php:429
+#: admin-core.php:453
 msgid "Any post type"
 msgstr "任意文章类型"
 
-#: admin-core.php:431
+#: admin-core.php:455
 msgid "<b>PRO</b> unlocks the same right-click lock on <u>any</u> post type you pick - WooCommerce products, listings, portfolios, courses, downloads. Sell on a marketplace? Your product photos and descriptions stop being one right-click away from a competitor."
 msgstr "<b>专业版 (PRO)</b> 可在您选择的<u>任何</u>文章类型上启用右键锁定——WooCommerce 产品、房产列表、作品集、课程、下载资源等，全面保护您的商业资产。"
 
-#: admin-core.php:439
+#: admin-core.php:463
 msgid "Remaining premium options preview"
 msgstr "更多高级功能预览"
 
-#: admin-core.php:440
+#: admin-core.php:464
 msgid "PRO"
 msgstr "PRO"
 
-#: admin-core.php:442
+#: admin-core.php:466
 msgid "PRO gives you a rule per element - images, links, text boxes, plain text - each with its own alert message."
 msgstr "专业版允许为每个元素（图片、链接、文本框、纯文本）单独配置规则及专属提示信息。"
 
-#: admin-core.php:446
+#: admin-core.php:470
 msgid "Right click protection options in the PRO version"
 msgstr "专业版中的右键保护选项"
 
-#: admin-core.php:452
+#: admin-core.php:476
 msgid "Preview & Pricing"
 msgstr "预览与定价"
 
-#: admin-core.php:454
+#: admin-core.php:478
 msgid "Get the PRO version"
 msgstr "获取专业版"
 
-#: admin-core.php:464
+#: admin-core.php:488
 msgid "Protection by CSS Techniques"
 msgstr "基于 CSS 技术的保护"
 
-#: admin-core.php:465
+#: admin-core.php:489
 msgid "Premium Layer 3"
 msgstr "专业防护层 3"
 
-#: admin-core.php:467
+#: admin-core.php:491
 msgid "In this protection layer your website will be protected by some <u>CSS</u> tricks that will word even if <u>JavaScript</u> is disabled from the browser settings"
 msgstr "在此防护层中，网站将通过 <u>CSS</u> 机制进行防护，即使访客在浏览器中禁用了 <u>JavaScript</u> 也能正常生效"
 
-#: admin-core.php:471
+#: admin-core.php:495
 msgid "<b>Home Page</b> Protection by CSS"
 msgstr "基于 CSS 的<b>首页</b>保护"
 
-#: admin-core.php:473
+#: admin-core.php:497
 msgid "Protect your Homepage by CSS tricks"
 msgstr "通过 CSS 规则保护首页内容"
 
-#: admin-core.php:477
+#: admin-core.php:501
 msgid "<b>Posts</b> Protection by CSS"
 msgstr "基于 CSS 的<b>文章</b>保护"
 
-#: admin-core.php:480
+#: admin-core.php:504
 msgid "Protect your single posts by CSS tricks"
 msgstr "通过 CSS 规则保护单篇文章"
 
-#: admin-core.php:481
+#: admin-core.php:505
 msgid "PRO option, unlocked for free"
 msgstr "PRO 专业选项，已免费解锁"
 
-#: admin-core.php:486
+#: admin-core.php:510
 msgid "<b>Pages</b> Protection by CSS"
 msgstr "基于 CSS 的<b>页面</b>保护"
 
-#: admin-core.php:490
+#: admin-core.php:514
 msgid "Protect your static pages by CSS tricks"
 msgstr "通过 CSS 规则保护静态页面"
 
-#: admin-core.php:496
+#: admin-core.php:520
 msgid "Keeps working with JavaScript disabled"
 msgstr "在 JavaScript 禁用时依然有效"
 
-#: admin-core.php:498
+#: admin-core.php:522
 msgid "Unlock pages protection"
 msgstr "解锁页面保护"
 
-#: admin-core.php:508
+#: admin-core.php:545
+msgid "Free"
+msgstr "免费"
+
+#: admin-core.php:547
+msgid "Reads the PHP and WordPress error logs of this site and groups repeated entries into single issues, so you can see what is breaking, how often, and which plugin or theme causes it."
+msgstr "读取本网站的 PHP 和 WordPress 错误日志，并将重复条目合并为单个问题，让您了解哪里出错、发生频率以及由哪个插件或主题引起。"
+
+#: admin-core.php:557
+msgid "Log file"
+msgstr "日志文件"
+
+#: admin-core.php:559
+msgid "All log files"
+msgstr "所有日志文件"
+
+#: admin-core.php:562
+msgid "Refresh"
+msgstr "刷新"
+
+#: admin-core.php:572 error-monitor.php:687
+msgid "Occurrences"
+msgstr "出现次数"
+
+#: admin-core.php:577
+msgid "Unique issues"
+msgstr "独立问题"
+
+#: admin-core.php:579
+msgid "repeated entries grouped"
+msgstr "已合并重复条目"
+
+#: admin-core.php:582
+msgid "Fatal errors"
+msgstr "致命错误"
+
+#: admin-core.php:584
+msgid "pages that stopped loading"
+msgstr "停止加载的页面"
+
+#: admin-core.php:587
+msgid "Last error"
+msgstr "最近错误"
+
+#: admin-core.php:597
+msgid "Errors per day"
+msgstr "每日错误数"
+
+#: admin-core.php:598
+msgid "Show the daily errors as"
+msgstr "每日错误显示方式"
+
+#: admin-core.php:611
+msgid "Where they come from"
+msgstr "错误来源"
+
+#: admin-core.php:613
+msgid "Occurrences per plugin, theme or part of WordPress."
+msgstr "按插件、主题或 WordPress 组成部分统计的出现次数。"
+
+#: admin-core.php:621
+msgid "Issues"
+msgstr "问题"
+
+#: admin-core.php:622
+msgid "Sort issues by"
+msgstr "问题排序方式"
+
+#: admin-core.php:623
+msgid "Most frequent"
+msgstr "最频繁"
+
+#: admin-core.php:624
+msgid "Latest"
+msgstr "最新"
+
+#: admin-core.php:625
+msgid "Most severe"
+msgstr "最严重"
+
+#: admin-core.php:628
+msgid "Each issue is one cause: the same message from the same file and line, however many times it was logged. Open an issue for the full message and where it happened."
+msgstr "每个问题代表一个原因：来自同一文件同一行的同一消息，无论记录了多少次。展开问题可查看完整消息和发生位置。"
+
+#: admin-core.php:637 error-monitor.php:688
+msgid "Log files"
+msgstr "日志文件"
+
+#: admin-core.php:639
+msgid "Every place this site can write errors to. Download a log to send it to a developer, or clear it once the issues are fixed so new errors stand out."
+msgstr "本网站可能写入错误的所有位置。下载日志发送给开发者，或在问题修复后清空日志，让新错误更醒目。"
+
+#: admin-core.php:646
+msgid "Debug settings"
+msgstr "调试设置"
+
+#: admin-core.php:648
+msgid "These settings live in wp-config.php and decide whether errors are written to a log at all. This plugin only reads them - it never edits wp-config.php."
+msgstr "这些设置位于 wp-config.php 中，决定是否将错误写入日志。本插件只读取它们，绝不会修改 wp-config.php。"
+
+#: admin-core.php:658
+msgid "WordPress debug mode. The two settings below only work while it is on."
+msgstr "WordPress 调试模式。下面两项设置仅在其开启时生效。"
+
+#: admin-core.php:667
+msgid "Writes WordPress errors to wp-content/debug.log (or the path you give it)."
+msgstr "将 WordPress 错误写入 wp-content/debug.log（或您指定的路径）。"
+
+#: admin-core.php:672
+msgid "Shown to visitors"
+msgstr "对访客显示"
+
+#: admin-core.php:674
+msgid "Hidden from visitors"
+msgstr "对访客隐藏"
+
+#: admin-core.php:676
+msgid "When errors are shown, they are printed right on your pages. Keep it off on a live site."
+msgstr "显示错误时，错误会直接输出在您的页面上。线上网站请保持关闭。"
+
+#: admin-core.php:685
+msgid "PHP setting on the server. When on, PHP keeps its own error log even while WP_DEBUG is off."
+msgstr "服务器上的 PHP 设置。开启后，即使 WP_DEBUG 关闭，PHP 也会保留自己的错误日志。"
+
+#: admin-core.php:691
+msgid "To log errors <b>without showing them to visitors</b>, add these lines to <u>wp-config.php</u>, just above the line <code>/* That's all, stop editing! */</code> (replace any existing WP_DEBUG lines):"
+msgstr "如需<b>记录错误但不向访客显示</b>，请将以下代码添加到 <u>wp-config.php</u> 中 <code>/* That's all, stop editing! */</code> 这一行的正上方（替换已有的 WP_DEBUG 行）："
+
+#: admin-core.php:694 error-monitor.php:701
+msgid "Copy"
+msgstr "复制"
+
+#: admin-core.php:717
+msgid "Clear this log file?"
+msgstr "清空此日志文件？"
+
+#: admin-core.php:719
+msgid "Every entry in this file will be deleted and this cannot be undone. Download it first if a developer may still need it."
+msgstr "此文件中的所有条目都将被删除，且无法撤销。如果开发者可能还需要，请先下载。"
+
+#: admin-core.php:721
+msgid "This is a server-wide log, so errors from other sites on this server will be deleted too."
+msgstr "这是服务器级日志，因此该服务器上其他网站的错误也会被删除。"
+
+#: admin-core.php:725
+msgid "Yes, clear log"
+msgstr "是的，清空日志"
+
+#: admin-core.php:739
 msgid "See what the PRO version adds"
 msgstr "查看专业版带来的全部增强功能"
 
-#: admin-core.php:509
+#: admin-core.php:740
 msgid "Limited-time discount"
 msgstr "限时优惠"
 
-#: admin-core.php:511
+#: admin-core.php:742
 msgid "Crazy discount offer is now running for a limited time!! You might love it"
 msgstr "限时超值特惠正在进行中！不容错过"
 
-#: admin-core.php:515
+#: admin-core.php:746
 msgid "Smartphone protection in the PRO version"
 msgstr "专业版中的智能手机端保护"
 
-#: admin-core.php:518
+#: admin-core.php:749
 msgid "Image watermarking in the PRO version"
 msgstr "专业版中的图片水印保护"
 
-#: admin-core.php:521
+#: admin-core.php:752
 msgid "Watermarking examples from the PRO version"
 msgstr "专业版水印效果展示"
 
-#: admin-core.php:531
+#: admin-core.php:762
 msgid "See it now"
 msgstr "立即了解"
 
-#: admin-core.php:538
+#: admin-core.php:769
 msgid "Premium features"
 msgstr "专业版专属功能"
 
-#: admin-core.php:539
+#: admin-core.php:770
 msgid "PRO only"
 msgstr "PRO 独占"
 
-#: admin-core.php:540
+#: admin-core.php:771
 msgid "7 protection modules"
 msgstr "7 个防护模块"
 
-#: admin-core.php:541
+#: admin-core.php:772
 msgid "Choose how the premium features are shown"
 msgstr "选择专业版功能的展示方式"
 
-#: admin-core.php:542
+#: admin-core.php:773
 msgid "Plans"
 msgstr "方案套餐"
 
-#: admin-core.php:543
+#: admin-core.php:774
 msgid "Detailed info"
 msgstr "详细说明"
 
-#: admin-core.php:549
+#: admin-core.php:780
 msgid "Three ways to run the plugin. You are on the free plan - the paid plans keep everything you already have and add the modules below on top of it."
 msgstr "本插件提供三种使用方案。您当前正在使用免费版——付费方案将保留全部现有功能，并在其基础上增加以下高级模块。"
 
-#: admin-core.php:555
+#: admin-core.php:786
 msgid "These are the full prices, with no discount applied."
 msgstr "以下为未应用折扣的官方原价。"
 
-#: admin-core.php:556
+#: admin-core.php:787
 msgid "A discount of up to 50% is waiting for you on our website - check the running offer before you buy."
 msgstr "官网正提供最高 50% 的限时折扣，建议在购买前查看最新优惠。"
 
-#: admin-core.php:566
+#: admin-core.php:797
 msgid "FREE"
 msgstr "免费版"
 
-#: admin-core.php:567
+#: admin-core.php:798
 msgid "Basic protection for your content"
 msgstr "基础内容安全防护"
 
-#: admin-core.php:573
+#: admin-core.php:804
 msgid "/ forever"
 msgstr "/ 永久免费"
 
-#: admin-core.php:575 admin-core.php:585
+#: admin-core.php:806 admin-core.php:816
 msgid "Current plan"
 msgstr "当前方案"
 
-#: admin-core.php:578
+#: admin-core.php:809
 msgid "Disable right-click"
 msgstr "禁用右键菜单"
 
-#: admin-core.php:579
+#: admin-core.php:810
 msgid "Prevent text selection"
 msgstr "防止文本被选中"
 
-#: admin-core.php:580
+#: admin-core.php:811
 msgid "Basic alert messages"
 msgstr "基础提示弹窗"
 
-#: admin-core.php:581
+#: admin-core.php:812
 msgid "CSS protection layer"
 msgstr "CSS 防护层"
 
-#: admin-core.php:582
+#: admin-core.php:813
 msgid "Works on your site content"
 msgstr "适用于整站内容"
 
-#: admin-core.php:592
+#: admin-core.php:823
 msgid "ESSENTIAL"
 msgstr "基础专业版 (ESSENTIAL)"
 
-#: admin-core.php:593
+#: admin-core.php:824
 msgid "Advanced control and flexibility"
 msgstr "高级控制与高度灵活性"
 
-#: admin-core.php:599 admin-core.php:630
+#: admin-core.php:830 admin-core.php:861
 msgid "one-time"
 msgstr "一次性付费"
 
-#: admin-core.php:601 admin-core.php:632
+#: admin-core.php:832 admin-core.php:863
 msgid "Lifetime license"
 msgstr "终身授权"
 
-#: admin-core.php:602 admin-core.php:633
+#: admin-core.php:833 admin-core.php:864
 msgid "Support & updates $1 / month, paid as $9 per year."
 msgstr "技术支持与版本更新每月 $1，按年支付仅需 $9。"
 
-#: admin-core.php:605
+#: admin-core.php:836
 msgid "Everything in FREE"
 msgstr "包含免费版全部功能"
 
-#: admin-core.php:606
+#: admin-core.php:837
 msgid "Per-content protection rules"
 msgstr "按内容类型自定义保护规则"
 
-#: admin-core.php:607
+#: admin-core.php:838
 msgid "Overlay protection & triggers"
 msgstr "透明遮罩保护与智能触发器"
 
-#: admin-core.php:608
+#: admin-core.php:839
 msgid "Blocked shortcuts & print protection"
 msgstr "快捷键拦截与防打印保护"
 
-#: admin-core.php:609
+#: admin-core.php:840
 msgid "Advanced exclusion options"
 msgstr "高级白名单与排除选项"
 
-#: admin-core.php:610
+#: admin-core.php:841
 msgid "Admin workflow tools"
 msgstr "管理员高效工作流工具"
 
-#: admin-core.php:611
+#: admin-core.php:842
 msgid "Priority email support"
 msgstr "优先邮件技术支持"
 
-#: admin-core.php:614
+#: admin-core.php:845
 msgid "Upgrade to ESSENTIAL"
 msgstr "升级至 ESSENTIAL"
 
-#: admin-core.php:618
+#: admin-core.php:849
 msgid "Most Popular"
 msgstr "最受欢迎"
 
-#: admin-core.php:623
+#: admin-core.php:854
 msgid "COMPLETE"
 msgstr "旗舰完整版 (COMPLETE)"
 
-#: admin-core.php:624
+#: admin-core.php:855
 msgid "Full protection. Maximum control."
 msgstr "全面防护，极致掌控。"
 
-#: admin-core.php:636
+#: admin-core.php:867
 msgid "Everything in ESSENTIAL"
 msgstr "包含 ESSENTIAL 全部功能"
 
-#: admin-core.php:637
+#: admin-core.php:868
 msgid "Full watermark protection"
 msgstr "全方位水印保护"
 
-#: admin-core.php:638
+#: admin-core.php:869
 msgid "Watermark presets & custom rules"
 msgstr "水印预设与自定义规则"
 
-#: admin-core.php:639
+#: admin-core.php:870
 msgid "Logo, text and signature watermarking"
 msgstr "支持 Logo、文本与署名水印"
 
-#: admin-core.php:640
+#: admin-core.php:871
 msgid "Automatic watermark colors & image filters"
 msgstr "自适应水印颜色与图片滤镜"
 
-#: admin-core.php:641
+#: admin-core.php:872
 msgid "Hotlinked images watermarked too"
 msgstr "对外链防盗链图片自动加水印"
 
-#: admin-core.php:642
+#: admin-core.php:873
 msgid "Advanced targeting & scheduling"
 msgstr "高级定位与防护定时计划"
 
-#: admin-core.php:643
+#: admin-core.php:874
 msgid "Beta layers: DevTools & extension blocking"
 msgstr "测试防护层：拦截开发者工具与浏览器扩展"
 
-#: admin-core.php:644
+#: admin-core.php:875
 msgid "Multisite support"
 msgstr "支持 WordPress 多站点 (Multisite)"
 
-#: admin-core.php:645
+#: admin-core.php:876
 msgid "Premium support & updates"
 msgstr "尊享技术支持与版本更新"
 
-#: admin-core.php:648
+#: admin-core.php:879
 msgid "Upgrade to COMPLETE"
 msgstr "升级至 COMPLETE"
 
-#: admin-core.php:654
+#: admin-core.php:885
 msgid "30-Day Money Back Guarantee"
 msgstr "30 天无条件退款保证"
 
-#: admin-core.php:656
+#: admin-core.php:887
 msgid "Paid plans are lifetime licenses"
 msgstr "付费方案均包含终身授权"
 
-#: admin-core.php:658
+#: admin-core.php:889
 msgid "Rated 4.9/5 by 443 customers"
 msgstr "443 位客户综合评分 4.9/5"
 
-#: admin-core.php:660
+#: admin-core.php:891
 msgid "Works with major themes and builders"
 msgstr "完美兼容各大主流主题与页面构建器"
 
-#: admin-core.php:666
+#: admin-core.php:897
 msgid "The PRO version keeps every free layer running and adds seven modules on top of them. Here is the full list, module by module."
 msgstr "专业版在保留所有免费防护层的基础上新增了 7 个核心模块。以下为模块清单："
 
-#: admin-core.php:672
+#: admin-core.php:903
 msgid "Everything in the free version"
 msgstr "包含免费版全部功能"
 
-#: admin-core.php:673
+#: admin-core.php:904
 msgid "JavaScript copy protection, right-click protection and CSS protection keep working exactly as they do now. PRO is built on top of them, nothing is taken away."
 msgstr "JavaScript 防复制、右键保护和 CSS 防护均继续正常运行。专业版完全向下兼容，不阉割任何基础功能。"
 
-#: admin-core.php:675
+#: admin-core.php:906
 msgid "Included"
 msgstr "已包含"
 
-#: admin-core.php:682
+#: admin-core.php:913
 msgid "Selection Protection"
 msgstr "选择保护模块"
 
-#: admin-core.php:683 admin-core.php:802
+#: admin-core.php:914 admin-core.php:1033
 msgid "8 features"
 msgstr "8 项特性"
 
-#: admin-core.php:686
+#: admin-core.php:917
 msgid "Apply text-selection protection to any public content type: homepage, archives, categories, tags, taxonomies, author pages, search results, posts, pages, attachments, 404 pages, login pages and WooCommerce pages."
 msgstr "可将防选择保护应用于所有公开内容类型：首页、归档、分类、标签、自定义分类、作者页、搜索结果、文章、页面、附件、404 页、登录页及 WooCommerce 商城。"
 
-#: admin-core.php:687
+#: admin-core.php:918
 msgid "Block Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Print Screen, F12 / DevTools and drag and drop."
 msgstr "拦截 Ctrl+A、Ctrl+C、Ctrl+X、Ctrl+V、Ctrl+S、Ctrl+U、Ctrl+P、Print Screen 截屏、F12 / 开发者工具及鼠标拖拽。"
 
-#: admin-core.php:688
+#: admin-core.php:919
 msgid "Write your own message for blocked selection, blocked shortcuts, special keys and printing."
 msgstr "为选择受阻、快捷键禁用、特殊按键和打印操作自定义专属提示文案。"
 
-#: admin-core.php:689
+#: admin-core.php:920
 msgid "Custom print-protection output styling with a configurable print-disabled message."
 msgstr "自定义防打印输出样式，并配置打印禁用提示信息。"
 
-#: admin-core.php:690
+#: admin-core.php:921
 msgid "Allow selection inside code blocks so visitors can still use your code snippets."
 msgstr "允许在代码块内自由选择文本，方便访客复制使用代码片段。"
 
-#: admin-core.php:691
+#: admin-core.php:922
 msgid "Add a one-click copy button to code blocks without opening selection for the whole page."
 msgstr "为代码块添加一键复制按钮，无需开启全页文本选择权限。"
 
-#: admin-core.php:692
+#: admin-core.php:923
 msgid "Style the alert box with ready-made color palettes or manual colors, border width, glow, shadow strength, font size, display time and alert width and height."
 msgstr "可自由定制提示框样式：预设调色板、自定义颜色、边框宽度、发光效果、阴影强度、字号大小、显示时长与弹窗尺寸。"
 
-#: admin-core.php:693
+#: admin-core.php:924
 msgid "Preview the alert message straight from the settings page before you save."
 msgstr "保存设置前，可直接在后台设置页面即时预览提示弹窗效果。"
 
-#: admin-core.php:701
+#: admin-core.php:932
 msgid "Right Click Protection"
 msgstr "右键保护模块"
 
-#: admin-core.php:702 admin-core.php:717
+#: admin-core.php:933 admin-core.php:948
 msgid "4 features"
 msgstr "4 项特性"
 
-#: admin-core.php:705
+#: admin-core.php:936
 msgid "Apply right-click protection to the content types you pick, using the same dynamic content-type picker."
 msgstr "通过动态文章类型选择器，将右键保护应用于您指定的任意内容类型。"
 
-#: admin-core.php:706
+#: admin-core.php:937
 msgid "Block the context menu on images, links, text content, headings, text areas, text fields, empty spaces, videos, code blocks, canvas elements and audio players."
 msgstr "对图片、链接、正文、标题、多行文本框、输入框、空白区域、视频、代码块、Canvas 画布及音频播放器分别禁用右键菜单。"
 
-#: admin-core.php:707
+#: admin-core.php:938
 msgid "Write a separate alert message for every protected HTML element type."
 msgstr "可为每种被保护的 HTML 元素类型单独编写提示信息。"
 
-#: admin-core.php:708
+#: admin-core.php:939
 msgid "Read an active-count indicator for the protected right-click targets inside the control panel."
 msgstr "在控制面板中实时查看当前处于受保护状态的右键目标数量。"
 
-#: admin-core.php:716
+#: admin-core.php:947
 msgid "Overlay Protection"
 msgstr "透明遮罩保护模块"
 
-#: admin-core.php:720
+#: admin-core.php:951
 msgid "Put transparent overlays over your images on the public content types you choose."
 msgstr "在所选公开页面的图片上方自动覆盖透明防护遮罩。"
 
-#: admin-core.php:721
+#: admin-core.php:952
 msgid "Remove image attachment links automatically when they are not needed."
 msgstr "在无需附件链接时，自动清除图片附件的默认超链接。"
 
-#: admin-core.php:722
+#: admin-core.php:953
 msgid "Decide what happens when JavaScript is disabled, including hiding the protected content behind your own message."
 msgstr "自由配置当访客禁用 JavaScript 时的应对机制，包括将内容隐藏于自定义提示之后。"
 
-#: admin-core.php:723
+#: admin-core.php:954
 msgid "Overlays follow the real rendered image size and position, so responsive and absolutely positioned images stay aligned after a resize."
 msgstr "透明遮罩自动跟随图片的实际渲染尺寸与坐标，在屏幕缩放时始终保持精准贴合。"
 
-#: admin-core.php:731
+#: admin-core.php:962
 msgid "Watermark Protection"
 msgstr "图片水印保护模块"
 
-#: admin-core.php:732
+#: admin-core.php:963
 msgid "16 features"
 msgstr "16 项特性"
 
-#: admin-core.php:735
+#: admin-core.php:966
 msgid "Watermark hotlinked images, images loaded on your own site, or both, through rewrite rules."
 msgstr "通过 URL 重写规则，为外链盗链图片、本站加载图片或两者同时自动施加水印。"
 
-#: admin-core.php:736
+#: admin-core.php:967
 msgid "Force watermarking on non-Apache servers when the rewrite rules cannot be applied automatically."
 msgstr "在非 Apache 服务器无法自动应用重写规则时，提供强制水印处理模式。"
 
-#: admin-core.php:737
+#: admin-core.php:968
 msgid "Turn the watermark image cache on, or clear it, right from the settings page."
 msgstr "直接在后台设置面板中开启或一键清理水印图片缓存。"
 
-#: admin-core.php:738
+#: admin-core.php:969
 msgid "Stamp a logo watermark with a percentage-based size and ready-made position presets."
 msgstr "支持按百分比缩放并盖印 Logo 图片水印，提供多种预设摆放位置。"
 
-#: admin-core.php:739
+#: admin-core.php:970
 msgid "Add central text, repeated text and signature text over your images."
 msgstr "支持在图片上添加居中文本、满铺平铺文字以及角落署名水印。"
 
-#: admin-core.php:740
+#: admin-core.php:971
 msgid "Pick a separate font for the central text, the repeated text and the signature, including bundled Latin and Arabic-capable fonts."
 msgstr "可为不同水印文本分别指定独立字体，内置支持拉丁与阿拉伯字形的精品字体。"
 
-#: admin-core.php:741
+#: admin-core.php:972
 msgid "Use manual text colors, or automatic color mode that adapts to the brightness of every image."
 msgstr "支持手动指定文字颜色，或启用根据图片明暗度自动调整对比色的智能颜色模式。"
 
-#: admin-core.php:742
+#: admin-core.php:973
 msgid "Control font size, transparency, rotation, repeated-text spacing, signature Y position and signature alignment."
 msgstr "精细调节字号、透明度、旋转角度、平铺间距、署名垂直位置与对齐方式。"
 
-#: admin-core.php:743
+#: admin-core.php:974
 msgid "Add a signature background band with separate main and top colors and independent transparency values."
 msgstr "可为署名添加专属背景色带，支持主色、顶边色与透明度独立设定。"
 
-#: admin-core.php:744
+#: admin-core.php:975
 msgid "Apply image filters to watermarked images: Blur, Grayscale, Negate, Brightness or None."
 msgstr "为加水印图片附加特色滤镜：模糊、灰度黑白、反相底片、亮度增强或无滤镜。"
 
-#: admin-core.php:745
+#: admin-core.php:976
 msgid "Test your settings with the live preview on light, medium and dark sample images before saving."
 msgstr "保存前可在亮色、中性色和暗色示例图上进行多场景实时效果预览。"
 
-#: admin-core.php:746
+#: admin-core.php:977
 msgid "Save and load watermark presets, stored in a dedicated JSON file with a fallback through the settings form."
 msgstr "支持将水印配置保存为预设文件并随时导入加载。"
 
-#: admin-core.php:747
+#: admin-core.php:978
 msgid "Watermark indexed and palette PNG images and single-frame GIF images reliably."
 msgstr "稳定支持对索引色/调色板 PNG 及单帧 GIF 图像添加水印。"
 
-#: admin-core.php:748
+#: admin-core.php:979
 msgid "Keep banner-like extreme image sizes out of watermarking with your own ratio and size limits."
 msgstr "支持设置宽高比与尺寸限制，自动过滤横幅广告等极端尺寸的图片。"
 
-#: admin-core.php:749
+#: admin-core.php:980
 msgid "Use the Watermark Testing page to test every common image format, inspect server data and read the generated .htaccess content."
 msgstr "通过专属水印测试页面验证常见图片格式、查看服务器环境并读取生成的 .htaccess 配置。"
 
-#: admin-core.php:750
+#: admin-core.php:981
 msgid "Watermarking is 78% faster, with safe atomic .htaccess writes that never clear the file mid-way."
 msgstr "采用安全的原子写入机制，性能提升 78%，绝不会在写入中断时损坏配置文件。"
 
-#: admin-core.php:758
+#: admin-core.php:989
 msgid "Exclusions and Targeting"
 msgstr "白名单与精准排除"
 
-#: admin-core.php:759
+#: admin-core.php:990
 msgid "10 features"
 msgstr "10 项特性"
 
-#: admin-core.php:762
+#: admin-core.php:993
 msgid "Exclude the user roles you choose from protection."
 msgstr "将指定的用户角色从防复制保护中彻底排除。"
 
-#: admin-core.php:763
+#: admin-core.php:994
 msgid "Exclude selected post types and categories."
 msgstr "将特定的文章类型或文章分类加入白名单。"
 
-#: admin-core.php:764
+#: admin-core.php:995
 msgid "Exclude registered WordPress image sizes from watermarking."
 msgstr "将 WordPress 注册的特定缩略图尺寸排除在水印之外。"
 
-#: admin-core.php:765
+#: admin-core.php:996
 msgid "Exclude single URLs, one per line, including wildcard URLs that end with a slash and a star."
 msgstr "按行排除单个 URL，支持以 /* 结尾的通配符网址匹配。"
 
-#: admin-core.php:766
+#: admin-core.php:997
 msgid "Search your pages and posts from the URL picker and append their permalinks to the URL exclude list."
 msgstr "通过内置搜索器快速查找页面或文章，并一键将其固定链接添加至排除列表。"
 
-#: admin-core.php:767
+#: admin-core.php:998
 msgid "Exclude online services, domains or user agents that must never be blocked."
 msgstr "排除绝不应被拦截的在线服务、指定域名或搜索引擎爬虫 (User Agent)。"
 
-#: admin-core.php:768
+#: admin-core.php:999
 msgid "Exclude images from watermarking by file name or by a fragment of the file name."
 msgstr "按文件名或文件名片段精准排除不需要加水印的图片。"
 
-#: admin-core.php:769
+#: admin-core.php:1000
 msgid "Exclude CSS classes from selection protection."
 msgstr "指定特定的 CSS 类名，使其内部文本允许被正常选中。"
 
-#: admin-core.php:770
+#: admin-core.php:1001
 msgid "Turn on Opposite Mode with the URL Included List so protection runs only on the URLs you list."
 msgstr "开启“反向模式”，配合包含列表使用，仅对您指定的网址运行保护。"
 
-#: admin-core.php:771
+#: admin-core.php:1002
 msgid "Scan Site Images: scan the homepage and blog HTML, review the detected images in a popup grid and click any image to add its file name to the manual exclusion list, without duplicates."
 msgstr "全站图片扫描：扫描首页与博客 HTML，在弹窗网格中查看识别出的图片，点击即可快速加入排除列表且自动去重。"
 
-#: admin-core.php:779
+#: admin-core.php:1010
 msgid "Admin Tools and Workflow"
 msgstr "管理工具与工作流"
 
-#: admin-core.php:780
+#: admin-core.php:1011
 msgid "11 features"
 msgstr "11 项特性"
 
-#: admin-core.php:783
+#: admin-core.php:1014
 msgid "Light-mode settings interface with tabs for Selection, Right Click, Overlay, Watermark, Exclusion, Custom Settings, Beta and Contact."
 msgstr "清爽明亮的后台设置界面，涵盖选择保护、右键保护、遮罩、水印、排除、自定义、测试功能及联系支持等标签页。"
 
-#: admin-core.php:784
+#: admin-core.php:1015
 msgid "The last open tab is reopened for you after a save or after navigation."
 msgstr "保存设置或页面跳转后，自动记忆并恢复最后访问的设置标签页。"
 
-#: admin-core.php:785
+#: admin-core.php:1016
 msgid "The tabbar stays on a single row on narrow admin screens by collapsing trailing tabs into icon-only buttons."
 msgstr "在较窄的管理后台屏幕上自动将次要标签折叠为紧凑图标，保持单行整洁布局。"
 
-#: admin-core.php:786
+#: admin-core.php:1017
 msgid "Searchable chip pickers for content types, roles, categories and image sizes, with selected rows kept in view."
 msgstr "支持对文章类型、角色、分类及尺寸进行即时搜索与多选管理。"
 
-#: admin-core.php:787
+#: admin-core.php:1018
 msgid "Restore the default settings from the control panel with one click."
 msgstr "支持在控制面板中一键恢复插件的初始默认设置。"
 
-#: admin-core.php:788
+#: admin-core.php:1019
 msgid "Show or hide the plugin icon in the top admin bar and read the live protection status from its menu, including the blocked shortcut keys."
 msgstr "自由控制顶部工具栏图标的显隐，并可通过下拉菜单实时查看当前保护状态及拦截快捷键列表。"
 
-#: admin-core.php:789
+#: admin-core.php:1020
 msgid "Turn on Developer Mode for debugging."
 msgstr "开启开发者模式以进行系统调试。"
 
-#: admin-core.php:790
+#: admin-core.php:1021
 msgid "Remove conflicting CSS or JS files from the control panel by listing file fragments in the Beta tab."
 msgstr "在测试标签页中填入文件名字段，快速屏蔽产生冲突的第三方 CSS 或 JS 文件。"
 
-#: admin-core.php:791
+#: admin-core.php:1022
 msgid "Beta protections that interrupt open DevTools panels and common copy and paste browser extensions."
 msgstr "试验性防护特性：干扰打开的浏览器开发者工具，并抵御常见的网页复制扩展插件。"
 
-#: admin-core.php:792
+#: admin-core.php:1023
 msgid "Keep your own custom CSS in the Custom Settings tab."
 msgstr "在自定义设置标签页中保存并应用您自己的自定义 CSS 样式。"
 
-#: admin-core.php:793
+#: admin-core.php:1024
 msgid "Contact tab with built-in FAQ, documentation, tutorials and priority support links."
 msgstr "内置常见问题解答、官方文档、使用教程及优先技术支持联系通道。"
 
-#: admin-core.php:801
+#: admin-core.php:1032
 msgid "Compatibility and Platform"
 msgstr "系统兼容性与平台支持"
 
-#: admin-core.php:805
+#: admin-core.php:1036
 msgid "Works on smartphones and tablets, including iPhone and iPad."
 msgstr "完美支持智能手机与平板电脑设备（含 iPhone 和 iPad）。"
 
-#: admin-core.php:806
+#: admin-core.php:1037
 msgid "Compatible with Elementor, SiteOrigin, Beaver Builder, the WordPress preview mode and wpDiscuz."
 msgstr "完全兼容 Elementor、SiteOrigin、Beaver Builder、WordPress 自带预览模式及 wpDiscuz。"
 
-#: admin-core.php:807
+#: admin-core.php:1038
 msgid "Compatible with all major theme frameworks and all major browsers."
 msgstr "全面兼容各大主流主题框架及所有现代浏览器。"
 
-#: admin-core.php:808
+#: admin-core.php:1039
 msgid "Multisite installations are supported."
 msgstr "完美支持 WordPress 多站点网络 (Multisite)。"
 
-#: admin-core.php:809
+#: admin-core.php:1040
 msgid "Compatible with PHP 8.2 and 8.3, ZeptoJS and the jQuery slim builds."
 msgstr "兼容 PHP 8.2 与 8.3、ZeptoJS 及 jQuery slim 轻量版。"
 
-#: admin-core.php:810
+#: admin-core.php:1041
 msgid "Set a different protection level per page or per post, straight from the admin bar."
 msgstr "直接通过顶部管理栏为单篇文章或页面独立指定不同的防护级别。"
 
-#: admin-core.php:811
+#: admin-core.php:1042
 msgid "Extra .htaccess rules block image-grabbing browser extensions and PHP files inside wp-content, except watermark.php."
 msgstr "附加 .htaccess 安全规则，拦截图片抓取插件并屏蔽 wp-content 目录下的异常 PHP 执行（watermark.php 除外）。"
 
-#: admin-core.php:812
+#: admin-core.php:1043
 msgid "Translation ready, with Arabic, Russian and RTL support for watermark text."
 msgstr "已做好完整国际化支持，水印文本全面兼容阿拉伯语、俄语及从右至左 (RTL) 书写排版。"
 
 #. translators: %s: link to the mailing list sign-up page.
-#: admin-core.php:822
+#: admin-core.php:1053
 msgid "%s to our mailing list to get flash discounts"
 msgstr "%s我们的邮件订阅列表以获取专属限时特惠"
 
-#: admin-core.php:823
+#: admin-core.php:1054
 msgid "Subscribe"
 msgstr "订阅"
 
-#: admin-core.php:827
+#: admin-core.php:1058
 msgid "See the premium plans"
 msgstr "查看专业版方案"
 
-#: admin-core.php:834
+#: admin-core.php:1065
 msgid "Use CTRL+F5 on the front end after saving to clear the cached scripts."
 msgstr "保存设置后，请在网站前台按 CTRL+F5 强制刷新浏览器缓存脚本。"
 
-#: admin-core.php:836
+#: admin-core.php:1067
 msgid "Restore defaults"
 msgstr "恢复默认设置"
 
-#: admin-core.php:837
+#: admin-core.php:1068
 msgid "Preview alert message"
 msgstr "预览提示弹窗"
 
-#: admin-core.php:837
+#: admin-core.php:1068
 msgid "This is a preview message (do not forget to save changes)"
 msgstr "这是一条测试预览消息（请记得保存您的修改）"
 
-#: admin-core.php:838
+#: admin-core.php:1069
 msgid "Save Settings"
 msgstr "保存设置"
 
-#: admin-core.php:853
+#: admin-core.php:1084
 msgid "Restore the default settings?"
 msgstr "要恢复默认设置吗？"
 
-#: admin-core.php:854
+#: admin-core.php:1085
 msgid "Every option on this page goes back to its default value. Your current settings will be lost and this cannot be undone."
 msgstr "此页面上的所有选项都将恢复为默认值。您当前的设置将丢失，且无法撤销。"
 
-#: admin-core.php:856
-msgid "Cancel"
-msgstr "取消"
-
-#: admin-core.php:857
+#: admin-core.php:1088
 msgid "Yes, restore defaults"
 msgstr "是，恢复默认设置"
 
-#: admin-core.php:869
+#: admin-core.php:1100
 msgid "Need a hand?"
 msgstr "需要帮助？"
 
-#: admin-core.php:870
+#: admin-core.php:1101
 msgid "We reply every working day."
 msgstr "我们在每个工作日均提供回复与支持。"
 
-#: admin-core.php:872
+#: admin-core.php:1103
 msgid "Get support"
 msgstr "获取技术支持"
 
-#: admin-core.php:880
+#: admin-core.php:1111
 msgid "How it works"
 msgstr "运作原理"
 
-#: admin-core.php:881
+#: admin-core.php:1112
 msgid "Read the docs before you switch a layer on."
 msgstr "在开启防护层之前，建议先查阅相关文档说明。"
 
-#: admin-core.php:883
+#: admin-core.php:1114
 msgid "Help topics"
 msgstr "帮助主题"
 
-#: admin-core.php:891
+#: admin-core.php:1122
 msgid "Enjoying the plugin?"
 msgstr "喜欢这款插件吗？"
 
-#: admin-core.php:892
+#: admin-core.php:1123
 msgid "It takes a minute and helps a lot."
 msgstr "只需花费您一分钟时间，对我们却是巨大的鼓励。"
 
-#: admin-core.php:894
+#: admin-core.php:1125
 msgid "Leave a review"
 msgstr "发表评价"
-
-#: notifications.php:141
-msgid "Leave A Review?"
-msgstr "给我们留下好评？"
-
-msgid "We hope you've enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple \"thank you\" will make us happy!"
-msgstr "希望您喜欢使用 WP Content Copy Protection :) 能否耽误您几分钟在 WordPress.org 上为我们留下一条好评？<br>一句简单的“感谢”就足以让我们倍感欣慰！"
-
-#: notifications.php:144
-msgid "Sure! I'd love to!"
-msgstr "当然，我很乐意！"
-
-#: notifications.php:145
-msgid "I've already left a review"
-msgstr "我已经评价过了"
-
-#: notifications.php:146
-msgid "Will Rate Later"
-msgstr "稍后再评"
-
-#: notifications.php:147
-msgid "Hide Forever"
-msgstr "不再提示"
-
-#: deactivation-survey.php:215 admin-core.php:849
-msgid "Close"
-msgstr "关闭"
 
 #: deactivation-survey.php:220
 msgid "Before you go, may we ask why?"
@@ -1067,3 +1865,346 @@ msgstr "参与调查并领取免费特权"
 msgid "Skip &amp; deactivate"
 msgstr "跳过并停用"
 
+#: error-monitor.php:60
+msgid "WordPress debug log (custom path)"
+msgstr "WordPress 调试日志（自定义路径）"
+
+#: error-monitor.php:66
+msgid "WordPress debug log"
+msgstr "WordPress 调试日志"
+
+#: error-monitor.php:75
+msgid "PHP error log (server setting)"
+msgstr "PHP 错误日志（服务器设置）"
+
+#: error-monitor.php:81
+msgid "error_log in the site root"
+msgstr "网站根目录中的 error_log"
+
+#: error-monitor.php:85
+msgid "error_log in wp-admin"
+msgstr "wp-admin 中的 error_log"
+
+#: error-monitor.php:89
+msgid "error_log in wp-content"
+msgstr "wp-content 中的 error_log"
+
+#: error-monitor.php:93
+msgid "php_errorlog in the site root"
+msgstr "网站根目录中的 php_errorlog"
+
+#: error-monitor.php:255
+msgid "Unknown source"
+msgstr "未知来源"
+
+#: error-monitor.php:283 error-monitor.php:292
+msgid "WordPress core"
+msgstr "WordPress 核心"
+
+#: error-monitor.php:295
+msgid "Other site files"
+msgstr "网站其他文件"
+
+#: error-monitor.php:298
+msgid "Outside this site"
+msgstr "本网站之外"
+
+#: error-monitor.php:539
+msgid "Unknown log file."
+msgstr "未知的日志文件。"
+
+#: error-monitor.php:545
+msgid "This log file cannot be changed by WordPress. Ask your host to clear it."
+msgstr "WordPress 无法修改此日志文件。请联系您的主机商清空。"
+
+#: error-monitor.php:554
+msgid "The log file could not be cleared."
+msgstr "无法清空日志文件。"
+
+#: error-monitor.php:579
+msgid "You do not have permission to view the error logs."
+msgstr "您没有查看错误日志的权限。"
+
+#: error-monitor.php:586
+msgid "This log file cannot be read."
+msgstr "无法读取此日志文件。"
+
+#: error-monitor.php:642
+msgid "Fatal error"
+msgstr "致命错误"
+
+#: error-monitor.php:643
+msgid "Warning"
+msgstr "警告"
+
+#: error-monitor.php:644
+msgid "Notice"
+msgstr "通知"
+
+#: error-monitor.php:645
+msgid "Deprecated"
+msgstr "已弃用"
+
+#: error-monitor.php:646
+msgid "Other message"
+msgstr "其他消息"
+
+#: error-monitor.php:649
+msgid "Plugin"
+msgstr "插件"
+
+#: error-monitor.php:650
+msgid "Must-use plugin"
+msgstr "必用插件（Must-use）"
+
+#: error-monitor.php:651
+msgid "Theme"
+msgstr "主题"
+
+#: error-monitor.php:652
+msgid "WordPress"
+msgstr "WordPress"
+
+#: error-monitor.php:653
+msgid "Site files"
+msgstr "网站文件"
+
+#: error-monitor.php:654
+msgid "Another site on this server"
+msgstr "此服务器上的其他网站"
+
+#: error-monitor.php:655
+msgid "No file given"
+msgstr "未提供文件"
+
+#: error-monitor.php:658
+msgid "in the last %s days"
+msgstr "最近 %s 天"
+
+#: error-monitor.php:659
+msgid "Reading log files…"
+msgstr "正在读取日志文件…"
+
+#: error-monitor.php:660
+msgid "The logs could not be read. Reload the page and try again."
+msgstr "无法读取日志。请刷新页面后重试。"
+
+#: error-monitor.php:661
+msgid "Total"
+msgstr "合计"
+
+#: error-monitor.php:663
+msgid "None"
+msgstr "无"
+
+#: error-monitor.php:664
+msgid "No errors logged in this period."
+msgstr "此期间未记录任何错误。"
+
+#: error-monitor.php:665
+msgid "Nothing to fix - no errors were logged in this period."
+msgstr "无需修复 - 此期间未记录任何错误。"
+
+#: error-monitor.php:666
+msgid "No error log was found on this site."
+msgstr "未在本网站找到错误日志。"
+
+#: error-monitor.php:667
+msgid "Either nothing has gone wrong yet, or error logging is switched off. The Debug settings card below shows how to switch it on."
+msgstr "可能还没有出过错，或者错误日志记录已关闭。下方的“调试设置”卡片介绍了如何开启。"
+
+#: error-monitor.php:669
+msgid "Errors per day %s, stacked by severity. Use the arrow keys to read each day."
+msgstr "每日错误数 %s，按严重程度堆叠。使用方向键逐日查看。"
+
+#: error-monitor.php:671
+msgid "Show %s more"
+msgstr "再显示 %s 条"
+
+#: error-monitor.php:673
+msgid "%s other sources"
+msgstr "其他 %s 个来源"
+
+#: error-monitor.php:674
+msgid "1 issue"
+msgstr "1 个问题"
+
+#: error-monitor.php:676
+msgid "%s issues"
+msgstr "%s 个问题"
+
+#: error-monitor.php:678
+msgid "%s fatal"
+msgstr "%s 个致命"
+
+#: error-monitor.php:680
+msgid "Only the %s most frequent issues are listed."
+msgstr "仅列出最频繁的 %s 个问题。"
+
+#: error-monitor.php:681
+msgid "Details"
+msgstr "详情"
+
+#: error-monitor.php:682
+msgid "Message"
+msgstr "消息"
+
+#: error-monitor.php:683
+msgid "File"
+msgstr "文件"
+
+#: error-monitor.php:684
+msgid "Source"
+msgstr "来源"
+
+#: error-monitor.php:685
+msgid "First seen"
+msgstr "首次出现"
+
+#: error-monitor.php:686
+msgid "Last seen"
+msgstr "最近出现"
+
+#: error-monitor.php:690
+msgid "%1$s in this period, %2$s in the log"
+msgstr "此期间 %1$s 次，日志中共 %2$s 次"
+
+#: error-monitor.php:691
+msgid "Download"
+msgstr "下载"
+
+#: error-monitor.php:692
+msgid "Clear log"
+msgstr "清空日志"
+
+#: error-monitor.php:693
+msgid "The log file was cleared."
+msgstr "日志文件已清空。"
+
+#: error-monitor.php:694
+msgid "Updated"
+msgstr "更新于"
+
+#: error-monitor.php:695
+msgid "Empty"
+msgstr "空"
+
+#: error-monitor.php:696
+msgid "Found, but WordPress is not allowed to read it"
+msgstr "已找到，但 WordPress 无权读取"
+
+#: error-monitor.php:697
+msgid "Also checked, not found:"
+msgstr "已检查但未找到："
+
+#: error-monitor.php:699
+msgid "Large file - only the newest %s is analysed"
+msgstr "文件较大 - 仅分析最新的 %s"
+
+#: error-monitor.php:700
+msgid "Server-wide log - may include other sites"
+msgstr "服务器级日志 - 可能包含其他网站"
+
+#: error-monitor.php:702
+msgid "Copied"
+msgstr "已复制"
+
+#: notifications.php:141
+msgid "Leave A Review?"
+msgstr "给我们留下好评？"
+
+#: notifications.php:142
+msgid "We hope you've enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple \"thank you\" will make us happy!"
+msgstr "希望您喜欢使用 WP Content Copy Protection :) 能否耽误您几分钟在 WordPress.org 上为我们留下一条好评？<br>一句简单的“感谢”就足以让我们倍感欣慰！"
+
+#: notifications.php:144
+msgid "Sure! I'd love to!"
+msgstr "当然，我很乐意！"
+
+#: notifications.php:145
+msgid "I've already left a review"
+msgstr "我已经评价过了"
+
+#: notifications.php:146
+msgid "Will Rate Later"
+msgstr "稍后再评"
+
+#: notifications.php:147
+msgid "Hide Forever"
+msgstr "不再提示"
+
+#: preventer-index.php:100
+msgid "You are not allowed to save images!"
+msgstr "您没有保存图片的权限！"
+
+#: preventer-index.php:101
+msgid "Context Menu disabled!"
+msgstr "右键菜单已被禁用！"
+
+#: preventer-index.php:122
+msgid "You are not allowed to copy content or view source"
+msgstr "您没有复制内容或查看源代码的权限"
+
+#: preventer-index.php:319
+msgid "error:"
+msgstr "错误："
+
+#: preventer-index.php:325
+msgid "Alert:"
+msgstr "提示："
+
+#: preventer-index.php:654 preventer-index.php:971
+msgid "Settings"
+msgstr "设置"
+
+#: preventer-index.php:657
+msgid "Upgrade to PRO version Now"
+msgstr "立即升级到专业版 (PRO)"
+
+#: preventer-index.php:657
+msgid "Go PRO"
+msgstr "升级到专业版"
+
+#: preventer-index.php:683
+msgid "You are running WP Content Copy Protection & No Right Click (free). To get more features, you can "
+msgstr "您正在使用 WP Content Copy Protection & No Right Click（免费版）。如需获取更多高级功能，您可以 "
+
+#: preventer-index.php:841
+msgid "Upgrade Now"
+msgstr "立即升级"
+
+#: preventer-index.php:941
+msgid "Protection"
+msgstr "保护"
+
+#: preventer-index.php:944
+msgid "Copy Protection & No right click"
+msgstr "防复制与禁用右键"
+
+#: preventer-index.php:964
+msgid "Copy Protection"
+msgstr "内容防复制"
+
+#: preventer-index.php:991
+msgid "More Plugins"
+msgstr "更多插件"
+
+#: upgrade-hint.php:144
+msgid "New in"
+msgstr "新版本"
+
+#: upgrade-hint.php:149
+msgid "See & check my settings"
+msgstr "查看并检查我的设置"
+
+#. Translated through a constant (see upgrade-hint.php), so no static
+#. reference can be extracted for it.
+#: upgrade-hint.php:27
+msgid "Big changes have arrived!"
+msgstr "重大更新来了！"
+
+#. Translated through a constant (see upgrade-hint.php), so no static
+#. reference can be extracted for it.
+#: upgrade-hint.php:28
+msgid "The Copy Protection settings panel has been completely redesigned. Click to see what is new and check your settings."
+msgstr "内容防复制设置面板已全面重新设计。点击查看新功能并检查您的设置。"

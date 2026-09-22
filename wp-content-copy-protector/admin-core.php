@@ -194,6 +194,10 @@ if (! function_exists('wccp_free_icon')) {
 			'gauge'    => '<path d="M3.6 18a8.6 8.6 0 1 1 16.8 0"/><path d="m12 17.4 4.2-5.2"/><circle cx="12" cy="18" r="1.3"/>',
 			'alert'    => '<path d="M12 3.4 21.4 19.6H2.6L12 3.4Z"/><path d="M12 9.4v4.3M12 16.6v.1"/>',
 			'x'        => '<path d="m6 6 12 12M18 6 6 18"/>',
+			'activity' => '<path d="M3 12h4l3-8 4 16 3-8h4"/>',
+			'download' => '<path d="M12 3.5v11.5"/><path d="m7 10.5 5 5 5-5"/><path d="M4.5 19.5h15"/>',
+			'trash'    => '<path d="M4 6.5h16M9.5 6.5V4.2h5v2.3"/><path d="M6.2 6.5 7.1 20h9.8l.9-13.5"/><path d="M10 10.5v6M14 10.5v6"/>',
+			'bell'     => '<path d="M6.2 16.5V11a5.8 5.8 0 0 1 11.6 0v5.5l1.7 1.8H4.5l1.7-1.8Z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/>',
 		);
 
 		if (! isset($wccp_free_paths[$name])) {
@@ -253,7 +257,7 @@ $wccp_free_onoff       = array(
 	<!-- ============ Head ============ -->
 	<div class="wpb-head">
 		<div class="wpb-head__main">
-			<span class="wpb-eyebrow"><?php wccp_free_icon('shield'); ?><?php esc_html_e('Content protection', 'wp-content-copy-protector'); ?></span>
+			<span class="wpb-eyebrow"><?php wccp_free_icon('shield'); ?><?php esc_html_e('Content Protection Center', 'wp-content-copy-protector'); ?></span>
 			<h1 class="wpb-title">
 				<?php esc_html_e('WP Content Copy Protection', 'wp-content-copy-protector'); ?>
 				<span class="gradient-text"><?php esc_html_e('& No Right Click', 'wp-content-copy-protector'); ?></span>
@@ -294,8 +298,18 @@ $wccp_free_onoff       = array(
 		<?php wp_nonce_field('Save_settings_nonce', '_Save_settings'); ?>
 		<?php wp_nonce_field('Restore_defaults_nonce', '_Restore_defaults'); ?>
 
+		<?php
+		// The Protection Center only appears once enough activity was recorded.
+		$wccp_free_show_center = current_user_can('manage_options') && wccp_free_activity_unlocked();
+		?>
+
 		<!-- ============ Pill rail - replaces the old tabs ============ -->
 		<div class="wpb-pills" role="tablist" aria-label="<?php esc_attr_e('Settings sections', 'wp-content-copy-protector'); ?>">
+			<?php if ($wccp_free_show_center) : ?>
+				<button type="button" class="wpb-pill" role="tab" id="wpb-pill-center" data-panel="wpb-panel-center" aria-controls="wpb-panel-center" aria-selected="false">
+					<?php wccp_free_icon('eye'); ?><?php esc_html_e('Protection Center', 'wp-content-copy-protector'); ?>
+				</button>
+			<?php endif; ?>
 			<button type="button" class="wpb-pill" role="tab" id="wpb-pill-main" data-panel="wpb-panel-main" aria-controls="wpb-panel-main" aria-selected="false">
 				<?php wccp_free_icon('code'); ?><?php esc_html_e('Main Settings', 'wp-content-copy-protector'); ?>
 			</button>
@@ -305,10 +319,20 @@ $wccp_free_onoff       = array(
 			<button type="button" class="wpb-pill" role="tab" id="wpb-pill-css" data-panel="wpb-panel-css" aria-controls="wpb-panel-css" aria-selected="false">
 				<?php wccp_free_icon('brush'); ?><?php esc_html_e('Protection by CSS', 'wp-content-copy-protector'); ?>
 			</button>
+			<?php if (wccp_free_em_can()) : ?>
+				<button type="button" class="wpb-pill" role="tab" id="wpb-pill-errors" data-panel="wpb-panel-errors" aria-controls="wpb-panel-errors" aria-selected="false">
+					<?php wccp_free_icon('activity'); ?><?php esc_html_e('Error Monitor', 'wp-content-copy-protector'); ?>
+				</button>
+			<?php endif; ?>
 			<button type="button" class="wpb-pill" role="tab" id="wpb-pill-pro" data-panel="wpb-panel-pro" aria-controls="wpb-panel-pro" aria-selected="false">
 				<?php wccp_free_icon('sparkles'); ?><?php esc_html_e('More with PRO', 'wp-content-copy-protector'); ?>
 			</button>
 		</div>
+
+		<?php if ($wccp_free_show_center) {
+			// ============ Panel 0 - Protection Center (activity insights) ============
+			include 'activity-panel.php';
+		} ?>
 
 		<!-- ============ Panel 1 - Main settings ============ -->
 		<div class="wpb-panel" id="wpb-panel-main" role="tabpanel" aria-labelledby="wpb-pill-main" tabindex="0">
@@ -500,7 +524,214 @@ $wccp_free_onoff       = array(
 			</div>
 		</div>
 
-		<!-- ============ Panel 4 - More with PRO ============ -->
+		<?php if (wccp_free_em_can()) :
+			// Debug constants, read the way wp_debug_mode() applies them.
+			$wccp_free_em_debug   = defined('WP_DEBUG') && WP_DEBUG;
+			$wccp_free_em_log     = $wccp_free_em_debug && defined('WP_DEBUG_LOG') && WP_DEBUG_LOG;
+			$wccp_free_em_display = $wccp_free_em_debug && defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY;
+			$wccp_free_em_phplog  = filter_var(ini_get('log_errors'), FILTER_VALIDATE_BOOLEAN);
+			$wccp_free_em_snippet = "define( 'WP_DEBUG', true );\ndefine( 'WP_DEBUG_LOG', true );\ndefine( 'WP_DEBUG_DISPLAY', false );\n@ini_set( 'display_errors', 0 );";
+		?>
+			<!-- ============ Panel 4 - Error Monitor ============
+			     Filled by js/error-monitor.js the first time the panel opens
+			     (see error-monitor.php); only the static parts live here. -->
+			<div class="wpb-panel" id="wpb-panel-errors" role="tabpanel" aria-labelledby="wpb-pill-errors" tabindex="0">
+				<div class="wpb-em" id="wpb-em">
+
+					<div class="wpb-card">
+						<div class="wpb-card__head">
+							<span class="wpb-card__ic"><?php wccp_free_icon('activity'); ?></span>
+							<h2 class="wpb-card__title"><?php esc_html_e('Error Monitor', 'wp-content-copy-protector'); ?></h2>
+							<span class="wpb-tag wpb-tag--free"><?php esc_html_e('Free', 'wp-content-copy-protector'); ?></span>
+						</div>
+						<p class="wpb-card__desc"><?php esc_html_e('Reads the PHP and WordPress error logs of this site and groups repeated entries into single issues, so you can see what is breaking, how often, and which plugin or theme causes it.', 'wp-content-copy-protector'); ?></p>
+
+						<!-- Filter row - scopes every tile, chart and list below it. -->
+						<div class="wpb-em-bar">
+							<div class="wpb-switch" role="group" aria-label="<?php esc_attr_e('Time range', 'wp-content-copy-protector'); ?>">
+								<button type="button" class="wpb-switch__btn" data-em-range="7" aria-pressed="false"><?php esc_html_e('7 days', 'wp-content-copy-protector'); ?></button>
+								<button type="button" class="wpb-switch__btn is-active" data-em-range="30" aria-pressed="true"><?php esc_html_e('30 days', 'wp-content-copy-protector'); ?></button>
+								<button type="button" class="wpb-switch__btn" data-em-range="90" aria-pressed="false"><?php esc_html_e('90 days', 'wp-content-copy-protector'); ?></button>
+							</div>
+							<label class="wpb-em-select">
+								<span><?php esc_html_e('Log file', 'wp-content-copy-protector'); ?></span>
+								<select id="wpb-em-log">
+									<option value=""><?php esc_html_e('All log files', 'wp-content-copy-protector'); ?></option>
+								</select>
+							</label>
+							<button type="button" class="wpb-btn wpb-btn--ghost" id="wpb-em-refresh"><?php wccp_free_icon('refresh'); ?><?php esc_html_e('Refresh', 'wp-content-copy-protector'); ?></button>
+							<span class="wpb-em-status" id="wpb-em-status" role="status" aria-live="polite"></span>
+						</div>
+					</div>
+
+					<div id="wpb-em-alerts"></div>
+
+					<div class="wpb-em-body" id="wpb-em-body">
+						<div class="wpb-em-tiles">
+							<div class="wpb-em-tile">
+								<span class="wpb-em-tile__label"><?php esc_html_e('Occurrences', 'wp-content-copy-protector'); ?></span>
+								<span class="wpb-em-tile__value" data-em-tile="occurrences">&ndash;</span>
+								<span class="wpb-em-tile__note" data-em-note></span>
+							</div>
+							<div class="wpb-em-tile">
+								<span class="wpb-em-tile__label"><?php esc_html_e('Unique issues', 'wp-content-copy-protector'); ?></span>
+								<span class="wpb-em-tile__value" data-em-tile="issues">&ndash;</span>
+								<span class="wpb-em-tile__note"><?php esc_html_e('repeated entries grouped', 'wp-content-copy-protector'); ?></span>
+							</div>
+							<div class="wpb-em-tile wpb-em-tile--fatal">
+								<span class="wpb-em-tile__label"><?php wccp_free_icon('alert'); ?><?php esc_html_e('Fatal errors', 'wp-content-copy-protector'); ?></span>
+								<span class="wpb-em-tile__value" data-em-tile="fatal">&ndash;</span>
+								<span class="wpb-em-tile__note"><?php esc_html_e('pages that stopped loading', 'wp-content-copy-protector'); ?></span>
+							</div>
+							<div class="wpb-em-tile">
+								<span class="wpb-em-tile__label"><?php wccp_free_icon('clock'); ?><?php esc_html_e('Last error', 'wp-content-copy-protector'); ?></span>
+								<span class="wpb-em-tile__value" data-em-tile="last">&ndash;</span>
+								<span class="wpb-em-tile__note" data-em-tile="lastLabel"></span>
+							</div>
+						</div>
+
+						<div class="wpb-em-grid">
+							<div class="wpb-card wpb-em-chartcard">
+								<div class="wpb-card__head">
+									<span class="wpb-card__ic"><?php wccp_free_icon('gauge'); ?></span>
+									<h2 class="wpb-card__title"><?php esc_html_e('Errors per day', 'wp-content-copy-protector'); ?></h2>
+									<div class="wpb-switch" role="group" aria-label="<?php esc_attr_e('Show the daily errors as', 'wp-content-copy-protector'); ?>">
+										<button type="button" class="wpb-switch__btn is-active" data-em-view="chart" aria-pressed="true"><?php wccp_free_icon('gauge'); ?><?php esc_html_e('Chart', 'wp-content-copy-protector'); ?></button>
+										<button type="button" class="wpb-switch__btn" data-em-view="table" aria-pressed="false"><?php wccp_free_icon('grid'); ?><?php esc_html_e('Table', 'wp-content-copy-protector'); ?></button>
+									</div>
+								</div>
+								<ul class="wpb-em-legend" id="wpb-em-legend"></ul>
+								<div class="wpb-em-chart" id="wpb-em-chart"></div>
+								<div class="wpb-em-daytable" id="wpb-em-daytable" hidden></div>
+							</div>
+
+							<div class="wpb-card wpb-em-sourcecard">
+								<div class="wpb-card__head">
+									<span class="wpb-card__ic"><?php wccp_free_icon('layers'); ?></span>
+									<h2 class="wpb-card__title"><?php esc_html_e('Where they come from', 'wp-content-copy-protector'); ?></h2>
+								</div>
+								<p class="wpb-card__desc"><?php esc_html_e('Occurrences per plugin, theme or part of WordPress.', 'wp-content-copy-protector'); ?></p>
+								<ol class="wpb-em-sources" id="wpb-em-sources"></ol>
+							</div>
+						</div>
+
+						<div class="wpb-card">
+							<div class="wpb-card__head">
+								<span class="wpb-card__ic"><?php wccp_free_icon('filter'); ?></span>
+								<h2 class="wpb-card__title"><?php esc_html_e('Issues', 'wp-content-copy-protector'); ?></h2>
+								<div class="wpb-switch" role="group" aria-label="<?php esc_attr_e('Sort issues by', 'wp-content-copy-protector'); ?>">
+									<button type="button" class="wpb-switch__btn is-active" data-em-sort="count" aria-pressed="true"><?php esc_html_e('Most frequent', 'wp-content-copy-protector'); ?></button>
+									<button type="button" class="wpb-switch__btn" data-em-sort="last" aria-pressed="false"><?php esc_html_e('Latest', 'wp-content-copy-protector'); ?></button>
+									<button type="button" class="wpb-switch__btn" data-em-sort="level" aria-pressed="false"><?php esc_html_e('Most severe', 'wp-content-copy-protector'); ?></button>
+								</div>
+							</div>
+							<p class="wpb-card__desc"><?php esc_html_e('Each issue is one cause: the same message from the same file and line, however many times it was logged. Open an issue for the full message and where it happened.', 'wp-content-copy-protector'); ?></p>
+							<ul class="wpb-em-issues" id="wpb-em-issues"></ul>
+							<div class="wpb-em-more" id="wpb-em-more"></div>
+						</div>
+					</div>
+
+					<div class="wpb-card">
+						<div class="wpb-card__head">
+							<span class="wpb-card__ic"><?php wccp_free_icon('file'); ?></span>
+							<h2 class="wpb-card__title"><?php esc_html_e('Log files', 'wp-content-copy-protector'); ?></h2>
+						</div>
+						<p class="wpb-card__desc"><?php esc_html_e('Every place this site can write errors to. Download a log to send it to a developer, or clear it once the issues are fixed so new errors stand out.', 'wp-content-copy-protector'); ?></p>
+						<ul class="wpb-em-files" id="wpb-em-files"></ul>
+					</div>
+
+					<div class="wpb-card">
+						<div class="wpb-card__head">
+							<span class="wpb-card__ic"><?php wccp_free_icon('sliders'); ?></span>
+							<h2 class="wpb-card__title"><?php esc_html_e('Debug settings', 'wp-content-copy-protector'); ?></h2>
+						</div>
+						<p class="wpb-card__desc"><?php esc_html_e('These settings live in wp-config.php and decide whether errors are written to a log at all. This plugin only reads them - it never edits wp-config.php.', 'wp-content-copy-protector'); ?></p>
+
+						<ul class="wpb-em-config">
+							<li>
+								<code>WP_DEBUG</code>
+								<?php if ($wccp_free_em_debug) : ?>
+									<span class="wpb-em-state wpb-em-state--on"><?php wccp_free_icon('check'); ?><?php esc_html_e('On', 'wp-content-copy-protector'); ?></span>
+								<?php else : ?>
+									<span class="wpb-em-state"><?php wccp_free_icon('x'); ?><?php esc_html_e('Off', 'wp-content-copy-protector'); ?></span>
+								<?php endif; ?>
+								<span class="wpb-em-config__hint"><?php esc_html_e('WordPress debug mode. The two settings below only work while it is on.', 'wp-content-copy-protector'); ?></span>
+							</li>
+							<li>
+								<code>WP_DEBUG_LOG</code>
+								<?php if ($wccp_free_em_log) : ?>
+									<span class="wpb-em-state wpb-em-state--on"><?php wccp_free_icon('check'); ?><?php esc_html_e('On', 'wp-content-copy-protector'); ?></span>
+								<?php else : ?>
+									<span class="wpb-em-state"><?php wccp_free_icon('x'); ?><?php esc_html_e('Off', 'wp-content-copy-protector'); ?></span>
+								<?php endif; ?>
+								<span class="wpb-em-config__hint"><?php esc_html_e('Writes WordPress errors to wp-content/debug.log (or the path you give it).', 'wp-content-copy-protector'); ?></span>
+							</li>
+							<li>
+								<code>WP_DEBUG_DISPLAY</code>
+								<?php if ($wccp_free_em_display) : ?>
+									<span class="wpb-em-state wpb-em-state--bad"><?php wccp_free_icon('alert'); ?><?php esc_html_e('Shown to visitors', 'wp-content-copy-protector'); ?></span>
+								<?php else : ?>
+									<span class="wpb-em-state wpb-em-state--on"><?php wccp_free_icon('check'); ?><?php esc_html_e('Hidden from visitors', 'wp-content-copy-protector'); ?></span>
+								<?php endif; ?>
+								<span class="wpb-em-config__hint"><?php esc_html_e('When errors are shown, they are printed right on your pages. Keep it off on a live site.', 'wp-content-copy-protector'); ?></span>
+							</li>
+							<li>
+								<code>log_errors</code>
+								<?php if ($wccp_free_em_phplog) : ?>
+									<span class="wpb-em-state wpb-em-state--on"><?php wccp_free_icon('check'); ?><?php esc_html_e('On', 'wp-content-copy-protector'); ?></span>
+								<?php else : ?>
+									<span class="wpb-em-state"><?php wccp_free_icon('x'); ?><?php esc_html_e('Off', 'wp-content-copy-protector'); ?></span>
+								<?php endif; ?>
+								<span class="wpb-em-config__hint"><?php esc_html_e('PHP setting on the server. When on, PHP keeps its own error log even while WP_DEBUG is off.', 'wp-content-copy-protector'); ?></span>
+							</li>
+						</ul>
+
+						<?php if (! $wccp_free_em_log || $wccp_free_em_display) : ?>
+							<div class="wpb-em-snippet">
+								<p class="wpb-em-snippet__txt"><?php echo wp_kses(__('To log errors <b>without showing them to visitors</b>, add these lines to <u>wp-config.php</u>, just above the line <code>/* That\'s all, stop editing! */</code> (replace any existing WP_DEBUG lines):', 'wp-content-copy-protector'), array('b' => array(), 'u' => array(), 'code' => array())); ?></p>
+								<div class="wpb-em-code">
+									<pre><code><?php echo esc_html($wccp_free_em_snippet); ?></code></pre>
+									<button type="button" class="wpb-btn wpb-btn--quiet wpb-em-copy" data-em-copy><?php wccp_free_icon('copy'); ?><span><?php esc_html_e('Copy', 'wp-content-copy-protector'); ?></span></button>
+								</div>
+							</div>
+						<?php endif; ?>
+					</div>
+
+					<!-- Icons the script clones into the markup it builds. -->
+					<template id="wpb-em-icons">
+						<?php foreach (array('alert', 'check', 'info', 'clock', 'message', 'download', 'trash', 'server', 'file', 'copy') as $wccp_free_em_icon) : ?>
+							<span data-icon="<?php echo esc_attr($wccp_free_em_icon); ?>"><?php wccp_free_icon($wccp_free_em_icon); ?></span>
+						<?php endforeach; ?>
+					</template>
+
+					<!-- Clear log confirmation - same .wpb-modal as Restore defaults, but
+					     its confirm button is not a submit: the script clears the log
+					     over AJAX, so the settings form is never posted. -->
+					<div class="wpb-modal" id="wpb-em-clear-modal" hidden>
+						<div class="wpb-modal__veil" data-wpb-modal-close></div>
+						<div class="wpb-modal__box" role="dialog" aria-modal="true" aria-labelledby="wpb-em-clear-modal__title" aria-describedby="wpb-em-clear-modal__text">
+							<button type="button" class="wpb-modal__x" data-wpb-modal-close aria-label="<?php esc_attr_e('Close', 'wp-content-copy-protector'); ?>">
+								<?php wccp_free_icon('x'); ?>
+							</button>
+							<span class="wpb-modal__ic"><?php wccp_free_icon('trash'); ?></span>
+							<h2 class="wpb-modal__title" id="wpb-em-clear-modal__title"><?php esc_html_e('Clear this log file?', 'wp-content-copy-protector'); ?></h2>
+							<p class="wpb-modal__text" id="wpb-em-clear-modal__text">
+								<?php esc_html_e('Every entry in this file will be deleted and this cannot be undone. Download it first if a developer may still need it.', 'wp-content-copy-protector'); ?>
+								<code class="wpb-em-modal__file" id="wpb-em-clear-file"></code>
+								<span class="wpb-em-modal__shared" id="wpb-em-clear-shared" hidden><?php esc_html_e('This is a server-wide log, so errors from other sites on this server will be deleted too.', 'wp-content-copy-protector'); ?></span>
+							</p>
+							<div class="wpb-modal__acts">
+								<button type="button" class="wpb-btn wpb-btn--ghost" data-wpb-modal-close><?php esc_html_e('Cancel', 'wp-content-copy-protector'); ?></button>
+								<button type="button" class="wpb-btn wpb-btn--danger" id="wpb-em-clear-confirm" data-wpb-modal-close><?php wccp_free_icon('trash'); ?><?php esc_html_e('Yes, clear log', 'wp-content-copy-protector'); ?></button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<!-- ============ Panel 5 - More with PRO ============ -->
 		<div class="wpb-panel" id="wpb-panel-pro" role="tabpanel" aria-labelledby="wpb-pill-pro" tabindex="0">
 			<div class="wpb-card">
 				<div class="wpb-card__head">

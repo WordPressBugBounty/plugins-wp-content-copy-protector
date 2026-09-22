@@ -4,8 +4,8 @@ Tags: content copy protection, content protection, prevent copy, image protectio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
-Tested up to: 7.1
-Stable tag: 4.1
+Tested up to: 7.1.1
+Stable tag: 4.2
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -41,10 +41,26 @@ Take charge of your content distribution. With this plugin, you have the power t
 💧 *Watermark Images (Pro Version):*
 Upgrade to the Pro version to add watermarks to your images. This feature ensures that even if your images are copied, they will still carry your watermark, maintaining your brand visibility and deterring unauthorized use.
 
+📊 *Protection Center (New, free):*
+See your protection working instead of guessing. The Protection Center counts every blocked action on your site - blocked right-clicks, blocked text selections, blocked copy shortcuts, image interactions and print attempts - and shows what happened since your last visit: visits with blocked actions, a daily chart for the last 7 days, the pages people try to copy the most, the busiest hours and the mix between text, images and right-clicks. Built on privacy: no IP address, no cookie and no personal data is ever stored, logged-in editors and admins are never counted, everything stays in your own database, and you can switch it off or wipe it with one click at any time.
+
+📧 *Weekly Protection Report (New, free):*
+Do not want to log in to check? Turn on the weekly digest and the plugin emails your site admin a short summary every Monday - only in weeks that actually had activity - with the number of visits with blocked copy actions and how that compares to the week before.
+
+🔔 *Admin Bar Insights (New, free):*
+A small card that opens from the plugin icon in the WordPress admin bar, wherever you are in wp-admin. One headline number, a 7-day sparkline, your error count, and two short insights that change on every visit ("copy attempts are up 38% this week", "one page drew 41% of the activity"). It costs nothing on page load - the numbers are fetched only when you open the card, and cached.
+
+🩺 *Error Monitor (New, free):*
+Not only protection: the plugin now finds the error logs your site writes to (wp-content/debug.log, the PHP log set by your server, and error_log files in the site root, wp-admin and wp-content) and explains what is going wrong in plain language. Repeated errors are folded into single issues with a counter, each issue names the plugin, theme or part of WordPress behind it with the file and line, and charts show errors per day by severity and which plugins produce the most. It also warns you when your log file can be downloaded by anyone from the web and shows how to block it. Only the newest part of each log is read, so even huge log files do not slow down your admin.
+
+🌍 *Speaks Your Language (New):*
+The whole plugin - settings, help notes, Protection Center and Error Monitor - is now fully translated into 11 languages besides English: Arabic, German, Spanish, French, Italian, Japanese, Dutch, Portuguese (Brazil and Portugal), Russian and Simplified Chinese, with full right-to-left (RTL) support.
+
 *Unique Benefits:*
 Unparalleled Protection: Unlike other WordPress plugins, our unique combination of JavaScript and CSS techniques offers a level of protection not found elsewhere.
 Free to Use: Enjoy all these powerful features without any cost. Protect your content with the free version of our plugin, and upgrade to the Pro version for additional benefits like image watermarking.
 User-Friendly: Easy to install and configure, this plugin requires no technical expertise, making it accessible for all WordPress users.
+Proof, Not Guesswork: You do not just switch protection on and hope - the built-in Protection Center shows you how often it actually stopped someone, and on which pages.
 Ensure your content remains yours with the WP Content Copy Protection & No Right Click plugin. Protect your work, enforce your copyright, and control who can copy your content—all for free.
 
 **Easy to Install**:
@@ -101,6 +117,39 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 4.2 =
+<ul>
+<li>New feature: Protection Center, free for everyone. See your protection working instead of guessing: it counts how often visitors run into the protection that is really active on a page (blocked right-clicks, blocked text selections, blocked copy shortcuts, image interactions and print attempts) and shows what happened since your last visit.</li>
+<li>Protection Center: Summary cards for visits with blocked actions, blocked interactions and pages with activity, with a comparison to the week before and the time and page of the last blocked action.</li>
+<li>Protection Center: "Visits with blocked actions per day" chart for the last 7 days next to the 7 days before, with a hover tooltip, keyboard navigation and a table view.</li>
+<li>Protection Center: "Most interacted-with protected content" list ranks the pages and posts people try to copy the most, and "Text or images?" shows whether visitors reach for your text, your images, right-clicks or printing.</li>
+<li>Protection Center: "What your protection covers" card shows, for posts, pages and the homepage, which protection layers (selection and shortcuts, right-click, CSS layer) are on or off, with a link to change them.</li>
+<li>Protection Center: The tab opens once 500 visits with blocked actions are on record, and a one-time admin notice tells you when it is ready. A small count next to "Copy Protection" in the admin menu shows new visits with blocked actions since you last opened it, and a "Content protection activity" dashboard widget gives the headline numbers.</li>
+<li>Protection Center: Optional weekly email summary sent to the site admin every Monday, only in weeks that had activity, with a "Send me a preview" button.</li>
+<li>Protection Center privacy: no IP address, cookie, user agent or personal data is stored, only counts per page, per action type and per hour. Logged-in editors and admins are never counted, bots are ignored, and one visit counts each kind of action at most 5 times.</li>
+<li>Protection Center control: switch recording on or off, delete all recorded activity with a confirmation popup, and choose whether deleting the plugin also deletes the data (off by default). Old counts are removed automatically after 90 days.</li>
+<li>Protection Center performance: a small deferred tracker script with no dependencies sends nothing unless something was blocked, and then only one request per visit, so page speed is not affected. Every admin action checks the user's permissions and a security nonce.</li>
+<li>New feature: Admin Bar Insights. Hover over the plugin icon in the top admin bar, anywhere in wp-admin, and a small card opens with your latest numbers, so you do not need to open the plugin page to know what is going on.</li>
+<li>Admin Bar Insights: The card shows one headline number (visits that ran into your protection since your last visit, or in the last 7 days), blocked actions and pages, the change compared to last week, a 7 day sparkline and the time of the last activity.</li>
+<li>Admin Bar Insights: An "Error logs" part shows errors today, fatal errors in the last 7 days and new issues, taken from the Error Monitor.</li>
+<li>Admin Bar Insights: Two short insights that change on every hover, such as "Today is already at 3× your usual daily activity", "Today is your busiest day in 60 days of records", "One page suddenly drew 41% of this week's activity", "Most activity arrives around 9:00 pm", "Fatal errors logged today" or "One plugin is behind 70% of this week's errors". Two insights of the same kind are never shown together, and important ones (an activity spike, a fatal error today) are always shown first.</li>
+<li>Admin Bar Insights: Quick buttons in the card open the Protection Center ("See what you missed" when there is new activity) or the Error Monitor.</li>
+<li>Notifications: A small "New activity" dot appears on the admin bar icon when there are new visits with blocked actions, a fatal error today or a new error issue since you last looked. To stay out of your way it shows for at most 5 minutes in every hour, and it is hidden for a day once you open the plugin page.</li>
+<li>Notifications: A warning insight tells you when PHP error logging is switched off, so problems on your site do not go unnoticed.</li>
+<li>Admin Bar Insights performance: nothing is calculated while your admin pages load except the notification dot, which uses cached counts. The card data is loaded only the first time you hover and cached for 5 minutes, and log files are read at most every 10 minutes. Page titles are never sent to the card.</li>
+<li>Admin Bar Insights accessibility: the card also opens with the keyboard (Tab to the icon), you can move through its links with the keyboard and close it with the Escape key. It is shown to administrators only and follows the "top bar icon" visibility setting.</li>
+<li>New feature: Error Monitor tab, free for everyone. It finds the error logs of your site (wp-content/debug.log, the PHP error log set by your server, and the error_log files in the site root, wp-admin and wp-content) and shows what is going wrong in plain language.</li>
+<li>Error Monitor: Repeated errors are grouped into single issues. The same message from the same file and line is shown once with a counter, so an error logged 10,000 times appears as one issue, not 10,000 rows.</li>
+<li>Error Monitor: Every issue shows the plugin, theme or part of WordPress that caused it, with the file and line, first seen and last seen dates, and the full error message.</li>
+<li>Error Monitor: "Errors per day" chart stacked by severity (fatal errors, warnings, notices, deprecated and other messages), with a hover tooltip, keyboard navigation and a table view.</li>
+<li>Error Monitor: "Where they come from" chart that ranks your plugins and theme by the number of errors they produce.</li>
+<li>Error Monitor: Summary cards for occurrences, unique issues, fatal errors and the time of the last error, plus 7 / 30 / 90 day filters, a log file filter and sorting by most frequent, latest or most severe.</li>
+<li>Error Monitor: Download any log file, or clear it with a confirmation popup once its issues are fixed.</li>
+<li>Error Monitor security check: warns you when your debug.log or error_log file can be downloaded by anyone from the web, and shows how to block it on Apache, LiteSpeed and Nginx.</li>
+<li>Error Monitor: Debug settings card shows the state of WP_DEBUG, WP_DEBUG_LOG, WP_DEBUG_DISPLAY and PHP log_errors, with ready to copy wp-config.php lines to log errors without showing them to visitors. The plugin never edits wp-config.php.</li>
+<li>Error Monitor performance and safety: logs are read only when the tab is opened and only the newest 1 MB of each file is analysed, so huge logs do not slow down the admin. Only administrators (super admins on multisite) can see or clear logs.</li>
+<li>Interface: The settings save bar is hidden on the Error Monitor tab, since there is nothing to save there.</li>
+</ul>
 = 4.1 =
 <ul>
 <li>Major release: the whole admin settings panel has been redesigned from scratch with a modern interface and layout matching the wp-buy.com design system (clean cards, soft shadows, rounded corners and a new color palette).</li>

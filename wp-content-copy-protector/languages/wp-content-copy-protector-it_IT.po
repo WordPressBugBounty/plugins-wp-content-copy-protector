@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Content Copy Protection & No Right Click 3.7.4\n"
+"Project-Id-Version: WP Content Copy Protection & No Right Click 4.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-content-copy-protector\n"
-"POT-Creation-Date: 2026-09-02 12:00+0000\n"
-"PO-Revision-Date: 2026-09-02 14:25+0000\n"
+"POT-Creation-Date: 2026-09-14 20:33+0000\n"
+"PO-Revision-Date: 2026-09-14 14:36+0000\n"
 "Last-Translator: WP Localization Team\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -15,1028 +15,1834 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP Content Copy Protection i18n Builder\n"
 
-#: preventer-index.php:90
-msgid "You are not allowed to save images!"
-msgstr "Non hai il permesso di salvare le immagini!"
+#: activity-panel.php:41
+msgid "about the same"
+msgstr "più o meno uguale"
 
-#: preventer-index.php:91
-msgid "Context Menu disabled!"
-msgstr "Menu contestuale disabilitato!"
+#: activity-panel.php:50
+msgid "more than the previous period"
+msgstr "in più rispetto al periodo precedente"
 
-#: preventer-index.php:115
-msgid "You are not allowed to copy content or view source"
-msgstr "Non hai il permesso di copiare il contenuto o visualizzare il sorgente"
+#: activity-panel.php:50
+msgid "less than the previous period"
+msgstr "in meno rispetto al periodo precedente"
 
-#: preventer-index.php:307
-msgid "error:"
-msgstr "errore:"
+#: activity-panel.php:63
+msgid "Protection activity is switched off"
+msgstr "L'attività di protezione è disattivata"
 
-#: preventer-index.php:314
-msgid "Alert:"
-msgstr "Avviso:"
+#: activity-panel.php:65
+msgid "Switch it on to see how often visitors run into your copy protection, which pages draw the most attention and whether it is your text or your images they reach for. It stores counts only - no personal data."
+msgstr "Attivala per vedere quanto spesso i visitatori si scontrano con la tua protezione dalla copia, quali pagine attirano più attenzione e se puntano più ai tuoi testi o alle tue immagini. Memorizza solo conteggi, nessun dato personale."
 
-#: preventer-index.php:645 preventer-index.php:809 preventer-index.php:809
-msgid "Settings"
-msgstr "Impostazioni"
+#: activity-panel.php:68
+msgid "Switch on activity insights"
+msgstr "Attiva le statistiche di attività"
 
-#: preventer-index.php:648
-msgid "Upgrade to PRO version Now"
-msgstr "Passa alla versione PRO adesso"
+#: activity-panel.php:95
+msgid "Protection activity"
+msgstr "Attività di protezione"
 
-#: preventer-index.php:648
-msgid "Go PRO"
-msgstr "Passa a PRO"
+#: activity-panel.php:96 activity-panel.php:225 admin-bar-insights.php:514
+msgid "Last 7 days"
+msgstr "Ultimi 7 giorni"
 
-#: preventer-index.php:673
-msgid "You are running WP Content Copy Protection & No Right Click (free). To get more features, you can "
-msgstr "Stai utilizzando WP Content Copy Protection & No Right Click (gratuito). Per ottenere più funzionalità, puoi "
+#: activity-panel.php:97 admin-core.php:551
+msgid "Time range"
+msgstr "Periodo"
 
-#: preventer-index.php:685
-msgid "Upgrade Now"
-msgstr "Aggiorna ora"
+#: activity-panel.php:98 admin-core.php:552
+msgid "7 days"
+msgstr "7 giorni"
 
-#: preventer-index.php:688 admin-core.php:229
-msgid "Dismiss"
-msgstr "Ignora"
+#: activity-panel.php:99 admin-core.php:553
+msgid "30 days"
+msgstr "30 giorni"
 
-#: preventer-index.php:781
-msgid "Protection"
-msgstr "Protezione"
+#: activity-panel.php:100 admin-core.php:554
+msgid "90 days"
+msgstr "90 giorni"
 
-#: preventer-index.php:783
-msgid "Copy Protection & No right click"
-msgstr "Protezione copia e tasto destro disattivato"
+#: activity-panel.php:101
+msgid "12 months"
+msgstr "12 mesi"
 
-#: preventer-index.php:801 admin-core.php:258
-msgid "WP Content Copy Protection"
-msgstr "WP Content Copy Protection"
+#: activity-panel.php:108
+msgid "Your protection is on. Nobody ran into it in the last 7 days."
+msgstr "La tua protezione è attiva. Nessuno ci si è scontrato negli ultimi 7 giorni."
 
-#: preventer-index.php:802
-msgid "Copy Protection"
-msgstr "Protezione copia"
+#: activity-panel.php:112
+msgid "%1$s visit ran into your copy protection in the last 7 days - %2$s%% more than the 7 days before."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days - %2$s%% more than the 7 days before."
+msgstr[0] "%1$s visita si è scontrata con la tua protezione dalla copia negli ultimi 7 giorni - il %2$s%% in più rispetto ai 7 giorni precedenti."
+msgstr[1] "%1$s visite si sono scontrate con la tua protezione dalla copia negli ultimi 7 giorni - il %2$s%% in più rispetto ai 7 giorni precedenti."
 
-#: preventer-index.php:828
-msgid "More Plugins"
-msgstr "Altri plugin"
+#: activity-panel.php:114
+msgid "%1$s visit ran into your copy protection in the last 7 days - %2$s%% less than the 7 days before."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days - %2$s%% less than the 7 days before."
+msgstr[0] "%1$s visita si è scontrata con la tua protezione dalla copia negli ultimi 7 giorni - il %2$s%% in meno rispetto ai 7 giorni precedenti."
+msgstr[1] "%1$s visite si sono scontrate con la tua protezione dalla copia negli ultimi 7 giorni - il %2$s%% in meno rispetto ai 7 giorni precedenti."
+
+#: activity-panel.php:116
+msgid "%1$s visit ran into your copy protection in the last 7 days - about the same as the 7 days before."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days - about the same as the 7 days before."
+msgstr[0] "%1$s visita si è scontrata con la tua protezione dalla copia negli ultimi 7 giorni - più o meno come nei 7 giorni precedenti."
+msgstr[1] "%1$s visite si sono scontrate con la tua protezione dalla copia negli ultimi 7 giorni - più o meno come nei 7 giorni precedenti."
+
+#: activity-panel.php:118
+msgid "%1$s visit ran into your copy protection in the last 7 days."
+msgid_plural "%1$s visits ran into your copy protection in the last 7 days."
+msgstr[0] "%1$s visita si è scontrata con la tua protezione dalla copia negli ultimi 7 giorni."
+msgstr[1] "%1$s visite si sono scontrate con la tua protezione dalla copia negli ultimi 7 giorni."
+
+#: activity-panel.php:134
+msgid "Since your last visit (%s):"
+msgstr "Dalla tua ultima visita (%s):"
+
+#. translators: 1: number of visits, 2: number of interactions, 3: number of pages.
+#: activity-panel.php:140
+msgid "%1$s new visit with blocked actions - %2$s interactions on %3$s pages."
+msgid_plural "%1$s new visits with blocked actions - %2$s interactions on %3$s pages."
+msgstr[0] "%1$s nuova visita con azioni bloccate - %2$s interazioni su %3$s pagine."
+msgstr[1] "%1$s nuove visite con azioni bloccate - %2$s interazioni su %3$s pagine."
+
+#: activity-panel.php:146
+msgid "nothing new yet."
+msgstr "ancora nulla di nuovo."
+
+#: activity-panel.php:157
+msgid "Recording started on %s, so this period is not complete yet. Comparisons appear once there are two full weeks to compare."
+msgstr "La registrazione è iniziata il %s, quindi questo periodo non è ancora completo. I confronti compariranno quando ci saranno due settimane complete da confrontare."
+
+#: activity-panel.php:165
+msgid "Longer history is part of PRO"
+msgstr "Uno storico più lungo è incluso in PRO"
+
+#: activity-panel.php:166
+msgid "See 30 days, 90 days or 12 months of activity, spot seasonal peaks and follow how each page trends over time."
+msgstr "Consulta 30 giorni, 90 giorni o 12 mesi di attività, individua i picchi stagionali e segui l'andamento di ogni pagina nel tempo."
+
+#: activity-panel.php:168
+msgid "See PRO"
+msgstr "Scopri PRO"
+
+#: activity-panel.php:180
+msgid "Quiet week - your protection is on and watching"
+msgstr "Settimana tranquilla - la tua protezione è attiva e vigila"
+
+#: activity-panel.php:181
+msgid "Very few visits ran into your protection in the last 7 days. That is normal for a newer or smaller site: this page fills up as your content gets more visitors, and you will see here the moment it does."
+msgstr "Pochissime visite si sono scontrate con la tua protezione negli ultimi 7 giorni. È normale per un sito nuovo o piccolo: questa pagina si riempirà man mano che i tuoi contenuti riceveranno più visitatori, e lo vedrai qui non appena accadrà."
+
+#: activity-panel.php:186
+msgid "Last blocked action: %1$s, on \"%2$s\"."
+msgstr "Ultima azione bloccata: %1$s, su «%2$s»."
+
+#: activity-panel.php:198 activity-panel.php:556
+msgid "Visits with blocked actions"
+msgstr "Visite con azioni bloccate"
+
+#: activity-panel.php:203
+msgid "Blocked interactions"
+msgstr "Interazioni bloccate"
+
+#: activity-panel.php:207
+msgid "Pages with activity"
+msgstr "Pagine con attività"
+
+#: activity-panel.php:211
+msgid "One visit counts once, however many times the visitor clicked. A blocked action is not necessarily an attempt to steal."
+msgstr "Una visita conta una sola volta, indipendentemente da quante volte il visitatore abbia cliccato. Un'azione bloccata non è necessariamente un tentativo di furto."
+
+#: activity-panel.php:217
+msgid "Visits with blocked actions per day"
+msgstr "Visite con azioni bloccate al giorno"
+
+#: activity-panel.php:218
+msgid "Show the daily activity as"
+msgstr "Mostra l'attività giornaliera come"
+
+#: activity-panel.php:219 admin-core.php:599
+msgid "Chart"
+msgstr "Grafico"
+
+#: activity-panel.php:220 admin-core.php:600
+msgid "Table"
+msgstr "Tabella"
+
+#: activity-panel.php:226
+msgid "The 7 days before"
+msgstr "I 7 giorni precedenti"
+
+#: activity-panel.php:236 error-monitor.php:662
+msgid "Day"
+msgstr "Giorno"
+
+#: activity-panel.php:237 activity-panel.php:287
+msgid "Visits"
+msgstr "Visite"
+
+#: activity-panel.php:280 activity.php:1100
+msgid "Most interacted-with protected content"
+msgstr "Contenuti protetti con più interazioni"
+
+#: activity-panel.php:286 activity-panel.php:422
+msgid "Content"
+msgstr "Contenuto"
+
+#: activity-panel.php:288
+msgid "Interactions"
+msgstr "Interazioni"
+
+#. translators: %s: action type, e.g. "Right-clicks".
+#: activity-panel.php:315
+msgid "mostly %s"
+msgstr "soprattutto %s"
+
+#: activity-panel.php:335
+msgid "Text or images?"
+msgstr "Testi o immagini?"
+
+#: activity-panel.php:340
+msgid "Text (selecting & copy shortcuts)"
+msgstr "Testo (selezione e scorciatoie di copia)"
+
+#: activity-panel.php:341
+msgid "Images"
+msgstr "Immagini"
+
+#: activity-panel.php:342
+msgid "Right-clicks elsewhere"
+msgstr "Clic destri altrove"
+
+#: activity-panel.php:345
+msgid "Printing"
+msgstr "Stampa"
+
+#: activity-panel.php:353
+msgid "Visitors mostly reach for your text."
+msgstr "I visitatori puntano soprattutto ai tuoi testi."
+
+#: activity-panel.php:355
+msgid "Visitors mostly reach for your images."
+msgstr "I visitatori puntano soprattutto alle tue immagini."
+
+#: activity-panel.php:357
+msgid "Your text and your images draw about the same attention."
+msgstr "I tuoi testi e le tue immagini ricevono un'attenzione simile."
+
+#: activity-panel.php:386
+msgid "Busiest day: %1$s, with %2$s visit."
+msgid_plural "Busiest day: %1$s, with %2$s visits."
+msgstr[0] "Giorno più attivo: %1$s, con %2$s visita."
+msgstr[1] "Giorno più attivo: %1$s, con %2$s visite."
+
+#: activity-panel.php:398
+msgid "Based on your activity"
+msgstr "In base alla tua attività"
+
+#: activity-panel.php:404
+msgid "Not now"
+msgstr "Non ora"
+
+#: activity-panel.php:415
+msgid "What your protection covers"
+msgstr "Cosa copre la tua protezione"
+
+#: activity-panel.php:416
+msgid "Change settings"
+msgstr "Modifica impostazioni"
+
+#: activity-panel.php:423
+msgid "Selection & shortcuts"
+msgstr "Selezione e scorciatoie"
+
+#: activity-panel.php:424
+msgid "Right-click"
+msgstr "Clic destro"
+
+#: activity-panel.php:425
+msgid "CSS layer"
+msgstr "Livello CSS"
+
+#: activity-panel.php:436
+msgid "%s published"
+msgstr "%s pubblicati"
+
+#: activity-panel.php:443 admin-core.php:654 admin-core.php:663 admin-core.php:681
+msgid "On"
+msgstr "Attivo"
+
+#: activity-panel.php:445 admin-core.php:656 admin-core.php:665 admin-core.php:683
+msgid "Off"
+msgstr "Disattivo"
+
+#: activity-panel.php:462
+msgid "Activity insights & privacy"
+msgstr "Statistiche di attività e privacy"
+
+#: activity-panel.php:472
+msgid "Record protection activity"
+msgstr "Registra l'attività di protezione"
+
+#: activity-panel.php:473
+msgid "Counts blocked actions on your protected pages."
+msgstr "Conta le azioni bloccate sulle tue pagine protette."
+
+#: activity-panel.php:480
+msgid "New activity count in the admin menu"
+msgstr "Contatore delle nuove attività nel menu di amministrazione"
+
+#: activity-panel.php:481
+msgid "A small number next to \"Copy Protection\" until you open this page."
+msgstr "Un piccolo numero accanto a «Protezione copia» finché non apri questa pagina."
+
+#: activity-panel.php:488
+msgid "Weekly email summary"
+msgstr "Riepilogo settimanale via email"
+
+#: activity-panel.php:492
+msgid "Every Monday to %s, only in weeks with activity."
+msgstr "Ogni lunedì a %s, solo nelle settimane con attività."
+
+#: activity-panel.php:494
+msgid "Send me a preview"
+msgstr "Inviami un'anteprima"
+
+#: activity-panel.php:502
+msgid "Delete this data when the plugin is deleted"
+msgstr "Elimina questi dati quando il plugin viene eliminato"
+
+#: activity-panel.php:503
+msgid "Off by default: deleting the plugin leaves everything it recorded on your site, so a later install picks the history up again. Switch it on and deleting the plugin also drops the activity table for good."
+msgstr "Disattivato per impostazione predefinita: eliminando il plugin, tutto ciò che è stato registrato resta sul tuo sito, così una futura installazione riprende lo storico. Se lo attivi, eliminando il plugin viene rimossa definitivamente anche la tabella dell'attività."
+
+#: activity-panel.php:509
+msgid "No IP addresses, cookies or personal data are stored - only counts per page and hour."
+msgstr "Non vengono memorizzati indirizzi IP, cookie o dati personali: solo conteggi per pagina e per ora."
+
+#: activity-panel.php:510
+msgid "Your own visits are not counted while you are logged in as an editor or admin."
+msgstr "Le tue visite non vengono contate finché hai effettuato l'accesso come editor o amministratore."
+
+#: activity-panel.php:513
+msgid "A single visit counts each kind of action at most %s times."
+msgstr "Una singola visita conta ogni tipo di azione al massimo %s volte."
+
+#: activity-panel.php:515
+msgid "Nothing is sent until something is blocked, and then only once per visit - page speed is not affected."
+msgstr "Non viene inviato nulla finché qualcosa non viene bloccato, e poi solo una volta per visita: la velocità della pagina non ne risente."
+
+#: activity-panel.php:518
+msgid "Everything stays in your own database and is deleted after %s days."
+msgstr "Tutto resta nel tuo database e viene eliminato dopo %s giorni."
+
+#: activity-panel.php:524
+msgid "Right-clicks and copy shortcuts are ordinary browser habits too - these numbers show attention to your content, not proof of theft."
+msgstr "Anche i clic destri e le scorciatoie di copia sono normali abitudini di navigazione: questi numeri mostrano l'interesse per i tuoi contenuti, non una prova di furto."
+
+#: activity-panel.php:525
+msgid "Delete recorded activity"
+msgstr "Elimina l'attività registrata"
+
+#: activity-panel.php:532 admin-core.php:713 admin-core.php:1080 deactivation-survey.php:215
+msgid "Close"
+msgstr "Chiudi"
+
+#: activity-panel.php:536
+msgid "Delete all recorded activity?"
+msgstr "Eliminare tutta l'attività registrata?"
+
+#: activity-panel.php:537
+msgid "Every count collected so far is removed and the history starts again from today. Your protection settings are not touched. This cannot be undone."
+msgstr "Tutti i conteggi raccolti finora vengono rimossi e lo storico riparte da oggi. Le tue impostazioni di protezione non vengono toccate. L'operazione non può essere annullata."
+
+#: activity-panel.php:539 admin-core.php:724 admin-core.php:1087
+msgid "Cancel"
+msgstr "Annulla"
+
+#: activity-panel.php:540
+msgid "Yes, delete activity"
+msgstr "Sì, elimina l'attività"
+
+#: activity-panel.php:551
+msgid "Saving…"
+msgstr "Salvataggio…"
+
+#: activity-panel.php:552
+msgid "Saved"
+msgstr "Salvato"
+
+#: activity-panel.php:553
+msgid "Could not save. Reload the page and try again."
+msgstr "Impossibile salvare. Ricarica la pagina e riprova."
+
+#: activity-panel.php:554
+msgid "Sending…"
+msgstr "Invio…"
+
+#: activity-panel.php:555
+msgid "Activity deleted"
+msgstr "Attività eliminata"
+
+#: activity-panel.php:557
+msgid "7 days before"
+msgstr "7 giorni prima"
+
+#: activity-panel.php:559
+msgid "Visits with blocked actions per day, last 7 days. Use the arrow keys to read each day."
+msgstr "Visite con azioni bloccate al giorno, ultimi 7 giorni. Usa i tasti freccia per leggere ogni giorno."
+
+#: activity.php:66
+msgid "Content selections"
+msgstr "Selezioni di contenuto"
+
+#: activity.php:67
+msgid "Right-clicks"
+msgstr "Clic destri"
+
+#: activity.php:68
+msgid "Image interactions"
+msgstr "Interazioni con le immagini"
+
+#: activity.php:69
+msgid "Keyboard copy shortcuts"
+msgstr "Scorciatoie di copia da tastiera"
+
+#: activity.php:70
+msgid "Print attempts"
+msgstr "Tentativi di stampa"
+
+#: activity.php:226
+msgid "Once a week"
+msgstr "Una volta a settimana"
+
+#: activity.php:592
+msgid "Homepage"
+msgstr "Homepage"
+
+#: activity.php:593
+msgid "Archives & listings"
+msgstr "Archivi ed elenchi"
+
+#: activity.php:594
+msgid "Search results"
+msgstr "Risultati di ricerca"
+
+#: activity.php:595
+msgid "\"Not found\" pages"
+msgstr "Pagine «non trovato»"
+
+#: activity.php:599
+msgid "Site page"
+msgstr "Pagina del sito"
+
+#: activity.php:606
+msgid "Deleted content #%d"
+msgstr "Contenuto eliminato #%d"
+
+#: activity.php:613
+msgid "(no title)"
+msgstr "(senza titolo)"
+
+#: activity.php:703 admin-core.php:427
+msgid "Posts"
+msgstr "Articoli"
+
+#: activity.php:712
+msgid "Pages"
+msgstr "Pagine"
+
+#: activity.php:722
+msgid "Homepage & archives"
+msgstr "Homepage e archivi"
+
+#: activity.php:748 admin-bar-insights.php:691
+msgid "Images received %s protected interactions this week"
+msgstr "Le immagini hanno ricevuto %s interazioni protette questa settimana"
+
+#: activity.php:749
+msgid "Your current protection blocks basic image interactions such as right-click and drag. It cannot stop a screenshot. A watermark keeps your name on your images wherever they end up."
+msgstr "La tua protezione attuale blocca le interazioni di base con le immagini, come il clic destro e il trascinamento. Non può impedire uno screenshot. Una filigrana mantiene il tuo nome sulle immagini, ovunque finiscano."
+
+#: activity.php:750
+msgid "Watermark your images with PRO"
+msgstr "Aggiungi la filigrana alle tue immagini con PRO"
+
+#: activity.php:763
+msgid "\"%1$s\" drew %2$s%% of this week's activity"
+msgstr "«%1$s» ha raccolto il %2$s%% dell'attività di questa settimana"
+
+#: activity.php:764
+msgid "In the free version every page gets the same protection. PRO lets you give a single page or post a stronger protection level, straight from the admin bar."
+msgstr "Nella versione gratuita ogni pagina riceve la stessa protezione. PRO ti permette di assegnare a una singola pagina o articolo un livello di protezione più alto, direttamente dalla barra di amministrazione."
+
+#: activity.php:765
+msgid "See per-page protection in PRO"
+msgstr "Scopri la protezione per pagina in PRO"
+
+#: activity.php:775 admin-bar-insights.php:695
+msgid "%s copy shortcuts were blocked this week"
+msgstr "Questa settimana sono state bloccate %s scorciatoie di copia"
+
+#: activity.php:776
+msgid "The free version blocks Ctrl+A, C, X, V, S and U. PRO also covers Ctrl+P, Print Screen and F12 / DevTools, with your own message for each."
+msgstr "La versione gratuita blocca Ctrl+A, C, X, V, S e U. PRO copre anche Ctrl+P, Stamp e F12 / DevTools, con un messaggio personalizzato per ciascuno."
+
+#: activity.php:777
+msgid "See shortcut protection in PRO"
+msgstr "Scopri la protezione delle scorciatoie in PRO"
+
+#: activity.php:827
+msgid "%s ago"
+msgstr "%s fa"
+
+#: activity.php:877
+msgid "%s new visit with blocked actions"
+msgid_plural "%s new visits with blocked actions"
+msgstr[0] "%s nuova visita con azioni bloccate"
+msgstr[1] "%s nuove visite con azioni bloccate"
+
+#: activity.php:915
+msgid "WP Content Copy Protection: your Protection Center is ready"
+msgstr "WP Content Copy Protection: il tuo Centro protezione è pronto"
+
+#. translators: %s: number of visits.
+#: activity.php:920
+msgid "More than %s visits have already run into your copy protection. See which pages draw the most copy attempts, what visitors tried to do and how it changes week by week."
+msgstr "Più di %s visite hanno già incontrato la tua protezione dalla copia. Scopri quali pagine attirano più tentativi di copia, che cosa hanno provato a fare i visitatori e come cambia settimana dopo settimana."
+
+#: activity.php:925 activity.php:1032 activity.php:1111 admin-bar-insights.php:751
+msgid "Open Protection Center"
+msgstr "Apri il Protection Center"
+
+#: activity.php:979
+msgid "Content protection activity"
+msgstr "Attività di protezione dei contenuti"
+
+#: activity.php:1008
+msgid "Protection is on. No blocked copy-related actions in the last 7 days."
+msgstr "La protezione è attiva. Nessuna azione di copia bloccata negli ultimi 7 giorni."
+
+#: activity.php:1012 admin-bar-insights.php:548
+msgid "visits with blocked actions, last 7 days"
+msgstr "visite con azioni bloccate, ultimi 7 giorni"
+
+#: activity.php:1017 activity.php:1085
+msgid "%1$s blocked interactions on %2$s pages"
+msgstr "%1$s interazioni bloccate su %2$s pagine"
+
+#: activity.php:1021 activity.php:1073
+msgid "%s%% more than the week before"
+msgstr "il %s%% in più rispetto alla settimana precedente"
+
+#: activity.php:1021 activity.php:1073
+msgid "%s%% less than the week before"
+msgstr "il %s%% in meno rispetto alla settimana precedente"
+
+#. translators: 1: site name, 2: number of visits.
+#: activity.php:1065
+msgid "[%1$s] Content protection this week: %2$s visit with blocked copy actions"
+msgid_plural "[%1$s] Content protection this week: %2$s visits with blocked copy actions"
+msgstr[0] "[%1$s] Protezione dei contenuti questa settimana: %2$s visita con azioni di copia bloccate"
+msgstr[1] "[%1$s] Protezione dei contenuti questa settimana: %2$s visite con azioni di copia bloccate"
+
+#: activity.php:1079
+msgid "Protection activity - last 7 days"
+msgstr "Attività di protezione - ultimi 7 giorni"
+
+#: activity.php:1081
+msgid "visits ran into your copy protection"
+msgstr "visite si sono scontrate con la tua protezione dalla copia"
+
+#: activity.php:1113
+msgid "A blocked action is not necessarily an attempt to steal: it counts a visit where someone right-clicked, tried to select or copy, or tried to print protected content. No personal data about your visitors was collected."
+msgstr "Un'azione bloccata non è necessariamente un tentativo di furto: indica una visita in cui qualcuno ha fatto clic destro, ha provato a selezionare o copiare, o a stampare contenuti protetti. Non è stato raccolto alcun dato personale sui tuoi visitatori."
+
+#: activity.php:1114
+msgid "You receive this because the weekly summary is switched on in WP Content Copy Protection. Switch it off in the Protection Center."
+msgstr "Ricevi questa email perché il riepilogo settimanale è attivo in WP Content Copy Protection. Puoi disattivarlo nel Protection Center."
+
+#: activity.php:1198
+msgid "WordPress could not send the email. Check that this site can send mail."
+msgstr "WordPress non è riuscito a inviare l'email. Verifica che questo sito possa inviare email."
+
+#: activity.php:1202
+msgid "A preview was sent to %s."
+msgstr "Un'anteprima è stata inviata a %s."
+
+#: admin-bar-insights.php:225
+msgid "Error logging is off - problems on this site go unnoticed"
+msgstr ""
+
+#: admin-bar-insights.php:246
+msgid "Errors today"
+msgstr ""
+
+#: admin-bar-insights.php:247
+msgid "Fatal, 7 days"
+msgstr ""
+
+#: admin-bar-insights.php:248
+msgid "New issues"
+msgstr ""
+
+#: admin-bar-insights.php:253
+msgid "Fatal errors logged today: %s"
+msgstr ""
+
+#: admin-bar-insights.php:259
+msgid "New problems since you last checked the logs: %s"
+msgstr ""
+
+#: admin-bar-insights.php:261
+msgid "New problems in the last 24 hours: %s"
+msgstr ""
+
+#: admin-bar-insights.php:270
+msgid "Errors today are already %s× yesterday's"
+msgstr ""
+
+#: admin-bar-insights.php:272
+msgid "Errors appeared today after an error-free yesterday"
+msgstr ""
+
+#: admin-bar-insights.php:294
+msgid "Your theme is behind %s%% of this week's errors"
+msgstr ""
+
+#: admin-bar-insights.php:296
+msgid "One plugin is behind %s%% of this week's errors"
+msgstr ""
+
+#: admin-bar-insights.php:304
+msgid "One error repeated %s times this week"
+msgstr ""
+
+#: admin-bar-insights.php:308
+msgid "No PHP errors logged in the last 7 days"
+msgstr ""
+
+#: admin-bar-insights.php:509
+msgid "Since your last visit, %s"
+msgstr ""
+
+#: admin-bar-insights.php:512 admin-bar-insights.php:517
+msgid "%1$s blocked actions on %2$s pages"
+msgstr ""
+
+#: admin-bar-insights.php:514
+msgid "Quiet since your last visit"
+msgstr ""
+
+#: admin-bar-insights.php:523
+msgid "%s%% vs last week"
+msgstr ""
+
+#: admin-bar-insights.php:531
+msgid "%1$s: %2$s"
+msgstr ""
+
+#: admin-bar-insights.php:540
+msgid "Last activity: within the last hour"
+msgstr ""
+
+#: admin-bar-insights.php:542
+msgid "Last activity: %s"
+msgstr ""
+
+#: admin-bar-insights.php:548
+msgid "visits ran into your protection"
+msgstr ""
+
+#: admin-bar-insights.php:570
+msgid "Today is already at %s× your usual daily activity"
+msgstr ""
+
+#: admin-bar-insights.php:579
+msgid "%s%% more activity than yesterday at this hour"
+msgstr ""
+
+#: admin-bar-insights.php:582
+msgid "%s%% less activity than yesterday at this hour"
+msgstr ""
+
+#: admin-bar-insights.php:593
+msgid "Today is your busiest day in %s days of records"
+msgstr ""
+
+#: admin-bar-insights.php:596
+msgid "Yesterday was your busiest day in %s days of records"
+msgstr ""
+
+#: admin-bar-insights.php:610
+msgid "Your most targeted page changed this week"
+msgstr ""
+
+#: admin-bar-insights.php:617
+msgid "One page suddenly drew %s%% of this week's activity"
+msgstr ""
+
+#: admin-bar-insights.php:623
+msgid "A page with no activity last week is now in your top 3"
+msgstr ""
+
+#: admin-bar-insights.php:637
+msgid "Activity on one page grew %s× compared to last week"
+msgstr ""
+
+#: admin-bar-insights.php:646
+msgid "Pages with activity this week: %1$s, that is %2$s more than last week"
+msgstr ""
+
+#: admin-bar-insights.php:649
+msgid "Activity was spread across %s different pages this week"
+msgstr ""
+
+#: admin-bar-insights.php:664
+msgid "Most blocked this week: %1$s (%2$s%%)"
+msgstr ""
+
+#: admin-bar-insights.php:672
+msgid "New this week: %s"
+msgstr ""
+
+#: admin-bar-insights.php:683
+msgid "%1$s rose %2$s%% compared to last week"
+msgstr ""
+
+#: admin-bar-insights.php:705
+msgid "Most activity arrives around %s"
+msgstr ""
+
+#: admin-bar-insights.php:718
+msgid "%s drew activity this week, but not all of their protection layers are on"
+msgstr ""
+
+#: admin-bar-insights.php:751
+msgid "See what you missed"
+msgstr ""
+
+#: admin-bar-insights.php:752
+msgid "Open Error Monitor"
+msgstr ""
+
+#: admin-bar-insights.php:753 admin-core.php:324 admin-core.php:544
+msgid "Error Monitor"
+msgstr "Monitor errori"
+
+#: admin-bar-insights.php:886
+msgid "Loading your numbers…"
+msgstr ""
+
+#: admin-bar-insights.php:887
+msgid "The numbers could not be loaded right now."
+msgstr ""
+
+#: admin-bar-insights.php:888
+msgid "Visits with blocked actions, last 7 days"
+msgstr ""
+
+#: admin-bar-insights.php:889
+msgid "Error logs"
+msgstr ""
+
+#: admin-bar-insights.php:890
+msgid "Activity recording is switched off"
+msgstr ""
+
+#: admin-bar-insights.php:891
+msgid "Switch it on"
+msgstr ""
+
+#: admin-bar-insights.php:892
+msgid "New activity"
+msgstr ""
 
 #: admin-core.php:16 admin-core.php:28
 msgid "You do not have permission to change these settings."
 msgstr "Non disponi dei permessi per modificare queste impostazioni."
 
-#: admin-core.php:214
+#: admin-core.php:218
 msgid "Enabled"
 msgstr "Abilitato"
 
-#: admin-core.php:215
+#: admin-core.php:219
 msgid "Disabled"
 msgstr "Disabilitato"
 
-#: admin-core.php:222
+#: admin-core.php:226
 msgid "WP Content Protection Plugin Group"
 msgstr "Gruppo di plugin WP Content Protection"
 
-#: admin-core.php:223
+#: admin-core.php:227
 msgid "Begin your adventure to improve your WordPress website, and win discount codes along the way."
 msgstr "Inizia la tua avventura per migliorare il tuo sito WordPress e ottieni codici sconto strada facendo."
 
-#: admin-core.php:226
+#: admin-core.php:230
 msgid "Email address"
 msgstr "Indirizzo email"
 
-#: admin-core.php:228
+#: admin-core.php:232
 msgid "Start it!"
 msgstr "Inizia ora!"
 
-#: admin-core.php:256
-msgid "Content protection"
-msgstr "Protezione dei contenuti"
+#: admin-core.php:233 preventer-index.php:844 preventer-index.php:846 upgrade-hint.php:150
+msgid "Dismiss"
+msgstr "Ignora"
 
-#: admin-core.php:259
+#: admin-core.php:260
+msgid "Content Protection Center"
+msgstr "Content Protection Center"
+
+#: admin-core.php:262 preventer-index.php:961 preventer-index.php:963
+msgid "WP Content Copy Protection"
+msgstr "WP Content Copy Protection"
+
+#: admin-core.php:263
 msgid "& No Right Click"
 msgstr "& Blocco tasto destro"
 
-#: admin-core.php:261
+#: admin-core.php:265
 msgid "Stop visitors from selecting, copying, printing or right-clicking your posts, pages and images. Switch a layer on below, save, and it is live on the front end."
 msgstr "Impedisci ai visitatori di selezionare, copiare, stampare o fare clic con il tasto destro su articoli, pagine e immagini. Attiva un livello qui sotto, salva e sarà subito attivo."
 
-#: admin-core.php:264
+#: admin-core.php:268
 msgid "Free version active"
 msgstr "Versione gratuita attiva"
 
-#: admin-core.php:265
+#: admin-core.php:269
 msgid "3 protection layers"
 msgstr "3 livelli di protezione"
 
-#: admin-core.php:275
+#: admin-core.php:279
 msgid "Featured"
 msgstr "In evidenza"
 
-#: admin-core.php:276
+#: admin-core.php:280
 msgid "WP Content Copy Protection & No Right Click (PRO)"
 msgstr "WP Content Copy Protection & No Right Click (PRO)"
 
-#: admin-core.php:277
+#: admin-core.php:281
 msgid "The ultimate defense for your hard work. Full right-click control, image watermarking, aggressive image protection and per-post protection levels - everything the free layers leave on the table."
 msgstr "La protezione definitiva per i tuoi contenuti. Controllo totale del clic destro, filigrane sulle immagini, protezione avanzata e livelli di sicurezza per singolo articolo."
 
-#: admin-core.php:279
+#: admin-core.php:283
 msgid "Full watermarking"
 msgstr "Filigrana completa"
 
-#: admin-core.php:280
+#: admin-core.php:284
 msgid "Aggressive protection"
 msgstr "Protezione avanzata"
 
-#: admin-core.php:281
+#: admin-core.php:285
 msgid "Post types protection"
 msgstr "Protezione tipi di contenuto"
 
-#: admin-core.php:282 admin-core.php:529
+#: admin-core.php:286 admin-core.php:760
 msgid "Rated 4.9 by hundreds"
 msgstr "Valutato 4,9 da centinaia di utenti"
 
-#: admin-core.php:286
+#: admin-core.php:290
 msgid "Live Demo"
 msgstr "Demo dal vivo"
 
-#: admin-core.php:287
+#: admin-core.php:291
 msgid "View Details"
 msgstr "Visualizza dettagli"
 
-#: admin-core.php:288 admin-core.php:527
+#: admin-core.php:292 admin-core.php:758
 msgid "30-Day Money Back"
 msgstr "Garanzia di rimborso a 30 giorni"
 
-#: admin-core.php:298
+#: admin-core.php:307
 msgid "Settings sections"
 msgstr "Sezioni impostazioni"
 
-#: admin-core.php:300
+#: admin-core.php:310
+msgid "Protection Center"
+msgstr "Protection Center"
+
+#: admin-core.php:314
 msgid "Main Settings"
 msgstr "Impostazioni principali"
 
-#: admin-core.php:303
+#: admin-core.php:317
 msgid "RightClick Protection"
 msgstr "Protezione clic destro"
 
-#: admin-core.php:306
+#: admin-core.php:320
 msgid "Protection by CSS"
 msgstr "Protezione tramite CSS"
 
-#: admin-core.php:309
+#: admin-core.php:328
 msgid "More with PRO"
 msgstr "Altro con PRO"
 
-#: admin-core.php:318
+#: admin-core.php:342
 msgid "Copy Protection using JavaScript"
 msgstr "Protezione copia tramite JavaScript"
 
-#: admin-core.php:319
+#: admin-core.php:343
 msgid "Basic Layer"
 msgstr "Livello base"
 
-#: admin-core.php:321
+#: admin-core.php:345
 msgid "This is the basic protection layer that uses <u>JavaScript</u> to protect the posts, home page content from being copied by any other web site author."
 msgstr "Questo è il livello base di protezione che utilizza <u>JavaScript</u> per proteggere articoli e contenuti della home page dalla copia non autorizzata."
 
-#: admin-core.php:325
+#: admin-core.php:349
 msgid "Posts protection by <u>JavaScript</u>"
 msgstr "Protezione articoli tramite <u>JavaScript</u>"
 
-#: admin-core.php:327
+#: admin-core.php:351
 msgid "For single posts content"
 msgstr "Per il contenuto dei singoli articoli"
 
-#: admin-core.php:331
+#: admin-core.php:355
 msgid "Homepage protection by <u>JavaScript</u>"
 msgstr "Protezione home page tramite <u>JavaScript</u>"
 
-#: admin-core.php:333
+#: admin-core.php:357
 msgid "Don't copy any thing! even from my homepage"
 msgstr "Non copiare nulla! Nemmeno dalla home page"
 
-#: admin-core.php:337
+#: admin-core.php:361
 msgid "Static page's protection"
 msgstr "Protezione pagine statiche"
 
-#: admin-core.php:339
+#: admin-core.php:363
 msgid "Use Premium Settings tab to customize more options"
 msgstr "Usa la scheda Impostazioni Premium per personalizzare più opzioni"
 
-#: admin-core.php:343
+#: admin-core.php:367
 msgid "Plugin icon on top admin bar"
 msgstr "Icona del plugin nella barra superiore"
 
-#: admin-core.php:348
+#: admin-core.php:372
 msgid "Visible"
 msgstr "Visibile"
 
-#: admin-core.php:349
+#: admin-core.php:373
 msgid "Hidden"
 msgstr "Nascosto"
 
-#: admin-core.php:355
+#: admin-core.php:379
 msgid "Show/Hide the plugin icon on the top admin bar"
 msgstr "Mostra/Nascondi l'icona nella barra superiore"
 
-#: admin-core.php:359
+#: admin-core.php:383
 msgid "Exclude <u>Admin</u> from protection"
 msgstr "Escludi <u>Amministratore</u> dalla protezione"
 
-#: admin-core.php:361 admin-core.php:488
+#: admin-core.php:385 admin-core.php:512
 msgid "Premium"
 msgstr "Premium"
 
-#: admin-core.php:363
+#: admin-core.php:387
 msgid "If <u>Yes</u>, The protection functions will be inactive for the admin when he is logged in"
 msgstr "Se <u>Sì</u>, le funzioni di protezione saranno inattive per l'amministratore quando ha effettuato l'accesso"
 
-#: admin-core.php:367
+#: admin-core.php:391
 msgid "Selection disabled message"
 msgstr "Messaggio per selezione disabilitata"
 
-#: admin-core.php:368 admin-core.php:373
+#: admin-core.php:392 admin-core.php:397
 msgid "Enter something"
 msgstr "Inserisci un testo"
 
-#: admin-core.php:372
+#: admin-core.php:396
 msgid "Print preview message"
 msgstr "Messaggio in anteprima di stampa"
 
-#: admin-core.php:379
+#: admin-core.php:403
 msgid "Works with every theme"
 msgstr "Funziona con qualsiasi tema"
 
-#: admin-core.php:381
+#: admin-core.php:405
 msgid "Desktop & mobile"
 msgstr "Desktop e dispositivi mobili"
 
-#: admin-core.php:383
+#: admin-core.php:407
 msgid "Unlock more options"
 msgstr "Sblocca altre opzioni"
 
-#: admin-core.php:393
+#: admin-core.php:417
 msgid "Copy Protection on RightClick"
 msgstr "Protezione copia con clic destro"
 
-#: admin-core.php:394
+#: admin-core.php:418
 msgid "Premium Layer 2"
 msgstr "Livello Premium 2"
 
-#: admin-core.php:396
+#: admin-core.php:420
 msgid "In this protection layer your visitors will be able to <u>right click</u> on a specific page elements only (such as Links as an example)"
 msgstr "In questo livello di protezione i visitatori potranno fare <u>clic destro</u> solo su elementi specifici della pagina (come i link, ad esempio)"
 
-#: admin-core.php:400 admin-core.php:409 admin-core.php:418 admin-core.php:427
+#: admin-core.php:424 admin-core.php:433 admin-core.php:442 admin-core.php:451
 msgid "Disable <u>RightClick</u> on"
 msgstr "Disabilita <u>clic destro</u> su"
 
-#: admin-core.php:403
-msgid "Posts"
-msgstr "Articoli"
-
+#: admin-core.php:429
 msgid "Kills the right-click context menu on single posts - no \"Save As\", no \"View Source\", no easy theft."
 msgstr "Disabilita il menu contestuale sui singoli articoli: niente \"Salva con nome\", niente \"Visualizza sorgente\", niente furti facili."
 
-#: admin-core.php:412
+#: admin-core.php:436
 msgid "HomePage"
 msgstr "Home Page"
 
-#: admin-core.php:414
+#: admin-core.php:438
 msgid "Disables the right-click pop-up across your homepage so visitors can read, but can't harvest your content."
 msgstr "Disabilita il menu del clic destro nella home page: i visitatori possono leggere senza copiare i contenuti."
 
-#: admin-core.php:421
+#: admin-core.php:445
 msgid "Static pages"
 msgstr "Pagine statiche"
 
-#: admin-core.php:423
+#: admin-core.php:447
 msgid "Turns off the right-click menu on every static page - your About, Services and landing copy stay yours."
 msgstr "Disabilita il clic destro su tutte le pagine statiche: Chi siamo, Servizi e landing page restano al sicuro."
 
-#: admin-core.php:429
+#: admin-core.php:453
 msgid "Any post type"
 msgstr "Qualsiasi tipo di contenuto"
 
-#: admin-core.php:431
+#: admin-core.php:455
 msgid "<b>PRO</b> unlocks the same right-click lock on <u>any</u> post type you pick - WooCommerce products, listings, portfolios, courses, downloads. Sell on a marketplace? Your product photos and descriptions stop being one right-click away from a competitor."
 msgstr "<b>PRO</b> sblocca il blocco del clic destro su <u>qualsiasi</u> tipo di contenuto: prodotti WooCommerce, annunci, portfolio, corsi, download. Vendi online? Le tue foto e descrizioni non saranno più a portata di clic per la concorrenza."
 
-#: admin-core.php:439
+#: admin-core.php:463
 msgid "Remaining premium options preview"
 msgstr "Anteprima delle altre opzioni premium"
 
-#: admin-core.php:440
+#: admin-core.php:464
 msgid "PRO"
 msgstr "PRO"
 
-#: admin-core.php:442
+#: admin-core.php:466
 msgid "PRO gives you a rule per element - images, links, text boxes, plain text - each with its own alert message."
 msgstr "PRO ti offre regole per singolo elemento: immagini, link, caselle di testo, testo semplice, ognuno con messaggio dedicato."
 
-#: admin-core.php:446
+#: admin-core.php:470
 msgid "Right click protection options in the PRO version"
 msgstr "Opzioni di protezione del clic destro nella versione PRO"
 
-#: admin-core.php:452
+#: admin-core.php:476
 msgid "Preview & Pricing"
 msgstr "Anteprima e prezzi"
 
-#: admin-core.php:454
+#: admin-core.php:478
 msgid "Get the PRO version"
 msgstr "Ottieni la versione PRO"
 
-#: admin-core.php:464
+#: admin-core.php:488
 msgid "Protection by CSS Techniques"
 msgstr "Protezione tramite tecniche CSS"
 
-#: admin-core.php:465
+#: admin-core.php:489
 msgid "Premium Layer 3"
 msgstr "Livello Premium 3"
 
-#: admin-core.php:467
+#: admin-core.php:491
 msgid "In this protection layer your website will be protected by some <u>CSS</u> tricks that will word even if <u>JavaScript</u> is disabled from the browser settings"
 msgstr "In questo livello di protezione il tuo sito sarà protetto da tecniche <u>CSS</u> che funzioneranno anche se <u>JavaScript</u> è disabilitato nel browser"
 
-#: admin-core.php:471
+#: admin-core.php:495
 msgid "<b>Home Page</b> Protection by CSS"
 msgstr "Protezione <b>Home Page</b> tramite CSS"
 
-#: admin-core.php:473
+#: admin-core.php:497
 msgid "Protect your Homepage by CSS tricks"
 msgstr "Proteggi la tua home page con tecniche CSS"
 
-#: admin-core.php:477
+#: admin-core.php:501
 msgid "<b>Posts</b> Protection by CSS"
 msgstr "Protezione <b>Articoli</b> tramite CSS"
 
-#: admin-core.php:480
+#: admin-core.php:504
 msgid "Protect your single posts by CSS tricks"
 msgstr "Proteggi i singoli articoli con tecniche CSS"
 
-#: admin-core.php:481
+#: admin-core.php:505
 msgid "PRO option, unlocked for free"
 msgstr "Opzione PRO, sbloccata gratuitamente"
 
-#: admin-core.php:486
+#: admin-core.php:510
 msgid "<b>Pages</b> Protection by CSS"
 msgstr "Protezione <b>Pagine</b> tramite CSS"
 
-#: admin-core.php:490
+#: admin-core.php:514
 msgid "Protect your static pages by CSS tricks"
 msgstr "Proteggi le pagine statiche con tecniche CSS"
 
-#: admin-core.php:496
+#: admin-core.php:520
 msgid "Keeps working with JavaScript disabled"
 msgstr "Funziona anche con JavaScript disabilitato"
 
-#: admin-core.php:498
+#: admin-core.php:522
 msgid "Unlock pages protection"
 msgstr "Sblocca protezione pagine"
 
-#: admin-core.php:508
+#: admin-core.php:545
+msgid "Free"
+msgstr "Gratis"
+
+#: admin-core.php:547
+msgid "Reads the PHP and WordPress error logs of this site and groups repeated entries into single issues, so you can see what is breaking, how often, and which plugin or theme causes it."
+msgstr "Legge i log degli errori PHP e WordPress di questo sito e raggruppa le voci ripetute in singoli problemi, così puoi vedere cosa non funziona, quanto spesso e quale plugin o tema ne è la causa."
+
+#: admin-core.php:557
+msgid "Log file"
+msgstr "File di log"
+
+#: admin-core.php:559
+msgid "All log files"
+msgstr "Tutti i file di log"
+
+#: admin-core.php:562
+msgid "Refresh"
+msgstr "Aggiorna"
+
+#: admin-core.php:572 error-monitor.php:687
+msgid "Occurrences"
+msgstr "Occorrenze"
+
+#: admin-core.php:577
+msgid "Unique issues"
+msgstr "Problemi unici"
+
+#: admin-core.php:579
+msgid "repeated entries grouped"
+msgstr "voci ripetute raggruppate"
+
+#: admin-core.php:582
+msgid "Fatal errors"
+msgstr "Errori fatali"
+
+#: admin-core.php:584
+msgid "pages that stopped loading"
+msgstr "pagine che hanno smesso di caricarsi"
+
+#: admin-core.php:587
+msgid "Last error"
+msgstr "Ultimo errore"
+
+#: admin-core.php:597
+msgid "Errors per day"
+msgstr "Errori al giorno"
+
+#: admin-core.php:598
+msgid "Show the daily errors as"
+msgstr "Mostra gli errori giornalieri come"
+
+#: admin-core.php:611
+msgid "Where they come from"
+msgstr "Da dove arrivano"
+
+#: admin-core.php:613
+msgid "Occurrences per plugin, theme or part of WordPress."
+msgstr "Occorrenze per plugin, tema o parte di WordPress."
+
+#: admin-core.php:621
+msgid "Issues"
+msgstr "Problemi"
+
+#: admin-core.php:622
+msgid "Sort issues by"
+msgstr "Ordina i problemi per"
+
+#: admin-core.php:623
+msgid "Most frequent"
+msgstr "Più frequenti"
+
+#: admin-core.php:624
+msgid "Latest"
+msgstr "Più recenti"
+
+#: admin-core.php:625
+msgid "Most severe"
+msgstr "Più gravi"
+
+#: admin-core.php:628
+msgid "Each issue is one cause: the same message from the same file and line, however many times it was logged. Open an issue for the full message and where it happened."
+msgstr "Ogni problema è una causa: lo stesso messaggio dallo stesso file e dalla stessa riga, indipendentemente da quante volte è stato registrato. Apri un problema per vedere il messaggio completo e dove si è verificato."
+
+#: admin-core.php:637 error-monitor.php:688
+msgid "Log files"
+msgstr "File di log"
+
+#: admin-core.php:639
+msgid "Every place this site can write errors to. Download a log to send it to a developer, or clear it once the issues are fixed so new errors stand out."
+msgstr "Tutti i punti in cui questo sito può scrivere errori. Scarica un log per inviarlo a uno sviluppatore, oppure svuotalo dopo aver risolto i problemi, così i nuovi errori saranno evidenti."
+
+#: admin-core.php:646
+msgid "Debug settings"
+msgstr "Impostazioni di debug"
+
+#: admin-core.php:648
+msgid "These settings live in wp-config.php and decide whether errors are written to a log at all. This plugin only reads them - it never edits wp-config.php."
+msgstr "Queste impostazioni si trovano in wp-config.php e decidono se gli errori vengono scritti in un log. Questo plugin si limita a leggerle: non modifica mai wp-config.php."
+
+#: admin-core.php:658
+msgid "WordPress debug mode. The two settings below only work while it is on."
+msgstr "Modalità debug di WordPress. Le due impostazioni seguenti funzionano solo quando è attiva."
+
+#: admin-core.php:667
+msgid "Writes WordPress errors to wp-content/debug.log (or the path you give it)."
+msgstr "Scrive gli errori di WordPress in wp-content/debug.log (o nel percorso indicato)."
+
+#: admin-core.php:672
+msgid "Shown to visitors"
+msgstr "Visibili ai visitatori"
+
+#: admin-core.php:674
+msgid "Hidden from visitors"
+msgstr "Nascosti ai visitatori"
+
+#: admin-core.php:676
+msgid "When errors are shown, they are printed right on your pages. Keep it off on a live site."
+msgstr "Quando gli errori sono visibili, vengono stampati direttamente sulle tue pagine. Tienilo disattivato su un sito in produzione."
+
+#: admin-core.php:685
+msgid "PHP setting on the server. When on, PHP keeps its own error log even while WP_DEBUG is off."
+msgstr "Impostazione PHP del server. Se attiva, PHP mantiene un proprio log degli errori anche quando WP_DEBUG è disattivato."
+
+#: admin-core.php:691
+msgid "To log errors <b>without showing them to visitors</b>, add these lines to <u>wp-config.php</u>, just above the line <code>/* That's all, stop editing! */</code> (replace any existing WP_DEBUG lines):"
+msgstr "Per registrare gli errori <b>senza mostrarli ai visitatori</b>, aggiungi queste righe a <u>wp-config.php</u>, subito sopra la riga <code>/* That's all, stop editing! */</code> (sostituisci le eventuali righe WP_DEBUG esistenti):"
+
+#: admin-core.php:694 error-monitor.php:701
+msgid "Copy"
+msgstr "Copia"
+
+#: admin-core.php:717
+msgid "Clear this log file?"
+msgstr "Svuotare questo file di log?"
+
+#: admin-core.php:719
+msgid "Every entry in this file will be deleted and this cannot be undone. Download it first if a developer may still need it."
+msgstr "Tutte le voci di questo file verranno eliminate e l'operazione non può essere annullata. Scaricalo prima se uno sviluppatore potrebbe ancora averne bisogno."
+
+#: admin-core.php:721
+msgid "This is a server-wide log, so errors from other sites on this server will be deleted too."
+msgstr "Questo è un log a livello di server, quindi verranno eliminati anche gli errori degli altri siti su questo server."
+
+#: admin-core.php:725
+msgid "Yes, clear log"
+msgstr "Sì, svuota il log"
+
+#: admin-core.php:739
 msgid "See what the PRO version adds"
 msgstr "Scopri le novità della versione PRO"
 
-#: admin-core.php:509
+#: admin-core.php:740
 msgid "Limited-time discount"
 msgstr "Sconto a tempo limitato"
 
-#: admin-core.php:511
+#: admin-core.php:742
 msgid "Crazy discount offer is now running for a limited time!! You might love it"
 msgstr "Un'offerta imperdibile è attiva per un periodo limitato! Non lasciartela sfuggire"
 
-#: admin-core.php:515
+#: admin-core.php:746
 msgid "Smartphone protection in the PRO version"
 msgstr "Protezione smartphone nella versione PRO"
 
-#: admin-core.php:518
+#: admin-core.php:749
 msgid "Image watermarking in the PRO version"
 msgstr "Filigrana immagini nella versione PRO"
 
-#: admin-core.php:521
+#: admin-core.php:752
 msgid "Watermarking examples from the PRO version"
 msgstr "Esempi di filigrana della versione PRO"
 
-#: admin-core.php:531
+#: admin-core.php:762
 msgid "See it now"
 msgstr "Scopri ora"
 
-#: admin-core.php:538
+#: admin-core.php:769
 msgid "Premium features"
 msgstr "Funzionalità premium"
 
-#: admin-core.php:539
+#: admin-core.php:770
 msgid "PRO only"
 msgstr "Solo in PRO"
 
-#: admin-core.php:540
+#: admin-core.php:771
 msgid "7 protection modules"
 msgstr "7 moduli di protezione"
 
-#: admin-core.php:541
+#: admin-core.php:772
 msgid "Choose how the premium features are shown"
 msgstr "Scegli come mostrare le funzionalità premium"
 
-#: admin-core.php:542
+#: admin-core.php:773
 msgid "Plans"
 msgstr "Piani"
 
-#: admin-core.php:543
+#: admin-core.php:774
 msgid "Detailed info"
 msgstr "Informazioni dettagliate"
 
-#: admin-core.php:549
+#: admin-core.php:780
 msgid "Three ways to run the plugin. You are on the free plan - the paid plans keep everything you already have and add the modules below on top of it."
 msgstr "Tre modi per usare il plugin. Sei sul piano gratuito: i piani a pagamento mantengono tutte le funzioni e aggiungono i moduli sottostanti."
 
-#: admin-core.php:555
+#: admin-core.php:786
 msgid "These are the full prices, with no discount applied."
 msgstr "Questi sono i prezzi di listino senza sconto."
 
-#: admin-core.php:556
+#: admin-core.php:787
 msgid "A discount of up to 50% is waiting for you on our website - check the running offer before you buy."
 msgstr "Uno sconto fino al 50% ti aspetta sul nostro sito web: verifica l'offerta prima dell'acquisto."
 
-#: admin-core.php:566
+#: admin-core.php:797
 msgid "FREE"
 msgstr "GRATUITO"
 
-#: admin-core.php:567
+#: admin-core.php:798
 msgid "Basic protection for your content"
 msgstr "Protezione base per i tuoi contenuti"
 
-#: admin-core.php:573
+#: admin-core.php:804
 msgid "/ forever"
 msgstr "/ per sempre"
 
-#: admin-core.php:575 admin-core.php:585
+#: admin-core.php:806 admin-core.php:816
 msgid "Current plan"
 msgstr "Piano attuale"
 
-#: admin-core.php:578
+#: admin-core.php:809
 msgid "Disable right-click"
 msgstr "Disabilita clic destro"
 
-#: admin-core.php:579
+#: admin-core.php:810
 msgid "Prevent text selection"
 msgstr "Impedisci selezione testo"
 
-#: admin-core.php:580
+#: admin-core.php:811
 msgid "Basic alert messages"
 msgstr "Messaggi di avviso standard"
 
-#: admin-core.php:581
+#: admin-core.php:812
 msgid "CSS protection layer"
 msgstr "Livello di protezione CSS"
 
-#: admin-core.php:582
+#: admin-core.php:813
 msgid "Works on your site content"
 msgstr "Funziona sui contenuti del sito"
 
-#: admin-core.php:592
+#: admin-core.php:823
 msgid "ESSENTIAL"
 msgstr "ESSENTIAL"
 
-#: admin-core.php:593
+#: admin-core.php:824
 msgid "Advanced control and flexibility"
 msgstr "Controllo avanzato e flessibilità"
 
-#: admin-core.php:599 admin-core.php:630
+#: admin-core.php:830 admin-core.php:861
 msgid "one-time"
 msgstr "una tantum"
 
-#: admin-core.php:601 admin-core.php:632
+#: admin-core.php:832 admin-core.php:863
 msgid "Lifetime license"
 msgstr "Licenza a vita"
 
-#: admin-core.php:602 admin-core.php:633
+#: admin-core.php:833 admin-core.php:864
 msgid "Support & updates $1 / month, paid as $9 per year."
 msgstr "Supporto e aggiornamenti 1 $ / mese, fatturato come 9 $ all'anno."
 
-#: admin-core.php:605
+#: admin-core.php:836
 msgid "Everything in FREE"
 msgstr "Tutto ciò che è in GRATUITO"
 
-#: admin-core.php:606
+#: admin-core.php:837
 msgid "Per-content protection rules"
 msgstr "Regole di protezione per tipo di contenuto"
 
-#: admin-core.php:607
+#: admin-core.php:838
 msgid "Overlay protection & triggers"
 msgstr "Protezione con overlay e trigger"
 
-#: admin-core.php:608
+#: admin-core.php:839
 msgid "Blocked shortcuts & print protection"
 msgstr "Scorciatoie bloccate e protezione stampa"
 
-#: admin-core.php:609
+#: admin-core.php:840
 msgid "Advanced exclusion options"
 msgstr "Opzioni di esclusione avanzate"
 
-#: admin-core.php:610
+#: admin-core.php:841
 msgid "Admin workflow tools"
 msgstr "Strumenti di amministrazione per il flusso di lavoro"
 
-#: admin-core.php:611
+#: admin-core.php:842
 msgid "Priority email support"
 msgstr "Supporto prioritario via email"
 
-#: admin-core.php:614
+#: admin-core.php:845
 msgid "Upgrade to ESSENTIAL"
 msgstr "Passa a ESSENTIAL"
 
-#: admin-core.php:618
+#: admin-core.php:849
 msgid "Most Popular"
 msgstr "Il più richiesto"
 
-#: admin-core.php:623
+#: admin-core.php:854
 msgid "COMPLETE"
 msgstr "COMPLETE"
 
-#: admin-core.php:624
+#: admin-core.php:855
 msgid "Full protection. Maximum control."
 msgstr "Protezione completa. Massimo controllo."
 
-#: admin-core.php:636
+#: admin-core.php:867
 msgid "Everything in ESSENTIAL"
 msgstr "Tutto ciò che è in ESSENTIAL"
 
-#: admin-core.php:637
+#: admin-core.php:868
 msgid "Full watermark protection"
 msgstr "Protezione completa con filigrana"
 
-#: admin-core.php:638
+#: admin-core.php:869
 msgid "Watermark presets & custom rules"
 msgstr "Preimpostazioni filigrana e regole personalizzate"
 
-#: admin-core.php:639
+#: admin-core.php:870
 msgid "Logo, text and signature watermarking"
 msgstr "Filigrana con logo, testo e firma"
 
-#: admin-core.php:640
+#: admin-core.php:871
 msgid "Automatic watermark colors & image filters"
 msgstr "Colori automatici filigrana e filtri immagine"
 
-#: admin-core.php:641
+#: admin-core.php:872
 msgid "Hotlinked images watermarked too"
 msgstr "Filigrana anche sulle immagini con hotlink"
 
-#: admin-core.php:642
+#: admin-core.php:873
 msgid "Advanced targeting & scheduling"
 msgstr "Targeting avanzato e pianificazione"
 
-#: admin-core.php:643
+#: admin-core.php:874
 msgid "Beta layers: DevTools & extension blocking"
 msgstr "Livelli beta: blocco DevTools ed estensioni browser"
 
-#: admin-core.php:644
+#: admin-core.php:875
 msgid "Multisite support"
 msgstr "Supporto multisito"
 
-#: admin-core.php:645
+#: admin-core.php:876
 msgid "Premium support & updates"
 msgstr "Supporto e aggiornamenti premium"
 
-#: admin-core.php:648
+#: admin-core.php:879
 msgid "Upgrade to COMPLETE"
 msgstr "Passa a COMPLETE"
 
-#: admin-core.php:654
+#: admin-core.php:885
 msgid "30-Day Money Back Guarantee"
 msgstr "Garanzia di rimborso entro 30 giorni"
 
-#: admin-core.php:656
+#: admin-core.php:887
 msgid "Paid plans are lifetime licenses"
 msgstr "I piani a pagamento sono licenze a vita"
 
-#: admin-core.php:658
+#: admin-core.php:889
 msgid "Rated 4.9/5 by 443 customers"
 msgstr "Valutato 4,9/5 da 443 clienti"
 
-#: admin-core.php:660
+#: admin-core.php:891
 msgid "Works with major themes and builders"
 msgstr "Compatibile con i principali temi e page builder"
 
-#: admin-core.php:666
+#: admin-core.php:897
 msgid "The PRO version keeps every free layer running and adds seven modules on top of them. Here is the full list, module by module."
 msgstr "La versione PRO mantiene attivi tutti i livelli gratuiti e aggiunge sette moduli. Ecco l'elenco completo modulo per modulo."
 
-#: admin-core.php:672
+#: admin-core.php:903
 msgid "Everything in the free version"
 msgstr "Tutto della versione gratuita"
 
-#: admin-core.php:673
+#: admin-core.php:904
 msgid "JavaScript copy protection, right-click protection and CSS protection keep working exactly as they do now. PRO is built on top of them, nothing is taken away."
 msgstr "La protezione copia JavaScript, il blocco del clic destro e la protezione CSS continuano a funzionare normalmente. PRO si integra senza togliere nulla."
 
-#: admin-core.php:675
+#: admin-core.php:906
 msgid "Included"
 msgstr "Incluso"
 
-#: admin-core.php:682
+#: admin-core.php:913
 msgid "Selection Protection"
 msgstr "Protezione selezione"
 
-#: admin-core.php:683 admin-core.php:802
+#: admin-core.php:914 admin-core.php:1033
 msgid "8 features"
 msgstr "8 funzionalità"
 
-#: admin-core.php:686
+#: admin-core.php:917
 msgid "Apply text-selection protection to any public content type: homepage, archives, categories, tags, taxonomies, author pages, search results, posts, pages, attachments, 404 pages, login pages and WooCommerce pages."
 msgstr "Applica la protezione della selezione testo a qualsiasi contenuto pubblico: home page, archivi, categorie, tag, tassonomie, autori, ricerche, articoli, pagine, allegati, 404, pagine di login e WooCommerce."
 
-#: admin-core.php:687
+#: admin-core.php:918
 msgid "Block Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Print Screen, F12 / DevTools and drag and drop."
 msgstr "Blocca Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+S, Ctrl+U, Ctrl+P, Stamp, F12 / DevTools e trascinamento."
 
-#: admin-core.php:688
+#: admin-core.php:919
 msgid "Write your own message for blocked selection, blocked shortcuts, special keys and printing."
 msgstr "Scrivi messaggi personalizzati per selezione bloccata, scorciatoie disabilitate, tasti speciali e stampa."
 
-#: admin-core.php:689
+#: admin-core.php:920
 msgid "Custom print-protection output styling with a configurable print-disabled message."
 msgstr "Stile personalizzato della protezione di stampa con messaggio configurabile."
 
-#: admin-core.php:690
+#: admin-core.php:921
 msgid "Allow selection inside code blocks so visitors can still use your code snippets."
 msgstr "Consenti la selezione all'interno dei blocchi di codice per permettere l'uso degli snippet."
 
-#: admin-core.php:691
+#: admin-core.php:922
 msgid "Add a one-click copy button to code blocks without opening selection for the whole page."
 msgstr "Aggiungi un pulsante di copia in un clic per i blocchi di codice senza sbloccare la selezione su tutta la pagina."
 
-#: admin-core.php:692
+#: admin-core.php:923
 msgid "Style the alert box with ready-made color palettes or manual colors, border width, glow, shadow strength, font size, display time and alert width and height."
 msgstr "Personalizza il riquadro di avviso con palette o colori su misura, bordo, bagliore, ombra, dimensione carattere, durata e dimensioni."
 
-#: admin-core.php:693
+#: admin-core.php:924
 msgid "Preview the alert message straight from the settings page before you save."
 msgstr "Visualizza in anteprima il messaggio di avviso direttamente dalla pagina delle impostazioni prima di salvare."
 
-#: admin-core.php:701
+#: admin-core.php:932
 msgid "Right Click Protection"
 msgstr "Protezione clic destro"
 
-#: admin-core.php:702 admin-core.php:717
+#: admin-core.php:933 admin-core.php:948
 msgid "4 features"
 msgstr "4 funzionalità"
 
-#: admin-core.php:705
+#: admin-core.php:936
 msgid "Apply right-click protection to the content types you pick, using the same dynamic content-type picker."
 msgstr "Applica la protezione del clic destro ai tipi di contenuto selezionati tramite il selettore dinamico."
 
-#: admin-core.php:706
+#: admin-core.php:937
 msgid "Block the context menu on images, links, text content, headings, text areas, text fields, empty spaces, videos, code blocks, canvas elements and audio players."
 msgstr "Blocca il menu contestuale su immagini, link, testi, intestazioni, aree di testo, campi di input, spazi vuoti, video, codice, canvas e player audio."
 
-#: admin-core.php:707
+#: admin-core.php:938
 msgid "Write a separate alert message for every protected HTML element type."
 msgstr "Scrivi un messaggio di avviso dedicato per ogni tipo di elemento HTML protetto."
 
-#: admin-core.php:708
+#: admin-core.php:939
 msgid "Read an active-count indicator for the protected right-click targets inside the control panel."
 msgstr "Visualizza il contatore dei bersagli protetti dal clic destro direttamente nel pannello di controllo."
 
-#: admin-core.php:716
+#: admin-core.php:947
 msgid "Overlay Protection"
 msgstr "Protezione con overlay trasparente"
 
-#: admin-core.php:720
+#: admin-core.php:951
 msgid "Put transparent overlays over your images on the public content types you choose."
 msgstr "Posiziona overlay trasparenti sulle immagini per i contenuti pubblici selezionati."
 
-#: admin-core.php:721
+#: admin-core.php:952
 msgid "Remove image attachment links automatically when they are not needed."
 msgstr "Rimuovi automaticamente i link agli allegati immagine quando non sono necessari."
 
-#: admin-core.php:722
+#: admin-core.php:953
 msgid "Decide what happens when JavaScript is disabled, including hiding the protected content behind your own message."
 msgstr "Scegli cosa accade quando JavaScript è disattivato, incluso nascondere il contenuto dietro un tuo messaggio."
 
-#: admin-core.php:723
+#: admin-core.php:954
 msgid "Overlays follow the real rendered image size and position, so responsive and absolutely positioned images stay aligned after a resize."
 msgstr "Gli overlay seguono dimensioni e posizione effettive delle immagini, garantendo perfetto allineamento anche dopo il ridimensionamento."
 
-#: admin-core.php:731
+#: admin-core.php:962
 msgid "Watermark Protection"
 msgstr "Protezione con filigrana"
 
-#: admin-core.php:732
+#: admin-core.php:963
 msgid "16 features"
 msgstr "16 funzionalità"
 
-#: admin-core.php:735
+#: admin-core.php:966
 msgid "Watermark hotlinked images, images loaded on your own site, or both, through rewrite rules."
 msgstr "Applica filigrane su immagini con hotlink, caricate sul sito o entrambe tramite regole di riscrittura."
 
-#: admin-core.php:736
+#: admin-core.php:967
 msgid "Force watermarking on non-Apache servers when the rewrite rules cannot be applied automatically."
 msgstr "Forza l'applicazione della filigrana su server non-Apache quando le regole di riscrittura non funzionano automaticamente."
 
-#: admin-core.php:737
+#: admin-core.php:968
 msgid "Turn the watermark image cache on, or clear it, right from the settings page."
 msgstr "Attiva o svuota la cache delle immagini con filigrana direttamente dalle impostazioni."
 
-#: admin-core.php:738
+#: admin-core.php:969
 msgid "Stamp a logo watermark with a percentage-based size and ready-made position presets."
 msgstr "Applica una filigrana con logo dimensionata in percentuale e posizioni predefinite."
 
-#: admin-core.php:739
+#: admin-core.php:970
 msgid "Add central text, repeated text and signature text over your images."
 msgstr "Aggiungi testo centrale, testo ripetuto e firma sulle immagini."
 
-#: admin-core.php:740
+#: admin-core.php:971
 msgid "Pick a separate font for the central text, the repeated text and the signature, including bundled Latin and Arabic-capable fonts."
 msgstr "Scegli caratteri distinti per testo centrale, ripetuto e firma, inclusi font latini e arabi forniti."
 
-#: admin-core.php:741
+#: admin-core.php:972
 msgid "Use manual text colors, or automatic color mode that adapts to the brightness of every image."
 msgstr "Usa colori manuali o la modalità automatica che si adatta alla luminosità di ogni immagine."
 
-#: admin-core.php:742
+#: admin-core.php:973
 msgid "Control font size, transparency, rotation, repeated-text spacing, signature Y position and signature alignment."
 msgstr "Regola dimensione carattere, trasparenza, rotazione, spaziatura testo, posizione Y e allineamento della firma."
 
-#: admin-core.php:743
+#: admin-core.php:974
 msgid "Add a signature background band with separate main and top colors and independent transparency values."
 msgstr "Aggiungi una fascia di sfondo alla firma con colori e trasparenze indipendenti."
 
-#: admin-core.php:744
+#: admin-core.php:975
 msgid "Apply image filters to watermarked images: Blur, Grayscale, Negate, Brightness or None."
 msgstr "Applica filtri alle immagini con filigrana: Sfocatura, Scala di grigi, Negativo, Luminosità o Nessuno."
 
-#: admin-core.php:745
+#: admin-core.php:976
 msgid "Test your settings with the live preview on light, medium and dark sample images before saving."
 msgstr "Verifica le impostazioni con l'anteprima in tempo reale su immagini di prova chiare, intermedie e scure."
 
-#: admin-core.php:746
+#: admin-core.php:977
 msgid "Save and load watermark presets, stored in a dedicated JSON file with a fallback through the settings form."
 msgstr "Salva e carica preimpostazioni di filigrana salvate in file JSON dedicato."
 
-#: admin-core.php:747
+#: admin-core.php:978
 msgid "Watermark indexed and palette PNG images and single-frame GIF images reliably."
 msgstr "Applica filigrane in modo affidabile su PNG indicizzati e GIF a singolo fotogramma."
 
-#: admin-core.php:748
+#: admin-core.php:979
 msgid "Keep banner-like extreme image sizes out of watermarking with your own ratio and size limits."
 msgstr "Escludi formati estremi tipo banner impostando limiti personalizzati di proporzione e dimensione."
 
-#: admin-core.php:749
+#: admin-core.php:980
 msgid "Use the Watermark Testing page to test every common image format, inspect server data and read the generated .htaccess content."
 msgstr "Usa la pagina di test per verificare i formati comuni, controllare i dati del server e leggere il file .htaccess generato."
 
-#: admin-core.php:750
+#: admin-core.php:981
 msgid "Watermarking is 78% faster, with safe atomic .htaccess writes that never clear the file mid-way."
 msgstr "L'elaborazione delle filigrane è più veloce del 78% con scritture atomiche sicure su .htaccess."
 
-#: admin-core.php:758
+#: admin-core.php:989
 msgid "Exclusions and Targeting"
 msgstr "Esclusioni e targeting"
 
-#: admin-core.php:759
+#: admin-core.php:990
 msgid "10 features"
 msgstr "10 funzionalità"
 
-#: admin-core.php:762
+#: admin-core.php:993
 msgid "Exclude the user roles you choose from protection."
 msgstr "Escludi i ruoli utente selezionati dalla protezione."
 
-#: admin-core.php:763
+#: admin-core.php:994
 msgid "Exclude selected post types and categories."
 msgstr "Escludi tipi di contenuto e categorie selezionati."
 
-#: admin-core.php:764
+#: admin-core.php:995
 msgid "Exclude registered WordPress image sizes from watermarking."
 msgstr "Escludi le dimensioni immagine registrate in WordPress dalla filigrana."
 
-#: admin-core.php:765
+#: admin-core.php:996
 msgid "Exclude single URLs, one per line, including wildcard URLs that end with a slash and a star."
 msgstr "Escludi singoli URL per riga, inclusi URL con caratteri jolly che terminano con slash e asterisco."
 
-#: admin-core.php:766
+#: admin-core.php:997
 msgid "Search your pages and posts from the URL picker and append their permalinks to the URL exclude list."
 msgstr "Cerca pagine e articoli dal selettore URL e aggiungi i relativi permalink all'elenco di esclusione."
 
-#: admin-core.php:767
+#: admin-core.php:998
 msgid "Exclude online services, domains or user agents that must never be blocked."
 msgstr "Escludi servizi online, domini o user agent che non devono mai essere bloccati."
 
-#: admin-core.php:768
+#: admin-core.php:999
 msgid "Exclude images from watermarking by file name or by a fragment of the file name."
 msgstr "Escludi immagini dalla filigrana in base al nome file o parte di esso."
 
-#: admin-core.php:769
+#: admin-core.php:1000
 msgid "Exclude CSS classes from selection protection."
 msgstr "Escludi classi CSS dalla protezione della selezione."
 
-#: admin-core.php:770
+#: admin-core.php:1001
 msgid "Turn on Opposite Mode with the URL Included List so protection runs only on the URLs you list."
 msgstr "Attiva la Modalità Inversa con l'elenco di URL inclusi per proteggere solo gli URL specificati."
 
-#: admin-core.php:771
+#: admin-core.php:1002
 msgid "Scan Site Images: scan the homepage and blog HTML, review the detected images in a popup grid and click any image to add its file name to the manual exclusion list, without duplicates."
 msgstr "Scansione immagini del sito: analizza l'HTML di home page e blog, esamina le immagini trovate e fai clic per aggiungerle all'elenco senza duplicati."
 
-#: admin-core.php:779
+#: admin-core.php:1010
 msgid "Admin Tools and Workflow"
 msgstr "Strumenti di amministrazione e flusso di lavoro"
 
-#: admin-core.php:780
+#: admin-core.php:1011
 msgid "11 features"
 msgstr "11 funzionalità"
 
-#: admin-core.php:783
+#: admin-core.php:1014
 msgid "Light-mode settings interface with tabs for Selection, Right Click, Overlay, Watermark, Exclusion, Custom Settings, Beta and Contact."
 msgstr "Interfaccia in modalità chiara con schede per Selezione, Clic destro, Overlay, Filigrana, Esclusioni, Personalizzate, Beta e Contatto."
 
-#: admin-core.php:784
+#: admin-core.php:1015
 msgid "The last open tab is reopened for you after a save or after navigation."
 msgstr "L'ultima scheda aperta viene ripristinata automaticamente dopo il salvataggio o la navigazione."
 
-#: admin-core.php:785
+#: admin-core.php:1016
 msgid "The tabbar stays on a single row on narrow admin screens by collapsing trailing tabs into icon-only buttons."
 msgstr "La barra delle schede rimane su una riga singola su schermi stretti raggruppando le schede in icone."
 
-#: admin-core.php:786
+#: admin-core.php:1017
 msgid "Searchable chip pickers for content types, roles, categories and image sizes, with selected rows kept in view."
 msgstr "Selettori con ricerca per tipi di contenuto, ruoli, categorie e dimensioni immagine."
 
-#: admin-core.php:787
+#: admin-core.php:1018
 msgid "Restore the default settings from the control panel with one click."
 msgstr "Ripristina le impostazioni predefinite dal pannello di controllo con un solo clic."
 
-#: admin-core.php:788
+#: admin-core.php:1019
 msgid "Show or hide the plugin icon in the top admin bar and read the live protection status from its menu, including the blocked shortcut keys."
 msgstr "Mostra o nascondi l'icona nella barra superiore e monitora lo stato della protezione con l'elenco dei tasti bloccati."
 
-#: admin-core.php:789
+#: admin-core.php:1020
 msgid "Turn on Developer Mode for debugging."
 msgstr "Attiva la modalità sviluppatore per il debug."
 
-#: admin-core.php:790
+#: admin-core.php:1021
 msgid "Remove conflicting CSS or JS files from the control panel by listing file fragments in the Beta tab."
 msgstr "Rimuovi file CSS o JS in conflitto specificandone parti del nome nella scheda Beta."
 
-#: admin-core.php:791
+#: admin-core.php:1022
 msgid "Beta protections that interrupt open DevTools panels and common copy and paste browser extensions."
 msgstr "Protezioni beta che interrompono i DevTools aperti e le estensioni di copia-incolla più diffuse."
 
-#: admin-core.php:792
+#: admin-core.php:1023
 msgid "Keep your own custom CSS in the Custom Settings tab."
 msgstr "Conserva il tuo codice CSS personalizzato nella scheda Impostazioni personalizzate."
 
-#: admin-core.php:793
+#: admin-core.php:1024
 msgid "Contact tab with built-in FAQ, documentation, tutorials and priority support links."
 msgstr "Scheda Contatto con FAQ integrate, documentazione, tutorial e link all'assistenza prioritaria."
 
-#: admin-core.php:801
+#: admin-core.php:1032
 msgid "Compatibility and Platform"
 msgstr "Compatibilità e piattaforma"
 
-#: admin-core.php:805
+#: admin-core.php:1036
 msgid "Works on smartphones and tablets, including iPhone and iPad."
 msgstr "Funziona su smartphone e tablet, inclusi iPhone e iPad."
 
-#: admin-core.php:806
+#: admin-core.php:1037
 msgid "Compatible with Elementor, SiteOrigin, Beaver Builder, the WordPress preview mode and wpDiscuz."
 msgstr "Compatibile con Elementor, SiteOrigin, Beaver Builder, la modalità anteprima di WordPress e wpDiscuz."
 
-#: admin-core.php:807
+#: admin-core.php:1038
 msgid "Compatible with all major theme frameworks and all major browsers."
 msgstr "Compatibile con tutti i principali framework di temi e browser moderni."
 
-#: admin-core.php:808
+#: admin-core.php:1039
 msgid "Multisite installations are supported."
 msgstr "Installazioni multisito supportate."
 
-#: admin-core.php:809
+#: admin-core.php:1040
 msgid "Compatible with PHP 8.2 and 8.3, ZeptoJS and the jQuery slim builds."
 msgstr "Compatibile con PHP 8.2 e 8.3, ZeptoJS e versioni slim di jQuery."
 
-#: admin-core.php:810
+#: admin-core.php:1041
 msgid "Set a different protection level per page or per post, straight from the admin bar."
 msgstr "Imposta un livello di protezione differente per pagina o articolo direttamente dalla barra superiore."
 
-#: admin-core.php:811
+#: admin-core.php:1042
 msgid "Extra .htaccess rules block image-grabbing browser extensions and PHP files inside wp-content, except watermark.php."
 msgstr "Regole .htaccess aggiuntive bloccano estensioni di cattura immagini e file PHP in wp-content (eccetto watermark.php)."
 
-#: admin-core.php:812
+#: admin-core.php:1043
 msgid "Translation ready, with Arabic, Russian and RTL support for watermark text."
 msgstr "Pronto per la traduzione con supporto per arabo, russo e testo RTL nelle filigrane."
 
 #. translators: %s: link to the mailing list sign-up page.
-#: admin-core.php:822
+#: admin-core.php:1053
 msgid "%s to our mailing list to get flash discounts"
 msgstr "%s alla nostra newsletter per ricevere sconti esclusivi"
 
-#: admin-core.php:823
+#: admin-core.php:1054
 msgid "Subscribe"
 msgstr "Iscriviti"
 
-#: admin-core.php:827
+#: admin-core.php:1058
 msgid "See the premium plans"
 msgstr "Scopri i piani premium"
 
-#: admin-core.php:834
+#: admin-core.php:1065
 msgid "Use CTRL+F5 on the front end after saving to clear the cached scripts."
 msgstr "Usa CTRL+F5 sul sito dopo il salvataggio per ricaricare gli script in cache."
 
-#: admin-core.php:836
+#: admin-core.php:1067
 msgid "Restore defaults"
 msgstr "Ripristina predefiniti"
 
-#: admin-core.php:837
+#: admin-core.php:1068
 msgid "Preview alert message"
 msgstr "Anteprima messaggio di avviso"
 
-#: admin-core.php:837
+#: admin-core.php:1068
 msgid "This is a preview message (do not forget to save changes)"
 msgstr "Questo è un messaggio di anteprima (ricordati di salvare le modifiche)"
 
-#: admin-core.php:838
+#: admin-core.php:1069
 msgid "Save Settings"
 msgstr "Salva impostazioni"
 
-#: admin-core.php:853
+#: admin-core.php:1084
 msgid "Restore the default settings?"
 msgstr "Ripristinare le impostazioni predefinite?"
 
-#: admin-core.php:854
+#: admin-core.php:1085
 msgid "Every option on this page goes back to its default value. Your current settings will be lost and this cannot be undone."
 msgstr "Tutte le opzioni di questa pagina torneranno al valore predefinito. Le impostazioni attuali andranno perse e l'operazione non può essere annullata."
 
-#: admin-core.php:856
-msgid "Cancel"
-msgstr "Annulla"
-
-#: admin-core.php:857
+#: admin-core.php:1088
 msgid "Yes, restore defaults"
 msgstr "Sì, ripristina i predefiniti"
 
-#: admin-core.php:869
+#: admin-core.php:1100
 msgid "Need a hand?"
 msgstr "Hai bisogno di aiuto?"
 
-#: admin-core.php:870
+#: admin-core.php:1101
 msgid "We reply every working day."
 msgstr "Rispondiamo ogni giorno lavorativo."
 
-#: admin-core.php:872
+#: admin-core.php:1103
 msgid "Get support"
 msgstr "Richiedi assistenza"
 
-#: admin-core.php:880
+#: admin-core.php:1111
 msgid "How it works"
 msgstr "Come funziona"
 
-#: admin-core.php:881
+#: admin-core.php:1112
 msgid "Read the docs before you switch a layer on."
 msgstr "Leggi la documentazione prima di attivare un livello."
 
-#: admin-core.php:883
+#: admin-core.php:1114
 msgid "Help topics"
 msgstr "Argomenti della guida"
 
-#: admin-core.php:891
+#: admin-core.php:1122
 msgid "Enjoying the plugin?"
 msgstr "Ti piace il plugin?"
 
-#: admin-core.php:892
+#: admin-core.php:1123
 msgid "It takes a minute and helps a lot."
 msgstr "Richiede solo un minuto e ci aiuta moltissimo."
 
-#: admin-core.php:894
+#: admin-core.php:1125
 msgid "Leave a review"
 msgstr "Lascia una recensione"
-
-#: notifications.php:141
-msgid "Leave A Review?"
-msgstr "Vuoi lasciare una recensione?"
-
-msgid "We hope you've enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple \"thank you\" will make us happy!"
-msgstr "Speriamo che tu stia apprezzando WP Content Copy Protection :) Ti andrebbe di dedicare un minuto per lasciare una recensione su WordPress.org?<br>Anche un semplice \"grazie\" ci renderà felici!"
-
-#: notifications.php:144
-msgid "Sure! I'd love to!"
-msgstr "Certamente, con piacere!"
-
-#: notifications.php:145
-msgid "I've already left a review"
-msgstr "Ho già lasciato una recensione"
-
-#: notifications.php:146
-msgid "Will Rate Later"
-msgstr "Valuterò più tardi"
-
-#: notifications.php:147
-msgid "Hide Forever"
-msgstr "Nascondi per sempre"
-
-#: deactivation-survey.php:215 admin-core.php:849
-msgid "Close"
-msgstr "Chiudi"
 
 #: deactivation-survey.php:220
 msgid "Before you go, may we ask why?"
@@ -1067,3 +1873,346 @@ msgstr "Partecipa al sondaggio e richiedi il mese gratis"
 msgid "Skip &amp; deactivate"
 msgstr "Salta e disattiva"
 
+#: error-monitor.php:60
+msgid "WordPress debug log (custom path)"
+msgstr "Log di debug di WordPress (percorso personalizzato)"
+
+#: error-monitor.php:66
+msgid "WordPress debug log"
+msgstr "Log di debug di WordPress"
+
+#: error-monitor.php:75
+msgid "PHP error log (server setting)"
+msgstr "Log degli errori PHP (impostazione del server)"
+
+#: error-monitor.php:81
+msgid "error_log in the site root"
+msgstr "error_log nella radice del sito"
+
+#: error-monitor.php:85
+msgid "error_log in wp-admin"
+msgstr "error_log in wp-admin"
+
+#: error-monitor.php:89
+msgid "error_log in wp-content"
+msgstr "error_log in wp-content"
+
+#: error-monitor.php:93
+msgid "php_errorlog in the site root"
+msgstr "php_errorlog nella radice del sito"
+
+#: error-monitor.php:255
+msgid "Unknown source"
+msgstr "Origine sconosciuta"
+
+#: error-monitor.php:283 error-monitor.php:292
+msgid "WordPress core"
+msgstr "Core di WordPress"
+
+#: error-monitor.php:295
+msgid "Other site files"
+msgstr "Altri file del sito"
+
+#: error-monitor.php:298
+msgid "Outside this site"
+msgstr "Esterno a questo sito"
+
+#: error-monitor.php:539
+msgid "Unknown log file."
+msgstr "File di log sconosciuto."
+
+#: error-monitor.php:545
+msgid "This log file cannot be changed by WordPress. Ask your host to clear it."
+msgstr "WordPress non può modificare questo file di log. Chiedi al tuo hosting di svuotarlo."
+
+#: error-monitor.php:554
+msgid "The log file could not be cleared."
+msgstr "Impossibile svuotare il file di log."
+
+#: error-monitor.php:579
+msgid "You do not have permission to view the error logs."
+msgstr "Non hai i permessi per visualizzare i log degli errori."
+
+#: error-monitor.php:586
+msgid "This log file cannot be read."
+msgstr "Impossibile leggere questo file di log."
+
+#: error-monitor.php:642
+msgid "Fatal error"
+msgstr "Errore fatale"
+
+#: error-monitor.php:643
+msgid "Warning"
+msgstr "Avviso"
+
+#: error-monitor.php:644
+msgid "Notice"
+msgstr "Notice"
+
+#: error-monitor.php:645
+msgid "Deprecated"
+msgstr "Deprecato"
+
+#: error-monitor.php:646
+msgid "Other message"
+msgstr "Altro messaggio"
+
+#: error-monitor.php:649
+msgid "Plugin"
+msgstr "Plugin"
+
+#: error-monitor.php:650
+msgid "Must-use plugin"
+msgstr "Plugin must-use"
+
+#: error-monitor.php:651
+msgid "Theme"
+msgstr "Tema"
+
+#: error-monitor.php:652
+msgid "WordPress"
+msgstr "WordPress"
+
+#: error-monitor.php:653
+msgid "Site files"
+msgstr "File del sito"
+
+#: error-monitor.php:654
+msgid "Another site on this server"
+msgstr "Un altro sito su questo server"
+
+#: error-monitor.php:655
+msgid "No file given"
+msgstr "Nessun file indicato"
+
+#: error-monitor.php:658
+msgid "in the last %s days"
+msgstr "negli ultimi %s giorni"
+
+#: error-monitor.php:659
+msgid "Reading log files…"
+msgstr "Lettura dei file di log…"
+
+#: error-monitor.php:660
+msgid "The logs could not be read. Reload the page and try again."
+msgstr "Impossibile leggere i log. Ricarica la pagina e riprova."
+
+#: error-monitor.php:661
+msgid "Total"
+msgstr "Totale"
+
+#: error-monitor.php:663
+msgid "None"
+msgstr "Nessuno"
+
+#: error-monitor.php:664
+msgid "No errors logged in this period."
+msgstr "Nessun errore registrato in questo periodo."
+
+#: error-monitor.php:665
+msgid "Nothing to fix - no errors were logged in this period."
+msgstr "Niente da correggere: nessun errore registrato in questo periodo."
+
+#: error-monitor.php:666
+msgid "No error log was found on this site."
+msgstr "Nessun log degli errori trovato su questo sito."
+
+#: error-monitor.php:667
+msgid "Either nothing has gone wrong yet, or error logging is switched off. The Debug settings card below shows how to switch it on."
+msgstr "O non è ancora andato storto nulla, oppure la registrazione degli errori è disattivata. La scheda Impostazioni di debug qui sotto spiega come attivarla."
+
+#: error-monitor.php:669
+msgid "Errors per day %s, stacked by severity. Use the arrow keys to read each day."
+msgstr "Errori al giorno %s, impilati per gravità. Usa i tasti freccia per leggere ogni giorno."
+
+#: error-monitor.php:671
+msgid "Show %s more"
+msgstr "Mostra altri %s"
+
+#: error-monitor.php:673
+msgid "%s other sources"
+msgstr "altre %s origini"
+
+#: error-monitor.php:674
+msgid "1 issue"
+msgstr "1 problema"
+
+#: error-monitor.php:676
+msgid "%s issues"
+msgstr "%s problemi"
+
+#: error-monitor.php:678
+msgid "%s fatal"
+msgstr "%s fatali"
+
+#: error-monitor.php:680
+msgid "Only the %s most frequent issues are listed."
+msgstr "Vengono elencati solo i %s problemi più frequenti."
+
+#: error-monitor.php:681
+msgid "Details"
+msgstr "Dettagli"
+
+#: error-monitor.php:682
+msgid "Message"
+msgstr "Messaggio"
+
+#: error-monitor.php:683
+msgid "File"
+msgstr "File"
+
+#: error-monitor.php:684
+msgid "Source"
+msgstr "Origine"
+
+#: error-monitor.php:685
+msgid "First seen"
+msgstr "Prima occorrenza"
+
+#: error-monitor.php:686
+msgid "Last seen"
+msgstr "Ultima occorrenza"
+
+#: error-monitor.php:690
+msgid "%1$s in this period, %2$s in the log"
+msgstr "%1$s in questo periodo, %2$s nel log"
+
+#: error-monitor.php:691
+msgid "Download"
+msgstr "Scarica"
+
+#: error-monitor.php:692
+msgid "Clear log"
+msgstr "Svuota log"
+
+#: error-monitor.php:693
+msgid "The log file was cleared."
+msgstr "Il file di log è stato svuotato."
+
+#: error-monitor.php:694
+msgid "Updated"
+msgstr "Aggiornato"
+
+#: error-monitor.php:695
+msgid "Empty"
+msgstr "Vuoto"
+
+#: error-monitor.php:696
+msgid "Found, but WordPress is not allowed to read it"
+msgstr "Trovato, ma WordPress non ha il permesso di leggerlo"
+
+#: error-monitor.php:697
+msgid "Also checked, not found:"
+msgstr "Controllati anche, non trovati:"
+
+#: error-monitor.php:699
+msgid "Large file - only the newest %s is analysed"
+msgstr "File grande - viene analizzato solo l'ultimo %s"
+
+#: error-monitor.php:700
+msgid "Server-wide log - may include other sites"
+msgstr "Log a livello di server - può includere altri siti"
+
+#: error-monitor.php:702
+msgid "Copied"
+msgstr "Copiato"
+
+#: notifications.php:141
+msgid "Leave A Review?"
+msgstr "Vuoi lasciare una recensione?"
+
+#: notifications.php:142
+msgid "We hope you've enjoyed using WP copy Protection :) Would you mind taking a few minutes to write a review on WordPress.org?<br>Just writing simple \"thank you\" will make us happy!"
+msgstr "Speriamo che tu stia apprezzando WP Content Copy Protection :) Ti andrebbe di dedicare un minuto per lasciare una recensione su WordPress.org?<br>Anche un semplice \"grazie\" ci renderà felici!"
+
+#: notifications.php:144
+msgid "Sure! I'd love to!"
+msgstr "Certamente, con piacere!"
+
+#: notifications.php:145
+msgid "I've already left a review"
+msgstr "Ho già lasciato una recensione"
+
+#: notifications.php:146
+msgid "Will Rate Later"
+msgstr "Valuterò più tardi"
+
+#: notifications.php:147
+msgid "Hide Forever"
+msgstr "Nascondi per sempre"
+
+#: preventer-index.php:100
+msgid "You are not allowed to save images!"
+msgstr "Non hai il permesso di salvare le immagini!"
+
+#: preventer-index.php:101
+msgid "Context Menu disabled!"
+msgstr "Menu contestuale disabilitato!"
+
+#: preventer-index.php:122
+msgid "You are not allowed to copy content or view source"
+msgstr "Non hai il permesso di copiare il contenuto o visualizzare il sorgente"
+
+#: preventer-index.php:319
+msgid "error:"
+msgstr "errore:"
+
+#: preventer-index.php:325
+msgid "Alert:"
+msgstr "Avviso:"
+
+#: preventer-index.php:654 preventer-index.php:971
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: preventer-index.php:657
+msgid "Upgrade to PRO version Now"
+msgstr "Passa alla versione PRO adesso"
+
+#: preventer-index.php:657
+msgid "Go PRO"
+msgstr "Passa a PRO"
+
+#: preventer-index.php:683
+msgid "You are running WP Content Copy Protection & No Right Click (free). To get more features, you can "
+msgstr "Stai utilizzando WP Content Copy Protection & No Right Click (gratuito). Per ottenere più funzionalità, puoi "
+
+#: preventer-index.php:841
+msgid "Upgrade Now"
+msgstr "Aggiorna ora"
+
+#: preventer-index.php:941
+msgid "Protection"
+msgstr "Protezione"
+
+#: preventer-index.php:944
+msgid "Copy Protection & No right click"
+msgstr "Protezione copia e tasto destro disattivato"
+
+#: preventer-index.php:964
+msgid "Copy Protection"
+msgstr "Protezione copia"
+
+#: preventer-index.php:991
+msgid "More Plugins"
+msgstr "Altri plugin"
+
+#: upgrade-hint.php:144
+msgid "New in"
+msgstr "Novità della versione"
+
+#: upgrade-hint.php:149
+msgid "See & check my settings"
+msgstr "Vedi e controlla le mie impostazioni"
+
+#. Translated through a constant (see upgrade-hint.php), so no static
+#. reference can be extracted for it.
+#: upgrade-hint.php:27
+msgid "Big changes have arrived!"
+msgstr "Sono arrivati grandi cambiamenti!"
+
+#. Translated through a constant (see upgrade-hint.php), so no static
+#. reference can be extracted for it.
+#: upgrade-hint.php:28
+msgid "The Copy Protection settings panel has been completely redesigned. Click to see what is new and check your settings."
+msgstr "Il pannello delle impostazioni di Protezione copia è stato completamente ridisegnato. Fai clic per scoprire le novità e controllare le tue impostazioni."
