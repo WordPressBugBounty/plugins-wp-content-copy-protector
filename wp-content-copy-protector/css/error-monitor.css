@@ -545,6 +545,45 @@
 	overflow-wrap: anywhere;
 }
 
+/* "Ask AI for help" PRO teaser - the amber .wpb-tag--pro chip, with the
+   lock dimmed like the locked range buttons in the Protection Center. */
+#wpb-admin .wpb-em-issue__ai {
+	flex-shrink: 0;
+	margin-top: 1px;
+}
+
+#wpb-admin .wpb-em-issue__ai:focus-visible {
+	outline: 2px solid var(--wpb-primary);
+	outline-offset: 2px;
+}
+
+/* Unlocked rows: the same chip as a real button that copies the AI prompt. */
+#wpb-admin .wpb-em-issue__ai--free {
+	border: 0;
+	font-family: inherit;
+	line-height: inherit;
+	cursor: pointer;
+}
+
+#wpb-admin .wpb-em-issue__ai--free:hover {
+	background: rgba(108, 99, 255, .18);
+}
+
+#wpb-admin .wpb-em-issue__ai--free.wpb-tag--free:hover {
+	background: rgba(16, 185, 129, .2);
+}
+
+#wpb-admin .wpb-em-issue__ai--free svg {
+	width: 12px;
+	height: 12px;
+}
+
+#wpb-admin .wpb-tag--pro.wpb-em-issue__ai svg:last-child {
+	width: 11px;
+	height: 11px;
+	opacity: .7;
+}
+
 .wpb-em-issue__count strong {
 	display: inline-block;
 	padding: 3px 10px;
@@ -893,6 +932,15 @@
 
 	.wpb-em-issue__sum {
 		gap: 8px;
+		flex-wrap: wrap;
+	}
+
+	.wpb-em-issue__main {
+		flex-basis: 100%;
+	}
+
+	#wpb-admin .wpb-em-issue__ai {
+		margin-inline-start: auto;
 	}
 
 	#wpb-admin .wpb-em-config li {

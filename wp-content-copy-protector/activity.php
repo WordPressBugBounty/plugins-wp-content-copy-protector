@@ -655,8 +655,10 @@ function wccp_free_activity_last()
 
 	$table = wccp_free_activity_table();
 
+	// hits is not in the primary key, so sorting by (hour, hits) over the whole
+	// table forces a filesort. Pin the latest hour via the index, then rank only its rows.
 	// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery -- Own table, no input.
-	$row = $wpdb->get_row("SELECT hour, object_id FROM $table ORDER BY hour DESC, hits DESC LIMIT 1", ARRAY_A);
+	$row = $wpdb->get_row("SELECT hour, object_id FROM $table WHERE hour = (SELECT MAX(hour) FROM $table) ORDER BY hits DESC LIMIT 1", ARRAY_A);
 
 	if (! $row) {
 		return null;

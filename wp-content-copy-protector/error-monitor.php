@@ -233,11 +233,11 @@ function wccp_free_em_source_of($file, &$cache)
 
 		$names = array();
 		foreach (get_plugins() as $plugin_file => $plugin) {
-			$names[strtolower(strtok($plugin_file, '/'))] = $plugin['Name'];
+			$names[strtolower(strtok($plugin_file, '/'))] = array($plugin['Name'], $plugin['Version']);
 		}
 		$mu_names = array();
 		foreach (get_mu_plugins() as $plugin_file => $plugin) {
-			$mu_names[strtolower($plugin_file)] = $plugin['Name'];
+			$mu_names[strtolower($plugin_file)] = array($plugin['Name'], $plugin['Version']);
 		}
 
 		$cache['plugins'] = $names;
@@ -266,16 +266,24 @@ function wccp_free_em_source_of($file, &$cache)
 		$slug = strtok(substr($path, strlen(rtrim($roots[$kind], '/')) + 1), '/');
 		$low  = strtolower($slug);
 
-		if ($kind === 'plugin') {
-			$name = isset($cache['plugins'][$low]) ? $cache['plugins'][$low] : $slug;
-		} elseif ($kind === 'mu') {
-			$name = isset($cache['mu'][$low]) ? $cache['mu'][$low] : $slug;
-		} else {
+		$name    = $slug;
+		$version = '';
+
+		if ($kind === 'theme') {
 			$theme = wp_get_theme($slug);
-			$name  = $theme->exists() ? $theme->get('Name') : $slug;
+			if ($theme->exists()) {
+				$name    = $theme->get('Name');
+				$version = $theme->get('Version');
+			}
+		} else {
+			$known = $kind === 'plugin' ? $cache['plugins'] : $cache['mu'];
+			if (isset($known[$low])) {
+				list($name, $version) = $known[$low];
+			}
 		}
 
-		return array('key' => $kind . ':' . $low, 'kind' => $kind, 'name' => $name);
+		// The version goes into the "Ask AI for help" prompt.
+		return array('key' => $kind . ':' . $low, 'kind' => $kind, 'name' => $name, 'version' => (string) $version);
 	}
 
 	foreach ($roots['core'] as $core_dir) {
@@ -637,6 +645,14 @@ function wccp_free_em_enqueue($hook)
 		'clearNonce' => wp_create_nonce('wccp_free_em_clear'),
 		'locale'     => str_replace('_', '-', get_user_locale()),
 		'tailLabel'  => size_format(WCCP_FREE_EM_TAIL_BYTES),
+		'proUrl'     => wccp_free_utm_url('error-monitor-ai-analysis-link'),
+		// Site facts for the "Ask AI for help" prompt.
+		'env'        => array(
+			'wp'        => get_bloginfo('version'),
+			'php'       => PHP_VERSION,
+			'theme'     => trim(wp_get_theme()->get('Name') . ' ' . wp_get_theme()->get('Version')),
+			'multisite' => is_multisite(),
+		),
 		'i18n'       => array(
 			'levels'       => array(
 				'fatal'      => __('Fatal error', 'wp-content-copy-protector'),
@@ -700,6 +716,27 @@ function wccp_free_em_enqueue($hook)
 			'shared'       => __('Server-wide log - may include other sites', 'wp-content-copy-protector'),
 			'copy'         => __('Copy', 'wp-content-copy-protector'),
 			'copied'       => __('Copied', 'wp-content-copy-protector'),
+			'askAi'        => __('Ask AI for help', 'wp-content-copy-protector'),
+			'askAiPro'     => __('PRO feature - get an AI explanation and fix for this error', 'wp-content-copy-protector'),
+			'askAiFree'    => __('Copy a ready-made prompt about this error, then paste it into ChatGPT, Claude or any AI assistant', 'wp-content-copy-protector'),
+			'aiCopied'     => __('Ready prompt copied', 'wp-content-copy-protector'),
+			'aiCopyFailed' => __('Copy failed', 'wp-content-copy-protector'),
+			'yes'          => __('yes', 'wp-content-copy-protector'),
+			'no'           => __('no', 'wp-content-copy-protector'),
+			'aiNotGiven'   => __('not given in the log', 'wp-content-copy-protector'),
+			/* translators: 1: file path, 2: line number. */
+			'aiFileLine'   => __('%1$s (line %2$s)', 'wp-content-copy-protector'),
+			/* translators: 1: plugin or theme name, 2: kind, e.g. "Plugin", 3: version number. */
+			'aiSourceVer'  => __('%1$s (%2$s, version %3$s)', 'wp-content-copy-protector'),
+			/* translators: 1: plugin or theme name, 2: kind, e.g. "Plugin". */
+			'aiSourceKind' => __('%1$s (%2$s)', 'wp-content-copy-protector'),
+			'aiOnce'       => __('once', 'wp-content-copy-protector'),
+			/* translators: %s: number of times (2 or more). */
+			'aiTimes'      => __('%s times', 'wp-content-copy-protector'),
+			/* translators: 1: e.g. "20 times", 2: number of days, 3: e.g. "35 times". */
+			'aiOften'      => __('%1$s in the last %2$s days (%3$s in the whole log)', 'wp-content-copy-protector'),
+			/* translators: The prompt copied by the "Ask AI for help" button. Keep the {placeholders} and line breaks unchanged. */
+			'aiPrompt'     => __("I run a WordPress website and its error log shows the PHP error below. Please help me understand it and fix it.\n\n== Error details ==\nSeverity: {severity}\nMessage:\n{message}\nFile: {file}\nComes from: {source}\nHow often: {often}\nFirst seen: {first}\nLast seen: {last}\n\n== Site environment ==\nWordPress version: {wp}\nPHP version: {php}\nActive theme: {theme}\nMultisite: {multisite}\n\n== What I need from you ==\n1. Explain in plain language what this error means and whether it can break my site or is only a warning.\n2. Tell me the most likely cause, based on the message, the file and the plugin or theme it comes from.\n3. Give me a step-by-step fix, starting with the safest options (updating, reconfiguring or replacing the plugin/theme) before any code change.\n4. If a code change is really needed, show the exact change, which file to edit, and how to back up the site first. Prefer a fix that survives plugin/theme updates (a child theme or a small custom plugin) over editing the original files.\n5. Tell me how to check that the error is gone and how to stop it from coming back.\n6. If you need more information (for example the code around that line or a full stack trace), tell me exactly what to send you.\n\nThis error was detected by the WP Content Copy Protection & No Right Click free WordPress plugin.", 'wp-content-copy-protector'),
 		),
 	));
 }

@@ -51,6 +51,27 @@
 	box-sizing: border-box;
 }
 
+/* On the front end the theme's styles apply too. */
+#wccp-abi {
+	text-align: start;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+#wccp-abi li {
+	list-style: none;
+}
+
+#wccp-abi li::before,
+#wccp-abi li::after {
+	content: none;
+}
+
+#wccp-abi a {
+	border: 0;
+	box-shadow: none;
+}
+
 /* Hover bridge over the gap between the icon and the card. */
 #wccp-abi::after {
 	content: "";
@@ -420,9 +441,70 @@
 	animation: wccp-abi-dot 1.6s ease-out 3;
 }
 
+/* New errors since the Error Monitor was last opened. */
+#wpadminbar #wp-admin-bar-wccp_free_top_button .wccp-abi-count {
+	display: inline-block;
+	box-sizing: border-box;
+	min-width: 18px;
+	height: 18px;
+	margin-inline-start: 6px;
+	padding: 0 5px;
+	border-radius: 9px;
+	background: #d63638;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 18px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* #wpadminbar * sets a 32px line-height and 13px font on every element. */
+#wpadminbar #wp-admin-bar-wccp_free_top_button .wccp-abi-count > span[aria-hidden] {
+	display: block;
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+#wpadminbar #wp-admin-bar-wccp_free_top_button .wccp-abi-count.count-0 {
+	display: none;
+}
+
+/* Pulsing yellow ring around the item while the error count is above 0.
+   Driven by the count's class, so it follows the AJAX refresh too; the
+   upgrade hint's purple ring takes precedence while that card is open. */
+#wpadminbar #wp-admin-bar-wccp_free_top_button:not(.wccp-hint-target) > .ab-item:has(.wccp-abi-count:not(.count-0)) {
+	position: relative;
+}
+
+#wpadminbar #wp-admin-bar-wccp_free_top_button:not(.wccp-hint-target) > .ab-item:has(.wccp-abi-count:not(.count-0))::after {
+	content: "";
+	position: absolute;
+	inset: 3px;
+	border-radius: 6px;
+	box-shadow: 0 0 0 0 rgba(250, 204, 21, .9);
+	animation: wccp-abi-alert 10s ease-out infinite;
+	pointer-events: none;
+}
+
 #wpadminbar #wp-admin-bar-wccp_free_top_button.wccp-abi-open > .ab-item {
 	background: #2c3338;
 	color: #72aee6;
+}
+
+/* Keep the item still on the plugin's own settings page (every tab): the
+   admin is already where the ring and dot are pointing. */
+body.toplevel_page_wccpoptionspro #wpadminbar #wp-admin-bar-wccp_free_top_button .wccp-abi-dot,
+body.toplevel_page_wccpoptionspro #wpadminbar #wp-admin-bar-wccp_free_top_button > .ab-item,
+body.toplevel_page_wccpoptionspro #wpadminbar #wp-admin-bar-wccp_free_top_button > .ab-item::after {
+	animation: none !important;
+	transition: none !important;
+}
+
+body.toplevel_page_wccpoptionspro #wpadminbar #wp-admin-bar-wccp_free_top_button > .ab-item::after {
+	box-shadow: none !important;
 }
 
 @keyframes wccp-abi-in {
@@ -442,6 +524,13 @@
 	100% { box-shadow: 0 0 0 2px #1d2327, 0 0 0 2px rgba(249, 115, 22, 0); }
 }
 
+/* Two 1.6s pulses back to back, then rest until the 10s cycle repeats. */
+@keyframes wccp-abi-alert {
+	0%, 16% { box-shadow: 0 0 0 0 rgba(250, 204, 21, .9); }
+	11.2%, 27.2% { box-shadow: 0 0 0 10px rgba(250, 204, 21, 0); }
+	15.9%, 32%, 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+}
+
 @keyframes wccp-abi-shimmer {
 	from { background-position: 200% 0; }
 	to { background-position: -200% 0; }
@@ -459,7 +548,8 @@
 	#wccp-abi .wccp-abi__story,
 	#wccp-abi .wccp-abi__pulse,
 	#wccp-abi .wccp-abi__skeleton,
-	#wpadminbar #wp-admin-bar-wccp_free_top_button .wccp-abi-dot {
+	#wpadminbar #wp-admin-bar-wccp_free_top_button .wccp-abi-dot,
+	#wpadminbar #wp-admin-bar-wccp_free_top_button:not(.wccp-hint-target) > .ab-item:has(.wccp-abi-count:not(.count-0))::after {
 		animation: none;
 		transition: none;
 	}

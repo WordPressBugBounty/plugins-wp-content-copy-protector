@@ -2,7 +2,8 @@
 
 /**
  * Admin bar insights: the card that opens when an admin hovers the plugin's
- * admin bar icon inside wp-admin.
+ * admin bar icon, in wp-admin and on the front end, plus the "new errors"
+ * count shown on the icon.
  *
  * It is a teaser, not a report: one headline number, a 7 day sparkline, error
  * log counts and two short "stories" that raise a question the Protection
@@ -21,7 +22,9 @@
  * Speed:
  * - nothing is computed while a page loads except the icon dot, which reads
  *   the same cached count as the admin menu bubble and a stored error snapshot
- *   (rate-limited, see wccp_free_abi_dot());
+ *   (rate-limited, see wccp_free_abi_dot()), and the error count, which reads
+ *   that stored snapshot too; a stale snapshot is refreshed over admin-ajax
+ *   after the page has loaded (wccp_free_abi_ajax_count());
  * - the card's data comes over admin-ajax on first hover, cached per user for
  *   WCCP_FREE_ABI_CACHE; log files are read at most every WCCP_FREE_ABI_ERR_TTL.
  */
@@ -37,13 +40,13 @@ define('WCCP_FREE_ABI_DOT_SHOW', 5 * MINUTE_IN_SECONDS);
 define('WCCP_FREE_ABI_DOT_EVERY', HOUR_IN_SECONDS);
 
 /**
- * Can the current screen show the card at all?
+ * Can the current screen show the card at all? wp-admin and the front end alike.
  */
 function wccp_free_abi_available()
 {
 	global $wccp_settings;
 
-	if (! is_admin() || ! is_admin_bar_showing() || ! current_user_can('manage_options')) {
+	if (! is_admin_bar_showing() || is_customize_preview() || ! current_user_can('manage_options')) {
 		return false;
 	}
 
@@ -204,6 +207,35 @@ function wccp_free_abi_new_issues($snapshot, $since)
 	}
 
 	return $count;
+}
+
+/**
+ * The icon's error count: issues new since the admin last opened the Error
+ * Monitor (or in the last 24 hours), the same number as the card's "New
+ * issues" tile. Reads the stored snapshot only, so it can run on every page.
+ *
+ * @param bool $fresh Rescan the logs if the snapshot is stale (admin-ajax only).
+ * @return array{count:int, stale:bool, text:string, label:string}
+ */
+function wccp_free_abi_error_badge($fresh = false)
+{
+	$snapshot = wccp_free_abi_errors($fresh);
+	$count    = 0;
+	$stale    = true;
+
+	if (is_array($snapshot)) {
+		$today = (new DateTime('now', wccp_free_em_site_zone()))->format('Y-m-d');
+		$stale = $snapshot['day'] !== $today || $snapshot['time'] <= time() - WCCP_FREE_ABI_ERR_TTL;
+		$count = wccp_free_abi_new_issues($snapshot, (int) get_user_meta(get_current_user_id(), 'wccp_free_em_seen', true));
+	}
+
+	return array(
+		'count' => $count,
+		'stale' => $stale,
+		'text'  => $count > 99 ? '99+' : number_format_i18n($count),
+		/* translators: %s: number of new error issues. */
+		'label' => sprintf(_n('%s new error', '%s new errors', $count, 'wp-content-copy-protector'), number_format_i18n($count)),
+	);
 }
 
 /**
@@ -776,6 +808,57 @@ function wccp_free_abi_ajax_data()
 add_action('wp_ajax_wccp_free_abi_data', 'wccp_free_abi_ajax_data');
 
 /**
+ * The page rendered the error count from a stale snapshot: rescan (at most
+ * every WCCP_FREE_ABI_ERR_TTL, shared by every admin) and return the new count.
+ */
+function wccp_free_abi_ajax_count()
+{
+	check_ajax_referer('wccp_free_abi');
+
+	if (! wccp_free_em_can()) {
+		wp_send_json_error(null, 403);
+	}
+
+	$badge = wccp_free_abi_error_badge(true);
+	unset($badge['stale']);
+
+	// The card's cached tiles predate the rescan.
+	wccp_free_abi_forget();
+
+	wp_send_json_success($badge);
+}
+add_action('wp_ajax_wccp_free_abi_count', 'wccp_free_abi_ajax_count');
+
+/**
+ * Append the error count to the plugin's admin bar item. The element is always
+ * there (hidden at 0) so the script can fill it after a refresh.
+ */
+function wccp_free_abi_bar_count($admin_bar)
+{
+	if (! wccp_free_abi_available() || ! wccp_free_em_can()) {
+		return;
+	}
+
+	$node = $admin_bar->get_node('wccp_free_top_button');
+	if (! $node) {
+		return;
+	}
+
+	$badge = wccp_free_abi_error_badge();
+
+	$admin_bar->add_node(array(
+		'id'    => 'wccp_free_top_button',
+		'title' => $node->title . sprintf(
+			'<span class="wccp-abi-count count-%1$d"><span aria-hidden="true">%2$s</span><span class="screen-reader-text">%3$s</span></span>',
+			$badge['count'],
+			esc_html($badge['text']),
+			esc_html($badge['label'])
+		),
+	));
+}
+add_action('admin_bar_menu', 'wccp_free_abi_bar_count', 41);
+
+/**
  * Should the icon carry a "something new" dot on this page load?
  *
  * To stay out of the way, per admin:
@@ -856,19 +939,29 @@ function wccp_free_abi_has_news()
 	return false;
 }
 
-function wccp_free_abi_enqueue($hook)
+/**
+ * @param string $hook Admin page hook; empty on the front end.
+ */
+function wccp_free_abi_enqueue($hook = '')
 {
-	// The plugin page itself is where the card would send you.
-	if ($hook === 'toplevel_page_wccpoptionspro' || ! wccp_free_abi_available()) {
+	if (! wccp_free_abi_available()) {
 		return;
 	}
 
+	// The error count is on every page.
 	wp_enqueue_style(
 		'wccp-admin-bar-insights',
 		plugins_url('css/admin-bar-insights.css', WCCP_FREE_PLUGIN_FILE),
 		array('dashicons'),
 		WCCP_FREE_VERSION
 	);
+
+	// The plugin page itself is where the card would send you.
+	if ($hook === 'toplevel_page_wccpoptionspro') {
+		return;
+	}
+
+	$badge = wccp_free_em_can() ? wccp_free_abi_error_badge() : null;
 
 	wp_enqueue_script(
 		'wccp-admin-bar-insights',
@@ -882,6 +975,7 @@ function wccp_free_abi_enqueue($hook)
 		'ajaxUrl' => admin_url('admin-ajax.php'),
 		'nonce'   => wp_create_nonce('wccp_free_abi'),
 		'dot'     => wccp_free_abi_dot(),
+		'stale'   => $badge && $badge['stale'],
 		'i18n'    => array(
 			'loading'  => __('Loading your numbers…', 'wp-content-copy-protector'),
 			'failed'   => __('The numbers could not be loaded right now.', 'wp-content-copy-protector'),
@@ -894,3 +988,4 @@ function wccp_free_abi_enqueue($hook)
 	));
 }
 add_action('admin_enqueue_scripts', 'wccp_free_abi_enqueue', 30);
+add_action('wp_enqueue_scripts', 'wccp_free_abi_enqueue', 30);

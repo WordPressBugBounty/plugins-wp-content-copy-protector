@@ -211,7 +211,7 @@ if (! function_exists('wccp_free_icon')) {
 }
 
 $wccp_free_admin_email = get_bloginfo('admin_email');
-$wccp_free_pro_url     = 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/';
+$wccp_free_pro_url     = WCCP_FREE_PRO_URL;
 $wccp_free_docs_url    = 'https://www.wp-buy.com/category/plugins-support/copy-protection-plugin-support/';
 $wccp_free_support_url = 'https://www.wp-buy.com/contact-us/';
 $wccp_free_onoff       = array(
@@ -243,7 +243,7 @@ $wccp_free_onoff       = array(
 	function wpccp_open_subscribe_page() {
 		if (localStorage.getItem('wpccp_subscribed') != 'wpccp_subsbc_user') {
 			var admin_email_wccp = document.getElementById('admin_email_wccp').value;
-			window.open('https://www.wp-buy.com/wpccp-subscribe/?email=' + admin_email_wccp, '_blank');
+			window.open(<?php echo wp_json_encode(wccp_free_utm_url('header-subscribe-popup')); ?> + '&email=' + encodeURIComponent(admin_email_wccp), '_blank');
 		}
 	}
 
@@ -288,7 +288,7 @@ $wccp_free_onoff       = array(
 		</div>
 		<div class="wpb-featured__buy">
 			<div class="wpb-featured__price"><?php esc_html_e('Live Demo', 'wp-content-copy-protector'); ?></div>
-			<a class="wpb-featured__btn" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php esc_html_e('View Details', 'wp-content-copy-protector'); ?></a>
+			<a class="wpb-featured__btn" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('header-featured-banner-btn')); ?>"><?php esc_html_e('View Details', 'wp-content-copy-protector'); ?></a>
 			<span class="wpb-featured__mbg"><?php esc_html_e('30-Day Money Back', 'wp-content-copy-protector'); ?></span>
 		</div>
 	</div>
@@ -382,7 +382,7 @@ $wccp_free_onoff       = array(
 					<div class="wpb-field">
 						<span class="wpb-field__label"><?php echo wp_kses(__('Exclude <u>Admin</u> from protection', 'wp-content-copy-protector'), $wccp_free_allowed_tags); ?></span>
 						<span class="wpb-field__locked">
-							<a class="wpb-tag wpb-tag--pro" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Premium', 'wp-content-copy-protector'); ?></a>
+							<a class="wpb-tag wpb-tag--pro" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('main-settings-btn-exclude-admin')); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Premium', 'wp-content-copy-protector'); ?></a>
 						</span>
 						<p class="wpb-field__hint"><?php echo wp_kses(__('If <u>Yes</u>, The protection functions will be inactive for the admin when he is logged in', 'wp-content-copy-protector'), $wccp_free_allowed_tags); ?></p>
 					</div>
@@ -404,7 +404,7 @@ $wccp_free_onoff       = array(
 						<span class="wpb-sep"></span>
 						<span class="wpb-chip"><?php wccp_free_icon('phone'); ?><?php esc_html_e('Desktop & mobile', 'wp-content-copy-protector'); ?></span>
 					</div>
-					<a class="wpb-btn wpb-btn--ghost" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('Unlock more options', 'wp-content-copy-protector'); ?></a>
+					<a class="wpb-btn wpb-btn--ghost" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('main-settings-btn-unlock-options')); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('Unlock more options', 'wp-content-copy-protector'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -450,7 +450,7 @@ $wccp_free_onoff       = array(
 					<div class="wpb-field">
 						<span class="wpb-field__label"><?php echo wp_kses(__('Disable <u>RightClick</u> on', 'wp-content-copy-protector'), $wccp_free_allowed_tags); ?></span>
 						<span class="wpb-field__locked">
-							<a class="wpb-tag wpb-tag--pro" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Any post type', 'wp-content-copy-protector'); ?></a>
+							<a class="wpb-tag wpb-tag--pro" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('rightclick-tag-pro-post-types')); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Any post type', 'wp-content-copy-protector'); ?></a>
 						</span>
 						<p class="wpb-field__hint"><?php echo wp_kses(__('<b>PRO</b> unlocks the same right-click lock on <u>any</u> post type you pick - WooCommerce products, listings, portfolios, courses, downloads. Sell on a marketplace? Your product photos and descriptions stop being one right-click away from a competitor.', 'wp-content-copy-protector'), $wccp_free_allowed_tags); ?></p>
 					</div>
@@ -466,7 +466,7 @@ $wccp_free_onoff       = array(
 				<p class="wpb-card__desc"><?php esc_html_e('PRO gives you a rule per element - images, links, text boxes, plain text - each with its own alert message.', 'wp-content-copy-protector'); ?></p>
 
 				<div class="wpb-shots">
-					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>">
+					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('rightclick-premium-preview-image')); ?>">
 						<img src="<?php echo esc_url($wccp_free_pluginsurl); ?>/images/right-click-protection.webp" alt="<?php esc_attr_e('Right click protection options in the PRO version', 'wp-content-copy-protector'); ?>">
 					</a>
 				</div>
@@ -475,7 +475,7 @@ $wccp_free_onoff       = array(
 					<div class="wpb-meta">
 						<span class="wpb-chip"><?php wccp_free_icon('star'); ?><?php esc_html_e('Preview & Pricing', 'wp-content-copy-protector'); ?></span>
 					</div>
-					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('Get the PRO version', 'wp-content-copy-protector'); ?></a>
+					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('rightclick-btn-primary-get-pro')); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('Get the PRO version', 'wp-content-copy-protector'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -509,7 +509,7 @@ $wccp_free_onoff       = array(
 					<div class="wpb-field">
 						<span class="wpb-field__label"><?php echo wp_kses(__('<b>Pages</b> Protection by CSS', 'wp-content-copy-protector'), $wccp_free_allowed_tags); ?></span>
 						<span class="wpb-field__locked">
-							<a class="wpb-tag wpb-tag--pro" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Premium', 'wp-content-copy-protector'); ?></a>
+							<a class="wpb-tag wpb-tag--pro" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('css-protection-tag-pro')); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Premium', 'wp-content-copy-protector'); ?></a>
 						</span>
 						<p class="wpb-field__hint"><?php esc_html_e('Protect your static pages by CSS tricks', 'wp-content-copy-protector'); ?></p>
 					</div>
@@ -519,7 +519,7 @@ $wccp_free_onoff       = array(
 					<div class="wpb-meta">
 						<span class="wpb-chip wpb-chip--safe"><?php wccp_free_icon('check'); ?><?php esc_html_e('Keeps working with JavaScript disabled', 'wp-content-copy-protector'); ?></span>
 					</div>
-					<a class="wpb-btn wpb-btn--ghost" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Unlock pages protection', 'wp-content-copy-protector'); ?></a>
+					<a class="wpb-btn wpb-btn--ghost" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('css-protection-btn-unlock-pages')); ?>"><?php wccp_free_icon('lock'); ?><?php esc_html_e('Unlock pages protection', 'wp-content-copy-protector'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -699,7 +699,7 @@ $wccp_free_onoff       = array(
 
 					<!-- Icons the script clones into the markup it builds. -->
 					<template id="wpb-em-icons">
-						<?php foreach (array('alert', 'check', 'info', 'clock', 'message', 'download', 'trash', 'server', 'file', 'copy') as $wccp_free_em_icon) : ?>
+						<?php foreach (array('alert', 'check', 'info', 'clock', 'message', 'download', 'trash', 'server', 'file', 'copy', 'sparkles', 'lock') as $wccp_free_em_icon) : ?>
 							<span data-icon="<?php echo esc_attr($wccp_free_em_icon); ?>"><?php wccp_free_icon($wccp_free_em_icon); ?></span>
 						<?php endforeach; ?>
 					</template>
@@ -742,13 +742,13 @@ $wccp_free_onoff       = array(
 				<p class="wpb-card__desc"><?php esc_html_e('Crazy discount offer is now running for a limited time!! You might love it', 'wp-content-copy-protector'); ?></p>
 
 				<div class="wpb-shots">
-					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>">
+					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('more-pro-shot-smartphones')); ?>">
 						<img src="<?php echo esc_url($wccp_free_pluginsurl); ?>/images/smart-phones-protection.webp" alt="<?php esc_attr_e('Smartphone protection in the PRO version', 'wp-content-copy-protector'); ?>">
 					</a>
-					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>">
+					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('more-pro-shot-watermark')); ?>">
 						<img src="<?php echo esc_url($wccp_free_pluginsurl); ?>/images/watermark-adv.webp" alt="<?php esc_attr_e('Image watermarking in the PRO version', 'wp-content-copy-protector'); ?>">
 					</a>
-					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>">
+					<a class="wpb-shot" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('more-pro-shot-watermark-examples')); ?>">
 						<img src="<?php echo esc_url($wccp_free_pluginsurl); ?>/images/watermarking-adv-examples.webp" alt="<?php esc_attr_e('Watermarking examples from the PRO version', 'wp-content-copy-protector'); ?>">
 					</a>
 				</div>
@@ -759,7 +759,7 @@ $wccp_free_onoff       = array(
 						<span class="wpb-sep"></span>
 						<span class="wpb-chip"><?php wccp_free_icon('star'); ?><?php esc_html_e('Rated 4.9 by hundreds', 'wp-content-copy-protector'); ?></span>
 					</div>
-					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('See it now', 'wp-content-copy-protector'); ?></a>
+					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('more-pro-btn-primary-see-it-now')); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('See it now', 'wp-content-copy-protector'); ?></a>
 				</div>
 			</div>
 
@@ -783,7 +783,6 @@ $wccp_free_onoff       = array(
 					<div class="wpb-plans__promo">
 						<span class="wpb-plans__promo-ic"><?php wccp_free_icon('zap'); ?></span>
 						<p class="wpb-plans__promo-txt">
-							<b><?php esc_html_e('These are the full prices, with no discount applied.', 'wp-content-copy-protector'); ?></b>
 							<?php esc_html_e('A discount of up to 50% is waiting for you on our website - check the running offer before you buy.', 'wp-content-copy-protector'); ?>
 						</p>
 					</div>
@@ -799,11 +798,8 @@ $wccp_free_onoff       = array(
 								</div>
 							</div>
 
-							<p class="wpb-plan__price">
-								<span class="wpb-plan__amount"><span class="wpb-plan__cur">$</span>0</span>
-								<span class="wpb-plan__per"><?php esc_html_e('/ forever', 'wp-content-copy-protector'); ?></span>
-							</p>
-							<span class="wpb-tag wpb-tag--free wpb-plan__badge"><?php wccp_free_icon('check'); ?><?php esc_html_e('Current plan', 'wp-content-copy-protector'); ?></span>
+							<p class="wpb-plan__pitch"><?php esc_html_e('Everyday protection that keeps casual copying off your pages.', 'wp-content-copy-protector'); ?></p>
+							<span class="wpb-tag wpb-tag--free wpb-plan__badge"><?php wccp_free_icon('check'); ?><?php esc_html_e('Current plan / forever', 'wp-content-copy-protector'); ?></span>
 
 							<ul class="wpb-plan__list">
 								<li><?php wccp_free_icon('check'); ?><?php esc_html_e('Disable right-click', 'wp-content-copy-protector'); ?></li>
@@ -825,11 +821,8 @@ $wccp_free_onoff       = array(
 								</div>
 							</div>
 
-							<p class="wpb-plan__price">
-								<span class="wpb-plan__amount"><span class="wpb-plan__cur">$</span>58</span>
-								<span class="wpb-plan__per"><?php esc_html_e('one-time', 'wp-content-copy-protector'); ?></span>
-							</p>
-							<span class="wpb-tag wpb-tag--layer wpb-plan__badge"><?php wccp_free_icon('clock'); ?><?php esc_html_e('Lifetime license', 'wp-content-copy-protector'); ?></span>
+							<p class="wpb-plan__pitch"><?php esc_html_e('Take full command of who sees, copies and prints your content.', 'wp-content-copy-protector'); ?></p>
+							<span class="wpb-tag wpb-tag--layer wpb-plan__badge"><?php wccp_free_icon('clock'); ?><?php esc_html_e('Lifetime license / one time payment', 'wp-content-copy-protector'); ?></span>
 							<p class="wpb-plan__care"><?php wccp_free_icon('refresh'); ?><?php esc_html_e('Support & updates $1 / month, paid as $9 per year.', 'wp-content-copy-protector'); ?></p>
 
 							<ul class="wpb-plan__list">
@@ -842,7 +835,7 @@ $wccp_free_onoff       = array(
 								<li><?php wccp_free_icon('check'); ?><?php esc_html_e('Priority email support', 'wp-content-copy-protector'); ?></li>
 							</ul>
 
-							<a class="wpb-btn wpb-btn--ghost wpb-plan__cta" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php esc_html_e('Upgrade to ESSENTIAL', 'wp-content-copy-protector'); ?></a>
+							<a class="wpb-btn wpb-btn--ghost wpb-plan__cta" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('more-pro-plan-essential-btn')); ?>"><?php esc_html_e('Explore the essential version', 'wp-content-copy-protector'); ?></a>
 						</div>
 
 						<div class="wpb-plan wpb-plan--popular">
@@ -856,11 +849,8 @@ $wccp_free_onoff       = array(
 								</div>
 							</div>
 
-							<p class="wpb-plan__price">
-								<span class="wpb-plan__amount"><span class="wpb-plan__cur">$</span>98</span>
-								<span class="wpb-plan__per"><?php esc_html_e('one-time', 'wp-content-copy-protector'); ?></span>
-							</p>
-							<span class="wpb-tag wpb-tag--layer wpb-plan__badge"><?php wccp_free_icon('clock'); ?><?php esc_html_e('Lifetime license', 'wp-content-copy-protector'); ?></span>
+							<p class="wpb-plan__pitch"><?php esc_html_e('Every protection layer, plus watermarks that follow your work everywhere.', 'wp-content-copy-protector'); ?></p>
+							<span class="wpb-tag wpb-tag--layer wpb-plan__badge"><?php wccp_free_icon('clock'); ?><?php esc_html_e('Lifetime license / one time payment', 'wp-content-copy-protector'); ?></span>
 							<p class="wpb-plan__care"><?php wccp_free_icon('refresh'); ?><?php esc_html_e('Support & updates $1 / month, paid as $9 per year.', 'wp-content-copy-protector'); ?></p>
 
 							<ul class="wpb-plan__list">
@@ -876,7 +866,7 @@ $wccp_free_onoff       = array(
 								<li><?php wccp_free_icon('check'); ?><?php esc_html_e('Premium support & updates', 'wp-content-copy-protector'); ?></li>
 							</ul>
 
-							<a class="wpb-btn wpb-btn--primary wpb-plan__cta" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php esc_html_e('Upgrade to COMPLETE', 'wp-content-copy-protector'); ?></a>
+							<a class="wpb-btn wpb-btn--primary wpb-plan__cta" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('more-pro-plan-complete-btn')); ?>"><?php esc_html_e('Explore the complete version', 'wp-content-copy-protector'); ?></a>
 						</div>
 
 					</div>
@@ -1051,11 +1041,11 @@ $wccp_free_onoff       = array(
 						printf(
 							/* translators: %s: link to the mailing list sign-up page. */
 							esc_html__('%s to our mailing list to get flash discounts', 'wp-content-copy-protector'),
-							'<a target="_blank" rel="noopener" href="https://www.wp-buy.com/wpccp-subscribe">' . esc_html__('Subscribe', 'wp-content-copy-protector') . '</a>'
+							'<a target="_blank" rel="noopener" href="' . esc_url(wccp_free_utm_url('more-pro-footer-subscribe-link', 'https://www.wp-buy.com/wpccp-subscribe/')) . '">' . esc_html__('Subscribe', 'wp-content-copy-protector') . '</a>'
 						);
 						?>
 					</p>
-					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_pro_url); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('See the premium plans', 'wp-content-copy-protector'); ?></a>
+					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('more-pro-footer-btn-primary-plans')); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('See the premium plans', 'wp-content-copy-protector'); ?></a>
 				</div>
 			</div>
 		</div>

@@ -1248,41 +1248,32 @@
 	line-height: 1.4;
 }
 
-#wpb-admin .wpb-plan__price {
-	display: flex;
-	align-items: baseline;
-	gap: 6px;
-	flex-wrap: wrap;
-	margin: 0 0 12px;
+/* One-line pitch under the plan title - accent rule on the left, no prices. */
+#wpb-admin .wpb-plan__pitch {
+	margin: 0 0 14px;
+	padding-left: 10px;
+	border-left: 3px solid var(--wpb-border-soft);
+	font-size: .84rem;
+	font-weight: 600;
+	line-height: 1.45;
 	color: var(--wpb-secondary);
 }
 
-.wpb-plan__from,
-.wpb-plan__per {
-	font-size: .78rem;
-	font-weight: 600;
-	color: var(--wpb-text-secondary);
+#wpb-admin .wpb-plan--popular .wpb-plan__pitch {
+	border-left-color: var(--wpb-primary);
 }
 
-.wpb-plan__amount {
-	font-size: 1.7rem;
-	font-weight: 800;
-	letter-spacing: -0.02em;
-	line-height: 1.1;
-}
-
-.wpb-plan__cur {
-	font-size: 1.05rem;
-	font-weight: 700;
-	margin-right: 1px;
-}
-
+/* Longer badge copy may wrap in narrow columns instead of overflowing the card. */
 #wpb-admin .wpb-plan__badge {
 	align-self: flex-start;
-	margin: -4px 0 12px;
+	max-width: 100%;
+	margin: 0 0 12px;
+	white-space: normal;
+	line-height: 1.35;
+	border-radius: 12px;
 }
 
-/* Lifetime licences still carry an optional support line - it sits under the price. */
+/* Lifetime licences still carry an optional support line - it sits under the badge. */
 #wpb-admin .wpb-plan__care {
 	display: flex;
 	align-items: flex-start;

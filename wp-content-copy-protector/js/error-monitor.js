@@ -31,6 +31,8 @@
 	var LEVELS = [ 'fatal', 'warning', 'notice', 'deprecated', 'other' ];
 	var LEVEL_ICONS = { fatal: 'alert', warning: 'alert', notice: 'info', deprecated: 'clock', other: 'message' };
 	var PAGE = 25;
+	// "Ask AI for help" copies a prompt on this many top rows; the rest stay a PRO teaser.
+	var AI_FREE_ROWS = 3;
 
 	var state = {
 		data: null,
@@ -815,6 +817,94 @@
 		return badge;
 	}
 
+	function aiPrompt( row ) {
+		var issue = row.issue;
+		var env = cfg.env || {};
+		var kind = t.kinds[ issue.source.kind ];
+		var times = function ( n ) {
+			return n === 1 ? t.aiOnce : fill( t.aiTimes, num( n ) );
+		};
+		var source = issue.source.name;
+
+		if ( kind && issue.source.version ) {
+			source = fill( t.aiSourceVer, source, kind, issue.source.version );
+		} else if ( kind ) {
+			source = fill( t.aiSourceKind, source, kind );
+		}
+
+		var values = {
+			severity: t.levels[ issue.level ],
+			message: ( issue.type && issue.level === 'other' ? issue.type + ': ' : '' ) + issue.message,
+			file: issue.file ? ( issue.line ? fill( t.aiFileLine, issue.file, issue.line ) : issue.file ) : t.aiNotGiven,
+			source: source,
+			often: fill( t.aiOften, times( row.count ), num( state.range ), times( issue.count ) ),
+			first: issue.firstLabel,
+			last: issue.lastLabel,
+			wp: env.wp,
+			php: env.php,
+			theme: env.theme,
+			multisite: env.multisite ? t.yes : t.no
+		};
+
+		// One pass, so a {token} inside a log message is never expanded.
+		return t.aiPrompt.replace( /\{(\w+)\}/g, function ( match, key ) {
+			return Object.prototype.hasOwnProperty.call( values, key ) ? String( values[ key ] ) : match;
+		} );
+	}
+
+	// navigator.clipboard only exists on HTTPS / localhost; plain-http admins
+	// fall back to a hidden textarea and execCommand.
+	function copyText( text ) {
+		if ( navigator.clipboard && window.isSecureContext ) {
+			return navigator.clipboard.writeText( text );
+		}
+
+		return new Promise( function ( resolve, reject ) {
+			var area = h( 'textarea' );
+
+			area.value = text;
+			area.setAttribute( 'readonly', '' );
+			area.style.position = 'fixed';
+			area.style.top = '-1000px';
+			document.body.appendChild( area );
+			area.select();
+
+			var ok = false;
+
+			try {
+				ok = document.execCommand( 'copy' );
+			} catch ( e ) {}
+
+			document.body.removeChild( area );
+			( ok ? resolve : reject )();
+		} );
+	}
+
+	function aiButton( row ) {
+		var button = h( 'button', 'wpb-tag wpb-em-issue__ai wpb-em-issue__ai--free' );
+		var label = h( 'span', '', t.askAi );
+
+		button.type = 'button';
+		button.title = t.askAiFree;
+		button.appendChild( icon( 'sparkles' ) );
+		button.appendChild( label );
+
+		button.addEventListener( 'click', function ( event ) {
+			// Inside <summary>: copy only, do not open/close the row.
+			event.preventDefault();
+			event.stopPropagation();
+
+			copyText( aiPrompt( row ) ).then( function () {
+				label.textContent = t.aiCopied;
+				button.classList.add( 'wpb-tag--free' );
+			}, function () {
+				label.textContent = t.aiCopyFailed;
+			} );
+		} );
+
+		return button;
+	}
+
 	function renderIssues( rows ) {
 		clear( el.issues );
 		clear( el.more );
@@ -845,7 +935,7 @@
 			labels[ file.id ] = file.path;
 		} );
 
-		rows.slice( 0, state.limit ).forEach( function ( row ) {
+		rows.slice( 0, state.limit ).forEach( function ( row, index ) {
 			var issue = row.issue;
 			var item = h( 'li', 'wpb-em-issue wpb-em-issue--' + issue.level );
 			var details = h( 'details' );
@@ -873,7 +963,25 @@
 
 			count.appendChild( h( 'strong', '', '×' + num( row.count ) ) );
 
+			var ai;
+
+			if ( index < AI_FREE_ROWS ) {
+				ai = aiButton( row );
+			} else {
+				// PRO teaser: a plain link to the upgrade page. A link is
+				// interactive content, so clicking it does not toggle the row.
+				ai = h( 'a', 'wpb-tag wpb-tag--pro wpb-em-issue__ai' );
+				ai.href = cfg.proUrl;
+				ai.target = '_blank';
+				ai.rel = 'noopener';
+				ai.title = t.askAiPro;
+				ai.appendChild( icon( 'sparkles' ) );
+				ai.appendChild( document.createTextNode( t.askAi ) );
+				ai.appendChild( icon( 'lock' ) );
+			}
+
 			summary.appendChild( main );
+			summary.appendChild( ai );
 			summary.appendChild( count );
 			details.appendChild( summary );
 

@@ -19,7 +19,6 @@ $wccp_free_ac_options = wccp_free_activity_options();
 $wccp_free_ac_on      = $wccp_free_ac_options['enabled'] === 'Yes';
 $wccp_free_ac_labels  = wccp_free_activity_labels();
 $wccp_free_ac_started = wccp_free_activity_started();
-$wccp_free_ac_upgrade = add_query_arg(array('utm_source' => 'plugin', 'utm_medium' => 'protection-center'), $wccp_free_pro_url);
 
 if (! function_exists('wccp_free_ac_num')) {
 	function wccp_free_ac_num($value)
@@ -165,7 +164,7 @@ if (! function_exists('wccp_free_ac_num')) {
 						<b><?php esc_html_e('Longer history is part of PRO', 'wp-content-copy-protector'); ?></b>
 						<p><?php esc_html_e('See 30 days, 90 days or 12 months of activity, spot seasonal peaks and follow how each page trends over time.', 'wp-content-copy-protector'); ?></p>
 					</div>
-					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_ac_upgrade); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('See PRO', 'wp-content-copy-protector'); ?></a>
+					<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('protection-center-history-btn-primary')); ?>"><?php wccp_free_icon('sparkles'); ?><?php esc_html_e('See PRO', 'wp-content-copy-protector'); ?></a>
 				</div>
 			</div>
 
@@ -400,7 +399,7 @@ if (! function_exists('wccp_free_ac_num')) {
 							<p><?php echo esc_html($wccp_free_ac_hint['text']); ?></p>
 						</div>
 						<div class="wpb-ac-hint__acts">
-							<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url($wccp_free_ac_upgrade); ?>"><?php echo esc_html($wccp_free_ac_hint['cta']); ?></a>
+							<a class="wpb-btn wpb-btn--primary" target="_blank" rel="noopener" href="<?php echo esc_url(wccp_free_utm_url('protection-center-hint-btn-primary')); ?>"><?php echo esc_html($wccp_free_ac_hint['cta']); ?></a>
 							<button type="button" class="wpb-btn wpb-btn--quiet" data-ac-hide-hint><?php esc_html_e('Not now', 'wp-content-copy-protector'); ?></button>
 						</div>
 					</div>

@@ -22,6 +22,10 @@
 		return;
 	}
 
+	// Error count rendered by wccp_free_abi_bar_count() (absent without Error Monitor access).
+	var badge = link.querySelector( '.wccp-abi-count' );
+	var linkLabel = ( badge ? link.textContent.replace( badge.textContent, '' ) : link.textContent ).trim();
+
 	var t = cfg.i18n;
 	var STORIES = 2;
 	var OPEN_DELAY = 200;
@@ -199,7 +203,7 @@
 		card = h( 'div' );
 		card.id = 'wccp-abi';
 		card.setAttribute( 'role', 'region' );
-		card.setAttribute( 'aria-label', link.textContent.trim() );
+		card.setAttribute( 'aria-label', linkLabel );
 
 		arrow = h( 'span', 'wccp-abi__arrow' );
 		arrow.setAttribute( 'aria-hidden', 'true' );
@@ -500,8 +504,32 @@
 	link.removeAttribute( 'title' );
 	link.setAttribute( 'aria-expanded', 'false' );
 
+	function badgeCount() {
+		return badge ? parseInt( badge.className.replace( /.*\bcount-(\d+).*/, '$1' ), 10 ) || 0 : 0;
+	}
+
+	// The page was rendered from an error snapshot older than its TTL: rescan after load.
+	if ( badge && cfg.stale ) {
+		var countParams = new URLSearchParams( { action: 'wccp_free_abi_count', _ajax_nonce: cfg.nonce } );
+
+		window.fetch( cfg.ajaxUrl, { method: 'POST', credentials: 'same-origin', body: countParams } )
+			.then( function ( response ) {
+				return response.json();
+			} )
+			.then( function ( json ) {
+				if ( ! json || ! json.success ) {
+					return;
+				}
+				badge.className = 'wccp-abi-count count-' + json.data.count;
+				badge.firstChild.textContent = json.data.text;
+				badge.lastChild.textContent = json.data.label;
+			} )
+			.catch( function () {} );
+	}
+
 	// cfg.dot: seconds the dot may still show in this hour's allowance.
-	if ( cfg.dot > 0 ) {
+	// A visible error count already says "something new".
+	if ( cfg.dot > 0 && ! badgeCount() ) {
 		var dot = h( 'span', 'wccp-abi-dot' );
 		dot.setAttribute( 'role', 'img' );
 		dot.setAttribute( 'aria-label', t.newDot );

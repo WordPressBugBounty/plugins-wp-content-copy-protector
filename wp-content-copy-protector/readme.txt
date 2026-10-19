@@ -4,8 +4,8 @@ Tags: content copy protection, content protection, prevent copy, image protectio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
-Tested up to: 7.1.1
-Stable tag: 4.2
+Tested up to: 7.1.3
+Stable tag: 4.3
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -19,44 +19,44 @@ Protect Your Valuable Content with WP Content Copy Protection & No Right Click
 
 Are you tired of seeing your original content copied and spread across the web without your permission? The WP Content Copy Protection & No Right Click plugin is here to safeguard your posts and home page from unauthorized copying.
 
-✨ *Key Features:*
-🛡️ *Content Protection:*
+==Key Features==
+🛡️ **Content Protection:**
 Ensure your hard work remains yours. This plugin employs advanced content-protection techniques to keep your text and images safe from being copied by other web authors.
 
-🔒 *Copy Protection:*
+🔒 **Copy Protection:**
 With robust copy protection mechanisms, this plugin prevents unauthorized duplication of your content. It effectively disables common methods used for content theft, ensuring your intellectual property remains secure.
 
-©️ *Copyright Enforcement:*
+©️ **Copyright Enforcement:**
 Maintain control over your copyrighted material. The plugin acts as a virtual guardian, enforcing copyright rules and deterring potential infringers.
 
-🖱️ *Disable Right Click:*
+🖱️ **Disable Right Click:**
 Stop users from right-clicking on your content. By disabling right-click functionality, this plugin adds an extra layer of security, preventing easy access to the context menu used for copying content.
 
-🚫 *Deny Copy Paste:*
+🚫 **Deny Copy Paste:**
 Block the ability to copy and paste your content. This plugin uses a combination of JavaScript and CSS techniques to make copying and pasting from your site nearly impossible.
 
-👥 *Control Who Can Copy:*
+👥 **Control Who Can Copy:**
 Take charge of your content distribution. With this plugin, you have the power to control who can and cannot copy your content, giving you peace of mind that your work is protected.
 
-💧 *Watermark Images (Pro Version):*
+💧 **Watermark Images (Pro Version):**
 Upgrade to the Pro version to add watermarks to your images. This feature ensures that even if your images are copied, they will still carry your watermark, maintaining your brand visibility and deterring unauthorized use.
 
-📊 *Protection Center (New, free):*
+📊 **Protection Center (New, free):**
 See your protection working instead of guessing. The Protection Center counts every blocked action on your site - blocked right-clicks, blocked text selections, blocked copy shortcuts, image interactions and print attempts - and shows what happened since your last visit: visits with blocked actions, a daily chart for the last 7 days, the pages people try to copy the most, the busiest hours and the mix between text, images and right-clicks. Built on privacy: no IP address, no cookie and no personal data is ever stored, logged-in editors and admins are never counted, everything stays in your own database, and you can switch it off or wipe it with one click at any time.
 
-📧 *Weekly Protection Report (New, free):*
+📧 **Weekly Protection Report (New, free):**
 Do not want to log in to check? Turn on the weekly digest and the plugin emails your site admin a short summary every Monday - only in weeks that actually had activity - with the number of visits with blocked copy actions and how that compares to the week before.
 
-🔔 *Admin Bar Insights (New, free):*
+🔔 **Admin Bar Insights (New, free):**
 A small card that opens from the plugin icon in the WordPress admin bar, wherever you are in wp-admin. One headline number, a 7-day sparkline, your error count, and two short insights that change on every visit ("copy attempts are up 38% this week", "one page drew 41% of the activity"). It costs nothing on page load - the numbers are fetched only when you open the card, and cached.
 
-🩺 *Error Monitor (New, free):*
+🩺 **Error Monitor (New, free):**
 Not only protection: the plugin now finds the error logs your site writes to (wp-content/debug.log, the PHP log set by your server, and error_log files in the site root, wp-admin and wp-content) and explains what is going wrong in plain language. Repeated errors are folded into single issues with a counter, each issue names the plugin, theme or part of WordPress behind it with the file and line, and charts show errors per day by severity and which plugins produce the most. It also warns you when your log file can be downloaded by anyone from the web and shows how to block it. Only the newest part of each log is read, so even huge log files do not slow down your admin.
 
-🌍 *Speaks Your Language (New):*
+🌍 **Speaks Your Language (New)**
 The whole plugin - settings, help notes, Protection Center and Error Monitor - is now fully translated into 11 languages besides English: Arabic, German, Spanish, French, Italian, Japanese, Dutch, Portuguese (Brazil and Portugal), Russian and Simplified Chinese, with full right-to-left (RTL) support.
 
-*Unique Benefits:*
+==Unique Benefits:==
 Unparalleled Protection: Unlike other WordPress plugins, our unique combination of JavaScript and CSS techniques offers a level of protection not found elsewhere.
 Free to Use: Enjoy all these powerful features without any cost. Protect your content with the free version of our plugin, and upgrade to the Pro version for additional benefits like image watermarking.
 User-Friendly: Easy to install and configure, this plugin requires no technical expertise, making it accessible for all WordPress users.
@@ -105,6 +105,8 @@ your posts extremely simple without yelling at your readers</li>
 2. Get ful control over context menue
 3. Watermarking options
 4. Watermarking samples
+5. Error Monitor tab, free for everyone. It finds the error logs of your site
+6. Protection Center, Summary cards for visits with blocked actions, blocked interactions and pages with activity
 
 == Installation ==
 **Installation steps**
@@ -117,6 +119,23 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 4.3 =
+<ul>
+<li>Admin Bar Insights on the front end: the insights card now also opens when you hover the plugin icon in the admin bar while viewing your site, not only inside wp-admin. It stays hidden in the Customizer preview and on small screens.</li>
+<li>New feature: New errors count on the admin bar icon. A red counter next to "Protection" shows how many new error issues appeared since you last opened the Error Monitor (or in the last 24 hours if you have not opened it yet), the same number as the "New issues" tile in the card. It shows "99+" above 99, is hidden when there is nothing new, and is reset once you open the Error Monitor.</li>
+<li>New errors count: repeated lines of an error the logs already had are not counted again, so old noise such as the same deprecation notice logged every day does not keep the counter up. Only problems that were not happening before are counted.</li>
+<li>New errors count performance: page loads only read the stored error snapshot. When the snapshot is older than 10 minutes the count is refreshed in the background after the page has loaded, so your pages are never slowed down by reading log files.</li>
+<li>Notifications: the "New activity" dot is no longer shown while the new errors count is visible, so the icon never carries two signals at once.</li>
+<li>New feature: "Ask AI for help" in the Error Monitor, free for the top 3 issues in the list. One click copies a ready-made prompt about that error, ready to paste into ChatGPT, Claude or any AI assistant, and the button changes to "Ready prompt copied". The button is still a PRO feature for the other issues.</li>
+<li>Ask AI for help: the prompt includes the severity, the full message, the file and line, the plugin or theme behind the error with its version, how often it happened in the selected period and in the whole log, and the first and last seen dates. It also lists your WordPress version, PHP version, active theme and whether the site is a multisite, and asks for a plain-language explanation and a safe, step-by-step fix.</li>
+<li>Ask AI for help: copying also works on admin pages served over plain http (no https), and the prompt text is translatable.</li>
+<li>Interface: the insights card is protected against front end theme styles (list bullets, link borders, text alignment), so it looks the same on your site as in wp-admin.</li>
+<li>Interface: a cleaner settings page. Notifications from other plugins, themes and WordPress are hidden on the plugin settings page only, behind a "Show hidden notifications" button that shows how many there are. One click shows them again, and dismiss buttons keep working. The plugin's own notices stay visible, and every other admin page is unchanged.</li>
+<li>Fix: a single right-click now shows your alert message. Before, the context menu was blocked silently and the message only appeared on a double-click.</li>
+<li>Fix for Mac users: copy shortcuts are now blocked with the Cmd key too (Cmd+A, Cmd+C, Cmd+S, Cmd+U and the Safari source and developer tools shortcuts), not only with Ctrl. Text fields and editable areas still accept them.</li>
+<li>Fix for Mac users: in Safari, a Force Click on the trackpad no longer selects a word and opens the Look Up popup on protected pages. Text fields and editable areas are not affected.</li>
+<li>Fix: right-click protection and CSS protection now also cover search results pages, using the same setting as the homepage and archives. Selection protection already did.</li>
+</ul>
 = 4.2 =
 <ul>
 <li>New feature: Protection Center, free for everyone. See your protection working instead of guessing: it counts how often visitors run into the protection that is really active on a page (blocked right-clicks, blocked text selections, blocked copy shortcuts, image interactions and print attempts) and shows what happened since your last visit.</li>

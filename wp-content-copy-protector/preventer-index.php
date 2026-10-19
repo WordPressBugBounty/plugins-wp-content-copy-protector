@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: https://wordpress.org/plugins/wp-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 4.2
+Version: 4.3
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -16,7 +16,21 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
 //define all variables the needed alot
 define('WCCP_FREE_PLUGIN_FILE', __FILE__);
-define('WCCP_FREE_VERSION', '4.2'); // keep in sync with the plugin header above
+define('WCCP_FREE_VERSION', '4.3'); // keep in sync with the plugin header above
+define('WCCP_FREE_PRO_URL', 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/');
+
+/**
+ * Tag a promotional link with a utm_element parameter so each click can be
+ * traced back to the button, tag or banner it came from.
+ *
+ * @param string $element Slug naming the element and where it sits (e.g. 'main-settings-btn-exclude-admin').
+ * @param string $url     Destination; defaults to the PRO product page. An existing query string is kept.
+ * @return string
+ */
+function wccp_free_utm_url($element, $url = WCCP_FREE_PRO_URL)
+{
+	return add_query_arg('utm_element', sanitize_key($element), $url);
+}
 include 'the_globals.php';
 include_once('notifications.php');
 include_once('deactivation-survey.php');
@@ -24,6 +38,7 @@ include_once('upgrade-hint.php');
 include_once('error-monitor.php');
 include_once('activity.php');
 include_once('admin-bar-insights.php');
+include_once('notice-filter.php');
 $wccp_settings = wccp_read_options();
 
 /**
@@ -78,13 +93,18 @@ add_action('wp_enqueue_scripts', 'wccp_free_enqueue_front_end_scripts');
 //------------------------------------------------------------------------
 function wccp_free_disable_right_click()
 {
+	global $wccp_settings;
 ?>
 	<script id="wpcp_disable_Right_Click" type="text/javascript">
+		var wpcp_right_click_msg = "<?php echo esc_js($wccp_settings['smessage']); ?>";
+
 		document.ondragstart = function() {
 			return false;
 		}
 
 		function nocontext(e) {
+			// show_wpcp_message() is printed in the footer, so guard against an early right click
+			if (typeof show_wpcp_message === "function") show_wpcp_message(wpcp_right_click_msg);
 			return false;
 		}
 		document.oncontextmenu = nocontext;
@@ -110,7 +130,7 @@ function wccp_free_disable_selection()
 				elemtype = 'TEXT';
 			}
 
-			if (e.ctrlKey) {
+			if (e.ctrlKey || e.metaKey) { // metaKey = Cmd on macOS
 				var key;
 				if (window.event)
 					key = window.event.keyCode; //IE
@@ -288,6 +308,14 @@ function wccp_free_disable_selection()
 			window.addEventListener("touchstart", touchstart, false);
 			window.addEventListener("touchend", touchend, false);
 		});
+
+		//Safari on macOS: a trackpad Force Click selects the word and opens Look Up
+		document.addEventListener("webkitmouseforcewillbegin", function(e) {
+			var elemtype = (e.target.nodeName || "").toUpperCase();
+			if (elemtype == "TEXTAREA" || elemtype == "INPUT" || elemtype == "SELECT" || elemtype == "OPTION" || elemtype == "EMBED") return;
+			if (wccp_free_iscontenteditable(e)) return;
+			e.preventDefault();
+		}, false);
 
 		function wccp_pro_is_passive() {
 
@@ -475,7 +503,7 @@ function wccp_free_protects_css()
 {
 	global $wccp_settings;
 	if (!wccp_free_visitor_is_protected()) return false;
-	if ((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['home_css_protection'] == 'Enabled') return true;
+	if ((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed() || is_search()) && $wccp_settings['home_css_protection'] == 'Enabled') return true;
 	if (is_single() && $wccp_settings['posts_css_protection'] == 'Enabled') return true;
 	if (is_page() && !is_front_page() && $wccp_settings['pages_css_protection'] == 'Enabled') return true;
 	return false;
@@ -495,7 +523,7 @@ function wccp_free_protects_right_click()
 {
 	global $wccp_settings;
 	if (!wccp_free_visitor_is_protected()) return false;
-	if ((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed()) && $wccp_settings['right_click_protection_homepage'] == 'checked') return true;
+	if ((is_home() || is_front_page() || is_archive() || is_post_type_archive() ||  is_404() || is_attachment() || is_author() || is_category() || is_feed() || is_search()) && $wccp_settings['right_click_protection_homepage'] == 'checked') return true;
 	if (is_single() && $wccp_settings['right_click_protection_posts'] == 'checked') return true;
 	if (is_page() && !is_front_page() && $wccp_settings['right_click_protection_posts'] == 'checked') return true;
 	return false;
@@ -654,7 +682,7 @@ function wccp_plugin_add_settings_link($links)
 	$settings_link = '<a href="admin.php?page=wccpoptionspro">' . __('Settings', 'wp-content-copy-protector') . '</a>';
 	array_push($links, $settings_link);
 
-	$go_pro_link = '<a title="' . esc_attr__('Upgrade to PRO version Now', 'wp-content-copy-protector') . '" target="_blank" style="font-weight:bold;color: chocolate;" href="https://www.wp-buy.com/product/wp-content-copy-protection-pro/">' . __('Go PRO', 'wp-content-copy-protector') . '</a>';
+	$go_pro_link = '<a title="' . esc_attr__('Upgrade to PRO version Now', 'wp-content-copy-protector') . '" target="_blank" style="font-weight:bold;color: chocolate;" href="' . esc_url(wccp_free_utm_url('plugins-list-go-pro-link')) . '">' . __('Go PRO', 'wp-content-copy-protector') . '</a>';
 	array_push($links, $go_pro_link);
 
 	return $links;
@@ -677,7 +705,7 @@ function wccp_free_after_plugin_row($plugin_file, $plugin_data, $status)
 	}
 
 	$class_name = sanitize_html_class(dirname($plugin_file));
-	$p_url      = 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/';
+	$p_url      = wccp_free_utm_url('plugins-list-update-notice-cta');
 
 	$messages = [
 		__('You are running WP Content Copy Protection & No Right Click (free). To get more features, you can ', 'wp-content-copy-protector'),
@@ -922,6 +950,32 @@ function wccp_free_top_bar_enqueue_style()
 
 		#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
 			transform: rotate(45deg);
+		}
+
+		/* Green glow while hovered, keyboard focused or its insights card is open.
+		   Inset, so it stays inside the bar and never fights the ::after rings. */
+		#wpadminbar #wp-admin-bar-wccp_free_top_button > .ab-item,
+		#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
+			transition: box-shadow .2s ease, text-shadow .2s ease;
+		}
+
+		#wpadminbar:not(.mobile) #wp-admin-bar-wccp_free_top_button:hover > .ab-item,
+		#wpadminbar #wp-admin-bar-wccp_free_top_button > .ab-item:focus-visible,
+		#wpadminbar #wp-admin-bar-wccp_free_top_button.wccp-abi-open > .ab-item {
+			box-shadow: inset 0 0 0 1px rgba(2, 202, 2, .45), inset 0 0 12px rgba(2, 202, 2, .35);
+		}
+
+		#wpadminbar:not(.mobile) #wp-admin-bar-wccp_free_top_button:hover .ab-icon:before,
+		#wpadminbar #wp-admin-bar-wccp_free_top_button > .ab-item:focus-visible .ab-icon:before,
+		#wpadminbar #wp-admin-bar-wccp_free_top_button.wccp-abi-open .ab-icon:before {
+			text-shadow: 0 0 6px rgba(2, 202, 2, .9);
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			#wpadminbar #wp-admin-bar-wccp_free_top_button > .ab-item,
+			#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
+				transition: none;
+			}
 		}
 	</style>
 <?php
