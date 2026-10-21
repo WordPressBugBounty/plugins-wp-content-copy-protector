@@ -212,8 +212,9 @@ if (! function_exists('wccp_free_icon')) {
 
 $wccp_free_admin_email = get_bloginfo('admin_email');
 $wccp_free_pro_url     = WCCP_FREE_PRO_URL;
-$wccp_free_docs_url    = 'https://www.wp-buy.com/category/plugins-support/copy-protection-plugin-support/';
-$wccp_free_support_url = 'https://www.wp-buy.com/contact-us/';
+$wccp_free_docs_url      = 'https://www.wp-buy.com/category/plugins-support/copy-protection-plugin-support/';
+$wccp_free_support_url   = 'https://www.wp-buy.com/contact-us/';
+$wccp_free_subscribe_url = 'https://www.wp-buy.com/wpccp-subscribe/';
 $wccp_free_onoff       = array(
 	'Enabled'  => __('Enabled', 'wp-content-copy-protector'),
 	'Disabled' => __('Disabled', 'wp-content-copy-protector'),
@@ -242,8 +243,11 @@ $wccp_free_onoff       = array(
 
 	function wpccp_open_subscribe_page() {
 		if (localStorage.getItem('wpccp_subscribed') != 'wpccp_subsbc_user') {
-			var admin_email_wccp = document.getElementById('admin_email_wccp').value;
-			window.open(<?php echo wp_json_encode(wccp_free_utm_url('header-subscribe-popup')); ?> + '&email=' + encodeURIComponent(admin_email_wccp), '_blank');
+			var admin_email_wccp = document.getElementById('admin_email_wccp').value.trim();
+			// Let URL merge the email into the query string the UTM tag already started
+			var subscribe_url = new URL(<?php echo wp_json_encode(wccp_free_utm_url('header-subscribe-popup', $wccp_free_subscribe_url)); ?>);
+			if (admin_email_wccp) subscribe_url.searchParams.set('email', admin_email_wccp);
+			window.open(subscribe_url.toString(), '_blank');
 		}
 	}
 
@@ -1041,7 +1045,7 @@ $wccp_free_onoff       = array(
 						printf(
 							/* translators: %s: link to the mailing list sign-up page. */
 							esc_html__('%s to our mailing list to get flash discounts', 'wp-content-copy-protector'),
-							'<a target="_blank" rel="noopener" href="' . esc_url(wccp_free_utm_url('more-pro-footer-subscribe-link', 'https://www.wp-buy.com/wpccp-subscribe/')) . '">' . esc_html__('Subscribe', 'wp-content-copy-protector') . '</a>'
+							'<a target="_blank" rel="noopener" href="' . esc_url(wccp_free_utm_url('more-pro-footer-subscribe-link', $wccp_free_subscribe_url)) . '">' . esc_html__('Subscribe', 'wp-content-copy-protector') . '</a>'
 						);
 						?>
 					</p>

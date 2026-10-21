@@ -5,7 +5,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.8
 Tested up to: 7.1.3
-Stable tag: 4.3
+Stable tag: 4.4
 Requires PHP: 7.4
 
 This WP plugin protects posts from being copied (content copy protection). Keep your content safe from unauthorized distribution!
@@ -119,6 +119,19 @@ your posts extremely simple without yelling at your readers</li>
 </ul>
 
 == Changelog ==
+= 4.4 =
+<ul>
+<li>New feature: "Ask AI for help" in the Error Monitor, free for the top 3 issues in the list. One click copies a ready-made prompt about that error, ready to paste into ChatGPT, Claude or any AI assistant, and the button changes to "Ready prompt copied". The button is still a PRO feature for the other issues.</li>
+<li>Ask AI for help: the prompt includes the severity, the full message, the file and line, the plugin or theme behind the error with its version, how often it happened in the selected period and in the whole log, and the first and last seen dates. It also lists your WordPress version, PHP version, active theme and whether the site is a multisite, and asks for a plain-language explanation and a safe, step-by-step fix.</li>
+<li>Ask AI for help: copying also works on admin pages served over plain http (no https), and the prompt text is translatable.</li>
+<li>Interface: a cleaner settings page. Notifications from other plugins, themes and WordPress are hidden on the plugin settings page only, behind a "Show hidden notifications" button that shows how many there are. One click shows them again, and dismiss buttons keep working. The plugin's own notices stay visible, and every other admin page is unchanged.</li>
+<li>Interface: the plugin icon in the admin bar glows softly while you hover it, focus it with the keyboard or have its insights card open.</li>
+<li>Fix: a single right-click now shows your alert message. Before, the context menu was blocked silently and the message only appeared on a double-click.</li>
+<li>Fix for Mac users: copy shortcuts are now blocked with the Cmd key too (Cmd+A, Cmd+C, Cmd+S, Cmd+U and the Safari source and developer tools shortcuts), not only with Ctrl. Text fields and editable areas still accept them.</li>
+<li>Fix for Mac users: in Safari, a Force Click on the trackpad no longer selects a word and opens the Look Up popup on protected pages. Text fields and editable areas are not affected.</li>
+<li>Fix: right-click protection and CSS protection now also cover search results pages, using the same setting as the homepage and archives. Selection protection already did.</li>
+<li>Fix: the "Start it!" button in the subscribe box at the top of the settings page opens the subscription page again, with your email filled in. Before, it opened the PRO product page instead.</li>
+</ul>
 = 4.3 =
 <ul>
 <li>Admin Bar Insights on the front end: the insights card now also opens when you hover the plugin icon in the admin bar while viewing your site, not only inside wp-admin. It stays hidden in the Customizer preview and on small screens.</li>
@@ -126,15 +139,7 @@ your posts extremely simple without yelling at your readers</li>
 <li>New errors count: repeated lines of an error the logs already had are not counted again, so old noise such as the same deprecation notice logged every day does not keep the counter up. Only problems that were not happening before are counted.</li>
 <li>New errors count performance: page loads only read the stored error snapshot. When the snapshot is older than 10 minutes the count is refreshed in the background after the page has loaded, so your pages are never slowed down by reading log files.</li>
 <li>Notifications: the "New activity" dot is no longer shown while the new errors count is visible, so the icon never carries two signals at once.</li>
-<li>New feature: "Ask AI for help" in the Error Monitor, free for the top 3 issues in the list. One click copies a ready-made prompt about that error, ready to paste into ChatGPT, Claude or any AI assistant, and the button changes to "Ready prompt copied". The button is still a PRO feature for the other issues.</li>
-<li>Ask AI for help: the prompt includes the severity, the full message, the file and line, the plugin or theme behind the error with its version, how often it happened in the selected period and in the whole log, and the first and last seen dates. It also lists your WordPress version, PHP version, active theme and whether the site is a multisite, and asks for a plain-language explanation and a safe, step-by-step fix.</li>
-<li>Ask AI for help: copying also works on admin pages served over plain http (no https), and the prompt text is translatable.</li>
 <li>Interface: the insights card is protected against front end theme styles (list bullets, link borders, text alignment), so it looks the same on your site as in wp-admin.</li>
-<li>Interface: a cleaner settings page. Notifications from other plugins, themes and WordPress are hidden on the plugin settings page only, behind a "Show hidden notifications" button that shows how many there are. One click shows them again, and dismiss buttons keep working. The plugin's own notices stay visible, and every other admin page is unchanged.</li>
-<li>Fix: a single right-click now shows your alert message. Before, the context menu was blocked silently and the message only appeared on a double-click.</li>
-<li>Fix for Mac users: copy shortcuts are now blocked with the Cmd key too (Cmd+A, Cmd+C, Cmd+S, Cmd+U and the Safari source and developer tools shortcuts), not only with Ctrl. Text fields and editable areas still accept them.</li>
-<li>Fix for Mac users: in Safari, a Force Click on the trackpad no longer selects a word and opens the Look Up popup on protected pages. Text fields and editable areas are not affected.</li>
-<li>Fix: right-click protection and CSS protection now also cover search results pages, using the same setting as the homepage and archives. Selection protection already did.</li>
 </ul>
 = 4.2 =
 <ul>

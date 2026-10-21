@@ -3,7 +3,7 @@
 Plugin Name: WP Content Copy Protection & No Right Click
 Plugin URI: https://wordpress.org/plugins/wp-content-copy-protector/
 Description: This wp plugin protect the posts content from being copied by any other web site author , you dont want your content to spread without your permission!!
-Version: 4.3
+Version: 4.4
 Author: wp-buy
 Text Domain: wp-content-copy-protector
 Domain Path: /languages
@@ -16,7 +16,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
 //define all variables the needed alot
 define('WCCP_FREE_PLUGIN_FILE', __FILE__);
-define('WCCP_FREE_VERSION', '4.3'); // keep in sync with the plugin header above
+define('WCCP_FREE_VERSION', '4.4'); // keep in sync with the plugin header above
 define('WCCP_FREE_PRO_URL', 'https://www.wp-buy.com/product/wp-content-copy-protection-pro/');
 
 /**
